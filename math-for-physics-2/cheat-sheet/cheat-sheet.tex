@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[9pt,a4paper]{article}
 
 % Layout
 \usepackage[a4paper, margin=0.5cm, columnsep=0.4cm]{geometry}
@@ -7,40 +7,195 @@
 % Math
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
 
 % Formatting
 \usepackage{titlesec}
-\usepackage{enumitem}
 \usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{array}
 
 % Section styling — compact
-\titleformat{\section}{\normalsize\bfseries\centering}{}{0em}{}[\titlerule]
-\titleformat{\subsection}{\small\bfseries}{}{0em}{}
+\titleformat{\section}{\small\bfseries\centering}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\footnotesize\bfseries}{}{0em}{}
 \titlespacing{\section}{0pt}{4pt}{2pt}
 \titlespacing{\subsection}{0pt}{3pt}{1pt}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1pt}
 
-% Compact list spacing
-\setlist{nosep, leftmargin=*}
-
 \pagestyle{empty}
 
 \begin{document}
 
 \begin{center}
-  {\large \textbf{Mathematics for Physics 2 — Cheat Sheet}} \\[2pt]
-  {\small Updated: \today}
+  {\normalsize \textbf{Mathematics for Physics 2 --- Cheat Sheet}} \\[1pt]
+  {\tiny Updated: \today}
 \end{center}
 
 \begin{multicols}{2}
 
 % -------------------------------------------------------
-% Sections will be added here as PDFs are processed.
-% Each section corresponds to a topic extracted from lectures/notes.
+\section{Notation \& Definitions}
+
+\textbf{Hat notation:} $\hat{v}$ is the unit vector along $\vec{v}$:
+\[
+  \hat{v} = \frac{\vec{v}}{|\vec{v}|}, \qquad |\hat{v}| = 1
+\]
+
+\textbf{Vector components} (Cartesian):
+\[
+  \vec{A} = A_x\hat{x} + A_y\hat{y} + A_z\hat{z} = A_i\hat{e}_i
+\]
+$A_i$ is the $i$-th component ($A_1=A_x$, etc.).
+\[
+  |\vec{A}| = \sqrt{A_x^2+A_y^2+A_z^2} = \sqrt{A_iA_i}
+\]
+
 % -------------------------------------------------------
+\section{Index Notation (Einstein Summation)}
+
+Repeated index $\Rightarrow$ sum over $1,2,3$:
+\[
+  a_ib_i \equiv \sum_{i=1}^{3}a_ib_i
+\]
+Free indices must match on both sides of any equation.
+
+% -------------------------------------------------------
+\section{Kronecker Delta}
+
+\[
+  \delta_{ij} = \begin{cases} 1 & i=j \\ 0 & i\neq j \end{cases}
+  \qquad \delta_{ij}=\delta_{ji}
+\]
+
+\textbf{Properties:}
+\[
+  A_j\,\delta_{ij} = A_i \qquad \delta_{ik}\,\delta_{jk} = \delta_{ij}
+\]
+\[
+  \hat{e}_i\cdot\hat{e}_j = \delta_{ij}
+\]
+
+% -------------------------------------------------------
+\section{Levi-Civita Symbol}
+
+\[
+  \varepsilon_{ijk} = \begin{cases}
+    +1 & (i,j,k)\ \text{cyclic} \\
+    -1 & \text{anti-cyclic} \\
+    0  & \text{repeated index}
+  \end{cases}
+\]
+Cyclic: $(1,2,3),(2,3,1),(3,1,2)$ \quad Anti: $(2,1,3),(1,3,2),(3,2,1)$
+
+Swapping any two indices flips sign:
+\[
+  \varepsilon_{ijk} = -\varepsilon_{jik}
+\]
+
+\textbf{Key identity:}
+\[
+  \sum_k \varepsilon_{ijk}\,\varepsilon_{mnk} = \delta_{im}\delta_{jn} - \delta_{in}\delta_{jm}
+\]
+
+% -------------------------------------------------------
+\section{Dot Product}
+
+\[
+  \vec{A}\cdot\vec{B} = AB\cos\theta = A_iB_i
+\]
+
+% -------------------------------------------------------
+\section{Cross Product}
+
+\[
+  |\vec{a}\times\vec{b}| = ab\sin\theta
+  \qquad
+  \vec{a}\times\vec{b} = -\vec{b}\times\vec{a}
+\]
+
+\textbf{Determinant form:}
+\[
+  \vec{a}\times\vec{b} =
+  \begin{vmatrix}
+    \hat{x} & \hat{y} & \hat{z} \\
+    a_x & a_y & a_z \\
+    b_x & b_y & b_z
+  \end{vmatrix}
+\]
+
+\textbf{Index form} (component $i$ of $\vec{C}=\vec{A}\times\vec{B}$):
+\[
+  C_i = \varepsilon_{ijk}\,A_jB_k
+\]
+
+\textbf{Cartesian basis:}\\[2pt]
+$\hat{x}\times\hat{y}=\hat{z}$,\quad
+$\hat{y}\times\hat{z}=\hat{x}$,\quad
+$\hat{z}\times\hat{x}=\hat{y}$\\[1pt]
+$\hat{y}\times\hat{x}=-\hat{z}$,\quad
+$\hat{z}\times\hat{y}=-\hat{x}$,\quad
+$\hat{x}\times\hat{z}=-\hat{y}$\\[1pt]
+$\hat{x}\times\hat{x}=\hat{y}\times\hat{y}=\hat{z}\times\hat{z}=\vec{0}$
+
+% -------------------------------------------------------
+\section{Key Identity}
+
+\textbf{BAC-CAB rule} ($(\vec{A}\cdot\vec{C})$ and $(\vec{A}\cdot\vec{B})$ are scalars):
+\[
+  \vec{A}\times(\vec{B}\times\vec{C}) = \vec{B}\,(\vec{A}\cdot\vec{C}) - \vec{C}\,(\vec{A}\cdot\vec{B})
+\]
+
+% -------------------------------------------------------
+\section{Polar Coordinates $(r,\theta)$}
+
+\[
+  x = r\cos\theta, \quad y = r\sin\theta
+\]
+\[
+  r = \sqrt{x^2+y^2}, \quad \theta = \arctan\!\left(\tfrac{y}{x}\right)
+\]
+
+\textbf{Unit vectors} (position-dependent!):
+\[
+  \hat{r} = \cos\theta\,\hat{x}+\sin\theta\,\hat{y}
+\]
+\[
+  \hat{\theta} = -\sin\theta\,\hat{x}+\cos\theta\,\hat{y}
+\]
+\[
+  \hat{x} = \cos\theta\,\hat{r}-\sin\theta\,\hat{\theta}
+  \quad
+  \hat{y} = \sin\theta\,\hat{r}+\cos\theta\,\hat{\theta}
+\]
+
+% -------------------------------------------------------
+\section{Spherical Coordinates $(r,\theta,\varphi)$}
+
+\[
+  x = r\sin\theta\cos\varphi,\quad
+  y = r\sin\theta\sin\varphi,\quad
+  z = r\cos\theta
+\]
+\[
+  r = \sqrt{x^2+y^2+z^2},\quad
+  \varphi = \arctan\!\left(\tfrac{y}{x}\right),\quad
+  \theta = \arccos\!\left(\tfrac{z}{r}\right)
+\]
+
+\textbf{Unit vectors} (position-dependent!):
+\begin{align*}
+  \hat{r}      &= \sin\theta\cos\varphi\,\hat{x}+\sin\theta\sin\varphi\,\hat{y}+\cos\theta\,\hat{z}\\
+  \hat{\theta} &= \cos\theta\cos\varphi\,\hat{x}+\cos\theta\sin\varphi\,\hat{y}-\sin\theta\,\hat{z}\\
+  \hat{\varphi}&= -\sin\varphi\,\hat{x}+\cos\varphi\,\hat{y}
+\end{align*}
+
+\textbf{Inverse:}
+\begin{align*}
+  \hat{x} &= \sin\theta\cos\varphi\,\hat{r}+\cos\theta\cos\varphi\,\hat{\theta}-\sin\varphi\,\hat{\varphi}\\
+  \hat{y} &= \sin\theta\sin\varphi\,\hat{r}+\cos\theta\sin\varphi\,\hat{\theta}+\cos\varphi\,\hat{\varphi}\\
+  \hat{z} &= \cos\theta\,\hat{r}-\sin\theta\,\hat{\theta}
+\end{align*}
 
 \end{multicols}
 \end{document}
