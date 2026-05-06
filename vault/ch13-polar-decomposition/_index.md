@@ -1,6 +1,6 @@
 ---
 title: "פירוק פולארי וערכים סינגולריים"
-status: stub
+status: lecture-done
 tags: [la2, ch13-polar-decomposition]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch13-polar-decomposition]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה

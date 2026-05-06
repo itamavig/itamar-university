@@ -1,6 +1,6 @@
 ---
 title: "המשפט הספקטרלי"
-status: stub
+status: lecture-done
 tags: [la2, ch12-spectral]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch12-spectral]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה

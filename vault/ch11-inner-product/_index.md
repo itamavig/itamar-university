@@ -1,6 +1,6 @@
 ---
 title: "מרחבי מכפלה פנימית"
-status: stub
+status: lecture-done
 tags: [la2, ch11-inner-product]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch11-inner-product]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה
