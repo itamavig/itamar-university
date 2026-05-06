@@ -1,6 +1,6 @@
 ---
 title: "הצבת ל"ט בפולינומים; משפט קיילי-המילטון"
-status: stub
+status: lecture-done
 tags: [la2, ch06-cayley-hamilton]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch06-cayley-hamilton]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה

@@ -1,0 +1,13 @@
+/* Force all tables to render left-to-right.
+   Needed because the vault language is Hebrew (RTL),
+   but ND proof tables are in mathematical/English notation (LTR). */
+
+table {
+  direction: ltr;
+  text-align: left;
+  margin-left: 0;
+}
+
+th, td {
+  text-align: left;
+}

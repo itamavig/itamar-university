@@ -1,6 +1,6 @@
 ---
 title: "הפולינום המינימלי"
-status: stub
+status: lecture-done
 tags: [la2, ch09-minimal-poly]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch09-minimal-poly]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה
