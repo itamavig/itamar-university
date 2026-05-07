@@ -1,6 +1,6 @@
 ---
 title: "ע"ע וו"ע של מטריצות"
-status: stub
+status: lecture-done
 tags: [la2, ch03-matrix-eigenvalues]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch03-matrix-eigenvalues]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה

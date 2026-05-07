@@ -1,6 +1,6 @@
 ---
 title: "אלכסוניות של העתקות לינאריות"
-status: stub
+status: lecture-done
 tags: [la2, ch02-diagonalization]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch02-diagonalization]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה

@@ -1,6 +1,6 @@
 ---
 title: "הפולינום האופייני"
-status: stub
+status: lecture-done
 tags: [la2, ch04-characteristic-poly]
 ---
 
@@ -13,7 +13,7 @@ tags: [la2, ch04-characteristic-poly]
 - [[04-flashcards|כרטיסיות חזרה]]
 
 ## סטטוס
-- [ ] הרצאה הועברה
+- [x] הרצאה הועברה
 - [ ] תרגול נוסף
 - [ ] תרגילים עם פתרונות
 - [ ] כרטיסיות חזרה

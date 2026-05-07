@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ch01-eigenvalues/01-lecture.md",
+                "file": "ch13-polar-decomposition/01-lecture.md",
                 "mode": "source",
                 "source": false
               },
@@ -185,11 +185,21 @@
   },
   "active": "9e731c39ff2040d8",
   "lastOpenFiles": [
+    "ch12-spectral/01-lecture.md",
+    "ch11-inner-product/01-lecture.md",
+    "ch10-jordan/01-lecture.md",
+    "ch09-minimal-poly/01-lecture.md",
+    "ch08-fields/01-lecture.md",
+    "ch07-rings/01-lecture.md",
+    "ch06-cayley-hamilton/01-lecture.md",
+    "ch05-triangulation/01-lecture.md",
+    "ch04-characteristic-poly/01-lecture.md",
+    "ch03-matrix-eigenvalues/01-lecture.md",
+    "ch02-diagonalization/01-lecture.md",
+    "ch01-eigenvalues/01-lecture.md",
     "ch01-eigenvalues/04-flashcards.md",
     "ch01-eigenvalues/03-exercises.md",
     "ch01-eigenvalues/02-tirgul.md",
-    "ch01-eigenvalues/01-lecture.md",
-    "ch02-diagonalization/01-lecture.md",
     "ch01-eigenvalues/sedaNMcRN",
     "ch01-eigenvalues/sed6WZ59V",
     "ch01-eigenvalues/sedtOHrKJ",
