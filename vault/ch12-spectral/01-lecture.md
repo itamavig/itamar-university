@@ -60,33 +60,20 @@ tags: [la2, lecture, ch12-spectral]
 > [!note]- הוכחה
 > נניח בשלילה כי גורם אי-פריק $p_1$ של $m_T$ מקיים $\deg p_1 \ge 2$. מכיוון ש-$p_1$ אי-פריק (לכן מתוקן) הוא חיובי, ולכן $p_1(T)$ הפיך. אבל $m_T(T) = p_1(T) \cdot g(T) = 0$ ולכן $g(T) = 0$, בסתירה למינימליות. $\square$
 
-> [!abstract] למה 14.11
-> אם $T$ סימטרית ו-$\lambda \in \mathbb{R}$: אם $(T - \lambda I)^2 v = 0$ אז $(T - \lambda I) v = 0$.
-
-> [!note]- הוכחה
-> $S = T - \lambda I$ גם צמודה לעצמה. אם $S^2 v = 0$ אז $0 = \langle S^2 v, v \rangle = \|Sv\|^2$, ולכן $Sv = 0$. $\square$
-
 > [!abstract] טענה 14.10
 > כל הגורמים הלינאריים של $m_T$ (לטרנס' סימטרית $T$) שונים זה מזה. בפרט, $T$ לכסינה.
 
 > [!note]- הוכחה
 > נניח בשלילה $(x - \lambda)^2 \mid m_T(x)$. אזי $(T - \lambda I)^2 g(T) = 0$ לכל $v$. מלמה 14.11 עם $w = g(T)v$: $(T - \lambda I)w = 0$. ולכן $(x - \lambda)g(x)$ מאפס את $T$ בסתירה למינימליות. $\square$
 
-> [!abstract] משפט 14.13 = 14.16 — המשפט הספקטרלי (F=R)
-> תהי $T : V \to V$ סימטרית ($F = \mathbb{R}$). אזי קיים בסיס אורתונורמלי של $V$ המורכב מו"ע של $T$.
+> [!abstract] למה 14.11
+> אם $T$ סימטרית ו-$\lambda \in \mathbb{R}$: אם $(T - \lambda I)^2 v = 0$ אז $(T - \lambda I) v = 0$.
 
 > [!note]- הוכחה
-> הוכחנו ש-$T$ לכסינה. יהיו $\lambda_1, \ldots, \lambda_r$ הע"ע השונים ו-$V_{\lambda_i} = \ker(T - \lambda_i I)$. מלכסינות: $V = \bigoplus V_{\lambda_i}$.
->
-> מטענה 14.14 (להלן): ו"ע ממ"ע שונים ניצבים זה לזה. לכן בכל $V_{\lambda_i}$ בנפרד מפעילים גרם-שמידט לקבלת $B_i$ א"נ. $B = \bigcup B_i$ הוא בסיס א"נ של $V$. $\square$
+> $S = T - \lambda I$ גם צמודה לעצמה. אם $S^2 v = 0$ אז $0 = \langle S^2 v, v \rangle = \|Sv\|^2$, ולכן $Sv = 0$. $\square$
 
-> [!abstract] משפט 14.17 — הכיוון ההפוך
-> אם ל-$T : V \to V$ קיים בסיס א"נ של ו"ע (כל $\lambda_i \in \mathbb{R}$), אז $T$ סימטרית.
-
-> [!note]- הוכחה
-> יהי $\{e_i\}$ בסיס א"נ, $Te_i = \lambda_i e_i$. לכל $v = \sum a_i e_i$, $u = \sum b_i e_i$: $\langle Tv, u \rangle = \sum \lambda_i a_i b_i = \langle v, Tu \rangle$. $\square$
-
----
+> [!abstract] משפט 14.13
+> אם $T : V \to V$ סימטרית ($F = \mathbb{R}$) אז $m_T(x)$ מתפצל למכפלת גורמים לינאריים **שונים**, ולכן $T$ ניתנת ללכסון.
 
 ### ו"ע וניצביות
 
@@ -102,6 +89,20 @@ tags: [la2, lecture, ch12-spectral]
 > [!note]- הוכחה
 > $Tu = \beta u \implies \beta \|u\|^2 = \langle Tu, u \rangle = \langle u, Tu \rangle = \bar{\beta} \|u\|^2 \implies \beta = \bar{\beta}$. $\square$
 
+> [!abstract] משפט 14.16 — המשפט הספקטרלי (המקרה הסימטרי)
+> תהי $T : V \to V$ סימטרית ($F = \mathbb{R}$). אזי קיים בסיס אורתונורמלי של $V$ המורכב מו"ע של $T$.
+
+> [!note]- הוכחה
+> הוכחנו ש-$T$ לכסינה (משפט 14.13). יהיו $\lambda_1, \ldots, \lambda_r$ הע"ע השונים ו-$V_{\lambda_i} = \ker(T - \lambda_i I)$. מלכסינות: $V = \bigoplus V_{\lambda_i}$.
+>
+> מטענה 14.14 (לעיל): ו"ע ממ"ע שונים ניצבים זה לזה. לכן בכל $V_{\lambda_i}$ בנפרד מפעילים גרם-שמידט לקבלת $B_i$ א"נ. $B = \bigcup B_i$ הוא בסיס א"נ של $V$. $\square$
+
+> [!abstract] משפט 14.17 — הכיוון ההפוך
+> אם ל-$T : V \to V$ קיים בסיס א"נ של ו"ע (כל $\lambda_i \in \mathbb{R}$), אז $T$ סימטרית.
+
+> [!note]- הוכחה
+> יהי $\{e_i\}$ בסיס א"נ, $Te_i = \lambda_i e_i$. לכל $v = \sum a_i e_i$, $u = \sum b_i e_i$: $\langle Tv, u \rangle = \sum \lambda_i a_i b_i = \langle v, Tu \rangle$. $\square$
+
 ---
 
 ### הגדרה: אנטי-סימטריות
@@ -116,6 +117,17 @@ tags: [la2, lecture, ch12-spectral]
 > אם $T$ אנטי-סימטרית ($F = \mathbb{R}$) אז $T^2$ סימטרית ואי-חיובית:
 > $$\langle T^2 v, v \rangle = -\langle Tv, Tv \rangle = -\|Tv\|^2 \le 0.$$
 
+> [!example] דוגמה 14.22
+> יהי $V = C^\infty(\mathbb{R})$ מרחב הפונקציות הגזירות אינסוף פעמים המקיימות $f(x+1) = f(x)$ לכל $x \in \mathbb{R}$ (פונקציות 1-מחזוריות), עם מ"פ:
+> $$\langle f, g \rangle = \int_0^1 f(x)\,g(x)\,dx.$$
+> נגדיר $T(f) = f'$ (טרנספורמציית הגזירה); ברור $T : V \to V$. נראה ש-$T$ **אנטי-סימטרית**:
+> $$\int_0^1 (f'g - fg') = \int_0^1 (fg)'\,dx = fg\Big|_0^1 = f(1)g(1) - f(0)g(0) = 0$$
+> (מתאפס ממחזוריות). לכן $-T^2$ סימטרית אי-שלילית, ו-$T^2$ סימטרית אי-חיובית.
+>
+> הו"ע של $T$: $f' = \lambda f$ נותן $f = ce^{\lambda x}$; ממחזוריות $\lambda = 0$ (רק הפונקציות הקבועות).
+>
+> הו"ע של $T^2$: $f'' = \lambda f$. הפתרונות המחזוריים היחידים הם $\sin(2\pi mx)$ ו-$\cos(2\pi mx)$ עם $f'' = -(2\pi m)^2 f$.
+
 ---
 
 ### המשפט הספקטרלי — מקרה מרוכב
@@ -123,8 +135,17 @@ tags: [la2, lecture, ch12-spectral]
 > [!abstract] הגדרה 14.37 — נורמלית
 > $T : V \to V$ **נורמלית** אם $TT^* = T^*T$.
 
-> [!abstract] משפט 14.23/14.40 — המשפט הספקטרלי (F=C)
-> אם $T : V \to V$ נורמלית (מעל $\mathbb{C}$) אזי קיים בסיס א"נ של ו"ע של $T$.
+> [!note] הערה 14.38
+> ברור שאם $T$ צמודה לעצמה ($T^* = T$) אז $T$ נורמלית.
+
+> [!example] דוגמה 14.39
+> יהי $V = \mathbb{R}^3$ עם מ"פ סטנדרטית, ו-$T_\theta$ טרנספורמציית הסיבוב בזווית $\theta$. אזי $(T_\theta)^* = T_{-\theta}$, ומכיוון ש-$T_{-\theta} = (T_\theta)^{-1}$, הן מתחלפות — לכן $T_\theta$ נורמלית.
+
+> [!abstract] משפט 14.23 — המשפט הספקטרלי לצמודה לעצמה (F=C)
+> אם $T : V \to V$ צמודה לעצמה ($T^* = T$) מעל $\mathbb{C}$, אזי קיים בסיס א"נ של ו"ע של $T$.
+
+> [!abstract] משפט 14.40 — המשפט הספקטרלי הכללי (F=C)
+> אם $T : V \to V$ נורמלית ($TT^* = T^*T$) מעל $\mathbb{C}$, אזי קיים בסיס א"נ של ו"ע של $T$. (לא נשתמש במשפט היסודי של האלגברה.)
 
 > [!note]- הוכחה (סקיצה)
 > נגדיר $S_1 = \frac{T + T^*}{2}$, $S_2 = \frac{T - T^*}{2i}$ — שתיהן צמודות לעצמן ומתחלפות (מנורמליות $T$). ממשפט 14.41 קיים בסיס א"נ מלכסן ביחד את $S_1$ ו-$S_2$. מ-$T = S_1 + iS_2$ כל איבר הבסיס הוא ו"ע של $T$. $\square$
@@ -135,8 +156,23 @@ tags: [la2, lecture, ch12-spectral]
 > [!note]- הוכחה
 > מהמשפט הספקטרלי על $S_1$: $V = \bigoplus_\lambda \ker(S_1 - \lambda I)$, כאשר המ"ע ניצבים זה לזה. מהתחלפות, $S_2$ שומרת כל $\ker(S_1 - \lambda I)$. מהמשפט הספקטרלי לפעולת $S_2$ על כל מ"ע, קיים $B_\lambda$ א"נ של ו"ע. $B = \bigcup B_\lambda$ מספק. $\square$
 
+> [!example] דוגמה 14.24
+> יהי $V$ מ"ו מעל $\mathbb{C}$ עם מ"פ, ונגדיר $T(v) = iv$. כל $v \ne 0$ הוא ו"ע של $T$ עם ע"ע $i$, ולכן כל בסיס א"נ מלכסן. אבל $T$ **אינה** צמודה לעצמה:
+> $$\langle Tv, u \rangle = \langle iv, u \rangle = i\langle v, u \rangle, \qquad \langle v, Tu \rangle = \langle v, iu \rangle = -i\langle v, u \rangle.$$
+> לכן $\langle Tv, u \rangle = -\langle v, Tu \rangle$ — $T$ היא **אנטי-הרמיטית** ולא צמודה לעצמה. זה מראה שמשפחת הט"ל שעבורן מתקיים המשפט הספקטרלי מעל $\mathbb{C}$ רחבה יותר מהסימטריות.
+
+> [!abstract] טענה 14.34
+> נניח שהמשפט הספקטרלי נכון ל-$T$ — קיים בסיס א"נ של ו"ע $\{e_i\}$. אז כל $e_i$ הוא גם ו"ע של $T^*$.
+
+> [!note]- הוכחה
+> מספיק להראות ל-$e_1$. יש להוכיח $T^* e_1 \in \mathrm{Sp}\{e_1\}$. מתקיים $\mathrm{Sp}\{e_1\}^\perp = \mathrm{Sp}\{e_2, \ldots, e_n\}$ (כי $e_1$ ניצב לכולם). לכן מספיק להראות שלכל $2 \le i \le n$: $\langle T^* e_1, e_i \rangle = 0$. אכן:
+> $$\langle T^* e_1, e_i \rangle = \langle e_1, Te_i \rangle = \langle e_1, \lambda_i e_i \rangle = \bar{\lambda}_i \langle e_1, e_i \rangle = 0. \quad \square$$
+
 > [!abstract] מסקנה 14.35
 > אם $T$ מקיימת את המשפט הספקטרלי, אז $TT^* = T^*T$ (כלומר $T$ נורמלית).
+
+> [!note] הערה 14.36
+> בהוכחה לעיל לא השתמשנו עדיין בעובדה ש-$\mu_i = \bar{\lambda}_i$. אך נוכיח זאת בהמשך (ראו טענה 14.42).
 
 ---
 
@@ -148,6 +184,9 @@ tags: [la2, lecture, ch12-spectral]
 > [!note]- הוכחה
 > מספיק להוכיח שאם $S$ נורמלית ו-$Sv = 0$ אז $S^* v = 0$. אכן: $0 = \langle Sv, Sv \rangle = \langle v, S^*Sv \rangle = \langle v, SS^*v \rangle = \|S^*v\|^2$. $\square$
 
+> [!note] הערה 14.43
+> זה מסביר מדוע $\mu_i = \bar{\lambda}_i$ בהוכחת המשפט הספקטרלי: אם $T$ נורמלית ו-$Tv = \lambda v$, אז $T^* v = \bar{\lambda} v$, ולכן ע"ע $T^*$ הם בדיוק הצמודים לע"ע של $T$.
+
 > [!abstract] טענה 14.44
 > אם $T$ נורמלית ו-$Tv = \alpha v$, $Tu = \beta u$ עם $\alpha \ne \beta$, אזי $v \perp u$.
 
@@ -155,11 +194,24 @@ tags: [la2, lecture, ch12-spectral]
 
 ## פרק 15 — מטריצות במ"פ
 
+> [!note] תזכורת 15.1
+> לכל $T : V \to V$ הגדרנו את הט"ל הצמודה $T^* : V \to V$ המקיימת $\langle Tv, u \rangle = \langle v, T^* u \rangle$ לכל $v, u$. $T$ נורמלית אם $TT^* = T^*T$.
+
+> [!abstract] מסקנה 15.2
+> אם $T^* = T$ (צמודה לעצמה) אזי כל ע"ע של $T$ ממשי.
+
+> [!note]- הוכחה
+> $Tv = \lambda v \implies \lambda \|v\|^2 = \langle Tv, v \rangle = \langle v, T^* v \rangle = \langle v, Tv \rangle = \bar{\lambda} \|v\|^2$, לכן $\lambda = \bar{\lambda}$. $\square$
+
 ### הט"ל הצמודה
 
-> [!abstract] משפט 14.25/14.26/14.29 — ט"ל הצמודה
-> לכל ט"ל $T : V \to V$ קיימת **יחידה** ט"ל $T^* : V \to V$ המקיימת לכל $v, u \in V$:
+> [!abstract] משפט 14.26 — קיום הט"ל הצמודה
+> תהי $T : V \to V$ ט"ל, $V$ מ"פ מעל $F \in \{\mathbb{R}, \mathbb{C}\}$. קיימת ט"ל (יחידה) $T^* : V \to V$ המקיימת לכל $v, u \in V$:
 > $$\langle Tv, u \rangle = \langle v, T^* u \rangle.$$
+> $T^*$ נקראת **הטרנספורמציה הצמודה** של $T$.
+
+> [!abstract] משפט 14.29 — קיום, יחידות ואפיון
+> לכל ט"ל $T : V \to V$ קיימת יחידה $T^* : V \to V$ עם $\langle Tv, u \rangle = \langle v, T^* u \rangle$ לכל $v, u$. בפרט, $T$ צמודה לעצמה אם ורק אם $T^* = T$.
 
 > [!note]- הוכחה (קיום)
 > לכל $u$ קבוע, הפונקציה $\varphi(v) = \langle Tv, u \rangle$ היא פונקציונל לינארי. ממשפט ריס קיים $u^* \in V$ יחיד כך ש-$\varphi(v) = \langle v, u^* \rangle$. ההתאמה $u \mapsto u^*$ לינארית ומגדירה את $T^*$. $\square$
@@ -167,14 +219,26 @@ tags: [la2, lecture, ch12-spectral]
 > [!note] משפט ריס 14.25
 > לכל פונקציונל לינארי $\varphi : V \to F$ קיים $u \in V$ יחיד כך ש-$\varphi(v) = \langle v, u \rangle$.
 
+> [!example] דוגמה 14.27 — בניית $T^*$ ואם $T$ צמודה לעצמה אז $T^* = T$
+> נקבע $u \in V$ ונסתכל על הפונקציונל הלינארי $\varphi(v) = \langle Tv, u \rangle$. ממשפט ריס קיים $u^* \in V$ יחיד כך ש-$\langle Tv, u \rangle = \langle v, u^* \rangle$ לכל $v$. ההתאמה $u \mapsto u^*$ לינארית:
+> $$\langle Tv, u_1 + u_2 \rangle = \langle v, u_1^* \rangle + \langle v, u_2^* \rangle = \langle v, u_1^* + u_2^* \rangle \implies (u_1 + u_2)^* = u_1^* + u_2^*.$$
+> באופן דומה $(tu)^* = t \cdot u^*$ לכל $t \in F$. לכן $T^*(u) = u^*$ מגדירה ט"ל המקיימת $\langle Tv, u \rangle = \langle v, T^* u \rangle$. כאשר $T$ צמודה לעצמה, $\langle Tv, u \rangle = \langle v, Tu \rangle$ נותן $T^* = T$. $\square$
+
 > [!abstract] טענה 14.30 — תכונות בסיסיות
 > - $(T^*)^* = T$
 > - $(aT)^* = \bar{a} T^*$
 > - $(T + S)^* = T^* + S^*$
 > - $(TS)^* = S^* T^*$
 
-> [!abstract] דוגמה 14.31–14.32
+> [!example] דוגמה 14.31
 > עבור $A \in M_n(\mathbb{C})$ ו-$T_A(v) = Av$ על $\mathbb{C}^n$ (מ"פ סטנדרטית): $(T_A)^* = T_{A^*}$ כאשר $A^* = \bar{A}^t$.
+
+> [!abstract] מסקנה 14.32
+> אם נסמן $A^* = \bar{A}^t$, אזי $\langle T_A v, u \rangle = \langle v, T_{A^*} u \rangle$ ולכן $(T_A)^* = T_{A^*}$. לדוגמה:
+> $$A = \begin{pmatrix} 2+i & 8i \\ 6-i & 3 \end{pmatrix} \implies A^* = \begin{pmatrix} 2-i & 6+i \\ -8i & 3 \end{pmatrix}.$$
+
+> [!example] דוגמה 14.33
+> אם $T$ צמודה לעצמה, אזי $T^* = T$ (ראו דוגמה 14.27). בפרט, $\langle Tv, u \rangle = \langle v, Tu \rangle$ לכל $v, u \in V$.
 
 ---
 
@@ -197,122 +261,13 @@ tags: [la2, lecture, ch12-spectral]
 ### משפטים עיקריים על מטריצות נורמליות
 
 > [!abstract] משפט 15.6
-> אם $A \in M_n(F)$ נורמלית, קיים פולינום $f(x) \in \mathbb{R}[x]$ כך ש-$A^* = f(A)$.
+> אם $T : V \to V$ נורמלית, קיים פולינום $f(x) \in \mathbb{R}[x]$ כך ש-$T^* = f(T)$.
+
+> [!abstract] משפט 15.11 — גרסה מטריציונית
+> אם $A \in M_n(F)$ נורמלית, קיים $f(x) \in \mathbb{R}[x]$ כך ש-$A^* = f(A)$.
+
+> [!example] דוגמה 15.12
+> $A \in M_2(\mathbb{R})$ נורמלית אם ורק אם $A = A^t$ (סימטרית) או $A = \begin{pmatrix} a & b \\ -b & a \end{pmatrix}$ (סיבוב). במקרה השני: $A^t + A = 2aI$, ולכן $A^* = A^t = -A + 2aI = f(A)$ עם $f(x) = -x + 2a$.
 
 > [!note]- הוכחה
-> ממשפט הספקטרלי: $P^{-1}AP = D$ (אלכסונית, $P$ א"נ). ממשפט אינטרפולציה קיים $f \in \mathbb{R}[x]$ עם $f(\lambda_i) = \bar{\lambda}_i$. אז $f(D)$ = $D^*$ ולכן $P^{-1}f(A)P = f(D) = D^* = P^{-1}A^*P$, כלומר $f(A) = A^*$. $\square$
-
-> [!abstract] מסקנה 15.13
-> אם $T : V \to V$ נורמלית, קיים $f(x) \in \mathbb{R}[x]$ כך ש-$T^* = f(T)$.
-
-> [!abstract] טענה 15.14
-> אם $U \subseteq V$ תת-מרחב $T$-שמור, אז $U^\perp$ הוא $T^*$-שמור.
-
-> [!note]- הוכחה
-> יהי $w \in U^\perp$. לכל $u \in U$: $\langle T^* w, u \rangle = \langle w, Tu \rangle = 0$ (כי $Tu \in U$ ו-$w \perp U$). $\square$
-
-> [!abstract] משפט 15.16
-> אם $T : V \to V$ נורמלית ו-$U \subseteq V$ הוא $T$-שמור, אז $U$ גם $T^*$-שמור, $U^\perp$ גם $T$-שמור, ו-$T|_U$ נורמלית.
-
-> [!note]- הוכחה
-> מ-$T^* = f(T)$: כל ת"מ $T$-שמור גם $f(T) = T^*$-שמור. $\square$
-
-> [!abstract] טענה 15.17
-> לכל $T : V \to V$ מעל $\mathbb{R}$ קיים ת"מ $T$-שמור $U \subseteq V$ מממד $\le 2$.
-
-> [!note]- הוכחה
-> ניקח $g$ גורם אי-פריק של $m_T$. אם $\deg g = 1$ — ו"ע נותן $\dim U = 1$. אם $\deg g = 2$ — לכל $0 \ne v \in \ker g(T)$: $U = \text{Sp}\{v, Tv\}$ נשמר תחת $T$ (מ-$g(T)v = 0$ נובע $T^2 v \in U$). $\square$
-
-> [!abstract] משפט 15.19 — צורה קנונית ממשית
-> אם $T : V \to V$ נורמלית ו-$V$ מ"פ ממשי, קיים בסיס א"נ שביחס אליו המטריצה המייצגת היא בלוקים אלכסוניים:
-> - בלוקים $1 \times 1$: ע"ע ממשיים $\lambda_i$
-> - בלוקים $2 \times 2$: $\begin{pmatrix} a_k & b_k \\ -b_k & a_k \end{pmatrix}$ עם $b_k \ne 0$
-
-> [!example] דוגמה 15.9
-> המטריצות $A \in M_2(\mathbb{R})$ הנורמליות הן בדיוק: $A = A^t$ (סימטריות) או $A = \begin{pmatrix} a & b \\ -b & a \end{pmatrix}$.
-
----
-
-## פרק 16 — טרנספורמציות ומטריצות אוניטריות
-
-> [!abstract] הגדרה 16.1 — אוניטרית / אורתוגונלית
-> $T : V \to V$ נקראת **אוניטרית** ($F = \mathbb{C}$) או **אורתוגונלית** ($F = \mathbb{R}$) אם $T^* T = I$, כלומר $T^* = T^{-1}$.
-
-> [!example] דוגמאות 16.2–16.3
-> - $T_\theta$ — סיבוב בזווית $\theta$ ב-$\mathbb{R}^2$: $(T_\theta)^* = T_{-\theta} = T_\theta^{-1}$.
-> - שיקוף במישור: $T^* = T$ ולכן $T^2 = I$.
-
-> [!abstract] משפט 16.4 — תנאים שקולים
-> הבאים שקולים על $T : V \to V$:
-> 1. $T^* = T^{-1}$ (אוניטרית/אורתוגונלית)
-> 2. $\langle Tv, Tu \rangle = \langle v, u \rangle$ לכל $v, u$
-> 3. $T$ מעבירה כל בסיס א"נ לבסיס א"נ
-> 4. קיים בסיס א"נ שהתמונות שלו הן בסיס א"נ
-> 5. $\|Tv\| = \|v\|$ לכל $v$
-
-> [!note]- הוכחה (סקיצה)
-> $1 \Rightarrow 2$: $\langle Tv, Tu \rangle = \langle v, T^*Tu \rangle = \langle v, u \rangle$.
-> $2 \Rightarrow 3 \Rightarrow 4$: ברורים.
-> $4 \Rightarrow 5$: כתיבת $v = \sum a_i v_i$ נותנת $\|Tv\|^2 = \sum |a_i|^2 = \|v\|^2$.
-> $5 \Rightarrow 1$: $S = T^*T - I$ צמודה לעצמה ו-$\langle Sv, v \rangle = \|Tv\|^2 - \|v\|^2 = 0$ לכל $v$. מטענה 16.5: $S = 0$. $\square$
-
-> [!abstract] טענה 16.5
-> אם $S$ צמודה לעצמה ו-$\langle Sv, v \rangle = 0$ לכל $v$, אזי $S = 0$.
-
-> [!abstract] טענה 16.6
-> אם $T$ אוניטרית/אורתוגונלית ו-$\lambda$ ע"ע, אזי $|\lambda| = 1$.
-
-> [!note]- הוכחה
-> $\|Tv\| = |\lambda| \|v\|$ ו-$\|Tv\| = \|v\|$ $\implies$ $|\lambda| = 1$. $\square$
-
----
-
-### מטריצות אוניטריות/אורתוגונליות
-
-> [!abstract] הגדרה 16.7
-> $A \in M_n(F)$ **אוניטרית** ($F = \mathbb{C}$) / **אורתוגונלית** ($F = \mathbb{R}$) אם $AA^* = A^*A = I$.
-
-> [!abstract] טענה 16.8
-> $T$ א"נ אם ורק אם $[T]_B$ א"נ (עבור בסיס א"נ $B$).
-
-> [!abstract] משפט 16.10 — תנאים שקולים
-> עבור $A \in M_n(F)$, הבאים שקולים:
-> 1. $A$ אוניטרית/אורתוגונלית
-> 2. שורות $A$ הן בסיס א"נ של $F^n$
-> 3. עמודות $A$ הן בסיס א"נ של $F^n$
-> 4. $\langle Av, Au \rangle = \langle v, u \rangle$ לכל $v, u$
-> 5. $\|Av\| = \|v\|$ לכל $v$
-
-> [!example] דוגמה 16.11 — מטריצות אורתוגונליות $2 \times 2$
-> $$A = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix} \quad \text{(סיבוב)} \qquad \text{או} \qquad A = \begin{pmatrix} \cos\theta & \sin\theta \\ \sin\theta & -\cos\theta \end{pmatrix} \quad \text{(שיקוף)}$$
-
----
-
-### הצורה הקנונית של ט"ל אורתוגונלית
-
-> [!abstract] מסקנה 16.12 — צורה קנונית אורתוגונלית
-> אם $T : V \to V$ אורתוגונלית ($F = \mathbb{R}$), קיים בסיס א"נ שביחס אליו המטריצה המייצגת היא בלוקים אלכסוניים: בלוקי $1 \times 1$ עם $\pm 1$, ובלוקי $2 \times 2$ מהצורה $\begin{pmatrix} \cos\theta_k & \sin\theta_k \\ -\sin\theta_k & \cos\theta_k \end{pmatrix}$.
-
-> [!abstract] משפט 16.13 — יחידות
-> שתי מטריצות מהצורה הקנונית הנ"ל המייצגות את אותה $T$ שוות עד כדי סדר הבלוקים (ו-$b_i$ נקבעים עד כדי סימן).
-
-> [!note]- הוכחה
-> הצורה נקבעת על ידי הפולינום האופייני: $f_A(x) = \prod_i (x - \lambda_i) \cdot \prod_j (x^2 - 2a_j x + a_j^2 + b_j^2)$, ופירוק זה חד-ערכי ב-$\mathbb{R}[x]$ (PID). $\square$
-
----
-
-### ניסוח מחדש של המשפט הספקטרלי
-
-> [!abstract] משפט 16.14 — ניסוח מטריציוני
-> תהי $A \in M_n(F)$: סימטרית (אם $F = \mathbb{R}$) או נורמלית (אם $F = \mathbb{C}$). אזי קיימת $P$ אורתוגונלית ($F = \mathbb{R}$) / אוניטרית ($F = \mathbb{C}$) ו-$D$ אלכסונית כך ש:
-> $$A = P^{-1}DP.$$
-> כאשר $F = \mathbb{R}$ ו-$P$ אורתוגונלית: $P^{-1} = P^t$, ולכן $A = P^t DP$ (ז"א $A$ גם **חופפת** ל-$D$).
-
-> [!abstract] משפט 16.17 — אפיון ע"י ע"ע
-> תהי $A \in M_n(\mathbb{C})$ נורמלית. אזי:
-> 1. $A = A^*$ אם ורק אם כל ע"ע של $A$ ממשי.
-> 2. $A^* = A^{-1}$ (כלומר $A$ אוניטרית) אם ורק אם $|\lambda| = 1$ לכל ע"ע $\lambda$ של $A$.
-
----
-
-[[02-tirgul|דוגמאות מהתרגול →]]  |  [[03-exercises|תרגילים →]]
+> ממשפט הספקטרלי: $P^{-1}AP = D$ (אלכסונית, $P$ א"נ). ממשפט אינטרפולציה קיים $f \in \mathbb{R}[x]$ עם $f(\lambda_i) = \bar{\lambda}_i$. אז $f(D)$ = $D^*$ ולכן $P^{-1}f(A)P = f(D) = D^* = P^{-1}A^*P$, כלומר $f(

@@ -67,9 +67,18 @@ tags: [la2, lecture, ch04-characteristic-poly]
 >
 > **גזירה $D$ על $\mathbb{R}_n[x]$:** $f_D(x) = x^{n+1}$, ולכן $r_a(0) = n+1$. אבל $V_0 = \ker D = \mathbb{R}_0[x]$ (פולינומים קבועים), ולכן $r_g(0) = 1$. כאן $r_g < r_a$.
 >
-> **מטריצה אלכסונית עם ריבויים:** $A = \mathrm{diag}(\lambda_1, \lambda_1, \lambda_2)$ ($\lambda_1 \neq \lambda_2$):
-> $f_A(x) = (x-\lambda_1)^2(x-\lambda_2)$, לכן $r_a(\lambda_1) = 2$, $r_a(\lambda_2) = 1$.
-> $r_g(\lambda_1) = \dim \ker(A - \lambda_1 I) = 2$, $r_g(\lambda_2) = 1$. כאן $r_g = r_a$ לכל ע״ע.
+> **אם $f_T(x) = \prod_{i=1}^k (x-\lambda_i)^{n_i}$ (עם $\lambda_i$ שונים זה מזה):** נטען שהריבוי האלגברי של $\lambda_i$ הוא בדיוק $n_i$.
+> ברור ש-$n_i \le r_a(\lambda_i)$ כי $(x-\lambda_i)^{n_i}$ מחלק את $f_T$.
+> נניח בשלילה ש-$r_a(\lambda_i) \ge n_i + 1$, כלומר $(x-\lambda_i)^{n_i+1} \mid f_T(x)$. אזי:
+> $$\prod_{j=1}^k (x-\lambda_j)^{n_j} = f_T(x) = (x-\lambda_i)^{n_i+1} \cdot p(x).$$
+> נעביר אגפים:
+> $$(x-\lambda_i)^{n_i}\left[\prod_{j \ne i}(x-\lambda_j)^{n_j} - (x-\lambda_i)\,p(x)\right] = 0.$$
+> מכיוון ש-$(x-\lambda_i)^{n_i} \ne 0$ (כפולינום), הסוגר מתאפס. נציב $x = \lambda_i$:
+> $$\prod_{j \ne i}(\lambda_i - \lambda_j)^{n_j} = 0.$$
+> אבל כל $\lambda_i - \lambda_j \ne 0$ (כי $\lambda_i$ שונים) — סתירה. לכן $r_a(\lambda_i) = n_i$.
+
+> [!note] הערה 4.8
+> נשים לב שבדוגמה $r_a(\lambda_i) = n_i = \deg f_T / k$ — אך זה **אינו** חייב להיות המצב בכלל. לדוגמה, עבור $f_T = x^2(x^2+1)$ (מעל $\mathbb{R}$), סכום הריבויים האלגבריים הוא $2$ (רק ל-$\lambda = 0$) בעוד שדרגת הפולינום היא $4$.
 
 ---
 
@@ -86,15 +95,4 @@ tags: [la2, lecture, ch04-characteristic-poly]
 ---
 
 > [!abstract] משפט 4.10 — קריטריון ללכסינות (מלא)
-> $T : V \to V$ (עם $\dim V = n$) לכסינה אם ורק אם שני התנאים מתקיימים:
-> 1. $f_T(x)$ מתפצל לחלוטין לגורמים לינאריים מעל $F$, כלומר $f_T(x) = \prod_{i=1}^k (x-\lambda_i)^{r_a(\lambda_i)}$.
-> 2. לכל ע״ע $\lambda_i$: $r_g(\lambda_i) = r_a(\lambda_i)$.
-
-> [!note]- הוכחה
-> **($\Rightarrow$)** אם $T$ לכסינה, קיים בסיס של ו״ע. כל ע״ע מופיע בו $r_g(\lambda_i)$ פעמים, ולכן $f_T(x) = \prod (x-\lambda_i)^{r_g(\lambda_i)}$ — כלומר מתפצל. בנוסף $\sum r_g(\lambda_i) = n = \deg f_T = \sum r_a(\lambda_i)$, ויחד עם $r_g \le r_a$ נובע $r_g = r_a$ לכל $i$.
->
-> **($\Leftarrow$)** אם שני התנאים מתקיימים: $\sum r_g(\lambda_i) = \sum r_a(\lambda_i) = n$. לפי מסקנה 2.4, $T$ לכסינה. $\blacksquare$
-
----
-
-[[02-tirgul|דוגמאות מהתרגול →]]  |  [[03-exercises|תרגילים →]]
+> $T : V \to V$ (עם $\dim V = n$) לכסינה אם ורק אם ש

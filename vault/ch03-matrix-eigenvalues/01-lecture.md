@@ -84,6 +84,11 @@ tags: [la2, lecture, ch03-matrix-eigenvalues]
 > **הפולינום האופייני** של $A \in M_n(F)$ מוגדר כ:
 > $$f_A(x) = \det(xI - A) \in F[x].$$
 
+> [!example] דוגמה 3.10
+> עבור המטריצה $A = \begin{pmatrix} -7 & 8 \\ -6 & 7 \end{pmatrix}$ מהדוגמה הקודמת, הפולינום האופייני שלה הינו:
+> $$f_A(x) = \det \begin{pmatrix} x+7 & -8 \\ 6 & x-7 \end{pmatrix} = (x+7)(x-7) + 48 = x^2 - 1.$$
+> בפרט, $\lambda = \pm 1$ הם הע"ע של $A$ — בדיוק כפי שמצאנו ישירות בדוגמה 3.7.
+
 > [!abstract] משפט 3.11 — מבנה הפולינום האופייני
 > $f_A(x)$ הוא פולינום **מתוקן** (מוניק) ממעלה $n$, עם:
 > $$f_A(x) = x^n - \mathrm{tr}(A)\, x^{n-1} + \cdots + (-1)^n \det(A).$$
@@ -100,13 +105,4 @@ tags: [la2, lecture, ch03-matrix-eigenvalues]
 > **מטריצה אלכסונית:** $A = \mathrm{diag}(\lambda_1, \ldots, \lambda_n)$:
 > $$f_A(x) = \prod_{i=1}^n (x - \lambda_i).$$
 >
-> **מטריצה משולשית עליונה:** $A = \begin{pmatrix} \lambda_1 & * \\ 0 & \lambda_2 \end{pmatrix}$ (כלל לגודל כלשהו):
-> $$f_A(x) = \prod_{i=1}^n (x - a_{ii}).$$
-> (הדטרמיננטה של מטריצה משולשית היא מכפלת האלכסון.)
->
-> **מטריצת בלוקים:** $A = \begin{pmatrix} B & * \\ 0 & C \end{pmatrix}$:
-> $$f_A(x) = f_B(x) \cdot f_C(x).$$
-
----
-
-[[02-tirgul|דוגמאות מהתרגול →]]  |  [[03-exercises|תרגילים →]]
+> **מטריצה משולשית עליונה:** $A = \begin{pmatrix} \lambda_1 & * \\ 0 & \la
