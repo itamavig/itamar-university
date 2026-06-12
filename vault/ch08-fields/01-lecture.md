@@ -29,6 +29,16 @@ tags: [la2, lecture, ch08-fields]
 >
 > **למה $\mathbb{F}_p$ תחום שלמות?** מכיוון ש-$p$ ראשוני: $p \mid ab$ גורר $p \mid a$ או $p \mid b$ (ההגדרה של ראשוני ב-$\mathbb{Z}$), כלומר $ab = 0$ ב-$\mathbb{F}_p$ גורר $a = 0$ או $b = 0$. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 8.1)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $p$ is prime; $0\ne a\in\mathbb{F}_p$ | Given |
+> | 2 | $\mathbb{F}_p$ is an integral domain | $p$ prime: $p\mid ab \Rightarrow p\mid a$ or $p\mid b$ (definition of prime in $\mathbb{Z}$) |
+> | 3 | The map $x\mapsto ax$ on $\mathbb{F}_p$ is injective | Step 2: $ax_i = ax_j \Rightarrow a(x_i-x_j)=0 \Rightarrow x_i=x_j$ |
+> | 4 | $\{ax_1,\ldots,ax_p\} = \mathbb{F}_p$ (all $p$ elements, distinct) | Step 3 + $|\mathbb{F}_p|=p$ |
+> | 5 | $1\in\mathbb{F}_p$, so $\exists x_i$ with $ax_i = 1$, i.e., $a^{-1} = x_i$ | Step 4 |
+> | 6 | Every $0\ne a\in\mathbb{F}_p$ is invertible; $\mathbb{F}_p$ is a field $\square$ | Step 5 |
+
 > [!note] הערה 8.2
 > ההוכחה מתחלקת לשני חלקים:
 > 1. עבור $p$ ראשוני, $\mathbb{F}_p$ הוא תחום שלמות.
@@ -55,6 +65,20 @@ tags: [la2, lecture, ch08-fields]
 > כלומר $B^{-1} = h(A_f) \in K$. לכן $K$ שדה.
 >
 > $A_f$ הוא שורש של $f$ ב-$K$ (כי $f(A_f) = 0$). $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 8.3)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $F$ field; $f\in F[x]$ irreducible, $\deg f > 1$ | Given |
+> | 2 | $A_f\in M_n(F)$ is the companion matrix of $f$; $f(A_f) = 0$ | HW (proved elsewhere) |
+> | 3 | $K = \{p(A_f)\mid p\in F[x]\}$ with matrix addition and multiplication | Definition |
+> | 4 | $K$ satisfies all field axioms except possibly inverses | Matrix ring axioms |
+> | 5 | For $0\ne B = g(A_f)\in K$: $g$ is not divisible by $f$ | Step 2: $g(A_f)\ne 0$ |
+> | 6 | $\gcd(f,g)=1$ (since $f$ is irreducible and $f\nmid g$) | Step 5, irreducibility |
+> | 7 | $\exists h,r\in F[x]$ with $hg + rf = 1$ | Step 6, Theorem 7.25 (Bezout) |
+> | 8 | $h(A_f)g(A_f) + r(A_f)f(A_f) = I$, so $h(A_f)\cdot B = I$ | Steps 7, 2: $f(A_f)=0$ |
+> | 9 | $B^{-1} = h(A_f)\in K$; $K$ is a field containing $F$ | Step 8 |
+> | 10 | $A_f\in K$ is a root of $f$ (over $K$) $\square$ | Step 2 |
 
 ---
 
