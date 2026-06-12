@@ -68,9 +68,12 @@ tags: [la2, lecture, ch13-polar-decomposition]
 > | # | Claim | Justification |
 > |---|-------|---------------|
 > | 1 | $A$ symmetric real matrix; spectral theorem: $\exists$ orthogonal $U$ with $U^tAU = D$ diagonal | Spectral theorem (real case, Thm 14.13) |
-> | 2 | $A = U^{-1}DU = U^tDU = (U^t)^tDU^t$, so $A$ is congruent to $D$ (not just similar) | $U$ orthogonal: $U^{-1} = U^t = (U^t)^t$ |
-> | 3 | Signature $(p,q)$ of $f$ = signs of eigenvalues: $p = \#\{\lambda_i > 0\}$, $q = \#\{\lambda_i < 0\}$ | Diagonal matrix: Sylvester directly from diagonal entries |
-> | 4 | Since $A$ congruent to $D$, the bilinear form has the same signature as $D$ | Congruence preserves signature (Sylvester's law) $\square$ |
+> | 2.0 | $A =$ | &emsp;&emsp;<small>(show $A$ congruent to $D$)</small> |
+> | 2.1 | &emsp;$= U^{-1}DU$ | $U^tAU = D \Rightarrow A = U^{-1}DU$ |
+> | 2.2 | &emsp;$= U^tDU$ | $U$ orthogonal: $U^{-1} = U^t$ |
+> | 2.3 | &emsp;$= (U^t)^tDU^t$ | $(U^t)^t = U$; so $A = P^tDP$ with $P = U^t$ (congruent to $D$) |
+> | 3 | Signature $(p,q)$ of $f$ = signs of eigenvalues: $p = \#\{\lambda_i > 0\}$, $q = \#\{\lambda_i < 0\}$ | diagonal matrix: Sylvester directly from diagonal entries |
+> | 4 | Since $A$ congruent to $D$, the bilinear form has the same signature as $D$ | congruence preserves signature (Sylvester's law) $\square$ |
 
 ---
 
@@ -117,17 +120,29 @@ tags: [la2, lecture, ch13-polar-decomposition]
 > |---|-------|---------------|
 > | 1 | $T$ invertible; define $S = TT^*$ | Construction |
 > | 2 | $S^* = (TT^*)^* = TT^* = S$ (self-adjoint) | $(AB)^* = B^*A^*$ |
-> | 3 | $\langle Sv,v\rangle = \langle TT^*v,v\rangle = \langle T^*v, T^*v\rangle = \|T^*v\|^2 \ge 0$; $= 0$ only if $T^*v = 0$, but $T$ invertible so $T^*$ invertible, giving $v = 0$ | $T$ invertible $\Rightarrow$ $S$ positive |
+> | 3.0 | $\langle Sv,v\rangle =$ | &emsp;&emsp;<small>(show $S$ positive)</small> |
+> | 3.1 | &emsp;$= \langle TT^*v,v\rangle$ | $S = TT^*$ |
+> | 3.2 | &emsp;$= \langle T^*v, T^*v\rangle$ | adjoint definition: $\langle Tw, u\rangle = \langle w, T^*u\rangle$ with $w = T^*v$ |
+> | 3.3 | &emsp;$= \|T^*v\|^2 \ge 0$; $= 0 \Rightarrow T^*v=0 \Rightarrow v=0$ | definition of norm; $T$ invertible $\Rightarrow$ $T^*$ invertible |
 > | 4 | $R = \sqrt{S}$ exists and is unique (positive self-adjoint with $R^2 = S$) | Claim 17.4 |
-> | 5 | Define $U = TR^{-1}$ ($R$ positive so invertible) | Step 4 |
-> | 6 | $U^*U = (R^{-1})^*T^*TR^{-1} = R^{-1}SR^{-1} = R^{-1}R^2R^{-1} = I$ | Steps 2–4; $R^{-1}$ self-adjoint |
-> | 7 | $U$ is unitary; $T = UR$ is the polar decomposition | Step 6 $\square$ |
+> | 5 | Define $U = TR^{-1}$ ($R$ positive so invertible) | step 4 |
+> | 6.0 | $U^*U =$ | &emsp;&emsp;<small>(show $U$ unitary)</small> |
+> | 6.1 | &emsp;$= (TR^{-1})^*(TR^{-1})$ | $U = TR^{-1}$ |
+> | 6.2 | &emsp;$= R^{-1}T^*TR^{-1}$ | $(AB)^* = B^*A^*$; $R$ self-adjoint so $(R^{-1})^* = R^{-1}$ |
+> | 6.3 | &emsp;$= R^{-1}SR^{-1}$ | $T^*T = S$ (steps 1–3) |
+> | 6.4 | &emsp;$= R^{-1}R^2R^{-1}$ | $R^2 = S$ (step 4) |
+> | 6.5 | &emsp;$= I$ | $R^{-1}R = I$ |
+> | 7 | $U$ is unitary; $T = UR$ is the polar decomposition | steps 6.0–6.5 $\square$ |
 
 > [!proof]+ Natural Deduction — Proof 2 (Theorem 18.1 — uniqueness)
 > | # | Claim | Justification |
 > |---|-------|---------------|
 > | 1 | Any $T = UR$ with $U$ unitary, $R$ positive self-adjoint | Assumption |
-> | 2 | $T^*T = R^*U^*UR = R^*R = R^2$ | $U^*U = I$, $R^* = R$ |
+> | 2.0 | $T^*T =$ | &emsp;&emsp;<small>(show $T^*T = R^2$)</small> |
+> | 2.1 | &emsp;$= (UR)^*(UR)$ | $T = UR$ |
+> | 2.2 | &emsp;$= R^*U^*UR$ | $(AB)^* = B^*A^*$ |
+> | 2.3 | &emsp;$= R^*R$ | $U^*U = I$ |
+> | 2.4 | &emsp;$= R^2$ | $R^* = R$ |
 > | 3 | $R = \sqrt{T^*T}$ is uniquely determined by $T$ | Claim 17.4 uniqueness |
 > | 4 | $U = TR^{-1}$ is then uniquely determined | Step 3 $\square$ |
 
@@ -152,7 +167,10 @@ tags: [la2, lecture, ch13-polar-decomposition]
 > |---|-------|---------------|
 > | 1 | $T = UR$ (polar decomposition); $R$ positive self-adjoint | Theorem 18.1 |
 > | 2 | $T^*T = R^*U^*UR = R^2$ | $U^*U = I$, $R^* = R$ |
-> | 3 | $TT^* = UR(UR)^* = URR^*U^* = UR^2U^{-1}$ | $(AB)^* = B^*A^*$; $U$ unitary so $U^* = U^{-1}$ |
+> | 3.0 | $TT^* =$ | &emsp;&emsp;<small>(compute $TT^*$)</small> |
+> | 3.1 | &emsp;$= UR(UR)^*$ | $T = UR$ |
+> | 3.2 | &emsp;$= URR^*U^*$ | $(AB)^* = B^*A^*$ |
+> | 3.3 | &emsp;$= UR^2U^{-1}$ | $R^* = R$; $U$ unitary so $U^* = U^{-1}$ |
 > | 4 | $TT^*$ and $T^*T$ are similar ($TT^* = U(T^*T)U^{-1}$) | Step 3 |
 > | 5 | Similar matrices have the same eigenvalues | Characteristic polynomial invariant under similarity $\square$ |
 
@@ -171,9 +189,14 @@ tags: [la2, lecture, ch13-polar-decomposition]
 > |---|-------|---------------|
 > | 1 | $A \in M_n(F)$ invertible; $A^*A$ self-adjoint and non-negative | $(A^*A)^* = A^*A$; $\langle A^*Av,v\rangle = \|Av\|^2 \ge 0$ |
 > | 2 | $R = \sqrt{A^*A}$ exists, unique, positive self-adjoint | Claim 17.4 |
-> | 3 | $U = AR^{-1}$; verify $U^*U = R^{-1}A^*AR^{-1} = R^{-1}R^2R^{-1} = I$ | Step 2; same calculation as Theorem 18.1 |
-> | 4 | $A = UR$ with $U$ unitary, $R$ positive | Steps 2–3 |
-> | 5 | Compute $R$ explicitly: $A^*A = P^{-1}DP$ (spectral), then $R = P^{-1}\sqrt{D}P$ | Spectral theorem for self-adjoint matrices $\square$ |
+> | 3 | Define $U = AR^{-1}$ | $R$ positive so invertible |
+> | 4.0 | $U^*U =$ | &emsp;&emsp;<small>(show $U$ unitary)</small> |
+> | 4.1 | &emsp;$= (AR^{-1})^*(AR^{-1})$ | $U = AR^{-1}$ |
+> | 4.2 | &emsp;$= R^{-1}A^*AR^{-1}$ | $(AB)^* = B^*A^*$; $R$ self-adjoint so $(R^{-1})^* = R^{-1}$ |
+> | 4.3 | &emsp;$= R^{-1}R^2R^{-1}$ | $A^*A = R^2$ (step 2) |
+> | 4.4 | &emsp;$= I$ | $R^{-1}R = I$ |
+> | 5 | $A = UR$ with $U$ unitary, $R$ positive | steps 3–4.4 |
+> | 6 | Compute $R$ explicitly: $A^*A = P^{-1}DP$ (spectral), then $R = P^{-1}\sqrt{D}P$ | spectral theorem for self-adjoint matrices $\square$ |
 
 ---
 
