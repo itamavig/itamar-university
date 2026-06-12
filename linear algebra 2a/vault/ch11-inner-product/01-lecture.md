@@ -257,11 +257,14 @@ tags: [la2, lecture, ch11-inner-product]
 > [!proof]+ Natural Deduction — Proof 1 (Claim 13.14 — Triangle Inequality)
 > | # | Claim | Justification |
 > |---|-------|---------------|
-> | 1 | $\|v+u\|^2 = \langle v+u, v+u\rangle = \|v\|^2 + \langle v,u\rangle + \langle u,v\rangle + \|u\|^2$ | Expand inner product |
-> | 2 | $= \|v\|^2 + 2\mathrm{Re}\langle v,u\rangle + \|u\|^2$ | $\langle v,u\rangle + \overline{\langle v,u\rangle} = 2\mathrm{Re}\langle v,u\rangle$ |
-> | 3 | $\le \|v\|^2 + 2|\langle v,u\rangle| + \|u\|^2$ | $\mathrm{Re}(z) \le |z|$ |
-> | 4 | $\le \|v\|^2 + 2\|v\|\|u\| + \|u\|^2 = (\|v\|+\|u\|)^2$ | Cauchy-Schwarz (Claim 13.12) |
-> | 5 | Take square root: $\|v+u\| \le \|v\|+\|u\|$ | Steps 1–4, square root monotone $\square$ |
+> | 1.0 | $\|v+u\|^2 =$ | &emsp;&emsp;<small>(show $\|v+u\| \le \|v\|+\|u\|$)</small> |
+> | 1.1 | &emsp;$= \langle v+u, v+u\rangle$ | definition of norm |
+> | 1.2 | &emsp;$= \|v\|^2 + \langle v,u\rangle + \langle u,v\rangle + \|u\|^2$ | expand inner product by bilinearity |
+> | 1.3 | &emsp;$= \|v\|^2 + 2\mathrm{Re}\langle v,u\rangle + \|u\|^2$ | $\langle u,v\rangle = \overline{\langle v,u\rangle}$; real part |
+> | 1.4 | &emsp;$\le \|v\|^2 + 2|\langle v,u\rangle| + \|u\|^2$ | $\mathrm{Re}(z) \le |z|$ |
+> | 1.5 | &emsp;$\le \|v\|^2 + 2\|v\|\|u\| + \|u\|^2$ | Cauchy-Schwarz (Claim 13.12) |
+> | 1.6 | &emsp;$= (\|v\|+\|u\|)^2$ | perfect square |
+> | 2 | $\|v+u\| \le \|v\|+\|u\|$ | steps 1.0–1.6; square root is monotone $\square$ |
 
 ---
 
