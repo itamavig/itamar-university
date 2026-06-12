@@ -92,8 +92,11 @@ tags: [la2, lecture, ch12-spectral]
 > |---|-------|---------------|
 > | 1 | $T$ self-adjoint, $\lambda \in \mathbb{R}$; set $S = T - \lambda I$ | Given; $S$ self-adjoint since $\lambda \in \mathbb{R}$ |
 > | 2 | Assume $S^2 v = 0$ | Hypothesis |
-> | 3 | $0 = \langle S^2 v, v\rangle = \langle S v, S^* v\rangle = \langle Sv, Sv\rangle = \|Sv\|^2$ | $S^* = S$, inner product linearity |
-> | 4 | $\|Sv\|^2 = 0 \implies Sv = 0$ | Definiteness of norm $\square$ |
+> | 3.0 | $0 = \langle S^2 v, v\rangle =$ | &emsp;&emsp;<small>(from $S^2v=0$; show $\|Sv\|^2=0$)</small> |
+> | 3.1 | &emsp;$= \langle Sv, S^* v\rangle$ | adjoint definition |
+> | 3.2 | &emsp;$= \langle Sv, Sv\rangle$ | $S^* = S$ |
+> | 3.3 | &emsp;$= \|Sv\|^2$ | definition of norm |
+> | 4 | $Sv = 0$ | $\|Sv\|^2 = 0$ (steps 3.0–3.3); definiteness of norm $\square$ |
 
 > [!abstract] טענה 14.10
 > כל הגורמים הלינאריים של $m_T$ (לטרנס' סימטרית $T$) שונים זה מזה. בפרט, $T$ לכסינה.
@@ -140,10 +143,16 @@ tags: [la2, lecture, ch12-spectral]
 > | # | Claim | Justification |
 > |---|-------|---------------|
 > | 1 | $\{e_i\}$ ONB with $Te_i = \lambda_i e_i$, $\lambda_i \in \mathbb{R}$ | Given |
-> | 2 | For $v = \sum a_i e_i$, $u = \sum b_i e_i$: $\langle Tv, u\rangle = \langle \sum a_i \lambda_i e_i, \sum b_j e_j\rangle$ | Linearity |
-> | 3 | $= \sum_{i,j} a_i \lambda_i \overline{b_j} \langle e_i, e_j\rangle = \sum_i \lambda_i a_i \overline{b_i}$ | ONB: $\langle e_i, e_j\rangle = \delta_{ij}$ |
-> | 4 | $\langle v, Tu\rangle = \langle \sum a_i e_i, \sum b_j \lambda_j e_j\rangle = \sum_i a_i \overline{b_i \lambda_i} = \sum_i \lambda_i a_i \overline{b_i}$ | $\lambda_i \in \mathbb{R}$ so $\overline{\lambda_i} = \lambda_i$ |
-> | 5 | $\langle Tv,u\rangle = \langle v, Tu\rangle$ for all $v,u$ $\implies$ $T$ self-adjoint | Steps 3–4 $\square$ |
+> | 2 | Let $v = \sum a_i e_i$, $u = \sum b_i e_i$ | arbitrary elements in ONB coordinates |
+> | 3.0 | $\langle Tv, u\rangle =$ | &emsp;&emsp;<small>(compute $\langle Tv,u\rangle$)</small> |
+> | 3.1 | &emsp;$= \langle \sum a_i \lambda_i e_i, \sum b_j e_j\rangle$ | linearity; $Te_i = \lambda_i e_i$ |
+> | 3.2 | &emsp;$= \sum_{i,j} a_i \lambda_i \overline{b_j} \langle e_i, e_j\rangle$ | sesquilinearity |
+> | 3.3 | &emsp;$= \sum_i \lambda_i a_i \overline{b_i}$ | ONB: $\langle e_i, e_j\rangle = \delta_{ij}$ |
+> | 4.0 | $\langle v, Tu\rangle =$ | &emsp;&emsp;<small>(compute $\langle v,Tu\rangle$)</small> |
+> | 4.1 | &emsp;$= \langle \sum a_i e_i, \sum b_j \lambda_j e_j\rangle$ | linearity; $Te_j = \lambda_j e_j$ |
+> | 4.2 | &emsp;$= \sum_i a_i \overline{b_i \lambda_i}$ | ONB orthogonality |
+> | 4.3 | &emsp;$= \sum_i \lambda_i a_i \overline{b_i}$ | $\lambda_i \in \mathbb{R}$ so $\overline{\lambda_i} = \lambda_i$ |
+> | 5 | $\langle Tv,u\rangle = \langle v, Tu\rangle$ for all $v,u$; $T$ self-adjoint | steps 3.0–3.3 = steps 4.0–4.3 $\square$ |
 
 ---
 
@@ -159,11 +168,15 @@ tags: [la2, lecture, ch12-spectral]
 > | # | Claim | Justification |
 > |---|-------|---------------|
 > | 1 | $T$ self-adjoint, $Tv = \alpha v$, $Tu = \beta u$, $\alpha \ne \beta$ | Given |
-> | 2 | $\alpha\langle v,u\rangle = \langle \alpha v, u\rangle = \langle Tv, u\rangle$ | Linearity |
-> | 3 | $= \langle v, Tu\rangle = \langle v, \beta u\rangle = \bar{\beta}\langle v,u\rangle$ | $T$ self-adjoint; sesquilinearity |
-> | 4 | $(\alpha - \bar{\beta})\langle v,u\rangle = 0$ | Steps 2–3 |
-> | 5 | Over $\mathbb{R}$: $\bar{\beta} = \beta$, so $(\alpha - \beta)\langle v,u\rangle = 0$; $\alpha \ne \beta$ gives $\langle v,u\rangle = 0$ | $\alpha,\beta \in \mathbb{R}$ for self-adjoint over $\mathbb{R}$ |
-> | 6 | Over $\mathbb{C}$: eigenvalues are real (Lemma 14.15), so $\bar{\beta} = \beta$; same conclusion | Lemma 14.15 $\square$ |
+> | 2.0 | $\alpha\langle v,u\rangle =$ | &emsp;&emsp;<small>(show $(\alpha-\bar\beta)\langle v,u\rangle=0$)</small> |
+> | 2.1 | &emsp;$= \langle \alpha v, u\rangle$ | linearity of inner product |
+> | 2.2 | &emsp;$= \langle Tv, u\rangle$ | $Tv = \alpha v$ |
+> | 2.3 | &emsp;$= \langle v, Tu\rangle$ | $T$ self-adjoint |
+> | 2.4 | &emsp;$= \langle v, \beta u\rangle$ | $Tu = \beta u$ |
+> | 2.5 | &emsp;$= \bar{\beta}\langle v,u\rangle$ | sesquilinearity |
+> | 3 | $(\alpha - \bar{\beta})\langle v,u\rangle = 0$ | steps 2.0–2.5 |
+> | 4 | Over $\mathbb{R}$: $\bar{\beta} = \beta$, so $(\alpha - \beta)\langle v,u\rangle = 0$; $\alpha \ne \beta$ gives $\langle v,u\rangle = 0$ | $\alpha,\beta \in \mathbb{R}$ for self-adjoint over $\mathbb{R}$ |
+> | 5 | Over $\mathbb{C}$: eigenvalues are real (Lemma 14.15), so $\bar{\beta} = \beta$; same conclusion | Lemma 14.15 $\square$ |
 
 > [!abstract] למה 14.15
 > אם $T$ צמודה לעצמה אז כל ע"ע (אפילו מרוכב) ממשי.
@@ -175,9 +188,13 @@ tags: [la2, lecture, ch12-spectral]
 > | # | Claim | Justification |
 > |---|-------|---------------|
 > | 1 | $T$ self-adjoint, $Tu = \beta u$, $u \ne 0$ | Given |
-> | 2 | $\beta\|u\|^2 = \langle \beta u, u\rangle = \langle Tu, u\rangle$ | Linearity |
-> | 3 | $= \langle u, Tu\rangle = \langle u, \beta u\rangle = \bar{\beta}\|u\|^2$ | $T$ self-adjoint; sesquilinearity |
-> | 4 | $(\beta - \bar{\beta})\|u\|^2 = 0$; $\|u\|^2 > 0$ so $\beta = \bar{\beta}$ | $u \ne 0$; $\beta \in \mathbb{R}$ $\square$ |
+> | 2.0 | $\beta\|u\|^2 =$ | &emsp;&emsp;<small>(show $\beta = \bar\beta$)</small> |
+> | 2.1 | &emsp;$= \langle \beta u, u\rangle$ | linearity of inner product |
+> | 2.2 | &emsp;$= \langle Tu, u\rangle$ | $Tu = \beta u$ |
+> | 2.3 | &emsp;$= \langle u, Tu\rangle$ | $T$ self-adjoint |
+> | 2.4 | &emsp;$= \langle u, \beta u\rangle$ | $Tu = \beta u$ |
+> | 2.5 | &emsp;$= \bar{\beta}\|u\|^2$ | sesquilinearity |
+> | 3 | $(\beta - \bar{\beta})\|u\|^2 = 0$; $\|u\|^2 > 0$ so $\beta = \bar{\beta}$ | steps 2.0–2.5; $u \ne 0$ $\square$ |
 
 ---
 
