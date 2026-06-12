@@ -34,6 +34,16 @@ tags: [la2, lecture, ch10-jordan]
 > [!note]- הוכחה
 > באינדוקציה על $s$. המקרה $s = 2$ הוא משפט 10.1. בצעד: נסמן $g = \prod_{i=1}^{s-1} g_i$, $h = g_s$. נקבל $V = \ker g(T) \oplus \ker h(T)$, עם $h, g$ הפולינומים המינימלים בהתאמה. נפעיל הנחת אינדוקציה על $\ker g(T)$ עם $s-1$ גורמים. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 10.3)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $m_T = g_1 \cdots g_s$ with $\gcd(g_i,g_j)=1$ | Given |
+> | 2 | Let $g = \prod_{i=1}^{s-1} g_i$, $h = g_s$; then $\gcd(g,h)=1$ | $g_s$ coprime to each $g_i$ implies coprime to product |
+> | 3 | $V = \ker g(T) \oplus \ker h(T)$; min-poly on each factor is $g$, $h$ resp. | Theorem 10.1 (kernel splitting) |
+> | 4 | $g = g_1 \cdots g_{s-1}$ with pairwise coprime factors; $\dim \ker g(T) < \dim V$ | $s \ge 2$ |
+> | 5 | By induction hypothesis: $\ker g(T) = \bigoplus_{i=1}^{s-1} \ker g_i(T)$ | IH on $s-1$ factors |
+> | 6 | $V = \bigoplus_{i=1}^s \ker g_i(T)$, each $T$-invariant, min-poly $g_i$ on $\ker g_i(T)$ | Steps 3, 5 combined $\square$ |
+
 > [!note] הערה 10.4
 > בהוכחה השתמשנו בכך שאם $\gcd(g_s, g_i) = 1$ לכל $i$, אז $\gcd(g_s, \prod_{i=1}^{s-1} g_i) = 1$.
 
@@ -46,6 +56,15 @@ tags: [la2, lecture, ch10-jordan]
 
 > [!note]- הוכחה
 > מהפירוק הפרימרי: $V = \bigoplus_{i=1}^s \ker(T - \lambda_i I)$. כל $\ker(T - \lambda_i I)$ הוא מרחב עצמי של $\lambda_i$. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Corollary 10.5)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $m_T = \prod_{i=1}^s (x - \lambda_i)$, $\lambda_i$ distinct | Given |
+> | 2 | Factors are pairwise coprime (distinct linear factors) | Distinct roots |
+> | 3 | Primary decomposition: $V = \bigoplus_{i=1}^s \ker(T - \lambda_i I)$ | Theorem 10.3 |
+> | 4 | Each $\ker(T - \lambda_i I)$ is the eigenspace of $\lambda_i$ | Definition |
+> | 5 | $V$ is direct sum of eigenspaces $\implies$ $T$ diagonalizable | Definition of diagonalizability $\square$ |
 
 ---
 
@@ -65,6 +84,16 @@ tags: [la2, lecture, ch10-jordan]
 > [!note]- הוכחה
 > נסמן ע"ע $\lambda_1, \ldots, \lambda_r$ עם $f_A = \prod(x-\lambda_i)^{s_i}$, $m_A = \prod(x-\lambda_i)^{r_i}$. אז $f_A^{\mathrm{red}} = \prod(x-\lambda_i)$, ולכן $f_A^{\mathrm{red}} \mid m_A$. שוויון $\iff$ $m_A$ מכפלת גורמים לינאריים שונים $\iff$ $A$ לכסינה (ממסקנה 10.5). $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Lemma 10.9)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | Eigenvalues $\lambda_1,\ldots,\lambda_r$; $f_A = \prod(x-\lambda_i)^{s_i}$, $m_A = \prod(x-\lambda_i)^{r_i}$ | Setup |
+> | 2 | $f_A^{\mathrm{red}} = \prod(x-\lambda_i)$ (each eigenvalue once) | Definition of $f^{\mathrm{red}}$ |
+> | 3 | Each $(x-\lambda_i)$ divides $(x-\lambda_i)^{r_i}$ in $m_A$ | $r_i \ge 1$ for every eigenvalue |
+> | 4 | $f_A^{\mathrm{red}} \mid m_A$ | Steps 2–3 |
+> | 5 | ($\Leftarrow$) $f_A^{\mathrm{red}} = m_A$ $\implies$ $m_A$ has distinct linear factors $\implies$ $A$ diagonalizable | Corollary 10.5 |
+> | 6 | ($\Rightarrow$) $A$ diagonalizable $\implies$ $m_A = \prod(x-\lambda_i)$ = $f_A^{\mathrm{red}}$ | Corollary 9.10 (diagonalizable iff $m_A$ splits into distinct factors) $\square$ |
+
 ---
 
 ### תזכורת ומסקנות שימושיות
@@ -77,6 +106,16 @@ tags: [la2, lecture, ch10-jordan]
 
 > [!note]- הוכחה
 > $S = T|_W$ מקיים $m_S \mid m_T$, ו-$m_T$ מכפלת גורמים לינאריים שונים. לכן גם $m_S$ כזה ו-$S$ לכסינה. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Claim 10.12)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $T$ diagonalizable, $W \subseteq V$ $T$-invariant | Given |
+> | 2 | $S = T|_W$ is well-defined; $m_S \mid m_T$ | Divisibility of minimal poly under restriction |
+> | 3 | $m_T$ is a product of distinct linear factors | $T$ diagonalizable, Corollary 10.11 |
+> | 4 | Every divisor of a product of distinct linear factors is itself such a product | Unique factorization in $F[x]$ |
+> | 5 | $m_S$ is a product of distinct linear factors | Steps 2–4 |
+> | 6 | $S = T|_W$ is diagonalizable | Corollary 10.11 $\square$ |
 
 ---
 
@@ -109,6 +148,16 @@ tags: [la2, lecture, ch10-jordan]
 > [!note]- הוכחה
 > יהי $n$ כך ש-$T^n v \ne 0$, $T^{n+1} v = 0$. אם $\sum_{i=j}^k a_i T^i v = 0$ עם $a_j \ne 0$, נפעיל $T^{n-j}$: $a_j T^n v = 0$, סתירה. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Claim 10.20)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $T$ nilpotent, $T^k v \ne 0$; let $n$ be maximal with $T^n v \ne 0$ | Given; $T$ nilpotent so such $n$ exists |
+> | 2 | Assume $\sum_{i=j}^{k} a_i T^i v = 0$ with $a_j \ne 0$ (seeking contradiction) | Assume linear dependence |
+> | 3 | Apply $T^{n-j}$ to both sides: $\sum_{i=j}^{k} a_i T^{i+n-j} v = 0$ | Linearity of $T^{n-j}$ |
+> | 4 | For $i > j$: $T^{i+n-j} v = T^{n+(i-j)} v = 0$ since $i-j \ge 1$ and $T^{n+1}v = 0$ | Maximality of $n$ |
+> | 5 | Only $i = j$ term survives: $a_j T^n v = 0$ | Step 4 |
+> | 6 | $a_j \ne 0$ and $T^n v \ne 0$ gives $a_j T^n v \ne 0$ — contradiction | Step 2, choice of $n$ $\square$ |
+
 > [!abstract] הגדרה 10.21 (שרשרת)
 > קבוצה $\{v, Tv, \ldots, T^k v\}$ עם $T^{k+1}v = 0$ נקראת **שרשרת ז'ורדן**.
 
@@ -131,11 +180,30 @@ tags: [la2, lecture, ch10-jordan]
 > [!note]- הוכחה
 > אם $n(T) > n$: קיים $v$ עם $T^n v \ne 0$, ואז $v, Tv, \ldots, T^n v$ — $n+1$ וקטורים בת"ל, סתירה. אם $n(T) = n$: ניקח $v$ עם $T^{n-1} v \ne 0$, ואז $\{v, \ldots, T^{n-1} v\}$ הוא בסיס ושרשרת. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Corollary 10.25)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $T$ nilpotent, $\dim V = n$ | Given |
+> | 2 | ($n(T) \le n$) If $n(T) > n$: $\exists v$ with $T^n v \ne 0$ | Definition of index |
+> | 3 | Then $v, Tv, \ldots, T^n v$ are $n+1$ linearly independent vectors | Claim 10.20 |
+> | 4 | Contradiction: $\dim V = n$ cannot contain $n+1$ linearly independent vectors | Steps 2–3; hence $n(T) \le n$ |
+> | 5 | ($n(T) = n \Rightarrow$ cyclic) Take $v$ with $T^{n-1}v \ne 0$ | $n(T) = n$ means such $v$ exists |
+> | 6 | $\{v, Tv, \ldots, T^{n-1}v\}$ is linearly independent (Claim 10.20) and spans $V$ ($n$ vectors in $n$-dim space) | Steps 5, dimensionality; $V$ is cyclic $\square$ |
+
 > [!abstract] מסקנה 10.26
 > אם $T$ נילפוטנטית ו-$V$ ציקלי, אז $V$ **אי-פריק**.
 
 > [!note]- הוכחה
 > אם $V = U \oplus W$ עם $\dim U = k \ge \dim W = l$, אז $n(T|_U) \le k$ ו-$n(T|_W) \le k$, לכן $n(T) \le k < n$ — סתירה למסקנה 10.25. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Corollary 10.26)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $T$ nilpotent, $V$ cyclic, $\dim V = n$ | Given; $n(T) = n$ by Corollary 10.25 |
+> | 2 | Assume for contradiction $V = U \oplus W$ with $\dim U = k$, $\dim W = l$, $k \ge l \ge 1$ | Assume decomposable |
+> | 3 | $n(T|_U) \le k < n$ and $n(T|_W) \le l \le k < n$ | Corollary 10.25 applied to $U$, $W$ |
+> | 4 | $n(T) = \max(n(T|_U), n(T|_W)) \le k < n$ | Nilpotency index from components |
+> | 5 | Contradiction: $n(T) = n$ by step 1 | Steps 1, 4; hence $V$ is indecomposable $\square$ |
 
 ---
 
@@ -175,6 +243,18 @@ tags: [la2, lecture, ch10-jordan]
 >
 > מהתרגיל (בית 1, שאלה 3): קיים $W'$ עם $W_1 \subseteq W' \subseteq W_2$ ו-$V = U \oplus W'$. מ-$T[W'] \subseteq T[W_2] \subseteq W_1 \subseteq W'$, לכן $W'$ הוא $T$-שמור. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 10.32)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $T$ nilpotent, $U \subseteq V$ maximal cyclic $T$-invariant | Given |
+> | 2 | Base: $n(T)=1 \Rightarrow T=0$; any complement of $U$ works | Direct |
+> | 3 | Inductive step: $T[U]$ is maximal cyclic in $T[V]$, and $n(T|_{T[V]}) = n(T)-1$ | Claim 10.27 and nilpotency |
+> | 4 | IH gives $W_1 \subseteq T[V]$ $T$-invariant with $T[V] = T[U] \oplus W_1$ | Induction hypothesis |
+> | 5 | Define $W_2 = \{v \in V \mid T(v) \in W_1\}$; this is a $T$-invariant subspace with $W_1 \subseteq W_2$ | Preimage subspace; $T[W_1] \subseteq T[T[V]] \subseteq T[V]$ |
+> | 6 | Lemma 10.33: $U + W_2 = V$ and $U \cap W_1 = \{0\}$ | Part (a): write $T(v)=T(u)+w_1$; Part (b): $U \cap T[V] = T[U]$, then $\cap W_1 = \{0\}$ |
+> | 7 | By HW 1 Q3: $\exists W'$ with $W_1 \subseteq W' \subseteq W_2$ and $V = U \oplus W'$ | Step 6 satisfies the HW lemma hypothesis |
+> | 8 | $T[W'] \subseteq T[W_2] \subseteq W_1 \subseteq W'$, so $W'$ is $T$-invariant | Step 7 $\square$ |
+
 > [!abstract] מסקנה 10.34
 > $T$ נילפוטנטית: $V$ אי-פריק $\iff$ $V$ ציקלי.
 
@@ -186,6 +266,16 @@ tags: [la2, lecture, ch10-jordan]
 
 > [!note]- הוכחה (סקיצה)
 > באינדוקציה על $n(T)$. מ-$\dim(\ker T) = $ מספר תתי-המרחבים בפירוק (כי לכל $U$ ציקלי: $\dim \ker(T|_U) = 1$). לכן מספר הגורמים בפירוק נקבע ע"י $T$. הפירוק של $T[V]$ נותן (ע"י הנחת אינדוקציה) את המימדים הגדולים מ-1, ו-$\dim \ker T$ משלים. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 10.37, sketch)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $V = \bigoplus_i U_i$ any decomposition into indecomposable cyclic $T$-invariant subspaces | Theorem 10.35 guarantees existence |
+> | 2 | For each cyclic $U_i$: $\dim \ker(T|_{U_i}) = 1$ (kernel is span of the last chain vector) | Structure of cyclic nilpotent |
+> | 3 | Number of summands = $\dim \ker T$ (invariant of $T$) | Steps 1–2 summed over all $U_i$ |
+> | 4 | Base $n(T)=1$: $T=0$, $V$ decomposes into 1-dim subspaces; count = $\dim V$ | Direct |
+> | 5 | Inductive step: $T[V] = \bigoplus_i T[U_i]$ (nonzero summands, $\dim T[U_i] = \dim U_i - 1$) | Claim 10.27 |
+> | 6 | IH on $T[V]$ fixes the multiset of $\dim U_i - 1$ for $\dim U_i \ge 2$; step 3 fixes count of $\dim U_i = 1$ | Induction $\square$ |
 
 > [!abstract] מסקנה 10.38
 > מטריצת ז'ורדן המייצגת את $T$ יחידה עד כדי שינוי סדר הבלוקים האלמנטריים.
@@ -217,6 +307,17 @@ $$J_n(\lambda) = \begin{pmatrix} \lambda & 0 & \cdots & 0 \\ 1 & \lambda & \cdot
 
 > [!note]- הוכחה (סקיצה)
 > $\bar{V}_\lambda \subseteq \tilde{V}_\lambda$ ברור. כתוב $f(x) = \prod_\lambda (x-\lambda)^{n_\lambda}$ עם $m_T \mid f$, ומהפירוק הפרימרי $V = \bigoplus_\lambda \ker(T-\lambda I)^{n_\lambda} = \bigoplus_\lambda \tilde{V}_\lambda$. השוואת המימדים עם $V = \bigoplus_\lambda \bar{V}_\lambda$ נותנת $\bar{V}_\lambda = \tilde{V}_\lambda$. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Theorems 10.40–10.41)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $\tilde{V}_\lambda = \{v \mid \exists n: (T-\lambda I)^n v = 0\} = \ker(T-\lambda I)^{n_\lambda}$ for large enough $n_\lambda$ | Finite-dimensional: take max over basis |
+> | 2 | $\bar{V}_\lambda \subseteq \tilde{V}_\lambda$: every $U_i$ in the Jordan decomposition with e.v. $\lambda$ satisfies $U_i \subseteq \tilde{V}_\lambda$ | By definition of cyclic Jordan component |
+> | 3 | Choose $f(x) = \prod_\lambda (x-\lambda)^{n_\lambda}$ with $m_T \mid f$ (enlarge $n_\lambda$ if needed) | $m_\lambda \le n_\lambda$ allowed |
+> | 4 | $f(T)=0$, factors pairwise coprime $\Rightarrow$ Primary decomposition: $V = \bigoplus_\lambda \ker(T-\lambda I)^{n_\lambda} = \bigoplus_\lambda \tilde{V}_\lambda$ | Theorem 10.3 |
+> | 5 | Also $V = \bigoplus_\lambda \bar{V}_\lambda$ from Jordan decomposition | Theorem 10.35 |
+> | 6 | From (2): $\dim \bar{V}_\lambda \le \dim \tilde{V}_\lambda$; from (4)+(5): $\sum \dim \tilde{V}_\lambda = \dim V = \sum \dim \bar{V}_\lambda$ | Dimension count |
+> | 7 | $\bar{V}_\lambda = \tilde{V}_\lambda$ for all $\lambda$ | Steps 2, 6; equality forced $\square$ |
 
 ---
 
