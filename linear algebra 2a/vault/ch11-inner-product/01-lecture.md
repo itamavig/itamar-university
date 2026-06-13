@@ -102,6 +102,14 @@ tags: [la2, lecture, ch11-inner-product]
 > אם $\mathrm{char}(F) \ne 2$, ניתן לשחזר את $f$ מ-$Q_f$:
 > $$f(v,w) = \frac{Q_f(v+w) - Q_f(v) - Q_f(w)}{2}.$$
 
+> [!example] דוגמה 12.4
+> בתבנית הבילינארית מהדוגמה הקודמת: $Q_f(x_1, x_2) = 2x_1^2 - 2x_1x_2 + 3x_2^2$.
+>
+> **חשיבות ההנחה $\mathrm{char}(F) \ne 2$:** אם $\mathrm{char}(F) = 2$, מקבלים $Q_f \equiv 0$ אבל $f$ אינה תבנית האפס (הייצוג המטריציוני שלה אינו מטריצת האפס). לכן ההנחה $\mathrm{char}(F) \ne 2$ קריטית — ובלעדיה לא ניתן לשחזר את $f$ מ-$Q_f$.
+>
+> **כשהייצוג אלכסוני** (בסיס אורתוגונלי): אם $[f]_B = \mathrm{diag}(a_1, \ldots, a_n)$ אזי:
+> $$f\!\left(\sum_i c_i v_i,\, \sum_j b_j v_j\right) = \sum_{i} a_i c_i b_i, \qquad Q_f\!\left(\sum_i c_i v_i\right) = \sum_i a_i c_i^2.$$
+
 ---
 
 ### לכסון צורה ריבועית
@@ -131,6 +139,11 @@ tags: [la2, lecture, ch11-inner-product]
 > כל צורה ריבועית מייוצגת (על בסיס מתאים) על ידי:
 > $$\mathrm{diag}(\underbrace{1,\ldots,1}_{p}, \underbrace{-1,\ldots,-1}_{q}, 0, \ldots, 0).$$
 > הזוג $(p, q)$ נקרא **חתימת** הצורה.
+
+> [!note] הערה 12.9 — צורה אנטי-סימטרית
+> אם $f$ **אנטי-סימטרית** ($f(v,u) = -f(u,v)$ לכל $v,u$), אז $Q_f \equiv 0$:
+> $$Q_f(v) = f(v,v) = -f(v,v) \implies f(v,v) = 0.$$
+> (הוכח בתרגיל)
 
 ---
 
@@ -214,6 +227,10 @@ tags: [la2, lecture, ch11-inner-product]
 > $$0 \le \|v - t_0 u\|^2 = \|v\|^2 - t_0 \overline{\langle v, u \rangle} - \overline{t_0} \langle v, u \rangle + |t_0|^2 \|u\|^2 = \|v\|^2 - \frac{|\langle v, u \rangle|^2}{\|u\|^2}.$$
 > כפל ב-$\|u\|^2$ נותן את הטענה. שוויון $\iff$ $v = t_0 u$. $\square$
 
+> [!example] דוגמה 13.13 — קושי-שוורץ ב-$\mathbb{R}^2$
+> ב-$\mathbb{R}^2$ עם מ"פ סטנדרטית, עבור $v = (a_1, a_2)$ ו-$u = (b_1, b_2)$ מתקיים:
+> $$|a_1 b_1 + a_2 b_2| \le \sqrt{(a_1^2 + a_2^2)(b_1^2 + b_2^2)}.$$
+
 > [!abstract] טענה 13.14 — אי-שוויון המשולש
 > $$\|v + u\| \le \|v\| + \|u\|.$$
 
@@ -227,6 +244,15 @@ tags: [la2, lecture, ch11-inner-product]
 > [!abstract] הגדרות 13.15–13.16
 > - **מרחק**: $d(v, u) = \|v - u\|$
 > - $v \perp u$ (אורתוגונליים) $\iff$ $\langle v, u \rangle = 0$
+
+> [!example] דוגמה 13.17 — ניצביות ב-$\mathbb{R}^2$
+> ב-$\mathbb{R}^2$ עם המ"פ הסטנדרטית, הוקטורים $(x, 0)$ ו-$(0, y)$ ניצבים:
+> $$\left\langle \begin{pmatrix} x \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ y \end{pmatrix} \right\rangle = x \cdot 0 + 0 \cdot y = 0.$$
+> ניצבות ב-$\mathbb{R}^n$ ביחס למ"פ הסטנדרטית זהה לניצבות הגיאומטרית הרגילה.
+
+> [!example] דוגמה 13.18 — ניצביות ב-$C[0,1]$
+> במרחב $C[0,1]$ עם מ"פ $\langle f, g \rangle = \int_0^1 f(t)g(t)\,dt$, הפונקציות $v = \cos(\pi x)$ ו-$u = 1$ ניצבות:
+> $$\langle v, u \rangle = \int_0^1 \cos(\pi x)\,dx = \frac{\sin(\pi x)}{\pi}\Big|_0^1 = 0.$$
 
 > [!abstract] טענה 13.19
 > $v^\perp = \{u \in V \mid \langle v, u \rangle = 0\}$ הוא תת-מרחב של $V$.
@@ -243,6 +269,12 @@ tags: [la2, lecture, ch11-inner-product]
 > [!abstract] הגדרה 13.22
 > - קבוצה $\{v_i\}$ היא **אורתוגונלית** (OG) אם $\langle v_i, v_j \rangle = 0$ לכל $i \ne j$
 > - **אורתונורמלית** (ON) אם בנוסף $\|v_i\| = 1$ לכל $i$
+
+> [!note] הערה 13.23
+> אם $0 \notin A$ ניתן להפוך כל קבוצה אורתוגונלית לאורתונורמלית ע"י **נרמול**: מחליפים כל $v_i$ ב-$v_i / \|v_i\|$. הנרמול אינו משנה את הניצביות.
+
+> [!example] דוגמה 13.24
+> הקבוצה $\left\{\begin{pmatrix}0\\0\\-19\end{pmatrix},\, \begin{pmatrix}7\\0\\0\end{pmatrix},\, \begin{pmatrix}0\\5\\0\end{pmatrix}\right\} \subseteq \mathbb{R}^3$ היא אורתוגונלית. היא **לא** תהיה כזו אם נחליף את $\begin{pmatrix}0\\0\\-19\end{pmatrix}$ ב-$\begin{pmatrix}1\\0\\-19\end{pmatrix}$ (שכן הוא אינו ניצב לוקטור הימני).
 
 > [!abstract] טענה 13.25 — קואורדינטות ב-ONB
 > אם $\{e_1, \ldots, e_n\}$ ON ו-$v = \sum a_i e_i$, אזי $a_i = \langle v, e_i \rangle$.
