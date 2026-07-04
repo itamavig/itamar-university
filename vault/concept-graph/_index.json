@@ -1,0 +1,2224 @@
+{
+  "concepts": [
+    {
+      "id": "וקטור-עצמי",
+      "canonical_name": "וקטור עצמי",
+      "aliases": [
+        "ו\"ע"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "ערך-עצמי",
+      "canonical_name": "ערך עצמי",
+      "aliases": [
+        "ע\"ע"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "המרחב-העצמי",
+      "canonical_name": "המרחב העצמי",
+      "aliases": [
+        "מרחב עצמי"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "המרחב-העצמי-הוא-תת-מרחב",
+      "canonical_name": "המרחב העצמי הוא תת-מרחב",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch01-eigenvalues/01-lecture"
+      ]
+    },
+    {
+      "id": "הריבוי-הגיאומטרי",
+      "canonical_name": "הריבוי הגיאומטרי",
+      "aliases": [
+        "ר\"ג",
+        "ריבוי גיאומטרי"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/01-lecture",
+        "ch04-characteristic-poly/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "וקטורים-עצמיים-עם-ערכים-עצמיים-שונים-בתל",
+      "canonical_name": "וקטורים עצמיים עם ערכים עצמיים שונים הם בלתי תלויים לינארית",
+      "aliases": [
+        "ו\"ע מע\"ע שונים בת\"ל"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch01-eigenvalues/01-lecture",
+        "ch02-diagonalization/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "לכסינות",
+      "canonical_name": "לכסינות",
+      "aliases": [
+        "לכסינה",
+        "בסיס מלכסן",
+        "ניתנת ללכסון"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch02-diagonalization/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "שורש-יחידה",
+      "canonical_name": "שורש יחידה",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "תת-מרחב-שמור",
+      "canonical_name": "תת-מרחב שמור",
+      "aliases": [
+        "T-שמור",
+        "תת-מרחב אינווריאנטי"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul",
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "צמצום-העתקה",
+      "canonical_name": "צמצום העתקה לתת-מרחב",
+      "aliases": [
+        "הצמצום"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "ערך-עצמי-אפס",
+      "canonical_name": "ערך עצמי אפס",
+      "aliases": [
+        "ע\"ע 0"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul",
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "אינה-חחע",
+      "canonical_name": "העתקה שאינה חח\"ע",
+      "aliases": [
+        "גרעין לא טריוויאלי"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "השערת-ארדש",
+      "canonical_name": "השערת ארדש",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "ערכים-עצמיים-של-מסלול-מחזורי",
+      "canonical_name": "ערכים עצמיים של צמצום למסלול מחזורי",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "n-ערכים-עצמיים-שונים",
+      "canonical_name": "n ערכים עצמיים שונים",
+      "aliases": [
+        "dim V ע\"ע שונים"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch02-diagonalization/01-lecture",
+        "ch01-eigenvalues/02-tirgul"
+      ]
+    },
+    {
+      "id": "איחוד-בסיסים-של-מרחבים-עצמיים-בתל",
+      "canonical_name": "איחוד בסיסים של מרחבים עצמיים הוא בת\"ל",
+      "aliases": [],
+      "type": "corollary",
+      "sources": [
+        "ch02-diagonalization/01-lecture"
+      ]
+    },
+    {
+      "id": "סכום-הריבויים-הגיאומטריים-שווה-למימד",
+      "canonical_name": "סכום הריבויים הגיאומטריים שווה למימד",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch02-diagonalization/01-lecture"
+      ]
+    },
+    {
+      "id": "וקטור-עצמי-של-מטריצה",
+      "canonical_name": "וקטור עצמי וערך עצמי של מטריצה",
+      "aliases": [
+        "ו\"ע של מטריצה",
+        "ע\"ע של מטריצה"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch03-matrix-eigenvalues/01-lecture"
+      ],
+      "possible_merge": true
+    },
+    {
+      "id": "לכסינות-מטריצה",
+      "canonical_name": "לכסינות מטריצה",
+      "aliases": [
+        "מטריצה לכסינה",
+        "דומה למטריצה אלכסונית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch03-matrix-eigenvalues/01-lecture"
+      ],
+      "possible_merge": true
+    },
+    {
+      "id": "מטריצות-דומות",
+      "canonical_name": "מטריצות דומות",
+      "aliases": [
+        "דמיון מטריצות"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch03-matrix-eigenvalues/01-lecture",
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "הפולינום-האופייני",
+      "canonical_name": "הפולינום האופייני",
+      "aliases": [
+        "פ\"א",
+        "f_A(x)"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch03-matrix-eigenvalues/01-lecture",
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "שורש-הפולינום-האופייני",
+      "canonical_name": "שורש הפולינום האופייני",
+      "aliases": [
+        "det(xI-A)=0"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch03-matrix-eigenvalues/01-lecture",
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "מבנה-הפולינום-האופייני",
+      "canonical_name": "מבנה הפולינום האופייני",
+      "aliases": [
+        "מקדמי הפולינום האופייני"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch03-matrix-eigenvalues/01-lecture"
+      ]
+    },
+    {
+      "id": "הריבוי-האלגברי",
+      "canonical_name": "הריבוי האלגברי",
+      "aliases": [
+        "ר\"א",
+        "ריבוי אלגברי"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "ריבוי-גיאומטרי-קטן-שווה-ריבוי-אלגברי",
+      "canonical_name": "ריבוי גיאומטרי קטן-שווה ריבוי אלגברי",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "התפצלות-הפולינום-האופייני",
+      "canonical_name": "התפצלות הפולינום האופייני לגורמים לינאריים",
+      "aliases": [
+        "פולינום מתפצל"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch04-characteristic-poly/01-lecture",
+        "ch05-triangulation/01-lecture"
+      ]
+    },
+    {
+      "id": "שוויון-ריבויים",
+      "canonical_name": "שוויון ריבוי גיאומטרי וריבוי אלגברי",
+      "aliases": [
+        "r_g = r_a"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "קריטריון-הלכסינות-המלא",
+      "canonical_name": "קריטריון ללכסינות (מלא)",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch04-characteristic-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "מחזוריות-פיבונאצי-מודולו-ראשוני",
+      "canonical_name": "חסם על מחזור פיבונאצ'י מודולו ראשוני",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch05-triangulation/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-פרמה-הקטן",
+      "canonical_name": "משפט פרמה הקטן",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch05-triangulation/01-lecture"
+      ]
+    },
+    {
+      "id": "חוק-ההדדיות-הריבועית",
+      "canonical_name": "חוק ההדדיות הריבועית",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch05-triangulation/01-lecture"
+      ]
+    },
+    {
+      "id": "שילוש",
+      "canonical_name": "ניתנת לשילוש",
+      "aliases": [
+        "שילוש",
+        "משולשת עליונה על בסיס מתאים"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch05-triangulation/01-lecture"
+      ]
+    },
+    {
+      "id": "הצבת-העתקה-בפולינום",
+      "canonical_name": "הצבת העתקה לינארית בפולינום",
+      "aliases": [
+        "הצבת מטריצה בפולינום",
+        "f(T)"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch06-cayley-hamilton/01-lecture"
+      ]
+    },
+    {
+      "id": "קשר-בין-ייצוג-להצבה",
+      "canonical_name": "קשר בין ייצוג ט\"ל להצבה",
+      "aliases": [
+        "[f(T)]_B = f([T]_B)"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch06-cayley-hamilton/01-lecture"
+      ]
+    },
+    {
+      "id": "פולינום-מאפס",
+      "canonical_name": "פולינום מאפס",
+      "aliases": [
+        "f(A)=0"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch06-cayley-hamilton/01-lecture",
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "שמירת-אפסיות-תחת-דמיון",
+      "canonical_name": "שמירת אפסיות תחת דמיון",
+      "aliases": [],
+      "type": "corollary",
+      "sources": [
+        "ch06-cayley-hamilton/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-קיילי-המילטון",
+      "canonical_name": "משפט קיילי-המילטון",
+      "aliases": [
+        "קיילי-המילטון"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch06-cayley-hamilton/01-lecture"
+      ]
+    },
+    {
+      "id": "חוג",
+      "canonical_name": "חוג",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "תחום-שלמות",
+      "canonical_name": "תחום שלמות",
+      "aliases": [
+        "חוג ללא מחלקי אפס"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "כלל-הצמצום",
+      "canonical_name": "כלל הצמצום",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "חלוקה-עם-שארית",
+      "canonical_name": "חלוקה עם שארית",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "חסם-על-מספר-השורשים",
+      "canonical_name": "חסם על מספר השורשים של פולינום",
+      "aliases": [],
+      "type": "corollary",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "יחס-החלוקה",
+      "canonical_name": "יחס החלוקה",
+      "aliases": [
+        "מחלק"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "איבר-הפיך",
+      "canonical_name": "איבר הפיך",
+      "aliases": [
+        "יחידה"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "חברות",
+      "canonical_name": "חברות",
+      "aliases": [
+        "חברים"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "זרות",
+      "canonical_name": "זרות",
+      "aliases": [
+        "איברים זרים"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "איבר-אי-פריק",
+      "canonical_name": "איבר אי-פריק",
+      "aliases": [
+        "אי-פריק"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "איבר-ראשוני",
+      "canonical_name": "איבר ראשוני",
+      "aliases": [
+        "ראשוני"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "פריקות-חד-ערכית",
+      "canonical_name": "פריקות חד-ערכית",
+      "aliases": [
+        "פירוק יחיד לאי-פריקים"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "אידיאל",
+      "canonical_name": "אידיאל",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture",
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "אידיאל-ראשי",
+      "canonical_name": "אידיאל ראשי",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "תחום-ראשי",
+      "canonical_name": "תחום ראשי",
+      "aliases": [
+        "PID"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "מחלק-משותף-גדול-ביותר",
+      "canonical_name": "מחלק משותף גדול ביותר",
+      "aliases": [
+        "gcd"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "חוג-הפולינומים",
+      "canonical_name": "חוג הפולינומים",
+      "aliases": [
+        "F[x]"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "תחום-אוקלידי",
+      "canonical_name": "תחום אוקלידי",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "חוג-השלמים-של-גאוס",
+      "canonical_name": "חוג השלמים של גאוס",
+      "aliases": [
+        "Z[i]"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "פריקות-בחוג-גאוס",
+      "canonical_name": "פריקות ראשוני בחוג גאוס",
+      "aliases": [
+        "p פריק ב-Z[i]"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "סכום-שני-ריבועים",
+      "canonical_name": "ייצוג כסכום שני ריבועים",
+      "aliases": [
+        "p = m^2 + n^2"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "שקילות-1-מודולו-4",
+      "canonical_name": "שקילות ל-1 מודולו 4",
+      "aliases": [
+        "p ≡ 1 (mod 4) או p=2"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch07-rings/01-lecture"
+      ]
+    },
+    {
+      "id": "שדה",
+      "canonical_name": "שדה",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch07-rings/01-lecture",
+        "ch08-fields/01-lecture"
+      ]
+    },
+    {
+      "id": "שדה-השאריות",
+      "canonical_name": "שדה השאריות מודולו ראשוני",
+      "aliases": [
+        "F_p"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch08-fields/01-lecture"
+      ]
+    },
+    {
+      "id": "תחום-שלמות-סופי",
+      "canonical_name": "תחום שלמות סופי",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch08-fields/01-lecture"
+      ]
+    },
+    {
+      "id": "בניית-הרחבת-שדה",
+      "canonical_name": "בניית הרחבת שדה עם שורש",
+      "aliases": [
+        "הרחבת שדה"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch08-fields/01-lecture"
+      ]
+    },
+    {
+      "id": "המטריצה-המצורפת",
+      "canonical_name": "המטריצה המצורפת",
+      "aliases": [
+        "companion matrix",
+        "A_f"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch08-fields/01-lecture",
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "הפולינום-המינימלי",
+      "canonical_name": "הפולינום המינימלי",
+      "aliases": [
+        "m_A",
+        "m_T"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "אידיאל-המאפסים",
+      "canonical_name": "אידיאל הפולינומים המאפסים",
+      "aliases": [
+        "I_A"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "שורש-הפולינום-המינימלי",
+      "canonical_name": "שורש הפולינום המינימלי",
+      "aliases": [
+        "m_T(λ)=0"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "למת-המחלק",
+      "canonical_name": "למת המחלק בפולינום המינימלי",
+      "aliases": [],
+      "type": "lemma",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "הפולינום-המינימלי-מחלק-את-האופייני",
+      "canonical_name": "הפולינום המינימלי מחלק את האופייני",
+      "aliases": [
+        "m∣f∣m^n"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "גורם-אי-פריק-מחלק-את-המינימלי",
+      "canonical_name": "גורם אי-פריק של האופייני מחלק את המינימלי",
+      "aliases": [],
+      "type": "corollary",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "מינימלי-של-מטריצת-בלוקים",
+      "canonical_name": "הפולינום המינימלי של מטריצת בלוקים",
+      "aliases": [
+        "lcm של המינימליים"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "העתקות-מתחלפות",
+      "canonical_name": "העתקות מתחלפות",
+      "aliases": [
+        "TS=ST"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch09-minimal-poly/01-lecture"
+      ]
+    },
+    {
+      "id": "הפירוק-הפרימרי",
+      "canonical_name": "משפט הפירוק הפרימרי",
+      "aliases": [
+        "משפט הפירוק לגרעינים",
+        "פירוק פרימרי"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch09-minimal-poly/01-lecture",
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "פירוק-המינימלי-לגורמים-לינאריים-שונים",
+      "canonical_name": "פירוק המינימלי לגורמים לינאריים שונים",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch09-minimal-poly/01-lecture",
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "הנגזרת-הפורמלית",
+      "canonical_name": "הנגזרת הפורמלית",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "הפולינום-המצומצם",
+      "canonical_name": "הפולינום המצומצם",
+      "aliases": [
+        "f^red"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "איפוס-הפולינום-המצומצם",
+      "canonical_name": "איפוס הפולינום המצומצם",
+      "aliases": [
+        "f^red(A)=0"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "לכסינות-הצמצום",
+      "canonical_name": "לכסינות הצמצום לתת-מרחב שמור",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "מרחב-אי-פריק",
+      "canonical_name": "מרחב אי-פריק",
+      "aliases": [
+        "מרחב פריק",
+        "פריקות"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "נילפוטנטיות",
+      "canonical_name": "נילפוטנטיות",
+      "aliases": [
+        "אינדקס נילפוטנטיות",
+        "העתקה נילפוטנטית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "שרשרת-זורדן",
+      "canonical_name": "שרשרת ז'ורדן",
+      "aliases": [
+        "שרשרת"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "מרחב-ציקלי",
+      "canonical_name": "מרחב ציקלי",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "מרחב-ציקלי-מקסימלי",
+      "canonical_name": "מרחב ציקלי מקסימלי",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-המשלים-הישר",
+      "canonical_name": "משלים ישר שמור לציקלי מקסימלי",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-זורדן-הנילפוטנטי",
+      "canonical_name": "משפט ז'ורדן למקרה הנילפוטנטי",
+      "aliases": [
+        "פירוק לציקליים"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "יחידות-פירוק-זורדן",
+      "canonical_name": "יחידות פירוק ז'ורדן",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "בלוק-זורדן",
+      "canonical_name": "בלוק ז'ורדן אלמנטרי",
+      "aliases": [
+        "J_n(λ)"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "צורת-זורדן",
+      "canonical_name": "צורת ז'ורדן",
+      "aliases": [
+        "מטריצת ז'ורדן"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "המרחב-העצמי-המוכלל",
+      "canonical_name": "המרחב העצמי המוכלל",
+      "aliases": [
+        "Ṽ_λ"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-המרחבים-העצמיים-המוכללים",
+      "canonical_name": "פירוק למרחבים עצמיים מוכללים",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch10-jordan/01-lecture"
+      ]
+    },
+    {
+      "id": "פונקציונל-לינארי",
+      "canonical_name": "פונקציונל לינארי",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture",
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "צורה-בילינארית",
+      "canonical_name": "צורה בילינארית",
+      "aliases": [
+        "תבנית בילינארית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "המטריצה-המייצגת-של-צורה",
+      "canonical_name": "המטריצה המייצגת של צורה בילינארית",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "דרגת-צורה-בילינארית",
+      "canonical_name": "דרגת צורה בילינארית",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "מטריצות-חופפות",
+      "canonical_name": "מטריצות חופפות",
+      "aliases": [
+        "congruent"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "צורה-בילינארית-סימטרית",
+      "canonical_name": "צורה בילינארית סימטרית",
+      "aliases": [
+        "צורה סימטרית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "מטריצה-מייצגת-סימטרית",
+      "canonical_name": "מטריצה מייצגת סימטרית",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "צורה-ריבועית",
+      "canonical_name": "צורה ריבועית",
+      "aliases": [
+        "תבנית ריבועית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "לכסון-צורה-ריבועית",
+      "canonical_name": "לכסון צורה ריבועית על בסיס אורתוגונלי",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "חתימה",
+      "canonical_name": "חתימה",
+      "aliases": [
+        "signature",
+        "(p,q)"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture",
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "חוק-האינרציה-של-סילבסטר",
+      "canonical_name": "חוק האינרציה של סילבסטר",
+      "aliases": [
+        "משפט סילבסטר"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "צורה-מוגדרת-חיובית",
+      "canonical_name": "צורה חיובית לחלוטין",
+      "aliases": [
+        "מוגדרת חיובית",
+        "positive definite",
+        "חיובית למחצה"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "מכפלה-פנימית",
+      "canonical_name": "מכפלה פנימית",
+      "aliases": [
+        "מ\"פ",
+        "מרחב מכפלה פנימית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "נורמה",
+      "canonical_name": "נורמה",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "אי-שוויון-קושי-שוורץ",
+      "canonical_name": "אי-שוויון קושי-שוורץ",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "אי-שוויון-המשולש",
+      "canonical_name": "אי-שוויון המשולש",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "אורתוגונליות",
+      "canonical_name": "אורתוגונליות",
+      "aliases": [
+        "ניצבות",
+        "v⊥u"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-פיתגורס",
+      "canonical_name": "משפט פיתגורס",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "בסיס-אורתונורמלי",
+      "canonical_name": "בסיס אורתונורמלי",
+      "aliases": [
+        "בסיס א\"נ",
+        "ONB",
+        "קבוצה אורתוגונלית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture",
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "הטלה-אורתוגונלית",
+      "canonical_name": "הטלה אורתוגונלית",
+      "aliases": [
+        "הקירוב הטוב ביותר",
+        "P_U"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "אלגוריתם-גרם-שמידט",
+      "canonical_name": "אלגוריתם גרם-שמידט",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch11-inner-product/01-lecture"
+      ]
+    },
+    {
+      "id": "צמודה-לעצמה",
+      "canonical_name": "העתקה צמודה לעצמה",
+      "aliases": [
+        "סימטרית",
+        "הרמיטית"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "מטריצה-צמודה-לעצמה",
+      "canonical_name": "מטריצה צמודה לעצמה",
+      "aliases": [
+        "A=A*",
+        "מטריצה סימטרית"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "העתקה-חיובית",
+      "canonical_name": "העתקה חיובית",
+      "aliases": [
+        "אי-שלילית",
+        "אופרטור חיובי"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch12-spectral/01-lecture",
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "הפיכות",
+      "canonical_name": "הפיכות",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "פולינום-חיובי",
+      "canonical_name": "פולינום חיובי",
+      "aliases": [
+        "p(x)>0 לכל x"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "המשפט-הספקטרלי",
+      "canonical_name": "המשפט הספקטרלי",
+      "aliases": [
+        "משפט ספקטרלי"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch12-spectral/01-lecture",
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "בסיס-אורתונורמלי-של-וקטורים-עצמיים",
+      "canonical_name": "בסיס אורתונורמלי של וקטורים עצמיים",
+      "aliases": [
+        "לכסון אוניטרי"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "ערכים-עצמיים-ממשיים",
+      "canonical_name": "ערכים עצמיים ממשיים",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "ניצבות-וקטורים-עצמיים",
+      "canonical_name": "ניצבות וקטורים עצמיים מערכים עצמיים שונים",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "אנטי-סימטרית",
+      "canonical_name": "העתקה אנטי-סימטרית",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "נורמליות",
+      "canonical_name": "העתקה נורמלית",
+      "aliases": [
+        "נורמליות",
+        "TT*=T*T"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "ההעתקה-הצמודה",
+      "canonical_name": "ההעתקה הצמודה",
+      "aliases": [
+        "T*"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "משפט-ריס",
+      "canonical_name": "משפט ריס",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "הצמודה-כפולינום",
+      "canonical_name": "הצמודה כפולינום בהעתקה",
+      "aliases": [
+        "A*=f(A)"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "שמירת-המשלים-הניצב",
+      "canonical_name": "שמירת המשלים הניצב",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "אוניטריות",
+      "canonical_name": "העתקה אוניטרית",
+      "aliases": [
+        "אורתוגונלית",
+        "T*=T^{-1}"
+      ],
+      "type": "definition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "שימור-המכפלה-הפנימית",
+      "canonical_name": "שימור המכפלה הפנימית",
+      "aliases": [],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "שימור-הנורמה",
+      "canonical_name": "שימור הנורמה",
+      "aliases": [
+        "איזומטריה"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "ערכים-עצמיים-על-מעגל-היחידה",
+      "canonical_name": "ערכים עצמיים על מעגל היחידה",
+      "aliases": [
+        "|λ|=1"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "הצורה-הקנונית-האורתוגונלית",
+      "canonical_name": "הצורה הקנונית של העתקה אורתוגונלית",
+      "aliases": [
+        "בלוקי סיבוב"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch12-spectral/01-lecture"
+      ]
+    },
+    {
+      "id": "אפיון-חיוביות-דרך-ערכים-עצמיים",
+      "canonical_name": "אפיון חיוביות דרך ערכים עצמיים",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "ערכים-עצמיים-חיוביים",
+      "canonical_name": "ערכים עצמיים חיוביים",
+      "aliases": [
+        "ערכים עצמיים אי-שליליים"
+      ],
+      "type": "condition",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "חתימה-דרך-ערכים-עצמיים",
+      "canonical_name": "חתימה דרך ערכים עצמיים",
+      "aliases": [],
+      "type": "theorem",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "שורש-ריבועי-של-העתקה",
+      "canonical_name": "שורש ריבועי של העתקה אי-שלילית",
+      "aliases": [
+        "√T"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "פירוק-פולארי",
+      "canonical_name": "פירוק פולארי",
+      "aliases": [
+        "T=UR"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "ערכים-סינגולריים",
+      "canonical_name": "ערכים סינגולריים",
+      "aliases": [],
+      "type": "definition",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "למת-שוויון-הערכים-העצמיים",
+      "canonical_name": "שוויון הערכים העצמיים של T*T ו-TT*",
+      "aliases": [],
+      "type": "lemma",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    },
+    {
+      "id": "פירוק-SVD",
+      "canonical_name": "פירוק לערכים סינגולריים",
+      "aliases": [
+        "SVD",
+        "A=UDV"
+      ],
+      "type": "theorem",
+      "sources": [
+        "ch13-polar-decomposition/01-lecture"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "ערך-עצמי-אפס",
+      "to": "אינה-חחע",
+      "type": "iff",
+      "source_file": "ch01-eigenvalues/02-tirgul",
+      "description": "ל-T יש ע\"ע 0 אם ורק אם T אינה חח\"ע"
+    },
+    {
+      "from": "וקטורים-עצמיים-עם-ערכים-עצמיים-שונים-בתל",
+      "to": "השערת-ארדש",
+      "type": "if",
+      "source_file": "ch01-eigenvalues/02-tirgul",
+      "description": "משמש בהוכחת ההשערה"
+    },
+    {
+      "from": "ערכים-עצמיים-של-מסלול-מחזורי",
+      "to": "שורש-יחידה",
+      "type": "iff",
+      "source_file": "ch01-eigenvalues/02-tirgul",
+      "description": "כל ע\"ע של הצמצום הוא שורש יחידה מסדר n ולהפך"
+    },
+    {
+      "from": "n-ערכים-עצמיים-שונים",
+      "to": "לכסינות",
+      "type": "if",
+      "source_file": "ch02-diagonalization/01-lecture",
+      "description": "מסקנה 2.2"
+    },
+    {
+      "from": "לכסינות",
+      "to": "סכום-הריבויים-הגיאומטריים-שווה-למימד",
+      "type": "iff",
+      "source_file": "ch02-diagonalization/01-lecture",
+      "description": "מסקנה 2.4"
+    },
+    {
+      "from": "וקטורים-עצמיים-עם-ערכים-עצמיים-שונים-בתל",
+      "to": "איחוד-בסיסים-של-מרחבים-עצמיים-בתל",
+      "type": "if",
+      "source_file": "ch02-diagonalization/01-lecture",
+      "description": "מסקנה 2.3 מכלילה את משפט 1.8"
+    },
+    {
+      "from": "וקטור-עצמי-של-מטריצה",
+      "to": "וקטור-עצמי",
+      "type": "iff",
+      "source_file": "ch03-matrix-eigenvalues/01-lecture",
+      "description": "משפט 3.3: דרך המטריצה המייצגת"
+    },
+    {
+      "from": "לכסינות-מטריצה",
+      "to": "לכסינות",
+      "type": "iff",
+      "source_file": "ch03-matrix-eigenvalues/01-lecture",
+      "description": "מסקנה 3.6"
+    },
+    {
+      "from": "ערך-עצמי",
+      "to": "שורש-הפולינום-האופייני",
+      "type": "iff",
+      "source_file": "ch04-characteristic-poly/01-lecture",
+      "description": "משפט 3.8 (מטריצות) ומשפט 4.4 (העתקות)"
+    },
+    {
+      "from": "מטריצות-דומות",
+      "to": "הפולינום-האופייני",
+      "type": "if",
+      "source_file": "ch04-characteristic-poly/01-lecture",
+      "description": "למטריצות דומות אותו פולינום אופייני (משפט 4.2)"
+    },
+    {
+      "from": "הריבוי-הגיאומטרי",
+      "to": "הריבוי-האלגברי",
+      "type": "if",
+      "source_file": "ch04-characteristic-poly/01-lecture",
+      "description": "r_g(λ) ≤ r_a(λ) (טענה 4.9)"
+    },
+    {
+      "from": "לכסינות",
+      "to": "התפצלות-הפולינום-האופייני",
+      "type": "if",
+      "source_file": "ch04-characteristic-poly/01-lecture",
+      "description": "תנאי הכרחי (משפט 4.10)"
+    },
+    {
+      "from": "לכסינות",
+      "to": "שוויון-ריבויים",
+      "type": "iff",
+      "source_file": "ch04-characteristic-poly/01-lecture",
+      "description": "בהינתן שהפולינום האופייני מתפצל (משפט 4.10)"
+    },
+    {
+      "from": "משפט-פרמה-הקטן",
+      "to": "מחזוריות-פיבונאצי-מודולו-ראשוני",
+      "type": "if",
+      "source_file": "ch05-triangulation/01-lecture",
+      "description": "משמש בהוכחת טענה 5.2"
+    },
+    {
+      "from": "חוק-ההדדיות-הריבועית",
+      "to": "מחזוריות-פיבונאצי-מודולו-ראשוני",
+      "type": "if",
+      "source_file": "ch05-triangulation/01-lecture",
+      "description": "מבטיח התפצלות הפולינום האופייני מודולו p"
+    },
+    {
+      "from": "שילוש",
+      "to": "התפצלות-הפולינום-האופייני",
+      "type": "iff",
+      "source_file": "ch05-triangulation/01-lecture",
+      "description": "משפט 5.4 + התנאי ההכרחי"
+    },
+    {
+      "from": "הפולינום-האופייני",
+      "to": "פולינום-מאפס",
+      "type": "if",
+      "source_file": "ch06-cayley-hamilton/01-lecture",
+      "description": "משפט קיילי-המילטון: f_T(T)=0"
+    },
+    {
+      "from": "משפט-קיילי-המילטון",
+      "to": "הפולינום-המינימלי-מחלק-את-האופייני",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "m_A ∣ f_A נובע מקיילי-המילטון"
+    },
+    {
+      "from": "מטריצות-דומות",
+      "to": "פולינום-מאפס",
+      "type": "if",
+      "source_file": "ch06-cayley-hamilton/01-lecture",
+      "description": "f(C)=0 ⟺ f(A)=0 למטריצות דומות (מסקנה 6.8)"
+    },
+    {
+      "from": "תחום-שלמות",
+      "to": "חוג",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "כל תחום שלמות הוא חוג"
+    },
+    {
+      "from": "תחום-שלמות",
+      "to": "כלל-הצמצום",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "טענה 7.2"
+    },
+    {
+      "from": "שדה",
+      "to": "תחום-שלמות",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "כל שדה הוא תחום שלמות (דוגמה 7.3)"
+    },
+    {
+      "from": "חוג-הפולינומים",
+      "to": "תחום-שלמות",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "F[x] תחום שלמות"
+    },
+    {
+      "from": "חלוקה-עם-שארית",
+      "to": "חסם-על-מספר-השורשים",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "מסקנה 7.5"
+    },
+    {
+      "from": "יחס-החלוקה",
+      "to": "חברות",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "a∣b וגם b∣a גורר a∼b (טענה 7.11)"
+    },
+    {
+      "from": "איבר-ראשוני",
+      "to": "איבר-אי-פריק",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "טענה 7.15; הכיוון ההפוך לא תמיד נכון"
+    },
+    {
+      "from": "איבר-אי-פריק",
+      "to": "איבר-ראשוני",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "בתחום ראשי (משפט 7.22)"
+    },
+    {
+      "from": "תחום-ראשי",
+      "to": "פריקות-חד-ערכית",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "מסקנה 7.23"
+    },
+    {
+      "from": "תחום-ראשי",
+      "to": "מחלק-משותף-גדול-ביותר",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "קיום gcd מהצורה ra+sb (משפט 7.24)"
+    },
+    {
+      "from": "חוג-הפולינומים",
+      "to": "תחום-ראשי",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "משפט 7.26"
+    },
+    {
+      "from": "תחום-אוקלידי",
+      "to": "תחום-ראשי",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "הערה 7.30"
+    },
+    {
+      "from": "חוג-השלמים-של-גאוס",
+      "to": "תחום-אוקלידי",
+      "type": "if",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "אוקלידי ביחס לנורמה N(a+bi)=a²+b²"
+    },
+    {
+      "from": "פריקות-בחוג-גאוס",
+      "to": "סכום-שני-ריבועים",
+      "type": "iff",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "משפט 7.32"
+    },
+    {
+      "from": "סכום-שני-ריבועים",
+      "to": "שקילות-1-מודולו-4",
+      "type": "iff",
+      "source_file": "ch07-rings/01-lecture",
+      "description": "משפט 7.32"
+    },
+    {
+      "from": "תחום-שלמות-סופי",
+      "to": "שדה",
+      "type": "if",
+      "source_file": "ch08-fields/01-lecture",
+      "description": "כל תחום שלמות סופי הוא שדה (הערה 8.2)"
+    },
+    {
+      "from": "שדה-השאריות",
+      "to": "שדה",
+      "type": "if",
+      "source_file": "ch08-fields/01-lecture",
+      "description": "F_p שדה כאשר p ראשוני (משפט 8.1)"
+    },
+    {
+      "from": "המטריצה-המצורפת",
+      "to": "בניית-הרחבת-שדה",
+      "type": "if",
+      "source_file": "ch08-fields/01-lecture",
+      "description": "משמשת בבניית ההרחבה K={p(A_f)}"
+    },
+    {
+      "from": "המטריצה-המצורפת",
+      "to": "הפולינום-המינימלי",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "m_{A_f}=f (משפט 9.7)"
+    },
+    {
+      "from": "אידיאל-המאפסים",
+      "to": "אידיאל",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "I_A הוא אידיאל ב-F[x]"
+    },
+    {
+      "from": "אידיאל-המאפסים",
+      "to": "הפולינום-המינימלי",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "היוצר המתוקן בעל הדרגה המינימלית"
+    },
+    {
+      "from": "ערך-עצמי",
+      "to": "שורש-הפולינום-המינימלי",
+      "type": "iff",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "משפט 9.17"
+    },
+    {
+      "from": "מטריצות-דומות",
+      "to": "הפולינום-המינימלי",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "מטריצות דומות בעלות אותו פולינום מינימלי (מסקנה 9.9)"
+    },
+    {
+      "from": "לכסינות",
+      "to": "פירוק-המינימלי-לגורמים-לינאריים-שונים",
+      "type": "iff",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "מסקנה 10.11 (כיוונים: מסקנה 9.10 ומסקנה 10.5)"
+    },
+    {
+      "from": "הפולינום-המינימלי-מחלק-את-האופייני",
+      "to": "גורם-אי-פריק-מחלק-את-המינימלי",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "מסקנה 9.21"
+    },
+    {
+      "from": "העתקות-מתחלפות",
+      "to": "תת-מרחב-שמור",
+      "type": "if",
+      "source_file": "ch09-minimal-poly/01-lecture",
+      "description": "אם TS=ST אז Im(S) ו-ker(S) שמורי T (משפט 9.24)"
+    },
+    {
+      "from": "הפירוק-הפרימרי",
+      "to": "משפט-המרחבים-העצמיים-המוכללים",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "V=⊕Ṽ_λ נובע מהפירוק הפרימרי"
+    },
+    {
+      "from": "המרחב-העצמי",
+      "to": "המרחב-העצמי-המוכלל",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "V_λ ⊆ Ṽ_λ"
+    },
+    {
+      "from": "הפולינום-המצומצם",
+      "to": "הפולינום-המינימלי",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "f^red ∣ m_A; שוויון אמ\"מ לכסינה (למה 10.9)"
+    },
+    {
+      "from": "לכסינות-מטריצה",
+      "to": "איפוס-הפולינום-המצומצם",
+      "type": "iff",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "משפט 10.8, מעל שדה סגור אלגברית"
+    },
+    {
+      "from": "לכסינות",
+      "to": "לכסינות-הצמצום",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "צמצום של לכסינה לתת-מרחב שמור לכסין (טענה 10.12)"
+    },
+    {
+      "from": "נילפוטנטיות",
+      "to": "שרשרת-זורדן",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "שרשרת של נילפוטנטית בת\"ל (טענה 10.20)"
+    },
+    {
+      "from": "מרחב-ציקלי",
+      "to": "מרחב-אי-פריק",
+      "type": "iff",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "לנילפוטנטית (מסקנות 10.26 ו-10.34)"
+    },
+    {
+      "from": "משפט-המשלים-הישר",
+      "to": "משפט-זורדן-הנילפוטנטי",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "אבן הבניין של הפירוק לציקליים"
+    },
+    {
+      "from": "מרחב-ציקלי-מקסימלי",
+      "to": "משפט-המשלים-הישר",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "לכל ציקלי מקסימלי קיים משלים ישר שמור (משפט 10.32)"
+    },
+    {
+      "from": "משפט-זורדן-הנילפוטנטי",
+      "to": "צורת-זורדן",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "המקרה הנילפוטנטי של משפט ז'ורדן"
+    },
+    {
+      "from": "יחידות-פירוק-זורדן",
+      "to": "צורת-זורדן",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "הצורה יחידה עד כדי סדר הבלוקים (משפט 10.37)"
+    },
+    {
+      "from": "צורת-זורדן",
+      "to": "בלוק-זורדן",
+      "type": "if",
+      "source_file": "ch10-jordan/01-lecture",
+      "description": "הצורה מורכבת מבלוקים אלמנטריים J_n(λ)"
+    },
+    {
+      "from": "צורה-בילינארית-סימטרית",
+      "to": "מטריצה-מייצגת-סימטרית",
+      "type": "iff",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "משפט 11.19"
+    },
+    {
+      "from": "מטריצות-חופפות",
+      "to": "דרגת-צורה-בילינארית",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "הדרגה אינווריאנטית לחפיפה (טענה 11.17)"
+    },
+    {
+      "from": "צורה-ריבועית",
+      "to": "צורה-בילינארית-סימטרית",
+      "type": "iff",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "התאמה הפיכה כאשר char(F)≠2 (משפט 12.3)"
+    },
+    {
+      "from": "צורה-בילינארית-סימטרית",
+      "to": "לכסון-צורה-ריבועית",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "לכל סימטרית קיים בסיס מלכסן (משפט 12.5)"
+    },
+    {
+      "from": "חוק-האינרציה-של-סילבסטר",
+      "to": "חתימה",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "החתימה אינווריאנט של הצורה"
+    },
+    {
+      "from": "מכפלה-פנימית",
+      "to": "צורה-בילינארית",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "מ\"פ ממשית היא צורה בילינארית סימטרית חיובית לחלוטין"
+    },
+    {
+      "from": "מכפלה-פנימית",
+      "to": "צורה-מוגדרת-חיובית",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "חיוביות לחלוטין היא חלק מההגדרה"
+    },
+    {
+      "from": "מכפלה-פנימית",
+      "to": "אי-שוויון-קושי-שוורץ",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "מתקיים בכל מרחב מ\"פ (טענה 13.12)"
+    },
+    {
+      "from": "אי-שוויון-קושי-שוורץ",
+      "to": "אי-שוויון-המשולש",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "משמש בהוכחת אי-שוויון המשולש"
+    },
+    {
+      "from": "אורתוגונליות",
+      "to": "משפט-פיתגורס",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "v⊥u גורר ‖v+u‖²=‖v‖²+‖u‖²"
+    },
+    {
+      "from": "מכפלה-פנימית",
+      "to": "בסיס-אורתונורמלי",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "כל מ\"פ ממימד סופי מכיל בסיס א\"נ (טענה 13.26)"
+    },
+    {
+      "from": "אלגוריתם-גרם-שמידט",
+      "to": "בסיס-אורתונורמלי",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "האלגוריתם מייצר בסיס א\"נ מכל בסיס"
+    },
+    {
+      "from": "בסיס-אורתונורמלי",
+      "to": "הטלה-אורתוגונלית",
+      "type": "if",
+      "source_file": "ch11-inner-product/01-lecture",
+      "description": "נוסחת ההטלה נתונה דרך בסיס א\"נ (טענה 13.28)"
+    },
+    {
+      "from": "צמודה-לעצמה",
+      "to": "מטריצה-צמודה-לעצמה",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "ביחס לבסיס א\"נ (מסקנה 15.5)"
+    },
+    {
+      "from": "העתקה-חיובית",
+      "to": "הפיכות",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "הערה 14.5"
+    },
+    {
+      "from": "פולינום-חיובי",
+      "to": "העתקה-חיובית",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "p חיובי ו-T צמודה לעצמה גוררים p(T) חיובית (מסקנה 14.7)"
+    },
+    {
+      "from": "צמודה-לעצמה",
+      "to": "בסיס-אורתונורמלי-של-וקטורים-עצמיים",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "F=ℝ: משפט 14.13 והכיוון ההפוך 14.17"
+    },
+    {
+      "from": "נורמליות",
+      "to": "בסיס-אורתונורמלי-של-וקטורים-עצמיים",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "F=ℂ: משפט 14.23/14.40 ומסקנה 14.35"
+    },
+    {
+      "from": "בסיס-אורתונורמלי-של-וקטורים-עצמיים",
+      "to": "לכסינות",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "בסיס א\"נ של ו\"ע הוא בפרט בסיס מלכסן"
+    },
+    {
+      "from": "צמודה-לעצמה",
+      "to": "ערכים-עצמיים-ממשיים",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "למה 14.15"
+    },
+    {
+      "from": "מטריצה-צמודה-לעצמה",
+      "to": "ערכים-עצמיים-ממשיים",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "עבור מטריצה נורמלית (משפט 16.17)"
+    },
+    {
+      "from": "צמודה-לעצמה",
+      "to": "ניצבות-וקטורים-עצמיים",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "ו\"ע מע\"ע שונים ניצבים (טענה 14.14)"
+    },
+    {
+      "from": "נורמליות",
+      "to": "ניצבות-וקטורים-עצמיים",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "טענה 14.44"
+    },
+    {
+      "from": "אנטי-סימטרית",
+      "to": "ערך-עצמי-אפס",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "הע\"ע הממשי היחיד של אנטי-סימטרית הוא 0 (הערה 14.19)"
+    },
+    {
+      "from": "משפט-ריס",
+      "to": "ההעתקה-הצמודה",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "קיום הצמודה נובע ממשפט ריס"
+    },
+    {
+      "from": "נורמליות",
+      "to": "הצמודה-כפולינום",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "A*=f(A) לנורמלית (משפט 15.6)"
+    },
+    {
+      "from": "נורמליות",
+      "to": "שמירת-המשלים-הניצב",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "לנורמלית: U שמור גורר U^⊥ שמור (משפט 15.16)"
+    },
+    {
+      "from": "אוניטריות",
+      "to": "שימור-המכפלה-הפנימית",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "משפט 16.4"
+    },
+    {
+      "from": "אוניטריות",
+      "to": "שימור-הנורמה",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "משפט 16.4"
+    },
+    {
+      "from": "שימור-המכפלה-הפנימית",
+      "to": "שימור-הנורמה",
+      "type": "iff",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "שקילות בתוך משפט 16.4"
+    },
+    {
+      "from": "אוניטריות",
+      "to": "ערכים-עצמיים-על-מעגל-היחידה",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "טענה 16.6; לנורמלית זו שקילות (משפט 16.17)"
+    },
+    {
+      "from": "אוניטריות",
+      "to": "הצורה-הקנונית-האורתוגונלית",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "מסקנה 16.12"
+    },
+    {
+      "from": "אוניטריות",
+      "to": "נורמליות",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "T*T=TT*=I"
+    },
+    {
+      "from": "צמודה-לעצמה",
+      "to": "נורמליות",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "צמודה לעצמה מתחלפת עם עצמה"
+    },
+    {
+      "from": "המשפט-הספקטרלי",
+      "to": "בסיס-אורתונורמלי-של-וקטורים-עצמיים",
+      "type": "if",
+      "source_file": "ch12-spectral/01-lecture",
+      "description": "תוכן המשפט"
+    },
+    {
+      "from": "העתקה-חיובית",
+      "to": "ערכים-עצמיים-חיוביים",
+      "type": "iff",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "משפט 17.2"
+    },
+    {
+      "from": "המשפט-הספקטרלי",
+      "to": "חתימה-דרך-ערכים-עצמיים",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "משפט 17.3 נובע מהמשפט הספקטרלי"
+    },
+    {
+      "from": "חתימה-דרך-ערכים-עצמיים",
+      "to": "חתימה",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "החתימה נקראת מסימני הע\"ע"
+    },
+    {
+      "from": "המשפט-הספקטרלי",
+      "to": "שורש-ריבועי-של-העתקה",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "הקיום מוכח דרך המשפט הספקטרלי (טענה 17.4)"
+    },
+    {
+      "from": "שורש-ריבועי-של-העתקה",
+      "to": "פירוק-פולארי",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "R=√(T*T) (משפט 18.1)"
+    },
+    {
+      "from": "פירוק-פולארי",
+      "to": "ערכים-סינגולריים",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "הע\"ע של R בפירוק הפולארי"
+    },
+    {
+      "from": "פירוק-פולארי",
+      "to": "פירוק-SVD",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "SVD מתקבל מפירוק פולארי + המשפט הספקטרלי (משפט 18.6)"
+    },
+    {
+      "from": "המשפט-הספקטרלי",
+      "to": "פירוק-SVD",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "משמש בבניית הפירוק"
+    },
+    {
+      "from": "למת-שוויון-הערכים-העצמיים",
+      "to": "ערכים-סינגולריים",
+      "type": "if",
+      "source_file": "ch13-polar-decomposition/01-lecture",
+      "description": "ל-T*T ול-TT* אותם ע\"ע (למה 18.4)"
+    }
+  ],
+  "built_at": "2026-07-04T18:28:03.153018+00:00",
+  "source_files_processed": [
+    "ch01-eigenvalues/01-lecture",
+    "ch01-eigenvalues/02-tirgul",
+    "ch02-diagonalization/01-lecture",
+    "ch02-diagonalization/02-tirgul",
+    "ch03-matrix-eigenvalues/01-lecture",
+    "ch03-matrix-eigenvalues/02-tirgul",
+    "ch04-characteristic-poly/01-lecture",
+    "ch04-characteristic-poly/02-tirgul",
+    "ch05-triangulation/01-lecture",
+    "ch05-triangulation/02-tirgul",
+    "ch06-cayley-hamilton/01-lecture",
+    "ch06-cayley-hamilton/02-tirgul",
+    "ch07-rings/01-lecture",
+    "ch07-rings/02-tirgul",
+    "ch08-fields/01-lecture",
+    "ch08-fields/02-tirgul",
+    "ch09-minimal-poly/01-lecture",
+    "ch09-minimal-poly/02-tirgul",
+    "ch10-jordan/01-lecture",
+    "ch10-jordan/02-tirgul",
+    "ch11-inner-product/01-lecture",
+    "ch11-inner-product/02-tirgul",
+    "ch12-spectral/01-lecture",
+    "ch12-spectral/02-tirgul",
+    "ch13-polar-decomposition/01-lecture",
+    "ch13-polar-decomposition/02-tirgul"
+  ]
+}
