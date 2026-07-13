@@ -1,7 +1,39 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(Test-Path *)"
+      "PowerShell(Test-Path *)",
+      "Bash(git checkout *)",
+      "Bash(git apply *)",
+      "Bash(git add *)",
+      "Bash(git cherry-pick *)",
+      "PowerShell(git *)",
+      "Bash(git -C C:/Users/itama/code/la2-course show vault/ch10-jordan/correction:vault/ch10-jordan/01-lecture.md)",
+      "Bash(git -C C:/Users/itama/code/la2-course show vault/ch11-inner-product/correction:vault/ch11-inner-product/01-lecture.md)",
+      "Bash(git -C C:/Users/itama/code/university add 'linear algebra 2a/vault/ch10-jordan/01-lecture.md' 'linear algebra 2a/vault/ch11-inner-product/01-lecture.md')",
+      "Bash(git -C C:/Users/itama/code/university diff --cached --stat)",
+      "Bash(git -C C:/Users/itama/code/university restore --staged 'linear algebra 2a/vault/ch11-inner-product/01-lecture.md')",
+      "Bash(git -C C:/Users/itama/code/university commit -m 'correction: ch10 add Remark 10.13 + MOC status updates')",
+      "Bash(git -C C:/Users/itama/code/university checkout vault/ch11-inner-product/correction)",
+      "Bash(git -C C:/Users/itama/code/university add 'linear algebra 2a/vault/ch11-inner-product/01-lecture.md')",
+      "Bash(git -C C:/Users/itama/code/university commit -m 'correction: ch11 add missing examples and remarks')",
+      "Bash(git -C C:/Users/itama/code/university checkout vault/ch10-jordan/nd-proofs)",
+      "Bash(git -C C:/Users/itama/code/la2-course show vault/ch10-jordan/nd-proofs:vault/ch10-jordan/01-lecture.md)",
+      "Bash(git -C C:/Users/itama/code/university add 'linear algebra 2a/vault/ch10-jordan/01-lecture.md')",
+      "Bash(git -C C:/Users/itama/code/university checkout vault/ch11-inner-product/nd-proofs)",
+      "Bash(git -C C:/Users/itama/code/la2-course show vault/ch11-inner-product/nd-proofs:vault/ch11-inner-product/01-lecture.md)",
+      "Bash(git *)",
+      "PowerShell(gh pr *)",
+      "PowerShell(git ls-remote *)",
+      "PowerShell(git fetch *)",
+      "PowerShell(git for-each-ref refs/heads/vault --format=\"%\\(refname:short\\)\" | ForEach-Object { $counts = git rev-list --left-right --count \"$_...origin/$_\" 2>$null; \"{0}: ahead/behind = {1}\" -f $_, \\($counts -replace \"`t\", \"/\"\\) })",
+      "PowerShell(git for-each-ref refs/heads/vault --format=\"%\\(refname:short\\)\" | ForEach-Object { $diff = git diff --stat \"origin/$_\" $_ -- vault/ 2>$null; if \\($diff\\) { \"DIFFERS: $_\"; $diff | Select-Object -Last 1 } else { \"same: $_\" } })",
+      "PowerShell(git ls-tree *)",
+      "PowerShell($prs = gh pr list --state open --limit 30 --json number,title,body | ConvertFrom-Json; foreach \\($pr in \\($prs | Sort-Object number\\)\\) { \"### PR $\\($pr.number\\): $\\($pr.title\\)\"; $bodyPreview = $pr.body.Substring\\(0, [Math]::Min\\(300, $pr.body.Length\\)\\); $bodyPreview; \"---\" })",
+      "PowerShell(& \"C:\\\\Users\\\\itama\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-itama-code-la2-course\\\\cdc48af7-b798-4411-932d-e2f90366e7c1\\\\scratchpad\\\\update_pr_bodies.ps1\")",
+      "PowerShell(python \"C:\\\\Users\\\\itama\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-itama-code-la2-course\\\\cdc48af7-b798-4411-932d-e2f90366e7c1\\\\scratchpad\\\\bootstrap_index.py\")",
+      "PowerShell(python scripts\\\\build_concept_graph.py --from-index)",
+      "PowerShell(Get-Content GOAL-VAULT-COMPLETION.md -TotalCount 15; '---'; Get-Content GOAL-VAULT-COMPLETION-SHORT.md -TotalCount 10; '---'; Get-Content scripts\\\\fable_concept_graph_prompt.md -TotalCount 10)",
+      "PowerShell(Get-ChildItem vault\\\\.obsidian\\\\plugins\\\\obsidian-git | Select-Object Name, Length; git check-ignore -v \\(Get-ChildItem vault\\\\.obsidian\\\\plugins\\\\obsidian-git | ForEach-Object { \"vault/.obsidian/plugins/obsidian-git/$\\($_.Name\\)\" }\\))"
     ]
   }
 }
