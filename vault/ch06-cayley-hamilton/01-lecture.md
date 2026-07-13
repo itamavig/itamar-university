@@ -57,6 +57,14 @@ tags: [la2, lecture, ch06-cayley-hamilton]
 > $$AC = [TS]_B, \quad A + C = [T+S]_B, \quad \alpha A = [\alpha T]_B.$$
 > לכן בהצבת פולינום שומרים על הייצוג. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Claim 6.5)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $A = [T]_B$, $f(x) = \sum_{i=0}^n a_i x^i \in F[x]$ | Given |
+> | 2 | $[T^k]_B = A^k$ for all $k \ge 0$ | Matrix multiplication represents composition; $[I]_B = I$ |
+> | 3 | $[\alpha T]_B = \alpha A$ for all $\alpha \in F$ | Scalar multiple representation |
+> | 4 | $[f(T)]_B = \left[\sum_{i=0}^n a_i T^i\right]_B = \sum_{i=0}^n a_i [T^i]_B = \sum_{i=0}^n a_i A^i = f(A)$ | Steps 2, 3 and linearity of $[\cdot]_B$ $\square$ |
+
 ---
 
 ## טענה 6.7 — תכונות בסיסיות
@@ -78,6 +86,15 @@ tags: [la2, lecture, ch06-cayley-hamilton]
 > $A, C$ דומות אם ורק אם הן מייצגות את אותה ט"ל $T$ מעל בסיסים שונים, ואז:
 > $$f(C) = 0 \iff f(T) = 0 \iff f(A) = 0.$$
 > (דרך ישירה: אם $C = P^{-1}AP$ אז $f(C) = P^{-1}f(A)P$.) $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Corollary 6.8)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $A, C$ are similar matrices | Given |
+> | 2 | $A, C$ represent the same linear map $T$ w.r.t. different bases | Definition of similar matrices |
+> | 3 | $f(C) = 0 \iff f(T) = 0$ | Claim 6.5: $[f(T)]_{B_1} = f(C)$ |
+> | 4 | $f(A) = 0 \iff f(T) = 0$ | Claim 6.5: $[f(T)]_{B_2} = f(A)$ |
+> | 5 | $f(C) = 0 \iff f(A) = 0$ $\square$ | Steps 3, 4 (transitivity) |
 
 ---
 
@@ -113,6 +130,33 @@ tags: [la2, lecture, ch06-cayley-hamilton]
 > **שלב 3: מטריצה כללית.**
 >
 > לא כל פולינום אופייני מתפצל מעל $F$, ולכן $A$ לא בהכרח דומה למשולשית מעל $F$. אולם, לכל שדה $F$ ולכל $f \in F[x]$ קיים הרחבת שדה $F \subseteq K$ כך ש-$f$ מתפצל מעל $K$ (למשל $K = \mathbb{C}$ עבור $F = \mathbb{R}$). על $A \in M_n(F)$ מסתכלים כעל מטריצה ב-$M_n(K)$: הפ"א לא השתנה, ומעל $K$ הוא מתפצל, ולכן $A$ דומה למשולשית מעל $K$. משלב 2 מעל $K$: $f_A(A) = 0$ (אי-שוויון במטריצות עם ערכים ב-$F \subseteq K$). $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 6.9, Cayley-Hamilton, Step 1: triangulizable T)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $T$ is triangulizable with basis $B = \{v_1,\ldots,v_{n+1}\}$; $f_T(x) = \prod_{i=1}^{n+1}(x-\lambda_i)$ | Given for Step 1 |
+> | 2 | $\forall i: T(v_i)\in \mathrm{Sp}\{v_1,\ldots,v_i\}$ | Definition of triangular basis |
+> | 3 | $W = \mathrm{Sp}\{v_1,\ldots,v_n\}$ is $T$-invariant | Step 2 with $i\le n$ |
+> | 4 | Restriction $T_W: W\to W$ is triangulizable; $f_{T_W}(x)=\prod_{i=1}^n(x-\lambda_i)$ | Step 3 + triangular block structure |
+> | 5 | By IH: $\prod_{i=1}^n(T_W-\lambda_i I)(w)=0$ for all $w\in W$ | IH on $\dim W = n$, Step 4 |
+> | 6 | $(T-\lambda_{n+1}I)(v_i)\in W$ for $1\le i\le n$ | $T(v_i)\in W$ (Step 3), $\lambda_{n+1}v_i\in W$ |
+> | 7 | $(T-\lambda_{n+1}I)(v_{n+1}) = \sum_{i=1}^n\alpha_i v_i\in W$ | Triangular condition: $T(v_{n+1})=\sum\alpha_iv_i+\lambda_{n+1}v_{n+1}$ |
+> | 8 | $(T-\lambda_{n+1}I)(v)\in W$ for all $v\in V$ | Steps 6, 7 + linearity |
+> | 9 | $\prod_{i=1}^{n+1}(T-\lambda_i I)(v)=0$ for all $v\in V$ | Steps 5, 8: apply Step 5 after Step 8 |
+> | 10 | $f_T(T) = 0$ $\square$ | Step 9 |
+
+> [!proof]+ Natural Deduction — Proof 2 (Theorem 6.9, Steps 2–3: general matrix)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $A\in M_n(F)$ is upper triangular | Step 2 hypothesis |
+> | 2 | $T_A: F^n\to F^n$ is triangulizable (w.r.t. standard basis) | Step 1 |
+> | 3 | $f_A(A) = 0$ for triangular $A$ | Step 1 of proof (Proof 1 above) applied to $T_A$ |
+> | 4 | If $A\sim C$ (similar to triangular): $f_A=f_C$ and $f_C(C)=0$ | Step 3 + similar matrices share char poly |
+> | 5 | $f_A(A)=0$ for $A$ similar to triangular | Step 4 + Corollary 6.8 |
+> | 6 | For general $A\in M_n(F)$: $\exists$ extension $F\subseteq K$ over which $f_A$ splits | Algebraic closure (proved later) |
+> | 7 | $A\in M_n(K)$ is similar to upper triangular $C\in M_n(K)$ | Step 6 + Theorem 5.4 |
+> | 8 | $f_A(A)=0$ holds over $M_n(K)$ | Steps 5, 7 |
+> | 9 | $f_A(A)=0$ holds over $M_n(F)$ $\square$ | Step 8: all matrix entries lie in $F\subseteq K$ |
 
 ---
 
