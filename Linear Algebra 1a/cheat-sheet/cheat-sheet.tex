@@ -1,0 +1,500 @@
+\documentclass[fleqn]{article}
+
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\setlength{\mathindent}{0pt}
+\setlist{nosep}
+
+\begin{document}
+\raggedright
+
+\begin{multicols}{2}
+
+\section*{Linear Algebra Cheat Sheet --- Compact \& Complete}
+
+\textit{Convention: a matrix of size $r \times c$ has $r$ rows and $c$ columns.}
+
+\section*{1. Fields}
+A field $\mathbb{F}$ is a set with operations $(+,\cdot)$ satisfying: closure, associativity, commutativity, identities $(0,1)$, inverses, and distributivity.
+
+\section*{2. Matrices}
+\[
+A_{m\times p} B_{p\times n} = (AB)_{m\times n},
+\qquad
+(AB)_{ij} = \sum_{k=1}^{p} a_{ik} b_{kj}
+\]
+\begin{itemize}
+\item $AB = 0$ does not imply $A=0$ or $B=0$
+\item If $A^T = A$ and $B^T = B$, then $AB$ is symmetric if and only if $AB = BA$
+\item If $\varphi$ is an elementary row operation and $A \in \mathbb{F}^{m\times n}$, then
+\[
+\varphi(A) = \varphi(I_m)\,A
+\]
+\end{itemize}
+
+\section*{3. Linear Systems}
+\[
+Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
+\]
+\begin{itemize}
+\item Number of pivots $= r$, free variables $= n-r$
+\item System is solvable if and only if $b \in \operatorname{Col}(A)$
+\item Homogeneous system: $Ax=0$ has solution space dimension $n-r$
+\end{itemize}
+
+\[
+\{x : Ax=b\} = x_p + \ker(A)
+\]
+
+\section*{4. Rank}
+\[
+\operatorname{rank}(A) \le \min\{m,n\}
+\]
+For $n \times n$ matrices:
+\[
+\operatorname{rank}(A)=n
+\iff A^{-1} \text{ exists }
+\iff A \sim I_n
+\]
+\begin{itemize}
+\item $\operatorname{rank}(AB) \le \min\{\operatorname{rank}(A),\operatorname{rank}(B)\}$
+\item If $AB=0$ with $A,B \in \mathbb{F}^{n\times n}$, then
+\[
+\operatorname{rank}(A)+\operatorname{rank}(B) \le n
+\]
+\end{itemize}
+
+\section*{5. Vector Spaces \& Subspaces}
+A subset $W \subseteq V$ is a subspace if and only if:
+\begin{itemize}
+\item $W$ is nonempty (equivalently $0 \in W$)
+\item Closed under addition: if $u,v \in W$ then $u+v \in W$
+\item Closed under scalar multiplication: if $\alpha \in \mathbb{F}$ and $u \in W$ then $\alpha u \in W$
+\end{itemize}
+Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \mathbb{F}$.
+
+\begin{itemize}
+\item $U \cap W$ is a subspace of $V$
+\item $U \cup W$ is a subspace of $V$ if and only if $U \subseteq W$ or $W \subseteq U$
+\item $U+W = \{u+w : u \in U,\ w \in W\}$ is a subspace of $V$
+\item Direct sum: $U \oplus W$ if and only if $U \cap W = \{0\}$
+\item $\operatorname{span}(S)$ is the smallest subspace containing $S$
+\end{itemize}
+
+\section*{6. Bases \& Dimension}
+If $\dim V = n$:
+\begin{itemize}
+\item Any linearly independent set has size at most $n$
+\item Any spanning set has size at least $n$
+\item A set $B$ with $|B|=n$ is a basis if and only if it is linearly independent if and only if it spans $V$
+\item If $W \le V$, then $W=V$ if and only if $\dim W = \dim V$
+\end{itemize}
+\[
+\dim(U+W) = \dim U + \dim W - \dim(U \cap W)
+\]
+
+\section*{7. Matrix Spaces}
+\begin{itemize}
+\item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
+\item $\dim \ker(A) = n - \operatorname{rank}(A)$ for $A \in \mathbb{F}^{m\times n}$
+\item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
+\item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
+\end{itemize}
+
+\section*{8. Invertible Matrices}
+
+\begin{itemize}
+\item If $P$ is invertible, then
+\[
+\operatorname{rank}(PA)=\operatorname{rank}(AP)=\operatorname{rank}(A)
+\]
+\item If $\alpha \neq 0$, then
+\[
+(\alpha A)^{-1}=\alpha^{-1}A^{-1}
+\]
+\item If $C$ is invertible and $B=CA$, then
+\[
+B \text{ invertible} \iff A \text{ invertible}
+\]
+\end{itemize}
+
+\subsection*{Conditions Related to Invertibility}
+Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is invertible'':
+
+\begin{enumerate}
+\item $\;\Longrightarrow\; A^{-1}$ is unique
+\item $\;\Longrightarrow\;$ $A$ has no zero row or column
+\item $\iff \operatorname{rank}(A)=n$
+\item $\iff \det(A)\neq 0$
+\item $\iff A^T$ is invertible, with $(A^T)^{-1}=(A^{-1})^T$
+\item $\iff A \sim I_n$
+\item $\iff \operatorname{RREF}(A)=I_n$
+\item $\iff Ax=0 \Rightarrow x=0$
+\item $\iff$ For all $b\in\mathbb{F}^n$, the system $Ax=b$ has the unique solution $x=A^{-1}b$
+\item $\iff \operatorname{Row}(A)=\mathbb{F}^n$
+\item $\iff \operatorname{Col}(A)=\mathbb{F}^n$
+\item $\iff$ The rows of $A$ span $\mathbb{F}^n$
+\item $\iff$ The columns of $A$ span $\mathbb{F}^n$
+\item $\iff$ The rows of $A$ are linearly independent
+\item $\iff$ The columns of $A$ are linearly independent
+\item $\iff$ The rows of $A$ form a basis of $\mathbb{F}^n$
+\item $\iff$ The columns of $A$ form a basis of $\mathbb{F}^n$
+\item $\iff \dim \operatorname{Row}(A)=n$
+\item $\iff \dim \operatorname{Col}(A)=n$
+\item $\iff A$ is a product of elementary matrices
+\item $\iff \operatorname{adj}(A)$ is invertible
+\item $\iff$ $A$ is invertible on one side (i.e.\ $AB=I$ or $BA=I$ for some $B$)
+\item $\;\Longleftarrow\;$ $A$ is elementary (then $A^{-1}$ is also elementary)
+\end{enumerate}
+
+\section*{9. Determinants \& Adjugate}
+\begin{itemize}
+\item $\det(AB)=\det(A)\det(B)$
+\item $\det(A^{-1}) = (\det A)^{-1}$
+\item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
+\end{itemize}
+\[
+A\,\operatorname{adj}(A)=\det(A)I,
+\qquad
+A^{-1} = \frac{1}{\det(A)}\operatorname{adj}(A)
+\]
+\[
+\operatorname{rank}(\operatorname{adj}(A)) =
+\begin{cases}
+n, & \operatorname{rank}(A)=n, \\
+1, & \operatorname{rank}(A)=n-1, \\
+0, & \operatorname{rank}(A) < n-1
+\end{cases}
+\]
+
+\section*{10. Linear Maps}
+Let $T:V \to U$ be linear.
+\begin{itemize}
+\item Kernel: $\ker T = \{v \in V : T(v)=0\}$
+\item Image: $\operatorname{Im} T = \{T(v) : v \in V\}$
+\item $T$ is injective if and only if $\ker T = \{0\}$
+\item $T$ is surjective if and only if $\dim \operatorname{Im}T = \dim U$
+\end{itemize}
+\[
+\dim V = \dim \ker T + \dim \operatorname{Im}T
+\]
+
+\section*{11. Operators \& Isomorphisms}
+\begin{itemize}
+\item A linear map is an isomorphism if and only if it is injective and surjective
+\item $V \cong U$ if and only if $\dim V = \dim U$
+\item For an operator $T:V \to V$:
+\[
+\ker T \subseteq \ker T^2,
+\qquad
+\operatorname{Im}T \supseteq \operatorname{Im}T^2
+\]
+\item In finite dimensions, equality implies stabilization
+\end{itemize}
+
+\section*{12. Matrix Representation}
+Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.
+\[
+[T]_B^S = \big([T(v_1)]_S, \dots, [T(v_n)]_S\big)
+\]
+\begin{itemize}
+\item $[T]_B^S [v]_B = [T(v)]_S$
+\item $[S\circ T]_A^C = [S]_B^C [T]_A^B$
+\item $T$ is invertible if and only if $[T]_B^S$ is invertible
+\end{itemize}
+
+\section*{13. Dual Spaces, Functionals, and Annihilators}
+
+\textbf{Concept.}
+Duality studies vectors indirectly via linear measurements. Instead of examining vectors themselves, we examine how all linear functionals act on them.
+
+\textbf{Linear functionals.}
+A linear functional is a linear map $f:V \to \mathbb{F}$. It assigns a scalar to each vector and represents a linear measurement.
+
+\textbf{Dual space.}
+\[
+V^* = \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}
+\]
+$V^*$ is a vector space. If $\dim V = n < \infty$, then $\dim V^* = n$.
+
+\textbf{Dual basis.}
+If $B = \{v_1,\dots,v_n\}$ is a basis of $V$, the dual basis
+$B^* = \{f_1,\dots,f_n\}$ satisfies $f_i(v_j)=\delta_{ij}$.
+Each $f_i$ extracts the $i$-th coordinate.
+
+\textbf{Second dual space.}
+The second dual is $V^{**} = (V^*)^*$.
+There is a canonical map
+\[
+\Phi:V \to V^{**},
+\qquad
+\Phi(v)(f)=f(v)
+\]
+In finite dimensions, this map is an isomorphism.
+
+\textbf{Kernel (MERHAV HA EFES).}
+For $T:V \to U$,
+\[
+\ker T = \{v \in V : T(v)=0\}
+\]
+This is a subspace of $V$.
+
+\textbf{Annihilator (MEAPES).}
+For $W \le V$,
+\[
+W^{\circ} = \{f \in V^* : f(w)=0 \text{ for all } w \in W\}
+\]
+This is a subspace of $V^*$.
+
+\textbf{Difference between MERHAV HA EFES and MEAPES.}
+\begin{itemize}
+\item MERHAV HA EFES: vectors in $V$ mapped to zero by a linear map
+\item MEAPES: functionals in $V^*$ that vanish on a subspace
+\end{itemize}
+
+\textbf{Dimension relation.}
+If $W \le V$ and $\dim V = n < \infty$, then
+\[
+\dim W + \dim W^{\circ} = n
+\]
+
+\textbf{Dual (transpose) map.}
+For $T:V \to U$ define
+\[
+T^*:U^* \to V^*,
+\qquad
+T^*(f)=f \circ T
+\]
+Then
+\[
+\ker T^* = (\operatorname{Im}T)^{\circ},
+\qquad
+\operatorname{Im}T^* = (\ker T)^{\circ}
+\]
+In matrix form,
+\[
+[T^*] = [T]^T
+\]
+
+\section*{14. Vandermonde Matrix}
+
+Given scalars $x_1,\dots,x_n \in \mathbb{F}$, the \textbf{Vandermonde matrix} is
+\[
+V(x_1,\dots,x_n)=
+\begin{pmatrix}
+1 & x_1 & x_1^2 & \cdots & x_1^{\,n-1} \\
+1 & x_2 & x_2^2 & \cdots & x_2^{\,n-1} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_n & x_n^2 & \cdots & x_n^{\,n-1}
+\end{pmatrix}
+\]
+
+\textbf{Determinant.}
+\[
+\det V(x_1,\dots,x_n)
+=
+\prod_{1 \le i < j \le n} (x_j - x_i)
+\]
+
+\textbf{Invertibility.}
+\[
+V(x_1,\dots,x_n) \text{ is invertible }
+\iff
+x_1,\dots,x_n \text{ are pairwise distinct}
+\]
+
+\textbf{Consequences.}
+\begin{itemize}
+\item If $x_i = x_j$ for some $i \neq j$, then two rows are equal $\Rightarrow \det V = 0$
+\item If all $x_i$ are distinct, then $\operatorname{rank}(V)=n$
+\item Appears naturally in polynomial interpolation
+\end{itemize}
+
+\section*{15. Permutations}
+
+A \textbf{permutation} of $\{1,\dots,n\}$ is a bijection
+\[
+\sigma:\{1,\dots,n\}\to\{1,\dots,n\}.
+\]
+The set of all permutations is denoted $S_n$.
+
+\textbf{Inversions.}
+An inversion of $\sigma$ is a pair $(i,j)$ such that
+\[
+i<j \quad \text{and} \quad \sigma(i)>\sigma(j).
+\]
+Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$.
+
+\textbf{Sign of a permutation.}
+\[
+\operatorname{sgn}(\sigma)=(-1)^{\operatorname{inv}(\sigma)}.
+\]
+\begin{itemize}
+\item $\sigma$ is \emph{even} if $\operatorname{sgn}(\sigma)=1$
+\item $\sigma$ is \emph{odd} if $\operatorname{sgn}(\sigma)=-1$
+\end{itemize}
+
+\textbf{Properties.}
+\begin{itemize}
+\item $\operatorname{sgn}(\sigma\tau)=\operatorname{sgn}(\sigma)\operatorname{sgn}(\tau)$
+\item A transposition changes the sign
+\item $|S_n| = n!$
+\end{itemize}
+
+\textbf{Determinant (Leibniz formula).}
+For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
+\[
+\det(A)=
+\sum_{\sigma\in S_n}
+\operatorname{sgn}(\sigma)
+\prod_{i=1}^n a_{i,\sigma(i)}.
+\]
+
+\textbf{Consequences.}
+\begin{itemize}
+\item If two rows (or columns) are equal, every term cancels $\Rightarrow \det(A)=0$
+\item Swapping two rows multiplies $\det(A)$ by $-1$
+\item Linearity of determinant follows from the formula
+\end{itemize}
+
+\section*{16. Block Matrices}
+
+\textbf{Definition.}
+A \emph{block matrix} is a matrix partitioned into submatrices:
+\[
+A =
+\begin{pmatrix}
+A_{11} & A_{12} \\
+A_{21} & A_{22}
+\end{pmatrix},
+\]
+where the blocks have compatible sizes.
+
+\textbf{Block operations.}
+If dimensions agree, block matrices behave like ordinary matrices:
+\begin{itemize}
+\item Addition and scalar multiplication are blockwise
+\item Matrix multiplication follows block multiplication rules
+\end{itemize}
+\[
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}
+\begin{pmatrix}
+E & F\\
+G & H
+\end{pmatrix}
+=
+\begin{pmatrix}
+AE+BG & AF+BH\\
+CE+DG & CF+DH
+\end{pmatrix}
+\]
+
+\textbf{Block diagonal matrices.}
+
+If
+\[
+A=
+\begin{pmatrix}
+A_1 & 0\\
+0 & A_2
+\end{pmatrix},
+\]
+\[
+\begin{aligned}
+\det(A) &= \det(A_1)\det(A_2), \\
+A \text{ invertible } &\iff A_1, A_2 \text{ invertible}.
+\end{aligned}
+\]
+
+
+\textbf{Block triangular matrices.}
+If
+\[
+A=
+\begin{pmatrix}
+A_{11} & A_{12}\\
+0 & A_{22}
+\end{pmatrix},
+\]
+then
+\[
+\det(A)=\det(A_{11})\det(A_{22}),
+\qquad
+\operatorname{rank}(A)=\operatorname{rank}(A_{11})+\operatorname{rank}(A_{22}).
+\]
+
+\textbf{Schur complement.}
+Let
+\[
+A=
+\begin{pmatrix}
+A_{11} & A_{12}\\
+A_{21} & A_{22}
+\end{pmatrix},
+\quad A_{11} \text{ invertible}.
+\]
+The \emph{Schur complement} of $A_{11}$ in $A$ is
+\[
+S = A_{22} - A_{21}A_{11}^{-1}A_{12}.
+\]
+
+\begin{itemize}
+\item $A$ invertible $\iff A_{11}$ and $S$ invertible
+\item $\det(A)=\det(A_{11})\det(S)$
+\end{itemize}
+
+\textbf{Block inverse formula.}
+If $A_{11}$ and $S$ are invertible, then
+\[
+A^{-1} =
+\begin{pmatrix}
+A_{11}^{-1} + A_{11}^{-1}A_{12}S^{-1}A_{21}A_{11}^{-1}
+&
+- A_{11}^{-1}A_{12}S^{-1}
+\\[6pt]
+- S^{-1}A_{21}A_{11}^{-1}
+&
+S^{-1}
+\end{pmatrix}.
+\]
+
+\textbf{Solving block systems.}
+For
+\[
+\begin{pmatrix}
+A_{11} & A_{12}\\
+A_{21} & A_{22}
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+=
+\begin{pmatrix}
+b\\
+c
+\end{pmatrix},
+\]
+solve:
+\begin{enumerate}
+\item $A_{11}x = b - A_{12}y$
+\item $(A_{22}-A_{21}A_{11}^{-1}A_{12})y = c - A_{21}A_{11}^{-1}b$
+\end{enumerate}
+
+\textbf{Implementation tips.}
+\begin{itemize}
+\item Use block structure to reduce computation
+\item Common in Gaussian elimination, LU decomposition, and numerical methods
+\item Essential for large sparse systems and matrix factorizations
+\end{itemize}
+
+
+\end{multicols}
+\end{document}
+
