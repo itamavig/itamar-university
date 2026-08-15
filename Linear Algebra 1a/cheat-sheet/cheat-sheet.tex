@@ -16,7 +16,7 @@
 
 \begin{multicols}{2}
 
-\section*{Linear Algebra Cheat Sheet --- Compact \& Complete}
+\section*{Linear Algebra 1A Cheat Sheet}
 
 \textit{Convention: a matrix of size $r \times c$ has $r$ rows and $c$ columns.}
 
@@ -65,16 +65,7 @@ Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
 \{x : Ax=b\} = x_p + \ker(A)
 \]
 
-\section*{4. Rank}
-\begin{itemize}
-\item $\operatorname{rank}(A_{m\times n}) \le \min\{m,n\}$
-\item $\operatorname{rank}(A^T)=\operatorname{rank}(A)$
-\item $A \sim B \Rightarrow \operatorname{rank}(A)=\operatorname{rank}(B)$
-\item $\operatorname{rank}(AB) \le \min\{\operatorname{rank}(A),\operatorname{rank}(B)\}$
-\item $A,B \in \mathbb{F}^{n\times n},\; AB=0 \Rightarrow \operatorname{rank}(A)+\operatorname{rank}(B) \le n$
-\end{itemize}
-
-\section*{5. Vector Spaces \& Subspaces}
+\section*{4. Vector Spaces \& Subspaces}
 A subset $W \subseteq V$ is a subspace if and only if:
 \begin{itemize}
 \item $W$ is nonempty (equivalently $0 \in W$)
@@ -91,6 +82,15 @@ Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \math
 \item $\operatorname{span}(S)$ is the smallest subspace containing $S$
 \end{itemize}
 
+\section*{5. Rank}
+\begin{itemize}
+\item $\operatorname{rank}(A_{m\times n}) \le \min\{m,n\}$
+\item $\operatorname{rank}(A^T)=\operatorname{rank}(A)$
+\item $A \sim B \Rightarrow \operatorname{rank}(A)=\operatorname{rank}(B)$
+\item $\operatorname{rank}(AB) \le \min\{\operatorname{rank}(A),\operatorname{rank}(B)\}$
+\item $A,B \in \mathbb{F}^{n\times n},\; AB=0 \Rightarrow \operatorname{rank}(A)+\operatorname{rank}(B) \le n$
+\end{itemize}
+
 \section*{6. Bases \& Dimension}
 If $\dim V = n$:
 \begin{itemize}
@@ -103,15 +103,7 @@ If $\dim V = n$:
 \dim(U+W) = \dim U + \dim W - \dim(U \cap W)
 \]
 
-\section*{7. Matrix Spaces}
-\begin{itemize}
-\item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
-\item $\dim \ker(A) = n - \operatorname{rank}(A)$ for $A \in \mathbb{F}^{m\times n}$
-\item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
-\item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
-\end{itemize}
-
-\section*{8. Invertible Matrices}
+\section*{7. Invertible Matrices}
 
 \begin{itemize}
 \item If $P$ is invertible, then
@@ -156,6 +148,14 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\iff$ $A$ is invertible on one side (i.e.\ $AB=I$ or $BA=I$ for some $B$)
 \item $\;\Longleftarrow\;$ $A$ is elementary (then $A^{-1}$ is also elementary)
 \end{enumerate}
+
+\section*{8. Matrix Spaces}
+\begin{itemize}
+\item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
+\item $\dim \ker(A) = n - \operatorname{rank}(A)$ for $A \in \mathbb{F}^{m\times n}$
+\item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
+\item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
+\end{itemize}
 
 \section*{9. Determinants \& Adjugate}
 \begin{itemize}
