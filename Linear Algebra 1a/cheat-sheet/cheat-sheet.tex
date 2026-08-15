@@ -51,21 +51,7 @@ A_{m\times p} B_{p\times n} = (AB)_{m\times n},
 \]
 \end{itemize}
 
-\section*{3. Linear Systems}
-\[
-Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
-\]
-\begin{itemize}
-\item Number of pivots $= r$, free variables $= n-r$
-\item System is solvable if and only if $b \in \operatorname{Col}(A)$
-\item Homogeneous system: $Ax=0$ has solution space dimension $n-r$
-\end{itemize}
-
-\[
-\{x : Ax=b\} = x_p + \ker(A)
-\]
-
-\section*{4. Vector Spaces \& Subspaces}
+\section*{3. Vector Spaces \& Subspaces}
 A subset $W \subseteq V$ is a subspace if and only if:
 \begin{itemize}
 \item $W$ is nonempty (equivalently $0 \in W$)
@@ -80,7 +66,22 @@ Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \math
 \item $U+W := \{u+w : u \in U,\ w \in W\}$ is a subspace of $V$
 \item Direct sum: $U \oplus W$ if and only if $U \cap W = \{0\}$
 \item $\operatorname{span}(S)$ is the smallest subspace containing $S$
+\item $S_1 \subseteq S_2 \subseteq V \Rightarrow \operatorname{span}(S_1) \le \operatorname{span}(S_2) \le V$
 \end{itemize}
+
+\section*{4. Linear Systems}
+\[
+Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
+\]
+\begin{itemize}
+\item Number of pivots $= r$, free variables $= n-r$
+\item System is solvable if and only if $b \in \operatorname{Col}(A)$
+\item Homogeneous system: $Ax=0$ has solution space dimension $n-r$
+\end{itemize}
+
+\[
+\{x : Ax=b\} = x_p + \ker(A)
+\]
 
 \section*{5. Rank}
 \begin{itemize}
