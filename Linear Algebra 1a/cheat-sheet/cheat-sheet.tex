@@ -8,6 +8,9 @@
 \setlength{\mathindent}{0pt}
 \setlist{nosep}
 
+% Sub-header inside a section, with space above it
+\newcommand{\subhead}[1]{\medskip\noindent\textbf{#1}}
+
 \begin{document}
 \raggedright
 
@@ -149,7 +152,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
 \end{itemize}
 
-\textbf{Adjugate.}
+\subhead{Adjugate.}
 For $A \in \mathbb{F}^{n\times n}$: $M_{ij}(A)$ is $A$ with row $i$ and column $j$ deleted; cofactor $c_{ij}:=(-1)^{i+j}\det(M_{ij}(A))$; cofactor matrix $C=(c_{ij})$.
 \begin{itemize}
 \item $\operatorname{adj}(A):=C^T$
@@ -164,7 +167,7 @@ n, & \operatorname{rank}(A)=n, \\
 \end{cases}$
 \end{itemize}
 
-\textbf{Cramer's rule.}
+\subhead{Cramer's rule.}
 $\det(A) \neq 0 \Rightarrow Ax=b$ has the unique solution
 \[
 x_k = \frac{\det(A_k)}{\det(A)}, \qquad k=1,\dots,n
@@ -209,24 +212,24 @@ Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.
 
 \section*{13. Dual Spaces, Functionals, and Annihilators}
 
-\textbf{Concept.}
+\subhead{Concept.}
 Duality studies vectors indirectly via linear measurements. Instead of examining vectors themselves, we examine how all linear functionals act on them.
 
-\textbf{Linear functionals.}
+\subhead{Linear functionals.}
 A linear functional is a linear map $f:V \to \mathbb{F}$. It assigns a scalar to each vector and represents a linear measurement.
 
-\textbf{Dual space.}
+\subhead{Dual space.}
 \[
 V^* := \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}
 \]
 $V^*$ is a vector space. If $\dim V = n < \infty$, then $\dim V^* = n$.
 
-\textbf{Dual basis.}
+\subhead{Dual basis.}
 If $B = \{v_1,\dots,v_n\}$ is a basis of $V$, the dual basis
 $B^* = \{f_1,\dots,f_n\}$ satisfies $f_i(v_j)=\delta_{ij}$.
 Each $f_i$ extracts the $i$-th coordinate.
 
-\textbf{Second dual space.}
+\subhead{Second dual space.}
 The second dual is $V^{**} := (V^*)^*$.
 There is a canonical map
 \[
@@ -236,33 +239,33 @@ There is a canonical map
 \]
 In finite dimensions, this map is an isomorphism.
 
-\textbf{Kernel (MERHAV HA EFES).}
+\subhead{Kernel (MERHAV HA EFES).}
 For $T:V \to U$,
 \[
 \ker T := \{v \in V : T(v)=0\}
 \]
 This is a subspace of $V$.
 
-\textbf{Annihilator (MEAPES).}
+\subhead{Annihilator (MEAPES).}
 For $W \le V$,
 \[
 W^{\circ} := \{f \in V^* : f(w)=0 \text{ for all } w \in W\}
 \]
 This is a subspace of $V^*$.
 
-\textbf{Difference between MERHAV HA EFES and MEAPES.}
+\subhead{Difference between MERHAV HA EFES and MEAPES.}
 \begin{itemize}
 \item MERHAV HA EFES: vectors in $V$ mapped to zero by a linear map
 \item MEAPES: functionals in $V^*$ that vanish on a subspace
 \end{itemize}
 
-\textbf{Dimension relation.}
+\subhead{Dimension relation.}
 If $W \le V$ and $\dim V = n < \infty$, then
 \[
 \dim W + \dim W^{\circ} = n
 \]
 
-\textbf{Dual (transpose) map.}
+\subhead{Dual (transpose) map.}
 For $T:V \to U$ define
 \[
 T^*:U^* \to V^*,
@@ -293,14 +296,14 @@ V(x_1,\dots,x_n):=
 \end{pmatrix}
 \]
 
-\textbf{Determinant.}
+\subhead{Determinant.}
 \[
 \det V(x_1,\dots,x_n)
 =
 \prod_{1 \le i < j \le n} (x_j - x_i)
 \]
 
-\textbf{Invertibility.}
+\subhead{Invertibility.}
 \[
 \begin{aligned}
 V(x_1,\dots,x_n) \text{ is invertible} \\
@@ -308,7 +311,7 @@ V(x_1,\dots,x_n) \text{ is invertible} \\
 \end{aligned}
 \]
 
-\textbf{Consequences.}
+\subhead{Consequences.}
 \begin{itemize}
 \item If $x_i = x_j$ for some $i \neq j$, then two rows are equal $\Rightarrow \det V = 0$
 \item If all $x_i$ are distinct, then $\operatorname{rank}(V)=n$
@@ -323,14 +326,14 @@ A \textbf{permutation} of $\{1,\dots,n\}$ is a bijection
 \]
 The set of all permutations is denoted $S_n$.
 
-\textbf{Inversions.}
+\subhead{Inversions.}
 An inversion of $\sigma$ is a pair $(i,j)$ such that
 \[
 i<j \quad \text{and} \quad \sigma(i)>\sigma(j).
 \]
 Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$, sometimes denoted $S(\sigma)$.
 
-\textbf{Sign of a permutation.}
+\subhead{Sign of a permutation.}
 \[
 \operatorname{sgn}(\sigma):=(-1)^{\operatorname{inv}(\sigma)}.
 \]
@@ -339,14 +342,14 @@ Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$, someti
 \item $\sigma$ is \emph{odd} if $\operatorname{sgn}(\sigma)=-1$
 \end{itemize}
 
-\textbf{Properties.}
+\subhead{Properties.}
 \begin{itemize}
 \item $\operatorname{sgn}(\sigma\tau)=\operatorname{sgn}(\sigma)\operatorname{sgn}(\tau)$
 \item A transposition changes the sign
 \item $|S_n| = n!$
 \end{itemize}
 
-\textbf{Determinant (Leibniz formula).}
+\subhead{Determinant (Leibniz formula).}
 For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
 \[
 \det(A)=
@@ -355,7 +358,7 @@ For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
 \prod_{i=1}^n a_{i,\sigma(i)}.
 \]
 
-\textbf{Consequences.}
+\subhead{Consequences.}
 \begin{itemize}
 \item If two rows (or columns) are equal, every term cancels $\Rightarrow \det(A)=0$
 \item Swapping two rows multiplies $\det(A)$ by $-1$
@@ -364,7 +367,7 @@ For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
 
 \section*{16. Block Matrices}
 
-\textbf{Definition.}
+\subhead{Definition.}
 A \emph{block matrix} is a matrix partitioned into submatrices:
 \[
 A =
@@ -375,7 +378,7 @@ A_{21} & A_{22}
 \]
 where the blocks have compatible sizes.
 
-\textbf{Block operations.}
+\subhead{Block operations.}
 If dimensions agree, block matrices behave like ordinary matrices:
 \begin{itemize}
 \item Addition and scalar multiplication are blockwise
@@ -397,7 +400,7 @@ CE+DG & CF+DH
 \end{pmatrix}
 \]
 
-\textbf{Block diagonal matrices.}
+\subhead{Block diagonal matrices.}
 
 If
 \[
@@ -415,7 +418,7 @@ A \text{ invertible } &\iff A_1, A_2 \text{ invertible}.
 \]
 
 
-\textbf{Block triangular matrices.}
+\subhead{Block triangular matrices.}
 If
 \[
 A=
@@ -432,7 +435,7 @@ then
 \end{aligned}
 \]
 
-\textbf{Schur complement.}
+\subhead{Schur complement.}
 Let
 \[
 A=
@@ -452,7 +455,7 @@ S := A_{22} - A_{21}A_{11}^{-1}A_{12}.
 \item $\det(A)=\det(A_{11})\det(S)$
 \end{itemize}
 
-\textbf{Block inverse formula.}
+\subhead{Block inverse formula.}
 If $A_{11}$ and $S$ are invertible, then
 \[
 A^{-1} =
@@ -467,7 +470,7 @@ S^{-1}
 \end{pmatrix}.
 \]
 
-\textbf{Solving block systems.}
+\subhead{Solving block systems.}
 For
 \[
 \begin{pmatrix}
@@ -490,7 +493,7 @@ solve:
 \item $(A_{22}-A_{21}A_{11}^{-1}A_{12})y = c - A_{21}A_{11}^{-1}b$
 \end{enumerate}
 
-\textbf{Implementation tips.}
+\subhead{Implementation tips.}
 \begin{itemize}
 \item Use block structure to reduce computation
 \item Common in Gaussian elimination, LU decomposition, and numerical methods
