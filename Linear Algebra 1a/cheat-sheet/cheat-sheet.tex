@@ -148,6 +148,15 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\det(A^{-1}) = (\det A)^{-1}$
 \item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
 \end{itemize}
+
+\textbf{Adjugate.}
+For $A \in \mathbb{F}^{n\times n}$: $M_{ij}(A)$ is $A$ with row $i$ and column $j$ deleted; cofactor $c_{ij}=(-1)^{i+j}\det(M_{ij}(A))$; cofactor matrix $C=(c_{ij})$.
+\[
+\operatorname{adj}(A)=C^T
+\]
+\[
+\operatorname{adj}(A)_{ij}=c_{ji}=(-1)^{i+j}\det(M_{ji}(A))
+\]
 \[
 \operatorname{adj}(A)\,A = A\,\operatorname{adj}(A)=\det(A)I_n
 \]
