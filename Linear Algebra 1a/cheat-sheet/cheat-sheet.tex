@@ -52,6 +52,7 @@ Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
 \section*{4. Rank}
 \begin{itemize}
 \item $\operatorname{rank}(A_{m\times n}) \le \min\{m,n\}$
+\item $\operatorname{rank}(A^T)=\operatorname{rank}(A)$
 \item $A \sim B \Rightarrow \operatorname{rank}(A)=\operatorname{rank}(B)$
 \item $\operatorname{rank}(AB) \le \min\{\operatorname{rank}(A),\operatorname{rank}(B)\}$
 \item $A,B \in \mathbb{F}^{n\times n},\; AB=0 \Rightarrow \operatorname{rank}(A)+\operatorname{rank}(B) \le n$
@@ -142,6 +143,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 
 \section*{9. Determinants \& Adjugate}
 \begin{itemize}
+\item $\det(A^T)=\det(A)$
 \item $\det(AB)=\det(A)\det(B)$
 \item $\det(A^{-1}) = (\det A)^{-1}$
 \item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
@@ -316,7 +318,7 @@ An inversion of $\sigma$ is a pair $(i,j)$ such that
 \[
 i<j \quad \text{and} \quad \sigma(i)>\sigma(j).
 \]
-Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$.
+Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$, sometimes denoted $S(\sigma)$.
 
 \textbf{Sign of a permutation.}
 \[
