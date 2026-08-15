@@ -162,6 +162,13 @@ n, & \operatorname{rank}(A)=n, \\
 \end{cases}
 \]
 
+\textbf{Cramer's rule.}
+For $A \in \mathbb{F}^{n\times n}$ with $\det(A) \neq 0$, the unique solution of $Ax=b$ is
+\[
+x_k = \frac{\det(A_k)}{\det(A)}, \qquad k=1,\dots,n
+\]
+where $A_k$ is $A$ with its $k$-th column replaced by $b$.
+
 \section*{10. Linear Maps}
 Let $T:V \to U$ be linear.
 \begin{itemize}
