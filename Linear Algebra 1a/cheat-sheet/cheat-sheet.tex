@@ -151,33 +151,25 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 
 \textbf{Adjugate.}
 For $A \in \mathbb{F}^{n\times n}$: $M_{ij}(A)$ is $A$ with row $i$ and column $j$ deleted; cofactor $c_{ij}:=(-1)^{i+j}\det(M_{ij}(A))$; cofactor matrix $C=(c_{ij})$.
-\[
-\operatorname{adj}(A):=C^T
-\]
-\[
-\operatorname{adj}(A)_{ij}=c_{ji}=(-1)^{i+j}\det(M_{ji}(A))
-\]
-\[
-\operatorname{adj}(A)\,A = A\,\operatorname{adj}(A)=\det(A)I_n
-\]
-\[
-A^{-1} = \frac{1}{\det(A)}\operatorname{adj}(A)
-\]
-\[
-\operatorname{rank}(\operatorname{adj}(A)) =
+\begin{itemize}
+\item $\operatorname{adj}(A):=C^T$
+\item $\operatorname{adj}(A)_{ij}=c_{ji}=(-1)^{i+j}\det(M_{ji}(A))$
+\item $\operatorname{adj}(A)\,A = A\,\operatorname{adj}(A)=\det(A)I_n$
+\item $A^{-1} = \tfrac{1}{\det(A)}\operatorname{adj}(A)$
+\item $\operatorname{rank}(\operatorname{adj}(A)) =
 \begin{cases}
 n, & \operatorname{rank}(A)=n, \\
 1, & \operatorname{rank}(A)=n-1, \\
 0, & \operatorname{rank}(A) < n-1
-\end{cases}
-\]
+\end{cases}$
+\end{itemize}
 
 \textbf{Cramer's rule.}
-For $A \in \mathbb{F}^{n\times n}$ with $\det(A) \neq 0$, the unique solution of $Ax=b$ is
+$\det(A) \neq 0 \Rightarrow Ax=b$ has the unique solution
 \[
 x_k = \frac{\det(A_k)}{\det(A)}, \qquad k=1,\dots,n
 \]
-where $A_k$ is $A$ with its $k$-th column replaced by $b$.
+where $A_k$ is $A$ with column $k$ replaced by $b$.
 
 \section*{10. Linear Maps}
 Let $T:V \to U$ be linear.
