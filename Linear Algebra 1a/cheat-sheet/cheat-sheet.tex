@@ -149,8 +149,9 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
 \end{itemize}
 \[
-A\,\operatorname{adj}(A)=\det(A)I,
-\qquad
+\operatorname{adj}(A)\,A = A\,\operatorname{adj}(A)=\det(A)I_n
+\]
+\[
 A^{-1} = \frac{1}{\det(A)}\operatorname{adj}(A)
 \]
 \[
@@ -300,9 +301,10 @@ V(x_1,\dots,x_n)=
 
 \textbf{Invertibility.}
 \[
-V(x_1,\dots,x_n) \text{ is invertible }
-\iff
-x_1,\dots,x_n \text{ are pairwise distinct}
+\begin{aligned}
+V(x_1,\dots,x_n) \text{ is invertible} \\
+\iff x_1,\dots,x_n \text{ are pairwise distinct}
+\end{aligned}
 \]
 
 \textbf{Consequences.}
@@ -423,9 +425,10 @@ A_{11} & A_{12}\\
 \]
 then
 \[
-\det(A)=\det(A_{11})\det(A_{22}),
-\qquad
-\operatorname{rank}(A)=\operatorname{rank}(A_{11})+\operatorname{rank}(A_{22}).
+\begin{aligned}
+\det(A) &= \det(A_{11})\det(A_{22}), \\
+\operatorname{rank}(A) &= \operatorname{rank}(A_{11})+\operatorname{rank}(A_{22}).
+\end{aligned}
 \]
 
 \textbf{Schur complement.}
