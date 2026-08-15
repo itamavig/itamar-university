@@ -24,7 +24,7 @@ A field $\mathbb{F}$ is a set with operations $(+,\cdot)$ satisfying: closure, a
 \[
 A_{m\times p} B_{p\times n} = (AB)_{m\times n},
 \qquad
-(AB)_{ij} = \sum_{k=1}^{p} a_{ik} b_{kj}
+(AB)_{ij} := \sum_{k=1}^{p} a_{ik} b_{kj}
 \]
 \begin{itemize}
 \item $AB = 0$ does not imply $A=0$ or $B=0$
@@ -70,7 +70,7 @@ Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \math
 \begin{itemize}
 \item $U \cap W$ is a subspace of $V$
 \item $U \cup W$ is a subspace of $V$ if and only if $U \subseteq W$ or $W \subseteq U$
-\item $U+W = \{u+w : u \in U,\ w \in W\}$ is a subspace of $V$
+\item $U+W := \{u+w : u \in U,\ w \in W\}$ is a subspace of $V$
 \item Direct sum: $U \oplus W$ if and only if $U \cap W = \{0\}$
 \item $\operatorname{span}(S)$ is the smallest subspace containing $S$
 \end{itemize}
@@ -150,9 +150,9 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \end{itemize}
 
 \textbf{Adjugate.}
-For $A \in \mathbb{F}^{n\times n}$: $M_{ij}(A)$ is $A$ with row $i$ and column $j$ deleted; cofactor $c_{ij}=(-1)^{i+j}\det(M_{ij}(A))$; cofactor matrix $C=(c_{ij})$.
+For $A \in \mathbb{F}^{n\times n}$: $M_{ij}(A)$ is $A$ with row $i$ and column $j$ deleted; cofactor $c_{ij}:=(-1)^{i+j}\det(M_{ij}(A))$; cofactor matrix $C=(c_{ij})$.
 \[
-\operatorname{adj}(A)=C^T
+\operatorname{adj}(A):=C^T
 \]
 \[
 \operatorname{adj}(A)_{ij}=c_{ji}=(-1)^{i+j}\det(M_{ji}(A))
@@ -182,8 +182,8 @@ where $A_k$ is $A$ with its $k$-th column replaced by $b$.
 \section*{10. Linear Maps}
 Let $T:V \to U$ be linear.
 \begin{itemize}
-\item Kernel: $\ker T = \{v \in V : T(v)=0\}$
-\item Image: $\operatorname{Im} T = \{T(v) : v \in V\}$
+\item Kernel: $\ker T := \{v \in V : T(v)=0\}$
+\item Image: $\operatorname{Im} T := \{T(v) : v \in V\}$
 \item $T$ is injective if and only if $\ker T = \{0\}$
 \item $T$ is surjective if and only if $\dim \operatorname{Im}T = \dim U$
 \end{itemize}
@@ -207,7 +207,7 @@ Let $T:V \to U$ be linear.
 \section*{12. Matrix Representation}
 Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.
 \[
-[T]_B^S = \big([T(v_1)]_S, \dots, [T(v_n)]_S\big)
+[T]_B^S := \big([T(v_1)]_S, \dots, [T(v_n)]_S\big)
 \]
 \begin{itemize}
 \item $[T]_B^S [v]_B = [T(v)]_S$
@@ -225,7 +225,7 @@ A linear functional is a linear map $f:V \to \mathbb{F}$. It assigns a scalar to
 
 \textbf{Dual space.}
 \[
-V^* = \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}
+V^* := \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}
 \]
 $V^*$ is a vector space. If $\dim V = n < \infty$, then $\dim V^* = n$.
 
@@ -235,26 +235,26 @@ $B^* = \{f_1,\dots,f_n\}$ satisfies $f_i(v_j)=\delta_{ij}$.
 Each $f_i$ extracts the $i$-th coordinate.
 
 \textbf{Second dual space.}
-The second dual is $V^{**} = (V^*)^*$.
+The second dual is $V^{**} := (V^*)^*$.
 There is a canonical map
 \[
 \Phi:V \to V^{**},
 \qquad
-\Phi(v)(f)=f(v)
+\Phi(v)(f):=f(v)
 \]
 In finite dimensions, this map is an isomorphism.
 
 \textbf{Kernel (MERHAV HA EFES).}
 For $T:V \to U$,
 \[
-\ker T = \{v \in V : T(v)=0\}
+\ker T := \{v \in V : T(v)=0\}
 \]
 This is a subspace of $V$.
 
 \textbf{Annihilator (MEAPES).}
 For $W \le V$,
 \[
-W^{\circ} = \{f \in V^* : f(w)=0 \text{ for all } w \in W\}
+W^{\circ} := \{f \in V^* : f(w)=0 \text{ for all } w \in W\}
 \]
 This is a subspace of $V^*$.
 
@@ -275,7 +275,7 @@ For $T:V \to U$ define
 \[
 T^*:U^* \to V^*,
 \qquad
-T^*(f)=f \circ T
+T^*(f):=f \circ T
 \]
 Then
 \[
@@ -292,7 +292,7 @@ In matrix form,
 
 Given scalars $x_1,\dots,x_n \in \mathbb{F}$, the \textbf{Vandermonde matrix} is
 \[
-V(x_1,\dots,x_n)=
+V(x_1,\dots,x_n):=
 \begin{pmatrix}
 1 & x_1 & x_1^2 & \cdots & x_1^{\,n-1} \\
 1 & x_2 & x_2^2 & \cdots & x_2^{\,n-1} \\
@@ -340,7 +340,7 @@ Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$, someti
 
 \textbf{Sign of a permutation.}
 \[
-\operatorname{sgn}(\sigma)=(-1)^{\operatorname{inv}(\sigma)}.
+\operatorname{sgn}(\sigma):=(-1)^{\operatorname{inv}(\sigma)}.
 \]
 \begin{itemize}
 \item $\sigma$ is \emph{even} if $\operatorname{sgn}(\sigma)=1$
@@ -452,7 +452,7 @@ A_{21} & A_{22}
 \]
 The \emph{Schur complement} of $A_{11}$ in $A$ is
 \[
-S = A_{22} - A_{21}A_{11}^{-1}A_{12}.
+S := A_{22} - A_{21}A_{11}^{-1}A_{12}.
 \]
 
 \begin{itemize}
