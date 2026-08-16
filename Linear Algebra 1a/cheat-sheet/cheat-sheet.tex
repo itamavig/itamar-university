@@ -233,26 +233,44 @@ $T:V \to U$ is linear if for all $u,v \in V$ and $\alpha \in \mathbb{F}$:
 Equivalently: $T(\alpha u + v) = \alpha T(u) + T(v)$.
 
 \begin{itemize}
+\item $T_1,T_2$ linear $\Rightarrow T_1 \circ T_2$ is linear
+\item $\{v_1,\dots,v_s\}$ linearly dependent $\Rightarrow \{T(v_1),\dots,T(v_s)\}$ linearly dependent
 \item Kernel: $\ker T := \{v \in V : T(v)=\vec{0}\}$
 \item Image: $\operatorname{Im} T := \{T(v) : v \in V\}$
-\item $T$ is injective if and only if $\ker T = \{\vec{0}\}$
-\item $T$ is surjective if and only if $\dim \operatorname{Im}T = \dim U$
 \end{itemize}
 \[
 \dim V = \dim \ker T + \dim \operatorname{Im}T
 \]
 
 \section*{12. Operators \& Isomorphisms}
+Let $T:V \to U$ be linear.
 \begin{itemize}
-\item A linear map is an isomorphism if and only if it is injective and surjective
+\item Monomorphism $:=$ injective $T$
+\begin{itemize}
+\item $T_1,T_2$ mono $\Rightarrow T_1 \circ T_2$ mono
+\end{itemize}
+\item Epimorphism $:=$ surjective $T$
+\begin{itemize}
+\item $T_1,T_2$ epi $\Rightarrow T_1 \circ T_2$ epi
+\end{itemize}
+\item Isomorphism $:=$ bijective $T$; write $V \cong U$ if one exists
+\begin{itemize}
+\item $T_1,T_2$ iso $\Rightarrow T_1 \circ T_2$ iso
+\item $T$ iso $\Rightarrow T^{-1}$ iso
+\end{itemize}
+\item $T$ is injective if and only if $\ker T = \{\vec{0}\}$
+\item $T$ is surjective if and only if $\dim \operatorname{Im}T = \dim U$
 \item $V \cong U$ if and only if $\dim V = \dim U$
-\item For an operator $T:V \to V$:
+\item \color{red} For an operator $T:V \to V$:
 \[
-\ker T \subseteq \ker T^2,
+\ker T \subseteq \ker T^2 \subseteq \dots,
 \qquad
-\operatorname{Im}T \supseteq \operatorname{Im}T^2
+\operatorname{Im}T \supseteq \operatorname{Im}T^2 \supseteq \dots
 \]
-\item In finite dimensions, equality implies stabilization
+\begin{itemize}
+\item $\ker T^k = \ker T^{k+1} \Rightarrow \ker T^m = \ker T^k$ for all $m \ge k$ (same for $\operatorname{Im}$)
+\item $\dim V < \infty \Rightarrow$ this equality occurs, by $k=\dim V$ at the latest
+\end{itemize}
 \end{itemize}
 
 \section*{13. Matrix Representation}
