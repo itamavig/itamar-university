@@ -225,7 +225,13 @@ x_k = \frac{\det(A_k)}{\det(A)}, \qquad k=1,\dots,n
 where $A_k$ is $A$ with column $k$ replaced by $b$.
 
 \section*{11. Linear Maps}
-Let $T:V \to U$ be linear.
+$T:V \to U$ is linear if for all $u,v \in V$ and $\alpha \in \mathbb{F}$:
+\begin{itemize}
+\item $T(u+v)=T(u)+T(v)$
+\item $T(\alpha v)=\alpha T(v)$
+\end{itemize}
+Equivalently: $T(\alpha u + v) = \alpha T(u) + T(v)$.
+
 \begin{itemize}
 \item Kernel: $\ker T := \{v \in V : T(v)=\vec{0}\}$
 \item Image: $\operatorname{Im} T := \{T(v) : v \in V\}$
