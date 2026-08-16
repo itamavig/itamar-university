@@ -118,7 +118,24 @@ Let $M_1,\dots,M_s \le V$ with $M=M_1+\dots+M_s$. The following are equivalent:
 \end{enumerate}
 Note $3 \Rightarrow$ all: one witness with a unique decomposition suffices.
 
-\section*{7. Invertible Matrices}
+\section*{7. Coordinates}
+Every $v \in V$ has a unique representation as a linear combination of the vectors of a basis $B=\{v_1,\dots,v_n\}$ of $V$.
+
+\subhead{Coordinate vector.}
+For $v = \alpha_1 v_1 + \dots + \alpha_n v_n$,
+\[
+[v]_B := (\alpha_1,\dots,\alpha_n)^T
+\]
+
+\subhead{Change of basis.}
+For bases $B=\{v_1,\dots,v_n\}$ and $C$ of $V$, the transition matrix from $B$ to $C$ has the $[v_i]_C$ as its columns:
+\[
+[I]_B^C := \big([v_1]_C, \dots, [v_n]_C\big),
+\qquad
+[v]_C = [I]_B^C\,[v]_B
+\]
+
+\section*{8. Invertible Matrices}
 
 \begin{itemize}
 \item If $P$ is invertible, then
@@ -164,7 +181,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\;\Longleftarrow\;$ $A$ is elementary (then $A^{-1}$ is also elementary)
 \end{enumerate}
 
-\section*{8. Matrix Spaces}
+\section*{9. Matrix Spaces}
 \begin{itemize}
 \item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
 \item $\dim \ker(A) = n - \operatorname{rank}(A)$ for $A \in \mathbb{F}^{m\times n}$
@@ -172,7 +189,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
 \end{itemize}
 
-\section*{9. Determinants \& Adjugate}
+\section*{10. Determinants \& Adjugate}
 \begin{itemize}
 \item $\det(A^T)=\det(A)$
 \item $\det(AB)=\det(A)\det(B)$
@@ -202,7 +219,7 @@ x_k = \frac{\det(A_k)}{\det(A)}, \qquad k=1,\dots,n
 \]
 where $A_k$ is $A$ with column $k$ replaced by $b$.
 
-\section*{10. Linear Maps}
+\section*{11. Linear Maps}
 Let $T:V \to U$ be linear.
 \begin{itemize}
 \item Kernel: $\ker T := \{v \in V : T(v)=0\}$
@@ -214,7 +231,7 @@ Let $T:V \to U$ be linear.
 \dim V = \dim \ker T + \dim \operatorname{Im}T
 \]
 
-\section*{11. Operators \& Isomorphisms}
+\section*{12. Operators \& Isomorphisms}
 \begin{itemize}
 \item A linear map is an isomorphism if and only if it is injective and surjective
 \item $V \cong U$ if and only if $\dim V = \dim U$
@@ -227,7 +244,7 @@ Let $T:V \to U$ be linear.
 \item In finite dimensions, equality implies stabilization
 \end{itemize}
 
-\section*{12. Matrix Representation}
+\section*{13. Matrix Representation}
 Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.
 \[
 [T]_B^S := \big([T(v_1)]_S, \dots, [T(v_n)]_S\big)
@@ -238,7 +255,7 @@ Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.
 \item $T$ is invertible if and only if $[T]_B^S$ is invertible
 \end{itemize}
 
-\section*{13. Dual Spaces, Functionals, and Annihilators}
+\section*{14. Dual Spaces, Functionals, and Annihilators}
 
 \subhead{Concept.}
 Duality studies vectors indirectly via linear measurements. Instead of examining vectors themselves, we examine how all linear functionals act on them.
@@ -311,7 +328,7 @@ In matrix form,
 [T^*] = [T]^T
 \]
 
-\section*{14. Vandermonde Matrix}
+\section*{15. Vandermonde Matrix}
 
 Given scalars $x_1,\dots,x_n \in \mathbb{F}$, the \textbf{Vandermonde matrix} is
 \[
@@ -346,7 +363,7 @@ V(x_1,\dots,x_n) \text{ is invertible} \\
 \item Appears naturally in polynomial interpolation
 \end{itemize}
 
-\section*{15. Permutations}
+\section*{16. Permutations}
 
 A \textbf{permutation} of $\{1,\dots,n\}$ is a bijection
 \[
@@ -393,7 +410,7 @@ For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
 \item Linearity of determinant follows from the formula
 \end{itemize}
 
-\section*{16. Block Matrices}
+\section*{17. Block Matrices}
 
 \subhead{Definition.}
 A \emph{block matrix} is a matrix partitioned into submatrices:
