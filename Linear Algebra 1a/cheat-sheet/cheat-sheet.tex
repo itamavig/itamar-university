@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
 \usepackage{multicol}
+\usepackage{xcolor}
 
 \setlength{\mathindent}{0pt}
 \setlist{nosep}
@@ -54,7 +55,7 @@ A_{m\times p} B_{p\times n} = (AB)_{m\times n},
 \section*{3. Vector Spaces \& Subspaces}
 A subset $W \subseteq V$ is a subspace if and only if:
 \begin{itemize}
-\item $W$ is nonempty (equivalently $0 \in W$)
+\item $W$ is nonempty (equivalently $\vec{0} \in W$)
 \item Closed under addition: if $u,v \in W$ then $u+v \in W$
 \item Closed under scalar multiplication: if $\alpha \in \mathbb{F}$ and $u \in W$ then $\alpha u \in W$
 \end{itemize}
@@ -64,7 +65,7 @@ Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \math
 \item $U \cap W$ is a subspace of $V$
 \item $U \cup W$ is a subspace of $V$ if and only if $U \subseteq W$ or $W \subseteq U$
 \item $U+W := \{u+w : u \in U,\ w \in W\} = \operatorname{span}(U \cup W)$ is a subspace of $V$
-\item Direct sum: $U \oplus W$ if and only if $U \cap W = \{0\}$ (general case: see Direct sums, \S6)
+\item Direct sum: $U \oplus W$ if and only if $U \cap W = \{\vec{0}\}$ (general case: see Direct sums, \S6)
 \item $\operatorname{span}(S)$ is the smallest subspace containing $S$
 \item $S_1 \subseteq S_2 \subseteq V \Rightarrow \operatorname{span}(S_1) \le \operatorname{span}(S_2) \le V$
 \item $W \le V \Rightarrow \operatorname{span}(W)=W$
@@ -87,7 +88,7 @@ Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
 \begin{itemize}
 \item Number of pivots $= r$, free variables $= n-r$
 \item System is solvable if and only if $b \in \operatorname{Col}(A)$
-\item Homogeneous system: $Ax=0$ has solution space dimension $n-r$
+\item Homogeneous system: $Ax=\vec{0}$ has solution space dimension $n-r$
 \end{itemize}
 
 \[
@@ -112,28 +113,29 @@ Let $M_1,\dots,M_s \le V$ with $M=M_1+\dots+M_s$. The following are equivalent:
 \item $M = M_1 \oplus \dots \oplus M_s$
 \item $\forall a \in M$: the representation $a=a_1+\dots+a_s$, $a_i \in M_i$, is unique
 \item $\exists a \in M$: the representation $a=a_1+\dots+a_s$, $a_i \in M_i$, is unique
-\item $\forall a_i \in M_i \;:\; a_1+\dots+a_s=0 \Rightarrow a_1=\dots=a_s=0$
+\item $\forall a_i \in M_i \;:\; a_1+\dots+a_s=\vec{0} \Rightarrow a_1=\dots=a_s=\vec{0}$
 \item $E^{(i)}$ a basis of $M_i$ $\Rightarrow E^{(1)},\dots,E^{(s)}$ together form a basis of $M$
 \item $\dim M = \dim M_1 + \dots + \dim M_s$
 \end{enumerate}
 Note $3 \Rightarrow$ all: one witness with a unique decomposition suffices.
 
 \section*{7. Coordinates}
-Every $v \in V$ has a unique representation as a linear combination of the vectors of a basis $B=\{v_1,\dots,v_n\}$ of $V$.
-
-\subhead{Coordinate vector.}
-For $v = \alpha_1 v_1 + \dots + \alpha_n v_n$,
-\[
-[v]_B := (\alpha_1,\dots,\alpha_n)^T
-\]
+Let $B=\{v_1,\dots,v_n\}$ be a basis of $V$.
+\begin{itemize}
+\item $[B] := (v_1, \dots, v_n)$, the basis written as a row of its vectors
+\item Every $v \in V$ has a unique representation $v = \alpha_1 v_1 + \dots + \alpha_n v_n$
+\item Coordinate vector: $[v]_B := (\alpha_1,\dots,\alpha_n)^T$
+\item {\color{red}$v = [B]\,[v]_B$}
+\item $u_1,\dots,u_n$ linearly independent, $A \in \mathbb{F}^{n\times p}$: $(u_1, \dots, u_n)\,A = (\vec{0}, \dots, \vec{0}) \Rightarrow A = 0$
+\end{itemize}
 
 \subhead{Change of basis.}
-For bases $B=\{v_1,\dots,v_n\}$ and $C$ of $V$, the transition matrix from $B$ to $C$, written $[I]_B^C$ or $I_{B \to C}$, has the $[v_i]_C$ as its columns:
-\[
-[I]_B^C := \big([v_1]_C, \dots, [v_n]_C\big),
-\qquad
-[v]_C = [I]_B^C\,[v]_B
-\]
+The transition matrix from basis $B$ to basis $C$, written $I_{B \to C}$ (also $[I]_B^C$), has the $[v_i]_C$ as its columns:
+\begin{itemize}
+\item $I_{B \to C} := \big([v_1]_C, \dots, [v_n]_C\big)$
+\item $[v]_C = I_{B \to C}\,[v]_B$
+\item $[C]=(w_1, \dots, w_n)$: $[C]=[B]\,P \Rightarrow P = I_{C \to B}$
+\end{itemize}
 
 \section*{8. Invertible Matrices}
 
@@ -163,7 +165,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\iff A^T$ is invertible, with $(A^T)^{-1}=(A^{-1})^T$
 \item $\iff A \sim I_n$
 \item $\iff \operatorname{RREF}(A)=I_n$
-\item $\iff Ax=0 \Rightarrow x=0$
+\item $\iff Ax=\vec{0} \Rightarrow x=\vec{0}$
 \item $\iff$ For all $b\in\mathbb{F}^n$, the system $Ax=b$ has the unique solution $x=A^{-1}b$
 \item $\iff \operatorname{Row}(A)=\mathbb{F}^n$
 \item $\iff \operatorname{Col}(A)=\mathbb{F}^n$
@@ -222,9 +224,9 @@ where $A_k$ is $A$ with column $k$ replaced by $b$.
 \section*{11. Linear Maps}
 Let $T:V \to U$ be linear.
 \begin{itemize}
-\item Kernel: $\ker T := \{v \in V : T(v)=0\}$
+\item Kernel: $\ker T := \{v \in V : T(v)=\vec{0}\}$
 \item Image: $\operatorname{Im} T := \{T(v) : v \in V\}$
-\item $T$ is injective if and only if $\ker T = \{0\}$
+\item $T$ is injective if and only if $\ker T = \{\vec{0}\}$
 \item $T$ is surjective if and only if $\dim \operatorname{Im}T = \dim U$
 \end{itemize}
 \[
@@ -287,7 +289,7 @@ In finite dimensions, this map is an isomorphism.
 \subhead{Kernel (MERHAV HA EFES).}
 For $T:V \to U$,
 \[
-\ker T := \{v \in V : T(v)=0\}
+\ker T := \{v \in V : T(v)=\vec{0}\}
 \]
 This is a subspace of $V$.
 
