@@ -5,6 +5,7 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{xcolor}
+\usepackage[normalem]{ulem}
 
 \setlength{\mathindent}{0pt}
 \setlist{nosep}
@@ -131,13 +132,13 @@ Let $B=\{v_1,\dots,v_n\}$ be a basis of $V$.
 \end{itemize}
 
 \subhead{Change of basis.}
-The transition matrix from basis $B$ to basis $C$, written $I_{B \to C}$ (also $[I]_B^C$), has the $[v_i]_C$ as its columns:
+The transition matrix from basis $B$ to basis $C$, written $[I]_{B \to C}$ (also $[I]_B^C$), has the $[v_i]_C$ as its columns:
 \begin{itemize}
-\item $I_{B \to C} := \big([v_1]_C, \dots, [v_n]_C\big)$
-\item $[v]_C = I_{B \to C}\,[v]_B$
-\item $B,C,D$ bases: $I_{B \to D} = I_{C \to D}\,I_{B \to C}$
-\item $I_{B \to C}$ is invertible, with $\big(I_{B \to C}\big)^{-1} = I_{C \to B}$
-\item $[C]=(w_1, \dots, w_n)$: $[C]=[B]\,P \Rightarrow P = I_{C \to B}$
+\item $[I]_{B \to C} := \big([v_1]_C, \dots, [v_n]_C\big)$
+\item $[v]_C = [I]_{B \to C}\,[v]_B$
+\item $B,C,D$ bases: $[I]_{B \to D} = [I]_{C \to D}\,[I]_{B \to C}$
+\item $[I]_{B \to C}$ is invertible, with $\big([I]_{B \to C}\big)^{-1} = [I]_{C \to B}$
+\item $[C]=(w_1, \dots, w_n)$: $[C]=[B]\,P \Rightarrow P = [I]_{C \to B}$
 \end{itemize}
 
 \section*{8. Invertible Matrices}
@@ -183,7 +184,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\iff A$ is a product of elementary matrices
 \item $\iff \operatorname{adj}(A)$ is invertible
 \item $\iff$ $A$ is invertible on one side (i.e.\ $AB=I$ or $BA=I$ for some $B$) --- \textbf{square $A$ only}
-\item $\iff A=I_{B \to C}$ for some bases $B,C$
+\item $\iff A=[I]_{B \to C}$ for some bases $B,C$
 \item $\;\Longleftarrow\;$ $A$ is elementary (then $A^{-1}$ is also elementary)
 \end{enumerate}
 
@@ -285,14 +286,28 @@ Let $T:V \to U$ be linear.
 \end{itemize}
 
 \section*{13. Matrix Representation}
-Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.
-\[
-[T]_B^S := \big([T(v_1)]_S, \dots, [T(v_n)]_S\big)
-\]
+$T:V \to W$ linear
+
+$B=\{v_1,\dots,v_n\}$ basis of $V$
+
+$C=\{w_1,\dots,w_m\}$ basis of $W$
+
 \begin{itemize}
-\item $[T]_B^S [v]_B = [T(v)]_S$
-\item $[S\circ T]_A^C = [S]_B^C [T]_A^B$
-\item $T$ is invertible if and only if $[T]_B^S$ is invertible
+\item $[T]_{B \to C} := \big([T(v_1)]_C, \dots, [T(v_n)]_C\big) \in \mathbb{F}^{m\times n}$
+\item $[T]_{B \to C}\,[v]_B = [T(v)]_C$ for all $v \in V$
+\end{itemize}
+
+\medskip
+\sout{Let $B=\{v_1,\dots,v_n\}$ and $S=\{u_1,\dots,u_m\}$.}
+
+\smallskip
+\noindent\sout{$\displaystyle [T]_B^S := \big([T(v_1)]_S, \dots, [T(v_n)]_S\big)$}
+\smallskip
+
+\begin{itemize}
+\item \sout{$[T]_B^S [v]_B = [T(v)]_S$}
+\item \sout{$[S\circ T]_A^C = [S]_B^C [T]_A^B$}
+\item \sout{$T$ is invertible if and only if $[T]_B^S$ is invertible}
 \end{itemize}
 
 \section*{14. Dual Spaces, Functionals, and Annihilators}
