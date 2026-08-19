@@ -297,10 +297,12 @@ $[\varphi]_B := [\varphi]_{B \to B}$ for $\varphi:V \to V$
 \begin{itemize}
 \item $[T]_{B \to C} := \big([T(v_1)]_C, \dots, [T(v_n)]_C\big) \in \mathbb{F}^{m\times n}$
 \item $[T]_{B \to C}\,[v]_B = [T(v)]_C$ for all $v \in V$
+\item $\operatorname{rank}\big([T]_{B \to C}\big) = \dim \operatorname{Im}T$
 \item $[T_1]_{B \to C} = [T_2]_{B \to C} \Rightarrow T_1 = T_2$
+\item $S:W \to Z$, $D$ basis of $Z$: $[S \circ T]_{B \to D} = [S]_{C \to D}\,[T]_{B \to C}$
 \item $B'$ basis of $V$, $C'$ basis of $W$: $[T]_{B' \to C'} = [I]_{C \to C'}\,[T]_{B \to C}\,[I]_{B' \to B}$
 \begin{itemize}
-\item $S:V \to V$, same basis both sides: $[S]_{B'} = P^{-1}\,[S]_B\,P$, where $P := [I]_{B' \to B}$
+\item $\varphi:V \to V$, same basis both sides: $[\varphi]_{B'} = P^{-1}\,[\varphi]_B\,P$, where $P := [I]_{B' \to B}$
 \end{itemize}
 \end{itemize}
 
@@ -317,24 +319,47 @@ $[\varphi]_B := [\varphi]_{B \to B}$ for $\varphi:V \to V$
 \item \sout{$T$ is invertible if and only if $[T]_B^S$ is invertible}
 \end{itemize}
 
-\section*{14. Dual Spaces, Functionals, and Annihilators}
+\section*{14. Similar Matrices}
+$A,B \in \mathbb{F}^{n\times n}$ are \emph{similar} if $A = PBP^{-1}$ for some invertible $P$
+\begin{itemize}
+\item $A = PBP^{-1} \Rightarrow A^n = PB^nP^{-1}$
+\end{itemize}
 
-\subhead{Concept.}
-Duality studies vectors indirectly via linear measurements. Instead of examining vectors themselves, we examine how all linear functionals act on them.
+\section*{15. The Space $\mathcal{L}(V,W)$}
+$\mathcal{L}(V,W) := \{\varphi : V \to W \mid \varphi \text{ is linear}\}$
+
+$\varphi,\psi \in \mathcal{L}(V,W)$, $\lambda \in \mathbb{F}$
+
+$B$ basis of $V$, $\dim V = n$; $C$ basis of $W$, $\dim W = m$
+\begin{itemize}
+\item $(\varphi+\psi)(x) := \varphi(x)+\psi(x)$
+\item $(\lambda\varphi)(x) := \lambda\big(\varphi(x)\big)$
+\item $\varphi+\psi$ and $\lambda\varphi$ are linear
+\item $\mathcal{L}(V,W)$ is a vector space over $\mathbb{F}$
+\item $\varphi \mapsto [\varphi]_{B \to C}$ is an isomorphism $\mathcal{L}(V,W) \to \mathbb{F}^{m\times n}$
+\item $\dim V,\dim W<\infty$ \\
+$\Rightarrow \dim \mathcal{L}(V,W) = \dim V \cdot \dim W = mn$
+\end{itemize}
+
+\section*{16. Dual Spaces, Functionals, and Annihilators}
 
 \subhead{Linear functionals.}
 A linear functional is a linear map $f:V \to \mathbb{F}$. It assigns a scalar to each vector and represents a linear measurement.
 
 \subhead{Dual space.}
-\[
-V^* := \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}
-\]
-$V^*$ is a vector space. If $\dim V = n < \infty$, then $\dim V^* = n$.
+\begin{itemize}
+\item $V^* := \mathcal{L}(V,\mathbb{F}) = \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}$
+\item $V^*$ is a vector space
+\item $\dim V = n < \infty \Rightarrow \dim V^* = n$
+\end{itemize}
 
-\subhead{Dual basis.}
-If $B = \{v_1,\dots,v_n\}$ is a basis of $V$, the dual basis
-$B^* = \{f_1,\dots,f_n\}$ satisfies $f_i(v_j)=\delta_{ij}$.
-Each $f_i$ extracts the $i$-th coordinate.
+\subhead{Dual basis.}\\
+$B=\{v_1,\dots,v_n\}$ basis of $V$
+\begin{itemize}
+\item $B^* := \{f_1,\dots,f_n\}$, where $f_i(v_j)=\delta_{ij}$
+\item $B^*$ is a basis of $V^*$
+\item $f_i(v)$ is the $i$-th coordinate of $[v]_B$
+\end{itemize}
 
 \subhead{Second dual space.}
 The second dual is $V^{**} := (V^*)^*$.
@@ -390,7 +415,7 @@ In matrix form,
 [T^*] = [T]^T
 \]
 
-\section*{15. Vandermonde Matrix}
+\section*{17. Vandermonde Matrix}
 
 Given scalars $x_1,\dots,x_n \in \mathbb{F}$, the \textbf{Vandermonde matrix} is
 \[
@@ -425,7 +450,7 @@ V(x_1,\dots,x_n) \text{ is invertible} \\
 \item Appears naturally in polynomial interpolation
 \end{itemize}
 
-\section*{16. Permutations}
+\section*{18. Permutations}
 
 A \textbf{permutation} of $\{1,\dots,n\}$ is a bijection
 \[
@@ -472,7 +497,7 @@ For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
 \item Linearity of determinant follows from the formula
 \end{itemize}
 
-\section*{17. Block Matrices}
+\section*{19. Block Matrices}
 
 \subhead{Definition.}
 A \emph{block matrix} is a matrix partitioned into submatrices:
