@@ -292,11 +292,16 @@ $B=\{v_1,\dots,v_n\}$ basis of $V$
 
 $C=\{w_1,\dots,w_m\}$ basis of $W$
 
+$[\varphi]_B := [\varphi]_{B \to B}$ for $\varphi:V \to V$
+
 \begin{itemize}
 \item $[T]_{B \to C} := \big([T(v_1)]_C, \dots, [T(v_n)]_C\big) \in \mathbb{F}^{m\times n}$
 \item $[T]_{B \to C}\,[v]_B = [T(v)]_C$ for all $v \in V$
 \item $[T_1]_{B \to C} = [T_2]_{B \to C} \Rightarrow T_1 = T_2$
 \item $B'$ basis of $V$, $C'$ basis of $W$: $[T]_{B' \to C'} = [I]_{C \to C'}\,[T]_{B \to C}\,[I]_{B' \to B}$
+\begin{itemize}
+\item $S:V \to V$, same basis both sides: $[S]_{B'} = P^{-1}\,[S]_B\,P$, where $P := [I]_{B' \to B}$
+\end{itemize}
 \end{itemize}
 
 \medskip
