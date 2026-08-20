@@ -363,6 +363,28 @@ $B=\{v_1,\dots,v_n\}$ basis of $V$
 \item $f_i(v) = f_i\big(\sum_j \alpha_j v_j\big) = \alpha_i$, the $i$-th coordinate of $[v]_B$
 \end{itemize}
 
+\subhead{Annihilator (MEAPES).}\\
+$S \subseteq V$
+\begin{itemize}
+\item $S^{\circ} := \{f \in V^* : f(s)=0 \text{ for all } s \in S\}$
+\item $S^{\circ}$ is a subspace of $V^*$
+\item $S_1 \subseteq S_2 \Rightarrow S_1^{\circ} \supseteq S_2^{\circ}$
+\item $S^{\circ} = (\operatorname{span} S)^{\circ}$
+\item $\{S_i\}_{i \in I}$ subsets of $V$: $\big(\bigcup_i S_i\big)^{\circ} = \bigcap_i S_i^{\circ}$
+\end{itemize}
+
+\subhead{Difference between MERHAV HA EFES and MEAPES.}
+\begin{itemize}
+\item MERHAV HA EFES: vectors in $V$ mapped to zero by a linear map
+\item MEAPES: functionals in $V^*$ that vanish on a subset
+\end{itemize}
+
+\subhead{Dimension relation.}
+If $W \le V$ and $\dim V = n < \infty$, then
+\[
+\dim W + \dim W^{\circ} = n
+\]
+
 \subhead{Second dual space.}
 The second dual is $V^{**} := (V^*)^*$.
 There is a canonical map
@@ -372,32 +394,6 @@ There is a canonical map
 \Phi(v)(f):=f(v)
 \]
 In finite dimensions, this map is an isomorphism.
-
-\subhead{Kernel (MERHAV HA EFES).}
-For $T:V \to U$,
-\[
-\ker T := \{v \in V : T(v)=\vec{0}\}
-\]
-This is a subspace of $V$.
-
-\subhead{Annihilator (MEAPES).}
-For $W \le V$,
-\[
-W^{\circ} := \{f \in V^* : f(w)=0 \text{ for all } w \in W\}
-\]
-This is a subspace of $V^*$.
-
-\subhead{Difference between MERHAV HA EFES and MEAPES.}
-\begin{itemize}
-\item MERHAV HA EFES: vectors in $V$ mapped to zero by a linear map
-\item MEAPES: functionals in $V^*$ that vanish on a subspace
-\end{itemize}
-
-\subhead{Dimension relation.}
-If $W \le V$ and $\dim V = n < \infty$, then
-\[
-\dim W + \dim W^{\circ} = n
-\]
 
 \subhead{Dual (transpose) map.}
 For $T:V \to U$ define
