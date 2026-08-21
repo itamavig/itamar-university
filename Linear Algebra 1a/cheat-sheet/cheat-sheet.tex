@@ -371,6 +371,19 @@ $S \subseteq V$
 \item $S_1 \subseteq S_2 \Rightarrow S_1^{\circ} \supseteq S_2^{\circ}$
 \item $S^{\circ} = (\operatorname{span} S)^{\circ}$
 \item $\{S_i\}_{i \in I}$ subsets of $V$: $\big(\bigcup_i S_i\big)^{\circ} = \bigcap_i S_i^{\circ}$
+\item $W \le V$, $\dim V<\infty$: $\dim W + \dim W^{\circ} = \dim V$
+\end{itemize}
+
+\subhead{Pre-annihilator (TAT MERHAV HA EFASIM).}\\
+$G \subseteq V^*$
+\begin{itemize}
+\item $G_{\circ} := \{v \in V : f(v)=0 \text{ for all } f \in G\} = \bigcap_{f \in G} \ker f$
+\item $G_{\circ}$ is a subspace of $V$
+\item $G_1 \subseteq G_2 \Rightarrow (G_1)_{\circ} \supseteq (G_2)_{\circ}$
+\item $G_{\circ} = (\operatorname{span} G)_{\circ}$
+\item $\{G_i\}_{i \in I}$ subsets of $V^*$: $\big(\bigcup_i G_i\big)_{\circ} = \bigcap_i (G_i)_{\circ}$
+\item $N \le V^*$, $\dim V<\infty$: $\dim N + \dim N_{\circ} = \dim V$
+\item $\emptyset_{\circ} = V$
 \end{itemize}
 
 \subhead{Difference between MERHAV HA EFES and MEAPES.}
@@ -378,12 +391,6 @@ $S \subseteq V$
 \item MERHAV HA EFES: vectors in $V$ mapped to zero by a linear map
 \item MEAPES: functionals in $V^*$ that vanish on a subset
 \end{itemize}
-
-\subhead{Dimension relation.}
-If $W \le V$ and $\dim V = n < \infty$, then
-\[
-\dim W + \dim W^{\circ} = n
-\]
 
 \subhead{Second dual space.}
 The second dual is $V^{**} := (V^*)^*$.
