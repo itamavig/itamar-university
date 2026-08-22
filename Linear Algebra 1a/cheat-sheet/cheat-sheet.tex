@@ -205,11 +205,12 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
 \end{itemize}
 
-\subhead{Adjugate.}
-For $A \in \mathbb{F}^{n\times n}$: $M_{ij}(A)$ is $A$ with row $i$ and column $j$ deleted; cofactor $c_{ij}:=(-1)^{i+j}\det(M_{ij}(A))$; cofactor matrix $C=(c_{ij})$.
+\subhead{Adjugate.}\\
+$A \in \mathbb{F}^{n\times n}$
 \begin{itemize}
-\item $\operatorname{adj}(A):=C^T$
-\item $\operatorname{adj}(A)_{ij}=c_{ji}=(-1)^{i+j}\det(M_{ji}(A))$
+\item $M_{ij}(A) :=$ $A$ with row $i$ and column $j$ deleted
+\item cofactor $c_{ij} := (-1)^{i+j}\det(M_{ij}(A))$
+\item $\operatorname{adj}(A)_{ij} := c_{ji} = (-1)^{i+j}\det(M_{ji}(A))$
 \item $\operatorname{adj}(A)\,A = A\,\operatorname{adj}(A)=\det(A)I_n$
 \item $A^{-1} = \tfrac{1}{\det(A)}\operatorname{adj}(A)$
 \item $\operatorname{rank}(\operatorname{adj}(A)) =
