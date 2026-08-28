@@ -46,6 +46,8 @@ A_{m\times p} B_{p\times n} = (AB)_{m\times n},
 (AB)_{ij} := \sum_{k=1}^{p} a_{ik} b_{kj}
 \]
 \begin{itemize}
+\item $B$ with columns $b_1,\dots,b_n$: $AB = (Ab_1,\dots,Ab_n)$
+\item $A$ with rows $a_1,\dots,a_m$: row $i$ of $AB$ is $a_i B$
 \item $AB = 0$ does not imply $A=0$ or $B=0$
 \item If $A^T = A$ and $B^T = B$, then $AB$ is symmetric if and only if $AB = BA$
 \item If $\varphi$ is an elementary row operation and $A \in \mathbb{F}^{m\times n}$, then
@@ -143,20 +145,10 @@ The transition matrix from basis $B$ to basis $C$, written $[I]_{B \to C}$ (also
 \end{itemize}
 
 \section*{8. Invertible Matrices}
-
 \begin{itemize}
-\item If $P$ is invertible, then
-\[
-\operatorname{rank}(PA)=\operatorname{rank}(AP)=\operatorname{rank}(A)
-\]
-\item If $\alpha \neq 0$, then
-\[
-(\alpha A)^{-1}=\alpha^{-1}A^{-1}
-\]
-\item If $C$ is invertible and $B=CA$, then
-\[
-B \text{ invertible} \iff A \text{ invertible}
-\]
+\item $P$ invertible $\Rightarrow \operatorname{rank}(PA)=\operatorname{rank}(AP)=\operatorname{rank}(A)$
+\item $\alpha \neq 0 \Rightarrow (\alpha A)^{-1}=\alpha^{-1}A^{-1}$
+\item $C$ invertible, $B=CA$: $B$ invertible $\iff A$ invertible
 \end{itemize}
 
 \subsection*{Conditions Related to Invertibility}
