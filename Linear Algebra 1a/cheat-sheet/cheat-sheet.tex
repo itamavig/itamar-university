@@ -176,24 +176,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item $\;\Longleftarrow\;$ $A$ is elementary (then $A^{-1}$ is also elementary)
 \end{enumerate}
 
-\section*{9. Matrix Spaces}
-$A \in \mathbb{F}^{m\times n}$
-\begin{itemize}
-\item $\operatorname{Row}(A) := \operatorname{span}(\text{rows of } A) \le \mathbb{F}^n$
-\item $\operatorname{Col}(A) := \operatorname{span}(\text{columns of } A) \le \mathbb{F}^m$
-\item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
-\item {\color{red}\textbf{ROW OPERATIONS DO NOT PRESERVE THE COLUMN SPACE}}
-\begin{itemize}
-\item {\color{red}$\operatorname{Row}(A)$ is preserved}
-\item {\color{red}$\dim \operatorname{Col}(A) = \operatorname{rank}(A)$ is preserved, $\operatorname{Col}(A)$ is not}
-\end{itemize}
-\item $\operatorname{Null}(A) = \ker(A) = \{x : Ax=\vec{0}\}$
-\item $\dim \ker(A) = n - \operatorname{rank}(A)$
-\item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
-\item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
-\end{itemize}
-
-\section*{10. Determinants \& Adjugate}
+\section*{9. Determinants \& Adjugate}
 \begin{itemize}
 \item $\det(A^T)=\det(A)$
 \item $\det(AB)=\det(A)\det(B)$
@@ -223,6 +206,23 @@ n, & \operatorname{rank}(A)=n, \\
 \item $A_k$ is $A$ with column $k$ replaced by $b$
 \end{itemize}
 
+\section*{10. Matrix Spaces}
+$A \in \mathbb{F}^{m\times n}$
+\begin{itemize}
+\item $\operatorname{Row}(A) := \operatorname{span}(\text{rows of } A) \le \mathbb{F}^n$
+\item $\operatorname{Col}(A) := \operatorname{span}(\text{columns of } A) \le \mathbb{F}^m$
+\item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
+\item {\color{red}\textbf{ROW OPERATIONS DO NOT PRESERVE THE COLUMN SPACE}}
+\begin{itemize}
+\item {\color{red}$\operatorname{Row}(A)$ is preserved}
+\item {\color{red}$\dim \operatorname{Col}(A) = \operatorname{rank}(A)$ is preserved, $\operatorname{Col}(A)$ is not}
+\end{itemize}
+\item $\operatorname{Null}(A) = \ker(A) = \{x : Ax=\vec{0}\}$
+\item $\dim \ker(A) = n - \operatorname{rank}(A)$
+\item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
+\item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
+\end{itemize}
+
 \section*{11. Linear Maps}
 $T:V \to U$ is linear if for all $u,v \in V$ and $\alpha \in \mathbb{F}$:
 \begin{itemize}
@@ -247,6 +247,7 @@ Equivalently: $T(\alpha u + v) = \alpha T(u) + T(v)$.
 \item $\dim V = \dim \ker T + \dim \operatorname{Im}T$
 \end{itemize}
 
+\vspace{-1.5ex}
 \section*{12. Operators \& Isomorphisms}
 Let $T:V \to U$ be linear.
 \begin{itemize}
