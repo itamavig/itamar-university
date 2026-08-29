@@ -492,23 +492,23 @@ For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
 
 \section*{18. Block Matrices}
 
-\subhead{Definition.}
-A \emph{block matrix} is a matrix partitioned into submatrices:
+\subhead{Definition.}\\
+A \emph{block matrix} is a matrix partitioned into submatrices of compatible sizes
 \[
 A =
 \begin{pmatrix}
 A_{11} & A_{12} \\
 A_{21} & A_{22}
-\end{pmatrix},
+\end{pmatrix}
 \]
-where the blocks have compatible sizes.
 
-\subhead{Block operations.}
-If dimensions agree, block matrices behave like ordinary matrices:
+\subhead{Block operations.}\\
+Block sizes agree $\Rightarrow$ blocks behave like entries
 \begin{itemize}
-\item Addition and scalar multiplication are blockwise
-\item Matrix multiplication follows block multiplication rules
+\item addition and scalar multiplication are blockwise
+\item multiplication follows the ordinary rule
 \end{itemize}
+\medskip
 \[
 \begin{pmatrix}
 A & B\\
@@ -526,62 +526,48 @@ CE+DG & CF+DH
 \]
 
 \subhead{Block diagonal matrices.}
-
-If
 \[
 A=
 \begin{pmatrix}
 A_1 & 0\\
 0 & A_2
-\end{pmatrix},
+\end{pmatrix}
 \]
-\[
-\begin{aligned}
-\det(A) &= \det(A_1)\det(A_2), \\
-A \text{ invertible } &\iff A_1, A_2 \text{ invertible}.
-\end{aligned}
-\]
-
+\begin{itemize}
+\item $\det(A) = \det(A_1)\det(A_2)$
+\item $A$ invertible $\iff A_1, A_2$ invertible
+\end{itemize}
 
 \subhead{Block triangular matrices.}
-If
 \[
 A=
 \begin{pmatrix}
 A_{11} & A_{12}\\
 0 & A_{22}
-\end{pmatrix},
+\end{pmatrix}
 \]
-then
-\[
-\begin{aligned}
-\det(A) &= \det(A_{11})\det(A_{22}), \\
-\operatorname{rank}(A) &= \operatorname{rank}(A_{11})+\operatorname{rank}(A_{22}).
-\end{aligned}
-\]
+\begin{itemize}
+\item $\det(A) = \det(A_{11})\det(A_{22})$
+\item $\operatorname{rank}(A) = \operatorname{rank}(A_{11})+\operatorname{rank}(A_{22})$
+\end{itemize}
 
 \subhead{Schur complement.}
-Let
 \[
 A=
 \begin{pmatrix}
 A_{11} & A_{12}\\
 A_{21} & A_{22}
 \end{pmatrix},
-\quad A_{11} \text{ invertible}.
+\quad A_{11} \text{ invertible}
 \]
-The \emph{Schur complement} of $A_{11}$ in $A$ is
-\[
-S := A_{22} - A_{21}A_{11}^{-1}A_{12}.
-\]
-
 \begin{itemize}
+\item \emph{Schur complement} of $A_{11}$ in $A$: $S := A_{22} - A_{21}A_{11}^{-1}A_{12}$
 \item $A$ invertible $\iff A_{11}$ and $S$ invertible
 \item $\det(A)=\det(A_{11})\det(S)$
 \end{itemize}
 
-\subhead{Block inverse formula.}
-If $A_{11}$ and $S$ are invertible, then
+\subhead{Block inverse formula.}\\
+$A_{11}, S$ invertible:
 \[
 A^{-1} =
 \begin{pmatrix}
@@ -596,7 +582,6 @@ S^{-1}
 \]
 
 \subhead{Solving block systems.}
-For
 \[
 \begin{pmatrix}
 A_{11} & A_{12}\\
@@ -610,9 +595,8 @@ y
 \begin{pmatrix}
 b\\
 c
-\end{pmatrix},
+\end{pmatrix}
 \]
-solve:
 \begin{enumerate}
 \item $A_{11}x = b - A_{12}y$
 \item $(A_{22}-A_{21}A_{11}^{-1}A_{12})y = c - A_{21}A_{11}^{-1}b$
