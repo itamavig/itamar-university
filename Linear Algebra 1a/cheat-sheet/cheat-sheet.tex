@@ -184,6 +184,12 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \section*{9. Matrix Spaces}
 \begin{itemize}
 \item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
+\item {\color{red}\textbf{ROW OPERATIONS DO NOT PRESERVE THE COLUMN SPACE}}
+\begin{itemize}
+\item {\color{red}$\operatorname{Row}(A)$ is preserved}
+\item {\color{red}$\dim \operatorname{Col}(A) = \operatorname{rank}(A)$ is preserved, $\operatorname{Col}(A)$ is not}
+\end{itemize}
+\item $\operatorname{Null}(A) = \ker(A) = \{x : Ax=\vec{0}\}$
 \item $\dim \ker(A) = n - \operatorname{rank}(A)$ for $A \in \mathbb{F}^{m\times n}$
 \item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
 \item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
