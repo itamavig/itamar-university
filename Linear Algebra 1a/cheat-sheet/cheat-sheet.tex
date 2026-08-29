@@ -40,20 +40,14 @@ A field $\mathbb{F}$ is a set with operations $(+,\cdot)$ satisfying: closure, a
 \end{itemize}
 
 \section*{2. Matrices}
-\[
-A_{m\times p} B_{p\times n} = (AB)_{m\times n},
-\qquad
-(AB)_{ij} := \sum_{k=1}^{p} a_{ik} b_{kj}
-\]
+$A_{m\times p} B_{p\times n} = (AB)_{m\times n}$
 \begin{itemize}
+\item $\displaystyle (AB)_{ij} := \sum_{k=1}^{p} a_{ik} b_{kj}$
 \item $B$ with columns $b_1,\dots,b_n$: $AB = (Ab_1,\dots,Ab_n)$
 \item $A$ with rows $a_1,\dots,a_m$: row $i$ of $AB$ is $a_i B$
 \item $AB = 0$ does not imply $A=0$ or $B=0$
 \item If $A^T = A$ and $B^T = B$, then $AB$ is symmetric $\iff$ $AB = BA$
-\item If $\varphi$ is an elementary row operation and $A \in \mathbb{F}^{m\times n}$, then
-\[
-\varphi(A) = \varphi(I_m)\,A
-\]
+\item $\varphi$ an elementary row operation, $A \in \mathbb{F}^{m\times n}$: $\varphi(A) = \varphi(I_m)\,A$
 \end{itemize}
 
 \section*{3. Vector Spaces \& Subspaces}
@@ -87,9 +81,7 @@ Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \math
 \end{itemize}
 
 \section*{5. Linear Systems}
-\[
-Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
-\]
+$Ax=b$, $n$ variables, $r = \operatorname{rank}(A)$
 \begin{itemize}
 \item Number of pivots $= r$, free variables $= n-r$
 \item System is solvable $\iff$ $b \in \operatorname{Col}(A)$
@@ -112,10 +104,8 @@ If $\dim V = n$:
 \item $\dim V<\infty$: any spanning set contains a basis of $V$
 \item A set $B$ with $|B|=n$ is a basis $\iff$ it is linearly independent $\iff$ it spans $V$
 \item If $W \le V$, then $W=V$ $\iff$ $\dim W = \dim V$
+\item $\dim(U+W) = \dim U + \dim W - \dim(U \cap W)$
 \end{itemize}
-\[
-\dim(U+W) = \dim U + \dim W - \dim(U \cap W)
-\]
 
 \subhead{Direct sums.}
 Let $M_1,\dots,M_s \le V$ with $M=M_1+\dots+M_s$. The following are equivalent:
@@ -228,11 +218,10 @@ n, & \operatorname{rank}(A)=n, \\
 \end{itemize}
 
 \subhead{Cramer's rule.}
-$\det(A) \neq 0 \Rightarrow Ax=b$ has the unique solution
-\[
-x_k = \frac{\det(A_k)}{\det(A)}, \qquad k=1,\dots,n
-\]
-where $A_k$ is $A$ with column $k$ replaced by $b$.
+\begin{itemize}
+\item $\det(A) \neq 0 \Rightarrow Ax=b$ has the unique solution $x_k = \tfrac{\det(A_k)}{\det(A)}$, $k=1,\dots,n$
+\item $A_k$ is $A$ with column $k$ replaced by $b$
+\end{itemize}
 
 \section*{11. Linear Maps}
 $T:V \to U$ is linear if for all $u,v \in V$ and $\alpha \in \mathbb{F}$:
@@ -255,10 +244,8 @@ Equivalently: $T(\alpha u + v) = \alpha T(u) + T(v)$.
 \item $\operatorname{Im} T \le U$
 \end{itemize}
 \item $\dim V<\infty$, $\{e_1,\dots,e_k\}$ a basis of $\ker T$ extended to a basis $\{e_1,\dots,e_n\}$ of $V$ $\Rightarrow \{T(e_{k+1}),\dots,T(e_n)\}$ is a basis of $\operatorname{Im}T$
+\item $\dim V = \dim \ker T + \dim \operatorname{Im}T$
 \end{itemize}
-\[
-\dim V = \dim \ker T + \dim \operatorname{Im}T
-\]
 
 \section*{12. Operators \& Isomorphisms}
 Let $T:V \to U$ be linear.
@@ -283,12 +270,8 @@ Let $T:V \to U$ be linear.
 \item $V \cong U \iff \dim V = \dim U$
 \item $\dim V = \dim U < \infty$: $T$ mono $\iff T$ epi $\iff T$ iso
 \item \color{red} For an operator $T:V \to V$:
-\[
-\ker T \subseteq \ker T^2 \subseteq \dots,
-\qquad
-\operatorname{Im}T \supseteq \operatorname{Im}T^2 \supseteq \dots
-\]
 \begin{itemize}
+\item $\ker T \subseteq \ker T^2 \subseteq \dots$, \quad $\operatorname{Im}T \supseteq \operatorname{Im}T^2 \supseteq \dots$
 \item $\ker T^k = \ker T^{k+1} \Rightarrow \ker T^m = \ker T^k$ for all $m \ge k$ (same for $\operatorname{Im}$)
 \item $\dim V < \infty \Rightarrow$ this equality occurs, by $k=\dim V$ at the latest
 \end{itemize}
@@ -410,7 +393,7 @@ $T:V \to U$
 
 \section*{16. Vandermonde Matrix}
 
-Given scalars $x_1,\dots,x_n \in \mathbb{F}$, the \textbf{Vandermonde matrix} is
+$x_1,\dots,x_n \in \mathbb{F}$; the \emph{Vandermonde matrix} is
 \[
 V(x_1,\dots,x_n):=
 \begin{pmatrix}
@@ -421,48 +404,30 @@ V(x_1,\dots,x_n):=
 \end{pmatrix}
 \]
 
-\subhead{Determinant.}
-\[
-\det V(x_1,\dots,x_n)
-=
-\prod_{1 \le i < j \le n} (x_j - x_i)
-\]
-
-\subhead{Invertibility.}
-\[
-\begin{aligned}
-V(x_1,\dots,x_n) \text{ is invertible} \\
-\iff x_1,\dots,x_n \text{ are pairwise distinct}
-\end{aligned}
-\]
-
-\subhead{Consequences.}
 \begin{itemize}
-\item If $x_i = x_j$ for some $i \neq j$, then two rows are equal $\Rightarrow \det V = 0$
-\item If all $x_i$ are distinct, then $\operatorname{rank}(V)=n$
-\item Appears naturally in polynomial interpolation
+\item $\displaystyle \det V(x_1,\dots,x_n) = \prod_{1 \le i < j \le n} (x_j - x_i)$
+\item $V(x_1,\dots,x_n)$ is invertible $\iff x_1,\dots,x_n$ are pairwise distinct
+\item $x_i = x_j$ for some $i \neq j$ $\Rightarrow$ two rows are equal $\Rightarrow \det V = 0$
+\item all $x_i$ distinct $\Rightarrow \operatorname{rank}(V)=n$
+\item appears naturally in polynomial interpolation
 \end{itemize}
 
 \section*{17. Permutations}
 
-A \textbf{permutation} of $\{1,\dots,n\}$ is a bijection
-\[
-\sigma:\{1,\dots,n\}\to\{1,\dots,n\}.
-\]
-The set of all permutations is denoted $S_n$.
+\begin{itemize}
+\item a \emph{permutation} of $\{1,\dots,n\}$ is a bijection $\sigma:\{1,\dots,n\}\to\{1,\dots,n\}$
+\item $S_n$: the set of all permutations
+\end{itemize}
 
 \subhead{Inversions.}
-An inversion of $\sigma$ is a pair $(i,j)$ such that
-\[
-i<j \quad \text{and} \quad \sigma(i)>\sigma(j).
-\]
-Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$, sometimes denoted $S(\sigma)$.
+\begin{itemize}
+\item an inversion of $\sigma$ is a pair $(i,j)$ with $i<j$ and $\sigma(i)>\sigma(j)$
+\item $\operatorname{inv}(\sigma)$: the number of inversions of $\sigma$, sometimes denoted $S(\sigma)$
+\end{itemize}
 
 \subhead{Sign of a permutation.}
-\[
-\operatorname{sgn}(\sigma):=(-1)^{\operatorname{inv}(\sigma)}.
-\]
 \begin{itemize}
+\item $\operatorname{sgn}(\sigma):=(-1)^{\operatorname{inv}(\sigma)}$
 \item $\sigma$ is \emph{even} if $\operatorname{sgn}(\sigma)=1$
 \item $\sigma$ is \emph{odd} if $\operatorname{sgn}(\sigma)=-1$
 \end{itemize}
@@ -474,20 +439,13 @@ Let $\operatorname{inv}(\sigma)$ be the number of inversions of $\sigma$, someti
 \item $|S_n| = n!$
 \end{itemize}
 
-\subhead{Determinant (Leibniz formula).}
-For $A=(a_{ij}) \in \mathbb{F}^{n\times n}$,
-\[
-\det(A)=
-\sum_{\sigma\in S_n}
-\operatorname{sgn}(\sigma)
-\prod_{i=1}^n a_{i,\sigma(i)}.
-\]
-
-\subhead{Consequences.}
+\subhead{Determinant (Leibniz formula).}\\
+$A=(a_{ij}) \in \mathbb{F}^{n\times n}$
 \begin{itemize}
-\item If two rows (or columns) are equal, every term cancels $\Rightarrow \det(A)=0$
-\item Swapping two rows multiplies $\det(A)$ by $-1$
-\item Linearity of determinant follows from the formula
+\item $\displaystyle \det(A)= \sum_{\sigma\in S_n} \operatorname{sgn}(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}$
+\item two rows (or columns) equal $\Rightarrow$ every term cancels $\Rightarrow \det(A)=0$
+\item swapping two rows multiplies $\det(A)$ by $-1$
+\item linearity of the determinant follows from the formula
 \end{itemize}
 
 \section*{18. Block Matrices}
