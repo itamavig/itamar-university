@@ -94,7 +94,11 @@ Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
 \item Number of pivots $= r$, free variables $= n-r$
 \item System is solvable if and only if $b \in \operatorname{Col}(A)$
 \item $x_p$: any one solution of $Ax=b$ (a \emph{particular} solution)
-\item to find $x_p$: bring $[A \mid b]$ to RREF, set every free variable to $0$, solve for the pivot variables
+\item to find $x_p$: reduce $[A \mid b]$, set every free variable to $0$, then
+\begin{itemize}
+\item from RREF: read off the pivot variables
+\item from row echelon form: back-substitute
+\end{itemize}
 \item Homogeneous system: $Ax=\vec{0}$ has solution space $\operatorname{Null}(A) = \ker(A)$, of dimension $n-r$
 \item $\{x : Ax=b\} = x_p + \ker(A)$
 \end{itemize}
@@ -104,6 +108,8 @@ If $\dim V = n$:
 \begin{itemize}
 \item Any linearly independent set has size at most $n$
 \item Any spanning set has size at least $n$
+\item $\dim V<\infty$: any linearly independent set extends to a basis of $V$
+\item $\dim V<\infty$: any spanning set contains a basis of $V$
 \item A set $B$ with $|B|=n$ is a basis if and only if it is linearly independent if and only if it spans $V$
 \item If $W \le V$, then $W=V$ if and only if $\dim W = \dim V$
 \end{itemize}
