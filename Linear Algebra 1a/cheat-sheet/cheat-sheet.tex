@@ -187,7 +187,10 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \end{enumerate}
 
 \section*{9. Matrix Spaces}
+$A \in \mathbb{F}^{m\times n}$
 \begin{itemize}
+\item $\operatorname{Row}(A) := \operatorname{span}(\text{rows of } A) \le \mathbb{F}^n$
+\item $\operatorname{Col}(A) := \operatorname{span}(\text{columns of } A) \le \mathbb{F}^m$
 \item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
 \item {\color{red}\textbf{ROW OPERATIONS DO NOT PRESERVE THE COLUMN SPACE}}
 \begin{itemize}
@@ -195,7 +198,7 @@ Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is in
 \item {\color{red}$\dim \operatorname{Col}(A) = \operatorname{rank}(A)$ is preserved, $\operatorname{Col}(A)$ is not}
 \end{itemize}
 \item $\operatorname{Null}(A) = \ker(A) = \{x : Ax=\vec{0}\}$
-\item $\dim \ker(A) = n - \operatorname{rank}(A)$ for $A \in \mathbb{F}^{m\times n}$
+\item $\dim \ker(A) = n - \operatorname{rank}(A)$
 \item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
 \item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
 \end{itemize}
