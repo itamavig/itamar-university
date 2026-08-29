@@ -93,12 +93,11 @@ Ax=b, \qquad n \text{ variables}, \qquad r = \operatorname{rank}(A)
 \begin{itemize}
 \item Number of pivots $= r$, free variables $= n-r$
 \item System is solvable if and only if $b \in \operatorname{Col}(A)$
-\item Homogeneous system: $Ax=\vec{0}$ has solution space dimension $n-r$
+\item $x_p$: any one solution of $Ax=b$ (a \emph{particular} solution)
+\item to find $x_p$: bring $[A \mid b]$ to RREF, set every free variable to $0$, solve for the pivot variables
+\item Homogeneous system: $Ax=\vec{0}$ has solution space $\operatorname{Null}(A) = \ker(A)$, of dimension $n-r$
+\item $\{x : Ax=b\} = x_p + \ker(A)$
 \end{itemize}
-
-\[
-\{x : Ax=b\} = x_p + \ker(A)
-\]
 
 \section*{6. Bases \& Dimension}
 If $\dim V = n$:
