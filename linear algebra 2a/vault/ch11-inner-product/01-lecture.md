@@ -102,6 +102,14 @@ tags: [la2, lecture, ch11-inner-product]
 > אם $\mathrm{char}(F) \ne 2$, ניתן לשחזר את $f$ מ-$Q_f$:
 > $$f(v,w) = \frac{Q_f(v+w) - Q_f(v) - Q_f(w)}{2}.$$
 
+> [!example] דוגמה 12.4
+> בתבנית הבילינארית מהדוגמה הקודמת: $Q_f(x_1, x_2) = 2x_1^2 - 2x_1x_2 + 3x_2^2$.
+>
+> **חשיבות ההנחה $\mathrm{char}(F) \ne 2$:** אם $\mathrm{char}(F) = 2$, מקבלים $Q_f \equiv 0$ אבל $f$ אינה תבנית האפס (הייצוג המטריציוני שלה אינו מטריצת האפס). לכן ההנחה $\mathrm{char}(F) \ne 2$ קריטית — ובלעדיה לא ניתן לשחזר את $f$ מ-$Q_f$.
+>
+> **כשהייצוג אלכסוני** (בסיס אורתוגונלי): אם $[f]_B = \mathrm{diag}(a_1, \ldots, a_n)$ אזי:
+> $$f\!\left(\sum_i c_i v_i,\, \sum_j b_j v_j\right) = \sum_{i} a_i c_i b_i, \qquad Q_f\!\left(\sum_i c_i v_i\right) = \sum_i a_i c_i^2.$$
+
 ---
 
 ### לכסון צורה ריבועית
@@ -119,6 +127,18 @@ tags: [la2, lecture, ch11-inner-product]
 > $$e_1^\perp = \{w \in V \mid f(e_1, w) = 0\}.$$
 > $e_1^\perp$ תת-מרחב, $V = \mathrm{Sp}\{e_1\} \oplus e_1^\perp$ (כי $w = \frac{f(e_1,w)}{f(e_1,e_1)} e_1 + (w - \ldots)$). מאינדוקציה על $e_1^\perp$ מסיימים. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 12.5)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $f$ symmetric bilinear, $\mathrm{char}(F) \ne 2$; induct on $\dim V$ | Given |
+> | 2 | Base: $\dim V = 0$ — trivial (empty matrix is diagonal) | Direct |
+> | 3 | If $f \equiv 0$: any basis works ($[f]_B = 0$, diagonal) | Direct |
+> | 4 | Otherwise: $\exists v$ with $f(v,v) \ne 0$ (if all $f(v,v)=0$ then $f \equiv 0$ by Thm 12.3 with $\mathrm{char}\ne 2$) | Theorem 12.3 contrapositive |
+> | 5 | Set $e_1 = v$; define $e_1^\perp = \{w \mid f(e_1,w)=0\}$, a subspace | Linearity of $f$ |
+> | 6 | $V = \mathrm{Sp}\{e_1\} \oplus e_1^\perp$: write $w = \frac{f(e_1,w)}{f(e_1,e_1)} e_1 + (w - \frac{f(e_1,w)}{f(e_1,e_1)} e_1)$; the second term is in $e_1^\perp$ | $f(e_1,e_1)\ne 0$ allows scaling; check orthogonality |
+> | 7 | By IH on $e_1^\perp$ ($\dim < \dim V$): $[f|_{e_1^\perp}]_{B''}$ is diagonal | Induction hypothesis |
+> | 8 | $[f]_{\{e_1\} \cup B''} = \mathrm{diag}(f(e_1,e_1), d_2, \ldots, d_n)$ | Steps 6–7: off-diagonal blocks zero by $e_1 \perp e_1^\perp$ $\square$ |
+
 ---
 
 ### צורות קנוניות
@@ -131,6 +151,11 @@ tags: [la2, lecture, ch11-inner-product]
 > כל צורה ריבועית מייוצגת (על בסיס מתאים) על ידי:
 > $$\mathrm{diag}(\underbrace{1,\ldots,1}_{p}, \underbrace{-1,\ldots,-1}_{q}, 0, \ldots, 0).$$
 > הזוג $(p, q)$ נקרא **חתימת** הצורה.
+
+> [!note] הערה 12.9 — צורה אנטי-סימטרית
+> אם $f$ **אנטי-סימטרית** ($f(v,u) = -f(u,v)$ לכל $v,u$), אז $Q_f \equiv 0$:
+> $$Q_f(v) = f(v,v) = -f(v,v) \implies f(v,v) = 0.$$
+> (הוכח בתרגיל)
 
 ---
 
@@ -163,6 +188,17 @@ tags: [la2, lecture, ch11-inner-product]
 > יהי $U = \mathrm{Sp}\{u_1, \ldots, u_p\}$ (כיוונים חיוביים בבסיס הראשון, $Q(u) > 0$ לכל $0 \ne u \in U$) ו-$W = \mathrm{Sp}\{w_{p'+1}, \ldots, w_n\}$ (כיוונים שאינם חיוביים בבסיס השני, $Q(w) \le 0$ לכל $w \in W$).
 >
 > אם $p > p'$ אז $\dim U + \dim W = p + (n - p') > n$, לכן $U \cap W \ne \{0\}$. אבל $v \in U \cap W \setminus \{0\}$ נותן $Q(v) > 0$ וגם $Q(v) \le 0$ — סתירה. לכן $p \le p'$, וסימטרית $p' \le p$. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Theorem 12.12 — Sylvester's Law of Inertia)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | Two bases give signatures $(p,q)$ and $(p',q')$; goal: $p = p'$ | Setup |
+> | 2 | Let $U = \mathrm{Sp}\{u_1,\ldots,u_p\}$: $Q(u)>0$ for all $0\ne u\in U$ | Basis 1 positive subspace |
+> | 3 | Let $W = \mathrm{Sp}\{w_{p'+1},\ldots,w_n\}$ ($n-p'$ dims): $Q(w)\le 0$ for all $w\in W$ | Basis 2 non-positive subspace |
+> | 4 | Assume $p > p'$: $\dim U + \dim W = p + (n-p') > n$ | Assumption |
+> | 5 | $U \cap W \ne \{0\}$ by dimension count ($\dim U + \dim W > \dim V$) | Linear algebra dimension argument |
+> | 6 | Take $v \in U \cap W$, $v \ne 0$: $Q(v) > 0$ (from $U$) and $Q(v) \le 0$ (from $W$) — contradiction | Steps 2–3, 5 |
+> | 7 | Therefore $p \le p'$; by symmetry (swap bases) $p' \le p$; hence $p = p'$ | Steps 4–6, symmetric argument $\square$ |
 
 ---
 
@@ -214,11 +250,38 @@ tags: [la2, lecture, ch11-inner-product]
 > $$0 \le \|v - t_0 u\|^2 = \|v\|^2 - t_0 \overline{\langle v, u \rangle} - \overline{t_0} \langle v, u \rangle + |t_0|^2 \|u\|^2 = \|v\|^2 - \frac{|\langle v, u \rangle|^2}{\|u\|^2}.$$
 > כפל ב-$\|u\|^2$ נותן את הטענה. שוויון $\iff$ $v = t_0 u$. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Claim 13.12 — Cauchy-Schwarz)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | If $u = 0$: $|\langle v,u\rangle| = 0 = \|v\|\cdot\|u\|$ | Direct |
+> | 2 | Assume $u \ne 0$; set $t_0 = \langle v,u\rangle / \|u\|^2$ | Division valid since $\|u\|^2 > 0$ |
+> | 3 | $0 \le \|v - t_0 u\|^2$ | Norm is non-negative |
+> | 4 | Expand: $\|v-t_0 u\|^2 = \|v\|^2 - t_0\overline{\langle v,u\rangle} - \overline{t_0}\langle v,u\rangle + |t_0|^2\|u\|^2$ | Bilinearity of inner product |
+> | 5 | Substitute $t_0$: $= \|v\|^2 - |\langle v,u\rangle|^2/\|u\|^2$ | Algebra with $t_0 = \langle v,u\rangle/\|u\|^2$ |
+> | 6 | From steps 3–5: $0 \le \|v\|^2 - |\langle v,u\rangle|^2/\|u\|^2$; multiply by $\|u\|^2$: $|\langle v,u\rangle|^2 \le \|v\|^2\|u\|^2$ | Steps 3, 5 |
+> | 7 | Equality iff $v = t_0 u$ iff $v, u$ linearly dependent | $\|v-t_0 u\|=0$ $\square$ |
+
+> [!example] דוגמה 13.13 — קושי-שוורץ ב-$\mathbb{R}^2$
+> ב-$\mathbb{R}^2$ עם מ"פ סטנדרטית, עבור $v = (a_1, a_2)$ ו-$u = (b_1, b_2)$ מתקיים:
+> $$|a_1 b_1 + a_2 b_2| \le \sqrt{(a_1^2 + a_2^2)(b_1^2 + b_2^2)}.$$
+
 > [!abstract] טענה 13.14 — אי-שוויון המשולש
 > $$\|v + u\| \le \|v\| + \|u\|.$$
 
 > [!note]- הוכחה
 > $\|v+u\|^2 = \|v\|^2 + 2\mathrm{Re}\langle v, u \rangle + \|u\|^2 \le \|v\|^2 + 2|\langle v,u \rangle| + \|u\|^2 \le (\|v\| + \|u\|)^2$. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Claim 13.14 — Triangle Inequality)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1.0 | $\|v+u\|^2 =$ | &emsp;&emsp;<small>(show $\|v+u\| \le \|v\|+\|u\|$)</small> |
+> | 1.1 | &emsp;$= \langle v+u, v+u\rangle$ | definition of norm |
+> | 1.2 | &emsp;$= \|v\|^2 + \langle v,u\rangle + \langle u,v\rangle + \|u\|^2$ | expand inner product by bilinearity |
+> | 1.3 | &emsp;$= \|v\|^2 + 2\mathrm{Re}\langle v,u\rangle + \|u\|^2$ | $\langle u,v\rangle = \overline{\langle v,u\rangle}$; real part |
+> | 1.4 | &emsp;$\le \|v\|^2 + 2|\langle v,u\rangle| + \|u\|^2$ | $\mathrm{Re}(z) \le |z|$ |
+> | 1.5 | &emsp;$\le \|v\|^2 + 2\|v\|\|u\| + \|u\|^2$ | Cauchy-Schwarz (Claim 13.12) |
+> | 1.6 | &emsp;$= (\|v\|+\|u\|)^2$ | perfect square |
+> | 2 | $\|v+u\| \le \|v\|+\|u\|$ | steps 1.0–1.6; square root is monotone $\square$ |
 
 ---
 
@@ -227,6 +290,15 @@ tags: [la2, lecture, ch11-inner-product]
 > [!abstract] הגדרות 13.15–13.16
 > - **מרחק**: $d(v, u) = \|v - u\|$
 > - $v \perp u$ (אורתוגונליים) $\iff$ $\langle v, u \rangle = 0$
+
+> [!example] דוגמה 13.17 — ניצביות ב-$\mathbb{R}^2$
+> ב-$\mathbb{R}^2$ עם המ"פ הסטנדרטית, הוקטורים $(x, 0)$ ו-$(0, y)$ ניצבים:
+> $$\left\langle \begin{pmatrix} x \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ y \end{pmatrix} \right\rangle = x \cdot 0 + 0 \cdot y = 0.$$
+> ניצבות ב-$\mathbb{R}^n$ ביחס למ"פ הסטנדרטית זהה לניצבות הגיאומטרית הרגילה.
+
+> [!example] דוגמה 13.18 — ניצביות ב-$C[0,1]$
+> במרחב $C[0,1]$ עם מ"פ $\langle f, g \rangle = \int_0^1 f(t)g(t)\,dt$, הפונקציות $v = \cos(\pi x)$ ו-$u = 1$ ניצבות:
+> $$\langle v, u \rangle = \int_0^1 \cos(\pi x)\,dx = \frac{\sin(\pi x)}{\pi}\Big|_0^1 = 0.$$
 
 > [!abstract] טענה 13.19
 > $v^\perp = \{u \in V \mid \langle v, u \rangle = 0\}$ הוא תת-מרחב של $V$.
@@ -243,6 +315,12 @@ tags: [la2, lecture, ch11-inner-product]
 > [!abstract] הגדרה 13.22
 > - קבוצה $\{v_i\}$ היא **אורתוגונלית** (OG) אם $\langle v_i, v_j \rangle = 0$ לכל $i \ne j$
 > - **אורתונורמלית** (ON) אם בנוסף $\|v_i\| = 1$ לכל $i$
+
+> [!note] הערה 13.23
+> אם $0 \notin A$ ניתן להפוך כל קבוצה אורתוגונלית לאורתונורמלית ע"י **נרמול**: מחליפים כל $v_i$ ב-$v_i / \|v_i\|$. הנרמול אינו משנה את הניצביות.
+
+> [!example] דוגמה 13.24
+> הקבוצה $\left\{\begin{pmatrix}0\\0\\-19\end{pmatrix},\, \begin{pmatrix}7\\0\\0\end{pmatrix},\, \begin{pmatrix}0\\5\\0\end{pmatrix}\right\} \subseteq \mathbb{R}^3$ היא אורתוגונלית. היא **לא** תהיה כזו אם נחליף את $\begin{pmatrix}0\\0\\-19\end{pmatrix}$ ב-$\begin{pmatrix}1\\0\\-19\end{pmatrix}$ (שכן הוא אינו ניצב לוקטור הימני).
 
 > [!abstract] טענה 13.25 — קואורדינטות ב-ONB
 > אם $\{e_1, \ldots, e_n\}$ ON ו-$v = \sum a_i e_i$, אזי $a_i = \langle v, e_i \rangle$.
@@ -267,6 +345,16 @@ tags: [la2, lecture, ch11-inner-product]
 > [!note]- הוכחה
 > לכל $u \in U$: $\|v - u\|^2 = \|(v - u_0) + (u_0 - u)\|^2 = \|v - u_0\|^2 + \|u_0 - u\|^2 \ge \|v - u_0\|^2$, כיוון ש-$(v - u_0) \perp (u_0 - u)$. שוויון $\iff$ $u = u_0$. $\square$
 
+> [!proof]+ Natural Deduction — Proof 1 (Claim 13.28 — Orthogonal Projection)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | $\{e_1,\ldots,e_k\}$ ONB for $U$; $u_0 = \sum \langle v,e_i\rangle e_i$ | Definition of $P_U(v)$ |
+> | 2 | $v - u_0 \perp U$: for each $e_j$, $\langle v-u_0, e_j\rangle = \langle v,e_j\rangle - \langle v,e_j\rangle = 0$ | ONB coordinates |
+> | 3 | For any $u \in U$: write $\|v-u\|^2 = \|(v-u_0)+(u_0-u)\|^2$ | Algebra |
+> | 4 | $= \|v-u_0\|^2 + 2\mathrm{Re}\langle v-u_0, u_0-u\rangle + \|u_0-u\|^2$ | Inner product expansion |
+> | 5 | Middle term $= 0$: $v-u_0 \perp U$ and $u_0-u \in U$ | Step 2 |
+> | 6 | $\|v-u\|^2 = \|v-u_0\|^2 + \|u_0-u\|^2 \ge \|v-u_0\|^2$; equality iff $u = u_0$ | Pythagoras, $\|u_0-u\|^2 \ge 0$ $\square$ |
+
 > [!abstract] הגדרה 13.29
 > $P_U : V \to V$ המוגדרת על ידי $v \mapsto u_0$ כנ"ל היא **ההטלה האורתוגונלית** על $U$.
 
@@ -285,6 +373,15 @@ tags: [la2, lecture, ch11-inner-product]
 
 > [!note]- הוכחה (סקיצה)
 > $u_k \ne 0$ כי $v_1, \ldots, v_k$ בת"ל ו-$u_k = v_k - P_{\mathrm{Sp}\{e_1,\ldots,e_{k-1}\}}(v_k)$. אורתוגונליות: $\langle e_k, e_j \rangle = 0$ לכל $j < k$ מבנייה. $\square$
+
+> [!proof]+ Natural Deduction — Proof 1 (Claim 13.30 — Gram-Schmidt, sketch)
+> | # | Claim | Justification |
+> |---|-------|---------------|
+> | 1 | Given basis $(v_1,\ldots,v_n)$; define $u_k = v_k - \sum_{i<k}\langle v_k,e_i\rangle e_i$, $e_k = u_k/\|u_k\|$ | Algorithm definition |
+> | 2 | $u_k \ne 0$ for all $k$: $u_k = v_k - P_{\mathrm{Sp}\{e_1,\ldots,e_{k-1}\}}(v_k)$; if $u_k=0$ then $v_k \in \mathrm{Sp}\{e_1,\ldots,e_{k-1}\} = \mathrm{Sp}\{v_1,\ldots,v_{k-1}\}$, contradicting linear independence | Inductive hypothesis on span equality |
+> | 3 | $\langle e_k, e_j\rangle = 0$ for $j < k$: $\langle u_k, e_j\rangle = \langle v_k, e_j\rangle - \langle v_k, e_j\rangle = 0$ | Projection definition |
+> | 4 | $\|e_k\| = 1$ by normalization $e_k = u_k/\|u_k\|$ | Step 1 |
+> | 5 | $\mathrm{Sp}\{e_1,\ldots,e_k\} = \mathrm{Sp}\{v_1,\ldots,v_k\}$: both span the same $k$-dim space by construction | Induction on $k$ $\square$ |
 
 ---
 

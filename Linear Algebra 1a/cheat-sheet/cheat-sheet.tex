@@ -1,0 +1,608 @@
+\documentclass[fleqn]{article}
+
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
+\setlength{\mathindent}{0pt}
+\setlist{nosep}
+\setlist[itemize,2]{label=$\circ$}
+
+% Sub-header inside a section, with space above it
+\newcommand{\subhead}[1]{\medskip\noindent\textbf{#1}}
+
+\begin{document}
+\raggedright
+
+\begin{multicols}{2}
+
+\section*{Linear Algebra 1A Cheat Sheet}
+
+\textit{Convention: a matrix of size $r \times c$ has $r$ rows and $c$ columns.}
+
+\section*{1. Fields}
+A field $\mathbb{F}$ is a set with operations $(+,\cdot)$ satisfying: closure, associativity, commutativity, identities $(0,1)$, inverses, and distributivity.
+
+\subhead{Characteristic.}
+\begin{itemize}
+\item $\operatorname{char}(\mathbb{F}):=$ the least $n \ge 1$ with $\overbrace{1+\dots+1}^{n\text{ times}}=0$, and $\operatorname{char}(\mathbb{F}):=0$ if no such $n$ exists
+\item $\operatorname{char}(\mathbb{F})$ is always $0$ or prime
+\item $\forall \mathbb{F} : \operatorname{char}(\mathbb{F})=p>0 \Rightarrow \mathbb{Z}_p$ is a subfield of $\mathbb{F}$
+\end{itemize}
+
+\subhead{Finite fields.}
+\begin{itemize}
+\item $|\mathbb{F}|<\infty \Rightarrow |\mathbb{F}|=p^{\,r}$, where $p=\operatorname{char}(\mathbb{F})$ and $r \in \mathbb{N}$
+\item $\forall (p \in \mathbb{P}) \;.\; \forall (r \in \mathbb{N}) \;.\; \exists (\mathbb{F} \text{ field}) : |\mathbb{F}|=p^{\,r}$
+\end{itemize}
+
+\section*{2. Matrices}
+$A_{m\times p} B_{p\times n} = (AB)_{m\times n}$
+\begin{itemize}
+\item $\displaystyle (AB)_{ij} := \sum_{k=1}^{p} a_{ik} b_{kj}$
+\item $B$ with columns $b_1,\dots,b_n$: $AB = (Ab_1,\dots,Ab_n)$
+\item $A$ with columns $a_1,\dots,a_n$: $Ax = x_1a_1 + \dots + x_na_n$
+\item $A$ with rows $a_1,\dots,a_m$: row $i$ of $AB$ is $a_i B$
+\item $AB = 0$ does not imply $A=0$ or $B=0$
+\item If $A^T = A$ and $B^T = B$, then $AB$ is symmetric $\iff$ $AB = BA$
+\item $\varphi$ an elementary row operation, $A \in \mathbb{F}^{m\times n}$: $\varphi(A) = \varphi(I_m)\,A$
+\end{itemize}
+
+\section*{3. Vector Spaces \& Subspaces}
+A subset $W \subseteq V$ is a subspace if and only if:
+\begin{itemize}
+\item $W$ is nonempty (equivalently $\vec{0} \in W$)
+\item Closed under addition: if $u,v \in W$ then $u+v \in W$
+\item Closed under scalar multiplication: if $\alpha \in \mathbb{F}$ and $u \in W$ then $\alpha u \in W$
+\end{itemize}
+Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \mathbb{F}$.
+
+\begin{itemize}
+\item $U \cap W$ is a subspace of $V$
+\item $U \cup W$ is a subspace of $V$ $\iff$ $U \subseteq W$ or $W \subseteq U$
+\item $U+W := \{u+w : u \in U,\ w \in W\} = \operatorname{span}(U \cup W)$ is a subspace of $V$
+\item Direct sum: $U \oplus W$ $\iff$ $U \cap W = \{\vec{0}\}$ (general case: see Direct sums, \S6)
+\item $\operatorname{span}(S)$ is the smallest subspace containing $S$
+\item $S_1 \subseteq S_2 \subseteq V \Rightarrow \operatorname{span}(S_1) \le \operatorname{span}(S_2) \le V$
+\item $W \le V \Rightarrow \operatorname{span}(W)=W$
+\item $S \subseteq W \le V \Rightarrow \operatorname{span}(S) \le W$
+\end{itemize}
+
+\vspace{-3ex}
+\section*{4. Rank}
+\begin{itemize}
+\item $\operatorname{rank}(A) :=$ the number of pivots in $\operatorname{RREF}(A)$
+\item $\operatorname{rank}(A_{m\times n}) \le \min\{m,n\}$
+\item $\operatorname{rank}(A^T)=\operatorname{rank}(A)$
+\item $A \sim B \Rightarrow \operatorname{rank}(A)=\operatorname{rank}(B)$
+\item $\operatorname{rank}(AB) \le \min\{\operatorname{rank}(A),\operatorname{rank}(B)\}$
+\item $A,B \in \mathbb{F}^{n\times n},\; AB=0 \Rightarrow \operatorname{rank}(A)+\operatorname{rank}(B) \le n$
+\end{itemize}
+
+\section*{5. Linear Systems}
+$Ax=b$, $n$ variables, $r = \operatorname{rank}(A)$
+\begin{itemize}
+\item Number of pivots $= r$, free variables $= n-r$
+\item System is solvable $\iff$ $b \in \operatorname{Col}(A)$
+\item $x_p$: any one solution of $Ax=b$ (a \emph{particular} solution)
+\item to find $x_p$: reduce $[A \mid b]$, set every free variable to $0$, then
+\begin{itemize}
+\item from RREF: read off the pivot variables
+\item from row echelon form: back-substitute
+\end{itemize}
+\item Homogeneous system: $Ax=\vec{0}$ has solution space $\operatorname{Null}(A) = \ker(A)$, of dimension $n-r$
+\item $\{x : Ax=b\} = x_p + \ker(A)$
+\end{itemize}
+
+\vspace{-3ex}
+\section*{6. Bases \& Dimension}
+If $\dim V = n$:
+\begin{itemize}
+\item Any linearly independent set has size at most $n$
+\item Any spanning set has size at least $n$
+\item $\dim V<\infty$: any linearly independent set extends to a basis of $V$
+\item $\dim V<\infty$: any spanning set contains a basis of $V$
+\item A set $B$ with $|B|=n$ is a basis $\iff$ it is linearly independent $\iff$ it spans $V$
+\item If $W \le V$, then $W=V$ $\iff$ $\dim W = \dim V$
+\item $\dim(U+W) = \dim U + \dim W - \dim(U \cap W)$
+\end{itemize}
+
+\subhead{Direct sums.}
+Let $M_1,\dots,M_s \le V$ with $M=M_1+\dots+M_s$. The following are equivalent:
+\begin{enumerate}
+\item $M = M_1 \oplus \dots \oplus M_s$
+\item $\forall a \in M$: the representation $a=a_1+\dots+a_s$, $a_i \in M_i$, is unique
+\item $\exists a \in M$: the representation $a=a_1+\dots+a_s$, $a_i \in M_i$, is unique
+\item $\forall a_i \in M_i \;:\; a_1+\dots+a_s=\vec{0} \Rightarrow a_1=\dots=a_s=\vec{0}$
+\item $E^{(i)}$ a basis of $M_i$ $\Rightarrow E^{(1)},\dots,E^{(s)}$ together form a basis of $M$
+\item $\dim M = \dim M_1 + \dots + \dim M_s$
+\end{enumerate}
+Note $3 \Rightarrow$ all: one witness with a unique decomposition suffices.
+
+\vspace{-3ex}
+\section*{7. Coordinates}
+Let $B=\{v_1,\dots,v_n\}$ be a basis of $V$.
+\begin{itemize}
+\item $[B] := (v_1, \dots, v_n)$, the basis written as a row of its vectors
+\item Every $v \in V$ has a unique representation $v = \alpha_1 v_1 + \dots + \alpha_n v_n$
+\item Coordinate vector: $[v]_B := (\alpha_1,\dots,\alpha_n)^T$
+\item {\color{red}$v = [B]\,[v]_B$}
+\item $u_1,\dots,u_n$ linearly independent, $A \in \mathbb{F}^{n\times p}$: $(u_1, \dots, u_n)\,A = (\vec{0}, \dots, \vec{0}) \Rightarrow A = 0$
+\end{itemize}
+
+\subhead{Change of basis.}
+The transition matrix from basis $B$ to basis $C$, written $[I]_{B \to C}$ (also $[I]_B^C$), has the $[v_i]_C$ as its columns:
+\begin{itemize}
+\item $[I]_{B \to C} := \big([v_1]_C, \dots, [v_n]_C\big)$
+\item $[v]_C = [I]_{B \to C}\,[v]_B$
+\item $B,C,D$ bases: $[I]_{B \to D} = [I]_{C \to D}\,[I]_{B \to C}$
+\item $[I]_{B \to C}$ is invertible, with $\big([I]_{B \to C}\big)^{-1} = [I]_{C \to B}$
+\item $[C]=(w_1, \dots, w_n)$: $[C]=[B]\,P \Rightarrow P = [I]_{C \to B}$
+\end{itemize}
+
+\section*{8. Invertible Matrices}
+\begin{itemize}
+\item $P$ invertible $\Rightarrow \operatorname{rank}(PA)=\operatorname{rank}(AP)=\operatorname{rank}(A)$
+\item $\alpha \neq 0 \Rightarrow (\alpha A)^{-1}=\alpha^{-1}A^{-1}$
+\item $C$ invertible, $B=CA$: $B$ invertible $\iff A$ invertible
+\end{itemize}
+
+\subsection*{Conditions Related to Invertibility}
+Let $A \in \mathbb{F}^{n\times n}$. Each item states its relation to ``$A$ is invertible'':
+
+\begin{enumerate}
+\item $\;\Longrightarrow\; A^{-1}$ is unique
+\item $\;\Longrightarrow\;$ $A$ has no zero row or column
+\item $\iff \operatorname{rank}(A)=n$
+\item $\iff \det(A)\neq 0$
+\item $\iff A^T$ is invertible, with $(A^T)^{-1}=(A^{-1})^T$
+\item $\iff A \sim I_n$
+\item $\iff \operatorname{RREF}(A)=I_n$
+\item $\iff Ax=\vec{0} \Rightarrow x=\vec{0}$
+\item $\iff$ For all $b\in\mathbb{F}^n$, the system $Ax=b$ has the unique solution $x=A^{-1}b$
+\item $\iff \operatorname{Row}(A)=\mathbb{F}^n$
+\item $\iff \operatorname{Col}(A)=\mathbb{F}^n$
+\item $\iff$ The rows of $A$ span $\mathbb{F}^n$
+\item $\iff$ The columns of $A$ span $\mathbb{F}^n$
+\item $\iff$ The rows of $A$ are linearly independent
+\item $\iff$ The columns of $A$ are linearly independent
+\item $\iff$ The rows of $A$ form a basis of $\mathbb{F}^n$
+\item $\iff$ The columns of $A$ form a basis of $\mathbb{F}^n$
+\item $\iff \dim \operatorname{Row}(A)=n$
+\item $\iff \dim \operatorname{Col}(A)=n$
+\item $\iff A$ is a product of elementary matrices
+\item $\iff \operatorname{adj}(A)$ is invertible
+\item $\iff$ $A$ is invertible on one side (i.e.\ $AB=I$ or $BA=I$ for some $B$) --- \textbf{square $A$ only}
+\item $\iff A=[I]_{B \to C}$ for some bases $B,C$
+\item $\;\Longleftarrow\;$ $A$ is elementary (then $A^{-1}$ is also elementary)
+\end{enumerate}
+
+\section*{9. Determinants \& Adjugate}
+\begin{itemize}
+\item $\det(A^T)=\det(A)$
+\item $\det(AB)=\det(A)\det(B)$
+\item $\det(A^{-1}) = (\det A)^{-1}$
+\item $\det(\alpha A)=\alpha^n \det(A)$ for $A \in \mathbb{F}^{n\times n}$
+\end{itemize}
+
+\subhead{Adjugate.}\\
+$A \in \mathbb{F}^{n\times n}$
+\begin{itemize}
+\item $M_{ij}(A) :=$ $A$ with row $i$ and column $j$ deleted
+\item cofactor $c_{ij} := (-1)^{i+j}\det(M_{ij}(A))$
+\item $\operatorname{adj}(A)_{ij} := c_{ji} = (-1)^{i+j}\det(M_{ji}(A))$
+\item $\operatorname{adj}(A)\,A = A\,\operatorname{adj}(A)=\det(A)I_n$
+\item $A^{-1} = \tfrac{1}{\det(A)}\operatorname{adj}(A)$
+\item $\operatorname{rank}(\operatorname{adj}(A)) =
+\begin{cases}
+n, & \operatorname{rank}(A)=n, \\
+1, & \operatorname{rank}(A)=n-1, \\
+0, & \operatorname{rank}(A) < n-1
+\end{cases}$
+\end{itemize}
+
+\subhead{Cramer's rule.}
+\begin{itemize}
+\item $\det(A) \neq 0 \Rightarrow Ax=b$ has the unique solution $x_k = \tfrac{\det(A_k)}{\det(A)}$, $k=1,\dots,n$
+\item $A_k$ is $A$ with column $k$ replaced by $b$
+\end{itemize}
+
+\section*{10. Matrix Spaces}
+$A \in \mathbb{F}^{m\times n}$
+\begin{itemize}
+\item $\operatorname{Row}(A) := \operatorname{span}(\text{rows of } A) \le \mathbb{F}^n$
+\item $\operatorname{Col}(A) := \operatorname{span}(\text{columns of } A) \le \mathbb{F}^m$
+\item $\dim \operatorname{Row}(A) = \dim \operatorname{Col}(A) = \operatorname{rank}(A)$
+\item {\color{red}\textbf{ROW OPERATIONS DO NOT PRESERVE THE COLUMN SPACE}}
+\begin{itemize}
+\item {\color{red}$\operatorname{Row}(A)$ is preserved}
+\item {\color{red}$\dim \operatorname{Col}(A) = \operatorname{rank}(A)$ is preserved, $\operatorname{Col}(A)$ is not}
+\end{itemize}
+\item $\operatorname{Null}(A) = \ker(A) = \{x : Ax=\vec{0}\}$
+\item $\dim \ker(A) = n - \operatorname{rank}(A)$
+\item $\operatorname{Row}(AB) \subseteq \operatorname{Row}(B)$
+\item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
+\end{itemize}
+
+\section*{11. Choosing the Matrix}
+Row operations preserve $\operatorname{Row}(A)$ and $\operatorname{Null}(A)$, not $\operatorname{Col}(A)$
+\begin{itemize}
+\item answer depends only on the span: vectors as rows
+\item answer depends on the vectors themselves: vectors as columns; the pivot positions of the RREF say which \emph{original} vectors to keep
+\end{itemize}
+
+\subhead{Recipes.}
+\begin{itemize}
+\item basis of $\operatorname{span}(S)$: rows, then the nonzero rows of the RREF
+\item basis of $\operatorname{span}(S)$ chosen from $S$: columns, then the original columns in pivot positions
+\item $S$ independent $\iff \operatorname{rank} = |S|$
+\item $v \in \operatorname{span}(S) \iff [S \mid v]$ is solvable
+\item $\operatorname{span}(S) = \operatorname{span}(S') \iff$ same RREF, as rows
+\item basis of $\ker(A)$: solve $Ax=\vec{0}$ with a parameter per free variable, then split to vectors by parameters
+\item basis of $\operatorname{Col}(A)$: the columns of $A$ in the RREF's pivot positions; for $\operatorname{Im}T$, apply to $[T]_{B \to C}$
+\end{itemize}
+
+\subhead{Go back to the system for.}
+\begin{itemize}
+\item the coefficients of $v$ over $S$, not just membership
+\item $U \cap W$
+\end{itemize}
+
+\section*{12. Linear Maps}
+$T:V \to U$ is linear if for all $u,v \in V$ and $\alpha \in \mathbb{F}$:
+\begin{itemize}
+\item $T(u+v)=T(u)+T(v)$
+\item $T(\alpha v)=\alpha T(v)$
+\end{itemize}
+Equivalently: $T(\alpha u + v) = \alpha T(u) + T(v)$.
+
+\begin{itemize}
+\item $\{v_1,\dots,v_n\}$ a basis of $V$: any choice of $T(v_1),\dots,T(v_n) \in U$ determines a unique linear $T:V \to U$
+\item $T_1,T_2$ linear $\Rightarrow T_1 \circ T_2$ is linear
+\item $\{v_1,\dots,v_s\}$ linearly dependent $\Rightarrow \{T(v_1),\dots,T(v_s)\}$ linearly dependent
+\item Kernel: $\ker T := \{v \in V : T(v)=\vec{0}\}$
+\begin{itemize}
+\item $\ker T \le V$
+\end{itemize}
+\item Image: $\operatorname{Im} T := \{T(v) : v \in V\}$
+\begin{itemize}
+\item $\operatorname{Im} T \le U$
+\end{itemize}
+\item $\dim V<\infty$, $\{e_1,\dots,e_k\}$ a basis of $\ker T$ extended to a basis $\{e_1,\dots,e_n\}$ of $V$ $\Rightarrow \{T(e_{k+1}),\dots,T(e_n)\}$ is a basis of $\operatorname{Im}T$
+\item $\dim V = \dim \ker T + \dim \operatorname{Im}T$
+\end{itemize}
+
+\section*{13. Operators \& Isomorphisms}
+Let $T:V \to U$ be linear.
+\begin{itemize}
+\item Monomorphism $:=$ injective $T$
+\begin{itemize}
+\item $T_1,T_2$ mono $\Rightarrow T_1 \circ T_2$ mono
+\end{itemize}
+\item Epimorphism $:=$ surjective $T$
+\begin{itemize}
+\item $T_1,T_2$ epi $\Rightarrow T_1 \circ T_2$ epi
+\end{itemize}
+\item Isomorphism $:=$ bijective $T$; write $V \cong U$ if one exists
+\begin{itemize}
+\item $T_1,T_2$ iso $\Rightarrow T_1 \circ T_2$ iso
+\item $T$ iso $\Rightarrow T^{-1}$ iso
+\item $\cong$ is an equivalence relation
+\item $\dim V,\dim U<\infty$: $T$ iso $\iff T$ maps every basis of $V$ to a basis of $U$ $\iff T$ maps some basis of $V$ to a basis of $U$
+\end{itemize}
+\item $T$ injective $\iff \ker T = \{\vec{0}\}$
+\item $T$ surjective $\iff \dim \operatorname{Im}T = \dim U$
+\item $V \cong U \iff \dim V = \dim U$
+\item $\dim V = \dim U < \infty$: $T$ mono $\iff T$ epi $\iff T$ iso
+\item \color{red} For an operator $T:V \to V$:
+\begin{itemize}
+\item $\ker T \subseteq \ker T^2 \subseteq \dots$, \quad $\operatorname{Im}T \supseteq \operatorname{Im}T^2 \supseteq \dots$
+\item $\ker T^k = \ker T^{k+1} \Rightarrow \ker T^m = \ker T^k$ for all $m \ge k$ (same for $\operatorname{Im}$)
+\item $\dim V < \infty \Rightarrow$ this equality occurs, by $k=\dim V$ at the latest
+\end{itemize}
+\end{itemize}
+
+\section*{14. Matrix Representation}
+$T:V \to W$ linear
+
+$B=\{v_1,\dots,v_n\}$ basis of $V$
+
+$C=\{w_1,\dots,w_m\}$ basis of $W$
+
+$[\varphi]_B := [\varphi]_{B \to B}$ for $\varphi:V \to V$
+
+\begin{itemize}
+\item $[T]_{B \to C} := \big([T(v_1)]_C, \dots, [T(v_n)]_C\big) \in \mathbb{F}^{m\times n}$
+\item $[T]_{B \to C}\,[v]_B = [T(v)]_C$ for all $v \in V$
+\item $\operatorname{rank}\big([T]_{B \to C}\big) = \dim \operatorname{Im}T$
+\item $[T_1]_{B \to C} = [T_2]_{B \to C} \Rightarrow T_1 = T_2$
+\item {\color{red}$T$ is invertible $\iff$ $[T]_{B \to C}$ is invertible}
+\item $S:W \to Z$, $D$ basis of $Z$: $[S \circ T]_{B \to D} = [S]_{C \to D}\,[T]_{B \to C}$
+\item $B'$ basis of $V$, $C'$ basis of $W$: $[T]_{B' \to C'} = [I]_{C \to C'}\,[T]_{B \to C}\,[I]_{B' \to B}$
+\begin{itemize}
+\item $\varphi:V \to V$, same basis both sides: $[\varphi]_{B'} = P^{-1}\,[\varphi]_B\,P$, where $P := [I]_{B' \to B}$
+\end{itemize}
+\end{itemize}
+
+\section*{15. The Space $\mathcal{L}(V,W)$}
+$\mathcal{L}(V,W) := \{\varphi : V \to W \mid \varphi \text{ is linear}\}$
+
+$\varphi,\psi \in \mathcal{L}(V,W)$, $\lambda \in \mathbb{F}$
+
+$B$ basis of $V$, $\dim V = n$; $C$ basis of $W$, $\dim W = m$
+\begin{itemize}
+\item $(\varphi+\psi)(x) := \varphi(x)+\psi(x)$
+\item $(\lambda\varphi)(x) := \lambda\big(\varphi(x)\big)$
+\item $\varphi+\psi$ and $\lambda\varphi$ are linear
+\item $\mathcal{L}(V,W)$ is a vector space over $\mathbb{F}$
+\item $\varphi \mapsto [\varphi]_{B \to C}$ is an isomorphism $\mathcal{L}(V,W) \to \mathbb{F}^{m\times n}$
+\item $\dim V,\dim W<\infty$ \\
+$\Rightarrow \dim \mathcal{L}(V,W) = \dim V \cdot \dim W = mn$
+\end{itemize}
+
+\section*{16. Dual Spaces, Functionals, and Annihilators}
+
+\subhead{Linear functionals.}
+A linear functional is a linear map $f:V \to \mathbb{F}$. It assigns a scalar to each vector and represents a linear measurement.
+
+\subhead{Dual space.}
+\begin{itemize}
+\item $V^* := \mathcal{L}(V,\mathbb{F}) = \{ f: V \to \mathbb{F} \mid f \text{ is linear} \}$
+\item $V^*$ is a vector space
+\item $\dim V = n < \infty \Rightarrow \dim V^* = n$
+\end{itemize}
+
+\subhead{Dual basis.}\\
+$B=\{v_1,\dots,v_n\}$ basis of $V$
+\begin{itemize}
+\item $B^* := \{f_1,\dots,f_n\}$, the unique functionals with $f_i(v_j)=\delta_{ij}$
+\item $B^*$ is a basis of $V^*$, determined by $B$
+\item $\varphi = \sum_i \varphi(v_i)\,f_i$ for all $\varphi \in V^*$
+\item $f_i(v) = f_i\big(\sum_j \alpha_j v_j\big) = \alpha_i$, the $i$-th coordinate of $[v]_B$
+\end{itemize}
+
+\subhead{Annihilator (MEAPES).}\\
+$S \subseteq V$
+\begin{itemize}
+\item $S^{\circ} := \{f \in V^* : f(s)=0 \text{ for all } s \in S\}$
+\item $S^{\circ}$ is a subspace of $V^*$
+\item $S_1 \subseteq S_2 \Rightarrow S_1^{\circ} \supseteq S_2^{\circ}$
+\item $S^{\circ} = (\operatorname{span} S)^{\circ}$
+\item $\{S_i\}_{i \in I}$ subsets of $V$: $\big(\bigcup_i S_i\big)^{\circ} = \bigcap_i S_i^{\circ}$
+\item $W \le V$, $\dim V<\infty$: $\dim W + \dim W^{\circ} = \dim V$
+\end{itemize}
+
+\subhead{Pre-annihilator (TAT MERHAV HA EFASIM).}\\
+$G \subseteq V^*$
+\begin{itemize}
+\item $G_{\circ} := \{v \in V : f(v)=0 \text{ for all } f \in G\} = \bigcap_{f \in G} \ker f$
+\item $G_{\circ}$ is a subspace of $V$
+\item $G_1 \subseteq G_2 \Rightarrow (G_1)_{\circ} \supseteq (G_2)_{\circ}$
+\item $G_{\circ} = (\operatorname{span} G)_{\circ}$
+\item $\{G_i\}_{i \in I}$ subsets of $V^*$: $\big(\bigcup_i G_i\big)_{\circ} = \bigcap_i (G_i)_{\circ}$
+\item $N \le V^*$, $\dim V<\infty$: $\dim N + \dim N_{\circ} = \dim V$
+\item $\emptyset_{\circ} = V$
+\end{itemize}
+
+\subhead{Difference between MERHAV HA EFES and MEAPES.}
+\begin{itemize}
+\item MERHAV HA EFES: vectors in $V$ mapped to zero by a linear map
+\item MEAPES: functionals in $V^*$ that vanish on a subset
+\end{itemize}
+
+\subhead{Second dual space.}
+\begin{itemize}
+\item $V^{**} := (V^*)^*$
+\item canonical map $\Phi:V \to V^{**}$, $\Phi(v)(f) := f(v)$
+\begin{itemize}
+\item \emph{canonical}: defined with no choice of basis
+\end{itemize}
+\item $\Phi$ is linear
+\item $\dim V<\infty \Rightarrow \Phi$ is an isomorphism
+\item $G \subseteq V^*$, $\dim V<\infty$: $\Phi(G_{\circ}) = G^{\circ}$ (in $V^{**}$)
+\begin{itemize}
+\item $\dim G_{\circ} = \dim G^{\circ}$
+\end{itemize}
+\end{itemize}
+
+{\color{red}
+\subhead{Dual (transpose) map.}\\
+$T:V \to U$
+\begin{itemize}
+\item $T^*:U^* \to V^*$, $T^*(f) := f \circ T$
+\item $\ker T^* = (\operatorname{Im}T)^{\circ}$
+\item $\operatorname{Im}T^* = (\ker T)^{\circ}$
+\item matrix form: $[T^*] = [T]^T$
+\end{itemize}
+}
+
+\section*{17. Vandermonde Matrix}
+
+$x_1,\dots,x_n \in \mathbb{F}$; the \emph{Vandermonde matrix} is
+\[
+V(x_1,\dots,x_n):=
+\begin{pmatrix}
+1 & x_1 & x_1^2 & \cdots & x_1^{\,n-1} \\
+1 & x_2 & x_2^2 & \cdots & x_2^{\,n-1} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_n & x_n^2 & \cdots & x_n^{\,n-1}
+\end{pmatrix}
+\]
+
+\begin{itemize}
+\item $\displaystyle \det V(x_1,\dots,x_n) = \prod_{1 \le i < j \le n} (x_j - x_i)$
+\item $V(x_1,\dots,x_n)$ is invertible $\iff x_1,\dots,x_n$ are pairwise distinct
+\item $x_i = x_j$ for some $i \neq j$ $\Rightarrow$ two rows are equal $\Rightarrow \det V = 0$
+\item all $x_i$ distinct $\Rightarrow \operatorname{rank}(V)=n$
+\item appears naturally in polynomial interpolation
+\end{itemize}
+
+\section*{18. Permutations}
+
+\begin{itemize}
+\item a \emph{permutation} of $\{1,\dots,n\}$ is a bijection $\sigma:\{1,\dots,n\}\to\{1,\dots,n\}$
+\item $S_n$: the set of all permutations
+\end{itemize}
+
+\subhead{Inversions.}
+\begin{itemize}
+\item an inversion of $\sigma$ is a pair $(i,j)$ with $i<j$ and $\sigma(i)>\sigma(j)$
+\item $\operatorname{inv}(\sigma)$: the number of inversions of $\sigma$, sometimes denoted $S(\sigma)$
+\end{itemize}
+
+\subhead{Sign of a permutation.}
+\begin{itemize}
+\item $\operatorname{sgn}(\sigma):=(-1)^{\operatorname{inv}(\sigma)}$
+\item $\sigma$ is \emph{even} if $\operatorname{sgn}(\sigma)=1$
+\item $\sigma$ is \emph{odd} if $\operatorname{sgn}(\sigma)=-1$
+\end{itemize}
+
+\subhead{Properties.}
+\begin{itemize}
+\item $\operatorname{sgn}(\sigma\tau)=\operatorname{sgn}(\sigma)\operatorname{sgn}(\tau)$
+\item A transposition changes the sign
+\item $|S_n| = n!$
+\end{itemize}
+
+\subhead{Determinant (Leibniz formula).}\\
+$A=(a_{ij}) \in \mathbb{F}^{n\times n}$
+\begin{itemize}
+\item $\displaystyle \det(A)= \sum_{\sigma\in S_n} \operatorname{sgn}(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}$
+\item two rows (or columns) equal $\Rightarrow$ every term cancels $\Rightarrow \det(A)=0$
+\item swapping two rows multiplies $\det(A)$ by $-1$
+\item linearity of the determinant follows from the formula
+\end{itemize}
+
+\section*{19. Block Matrices}
+
+\subhead{Definition.}\\
+A \emph{block matrix} is a matrix partitioned into submatrices of compatible sizes
+\[
+A =
+\begin{pmatrix}
+A_{11} & A_{12} \\
+A_{21} & A_{22}
+\end{pmatrix}
+\]
+
+\subhead{Block operations.}\\
+Block sizes agree $\Rightarrow$ blocks behave like entries
+\begin{itemize}
+\item addition and scalar multiplication are blockwise
+\item multiplication follows the ordinary rule
+\end{itemize}
+\medskip
+\[
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}
+\begin{pmatrix}
+E & F\\
+G & H
+\end{pmatrix}
+=
+\begin{pmatrix}
+AE+BG & AF+BH\\
+CE+DG & CF+DH
+\end{pmatrix}
+\]
+
+\subhead{Block diagonal matrices.}
+\[
+A=
+\begin{pmatrix}
+A_1 & 0\\
+0 & A_2
+\end{pmatrix}
+\]
+\begin{itemize}
+\item $\det(A) = \det(A_1)\det(A_2)$
+\item $A$ invertible $\iff A_1, A_2$ invertible
+\end{itemize}
+
+\subhead{Block triangular matrices.}
+\[
+A=
+\begin{pmatrix}
+A_{11} & A_{12}\\
+0 & A_{22}
+\end{pmatrix}
+\]
+\begin{itemize}
+\item $\det(A) = \det(A_{11})\det(A_{22})$
+\item $\operatorname{rank}(A) = \operatorname{rank}(A_{11})+\operatorname{rank}(A_{22})$
+\end{itemize}
+
+\subhead{Schur complement.}
+\[
+A=
+\begin{pmatrix}
+A_{11} & A_{12}\\
+A_{21} & A_{22}
+\end{pmatrix},
+\quad A_{11} \text{ invertible}
+\]
+\begin{itemize}
+\item \emph{Schur complement} of $A_{11}$ in $A$: $S := A_{22} - A_{21}A_{11}^{-1}A_{12}$
+\item $A$ invertible $\iff A_{11}$ and $S$ invertible
+\item $\det(A)=\det(A_{11})\det(S)$
+\end{itemize}
+
+\subhead{Block inverse formula.}\\
+$A_{11}, S$ invertible:
+\[
+A^{-1} =
+\begin{pmatrix}
+A_{11}^{-1} + A_{11}^{-1}A_{12}S^{-1}A_{21}A_{11}^{-1}
+&
+- A_{11}^{-1}A_{12}S^{-1}
+\\[6pt]
+- S^{-1}A_{21}A_{11}^{-1}
+&
+S^{-1}
+\end{pmatrix}.
+\]
+
+\subhead{Solving block systems.}
+\[
+\begin{pmatrix}
+A_{11} & A_{12}\\
+A_{21} & A_{22}
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+=
+\begin{pmatrix}
+b\\
+c
+\end{pmatrix}
+\]
+\begin{enumerate}
+\item $A_{11}x = b - A_{12}y$
+\item $(A_{22}-A_{21}A_{11}^{-1}A_{12})y = c - A_{21}A_{11}^{-1}b$
+\end{enumerate}
+
+\subhead{Implementation tips.}
+\begin{itemize}
+\item Use block structure to reduce computation
+\item Common in Gaussian elimination, LU decomposition, and numerical methods
+\item Essential for large sparse systems and matrix factorizations
+\end{itemize}
+
+
+\section*{20. Abbreviated Multiplication}
+\begin{itemize}
+\item $\displaystyle a^n - b^n = (a-b)\sum_{k=0}^{n-1} a^{n-1-k}b^k$
+\item $n$ odd: $\displaystyle a^n + b^n = (a+b)\sum_{k=0}^{n-1} (-1)^k a^{n-1-k}b^k$
+\item $\displaystyle (a+b)^n = \sum_{k=0}^{n} \frac{n!}{k!\,(n-k)!}\, a^{n-k}b^k$
+\end{itemize}
+
+\end{multicols}
+\end{document}
+
