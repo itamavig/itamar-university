@@ -71,6 +71,7 @@ Equivalently: $\alpha u + v \in W$ for all $u,v \in W$ and all $\alpha \in \math
 \item $S \subseteq W \le V \Rightarrow \operatorname{span}(S) \le W$
 \end{itemize}
 
+\vspace{-3ex}
 \section*{4. Rank}
 \begin{itemize}
 \item $\operatorname{rank}(A) :=$ the number of pivots in $\operatorname{RREF}(A)$
@@ -96,6 +97,7 @@ $Ax=b$, $n$ variables, $r = \operatorname{rank}(A)$
 \item $\{x : Ax=b\} = x_p + \ker(A)$
 \end{itemize}
 
+\vspace{-3ex}
 \section*{6. Bases \& Dimension}
 If $\dim V = n$:
 \begin{itemize}
@@ -120,6 +122,7 @@ Let $M_1,\dots,M_s \le V$ with $M=M_1+\dots+M_s$. The following are equivalent:
 \end{enumerate}
 Note $3 \Rightarrow$ all: one witness with a unique decomposition suffices.
 
+\vspace{-3ex}
 \section*{7. Coordinates}
 Let $B=\{v_1,\dots,v_n\}$ be a basis of $V$.
 \begin{itemize}
@@ -592,6 +595,13 @@ c
 \item Essential for large sparse systems and matrix factorizations
 \end{itemize}
 
+
+\section*{20. Abbreviated Multiplication}
+\begin{itemize}
+\item $\displaystyle a^n - b^n = (a-b)\sum_{k=0}^{n-1} a^{n-1-k}b^k$
+\item $n$ odd: $\displaystyle a^n + b^n = (a+b)\sum_{k=0}^{n-1} (-1)^k a^{n-1-k}b^k$
+\item $\displaystyle (a+b)^n = \sum_{k=0}^{n} \frac{n!}{k!\,(n-k)!}\, a^{n-k}b^k$
+\end{itemize}
 
 \end{multicols}
 \end{document}
