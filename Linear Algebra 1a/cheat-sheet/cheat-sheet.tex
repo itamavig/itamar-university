@@ -44,6 +44,7 @@ $A_{m\times p} B_{p\times n} = (AB)_{m\times n}$
 \begin{itemize}
 \item $\displaystyle (AB)_{ij} := \sum_{k=1}^{p} a_{ik} b_{kj}$
 \item $B$ with columns $b_1,\dots,b_n$: $AB = (Ab_1,\dots,Ab_n)$
+\item $A$ with columns $a_1,\dots,a_n$: $Ax = x_1a_1 + \dots + x_na_n$
 \item $A$ with rows $a_1,\dots,a_m$: row $i$ of $AB$ is $a_i B$
 \item $AB = 0$ does not imply $A=0$ or $B=0$
 \item If $A^T = A$ and $B^T = B$, then $AB$ is symmetric $\iff$ $AB = BA$
@@ -223,7 +224,31 @@ $A \in \mathbb{F}^{m\times n}$
 \item $\operatorname{Col}(AB) \subseteq \operatorname{Col}(A)$
 \end{itemize}
 
-\section*{11. Linear Maps}
+\section*{11. Choosing the Matrix}
+Row operations preserve $\operatorname{Row}(A)$ and $\operatorname{Null}(A)$, not $\operatorname{Col}(A)$
+\begin{itemize}
+\item answer depends only on the span: vectors as rows
+\item answer depends on the vectors themselves: vectors as columns; the pivot positions of the RREF say which \emph{original} vectors to keep
+\end{itemize}
+
+\subhead{Recipes.}
+\begin{itemize}
+\item basis of $\operatorname{span}(S)$: rows, then the nonzero rows of the RREF
+\item basis of $\operatorname{span}(S)$ chosen from $S$: columns, then the original columns in pivot positions
+\item $S$ independent $\iff \operatorname{rank} = |S|$
+\item $v \in \operatorname{span}(S) \iff [S \mid v]$ is solvable
+\item $\operatorname{span}(S) = \operatorname{span}(S') \iff$ same RREF, as rows
+\item basis of $\ker(A)$: solve $Ax=\vec{0}$ with a parameter per free variable, then split to vectors by parameters
+\item basis of $\operatorname{Col}(A)$ or $\operatorname{Im}T$: the original pivot columns
+\end{itemize}
+
+\subhead{Go back to the system for.}
+\begin{itemize}
+\item the coefficients of $v$ over $S$, not just membership
+\item $U \cap W$
+\end{itemize}
+
+\section*{12. Linear Maps}
 $T:V \to U$ is linear if for all $u,v \in V$ and $\alpha \in \mathbb{F}$:
 \begin{itemize}
 \item $T(u+v)=T(u)+T(v)$
@@ -247,8 +272,7 @@ Equivalently: $T(\alpha u + v) = \alpha T(u) + T(v)$.
 \item $\dim V = \dim \ker T + \dim \operatorname{Im}T$
 \end{itemize}
 
-\vspace{-1.5ex}
-\section*{12. Operators \& Isomorphisms}
+\section*{13. Operators \& Isomorphisms}
 Let $T:V \to U$ be linear.
 \begin{itemize}
 \item Monomorphism $:=$ injective $T$
@@ -278,7 +302,7 @@ Let $T:V \to U$ be linear.
 \end{itemize}
 \end{itemize}
 
-\section*{13. Matrix Representation}
+\section*{14. Matrix Representation}
 $T:V \to W$ linear
 
 $B=\{v_1,\dots,v_n\}$ basis of $V$
@@ -300,7 +324,7 @@ $[\varphi]_B := [\varphi]_{B \to B}$ for $\varphi:V \to V$
 \end{itemize}
 \end{itemize}
 
-\section*{14. The Space $\mathcal{L}(V,W)$}
+\section*{15. The Space $\mathcal{L}(V,W)$}
 $\mathcal{L}(V,W) := \{\varphi : V \to W \mid \varphi \text{ is linear}\}$
 
 $\varphi,\psi \in \mathcal{L}(V,W)$, $\lambda \in \mathbb{F}$
@@ -316,7 +340,7 @@ $B$ basis of $V$, $\dim V = n$; $C$ basis of $W$, $\dim W = m$
 $\Rightarrow \dim \mathcal{L}(V,W) = \dim V \cdot \dim W = mn$
 \end{itemize}
 
-\section*{15. Dual Spaces, Functionals, and Annihilators}
+\section*{16. Dual Spaces, Functionals, and Annihilators}
 
 \subhead{Linear functionals.}
 A linear functional is a linear map $f:V \to \mathbb{F}$. It assigns a scalar to each vector and represents a linear measurement.
@@ -392,7 +416,7 @@ $T:V \to U$
 \end{itemize}
 }
 
-\section*{16. Vandermonde Matrix}
+\section*{17. Vandermonde Matrix}
 
 $x_1,\dots,x_n \in \mathbb{F}$; the \emph{Vandermonde matrix} is
 \[
@@ -413,7 +437,7 @@ V(x_1,\dots,x_n):=
 \item appears naturally in polynomial interpolation
 \end{itemize}
 
-\section*{17. Permutations}
+\section*{18. Permutations}
 
 \begin{itemize}
 \item a \emph{permutation} of $\{1,\dots,n\}$ is a bijection $\sigma:\{1,\dots,n\}\to\{1,\dots,n\}$
@@ -449,7 +473,7 @@ $A=(a_{ij}) \in \mathbb{F}^{n\times n}$
 \item linearity of the determinant follows from the formula
 \end{itemize}
 
-\section*{18. Block Matrices}
+\section*{19. Block Matrices}
 
 \subhead{Definition.}\\
 A \emph{block matrix} is a matrix partitioned into submatrices of compatible sizes
