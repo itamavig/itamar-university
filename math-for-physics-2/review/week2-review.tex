@@ -1,0 +1,303 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{mdframed}
+
+\definecolor{incgreen}{RGB}{0,140,0}
+\definecolor{exred}{RGB}{180,0,0}
+\definecolor{borderorange}{RGB}{200,120,0}
+
+\newcommand{\inc}{\textbf{\textcolor{incgreen}{INCLUDE}}}
+\newcommand{\exc}{\textbf{\textcolor{exred}{EXCLUDE}}}
+\newcommand{\bord}{\textbf{\textcolor{borderorange}{BORDERLINE}}}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Mathematics for Physics 2 --- Week 2 Review}} \\[6pt]
+  {\large Sources: \textit{Memphys\_2\_week\_2.pdf}, \textit{ClassEx2 2026.pdf}} \\[4pt]
+  {\normalsize Pending approval before writing to cheat sheet}
+\end{center}
+
+\vspace{1em}
+
+\begin{mdframed}[backgroundcolor=gray!10]
+\textbf{Legend:} \inc\ --- will be added to cheat sheet \quad
+\exc\ --- excluded \quad \bord\ --- needs your decision
+\end{mdframed}
+
+\vspace{1em}
+
+% ------------------------------------------------------------------
+\section{Triple Products}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+1 & \textbf{Triple scalar product:}
+\[
+  V\text{ (volume)} = (\vec{a}\times\vec{b})\cdot\vec{c} = \vec{c}\cdot(\vec{a}\times\vec{b})
+\]
+& \inc & Named formula; geometric meaning (parallelepiped volume) \\[14pt]
+
+2--3 & \textbf{Computation forms:}
+\[
+  \vec{a}\cdot(\vec{b}\times\vec{c}) =
+  \begin{vmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{vmatrix}
+  = \varepsilon_{ijk}\,a_i b_j c_k
+\]
+& \inc & Determinant form for computation; index form bridges to Levi-Civita \\[24pt]
+
+4--5 & \textbf{Cyclic / anti-cyclic:}
+\[
+  \vec{a}\cdot(\vec{b}\times\vec{c}) = \vec{c}\cdot(\vec{a}\times\vec{b}) = -\vec{b}\cdot(\vec{a}\times\vec{c})
+\]
+& \inc & Two cyclic iterations + one anti-cyclic sign flip in a single row \\[14pt]
+
+6 & \textbf{BAC-CAB (triple vector product):}
+\[
+  \vec{a}\times(\vec{b}\times\vec{c}) = \vec{b}(\vec{a}\cdot\vec{c}) - \vec{c}(\vec{a}\cdot\vec{b})
+\]
+& \inc & Already in Week 1 sheet; confirmed here \\[14pt]
+
+7 & Proof of BAC-CAB via $\varepsilon_{ijk}\varepsilon_{mnk} = \delta_{im}\delta_{jn}-\delta_{in}\delta_{jm}$
+& \exc & Derivation only; identity already in sheet \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\section{Nabla Operator \& Gradient}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+8 & \textbf{Nabla operator:}
+\[
+  \vec{\nabla} \equiv (\partial_x,\,\partial_y,\,\partial_z) \equiv \hat{e}_i\,\partial_i
+\]
+& \inc & Definition of a central operator; foundation for all following entries \\[14pt]
+
+9 & \textbf{Gradient:}
+\[
+  \operatorname{grad}f = \vec{\nabla}f = (\partial_x f,\,\partial_y f,\,\partial_z f) = \hat{e}_i\,\partial_i f
+\]
+& \inc & Core definition; scalar field in, vector field out \\[14pt]
+
+10 & \textbf{Gradient \& differential:}
+\[
+  df \equiv \vec{\nabla}f\cdot d\vec{r} \approx f(\vec{r}+d\vec{r})-f(\vec{r})
+\]
+& \inc & Ties gradient to infinitesimal change; used constantly \\[14pt]
+
+12 & \textbf{Key gradient result} ($r(x,y,z) = |\vec{r}(x,y,z)|$):
+\[
+  \vec{\nabla}r = \hat{r}
+\]
+& \inc & Appears in almost every physics application (central forces) \\[10pt]
+
+13 & \textbf{Product rule:}
+\[
+  \vec{\nabla}(fg) = f\,\vec{\nabla}g + g\,\vec{\nabla}f
+\]
+& \inc & Named rule; essential for vector identities \\[14pt]
+
+14--15 & \textbf{Chain rule (index notation --- general):}
+\[
+  \frac{df}{du} = (\partial_i f)\frac{dx_i}{du}
+\]
+\begin{tabular}{@{}l@{\;}l@{}}
+  Scalar ($u=x_j$): & $\vec{\nabla}(f(g)) = f'(g)\,\vec{\nabla}g$ \\[6pt]
+  Path ($u=t$):     & $\dfrac{d}{dt}f(\vec{r}(t)) = (\partial_i f)\,\dot{x}_i$
+\end{tabular}
+& \inc & Unified index form; both cases follow by choosing $u$ \\[28pt]
+
+16 & Definition of partial derivative $\partial_x f := \lim_{\Delta x\to 0}\cdots$ & \exc & Calculus carry-over; assumed known \\[6pt]
+
+17 & \textbf{Total differential (component form):}
+\[
+  df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz
+\]
+& \bord & Equivalent to entry 10 in components; may be useful or redundant \\[14pt]
+
+18 & Derivation of gradient from Taylor expansion & \exc & Pedagogical derivation; not a formula \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\section{Directional Derivative}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+19 & \textbf{Limit definition:}
+\[
+  D_{\hat{v}}f(\vec{r}) \equiv \lim_{h\to 0} \frac{f(\vec{r}+h\hat{v})-f(\vec{r})}{h}
+\]
+& \bord & Formal definition; exam may ask to state it \\[14pt]
+
+20 & \textbf{Gradient form:}
+\[
+  D_{\hat{v}}f(\vec{r}) = \vec{\nabla}f\cdot\hat{v}
+\]
+& \inc & Key formula; rate of change in direction $\hat{v}$ \\[14pt]
+
+21 & $D_{\hat{v}}f = |\vec{\nabla}f|\cos\theta$, maximised at $\theta=0$ & \inc & Gradient = direction of steepest ascent; core exam concept \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\section{Curves \& Line Integrals}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+22 & \textbf{Parametric curve:}
+\[
+  \vec{r}(t) = (x(t),\,y(t),\,z(t))
+\]
+& \inc & Setup notation for all line-integral work \\[14pt]
+
+23 & \textbf{Curve differential:}
+\[
+  d\vec{r} = \vec{r}'(t)\,dt
+\]
+& \inc & Key formula to convert line integrals to ordinary integrals \\[14pt]
+
+24 & \textbf{Line integral / work:}
+\[
+  W = \int_C \vec{F}\cdot d\vec{r}
+\]
+& \inc & Central formula; definition of work as line integral \\[14pt]
+
+25 & \textbf{Parametric form:}
+\[
+  W = \int_{t_1}^{t_2} \vec{F}(\vec{r}(t))\cdot\vec{r}'(t)\,dt
+\]
+& \inc & Computational form used in every calculation \\[14pt]
+
+26 & Conservative force: $W=0$ on any closed path & \bord & Important concept; briefly stated, no standalone formula \\[6pt]
+
+27 & Worked examples: axes integrals, helix, gravity & \exc & Not cheat-sheet material \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\section{Gradient Theorem}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+28 & \textbf{Gradient theorem (multi-dimensional FTC):}
+\[
+  \int_{\vec{r}_1}^{\vec{r}_2} \vec{\nabla}f\cdot d\vec{r} = f(\vec{r}_2) - f(\vec{r}_1)
+\]
+& \inc & Path-independent; major named theorem \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\section{Surfaces}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+29 & \textbf{Parametric surface:}
+\[
+  \vec{r}(u,v) = (x(u,v),\,y(u,v),\,z(u,v))
+\]
+& \inc & Standard definition; setup for surface integrals \\[14pt]
+
+30 & \textbf{Surface area element:}
+\[
+  d\vec{S} = \left(\frac{\partial\vec{r}}{\partial u}\times\frac{\partial\vec{r}}{\partial v}\right)du\,dv
+\]
+& \inc & Essential formula for flux integrals \\[14pt]
+
+31 & \textbf{Unit normal to implicit surface $f(\vec{r})=C$:}
+\[
+  \hat{n} = \frac{\vec{\nabla}f}{|\vec{\nabla}f|}
+\]
+& \inc & Standard formula; used whenever a surface normal is needed \\[14pt]
+
+32 & Proof: $\vec{\nabla}f \perp$ tangent to surface $f=C$ & \exc & Derivation; result is entry 31 \\[6pt]
+
+33 & Implicit surface notation: $f(x,y,z)=C$ & \bord & Context for entry 31, but just notation \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\section{Applications}
+
+\begin{longtable}{p{0.5cm} p{7.5cm} p{2.2cm} p{3.5cm}}
+\toprule
+\# & Formula / Definition & Decision & Reason \\
+\midrule
+\endhead
+
+34 & \textbf{Extremum condition:}
+\[
+  \vec{\nabla}f = \vec{0}
+\]
+& \inc & Necessary condition for local extrema; analogue of $f'=0$ \\[10pt]
+
+35 & Tutorial Example 1: line integral over $\vec{r}(t)=(t,t^3)$ & \exc & Worked example \\[6pt]
+
+36 & Tutorial Example 2: cone parametrisation & \exc & Worked example \\[6pt]
+
+\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\vspace{1em}
+\begin{mdframed}[backgroundcolor=orange!10]
+\textbf{Items Needing Your Decision (\bord):}
+
+\begin{tabular}{p{0.5cm} p{5cm} p{8cm}}
+\toprule
+\# & Item & Question \\
+\midrule
+17 & $df = \partial_x f\,dx + \partial_y f\,dy + \partial_z f\,dz$ & Include as alternative form of entry 10, or redundant? \\[8pt]
+19 & Limit definition of directional derivative & Include in case exam asks ``state the definition''? \\[8pt]
+26 & Conservative forces: $W=0$ on closed path & Include as a concept note? \\[8pt]
+33 & Implicit surface notation $f(x,y,z)=C$ & Include as parenthetical alongside entry 31, or skip? \\[4pt]
+\bottomrule
+\end{tabular}
+\end{mdframed}
+
+\end{document}
