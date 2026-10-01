@@ -7,5 +7,8 @@
 *.fdb_latexmk
 *.synctex.gz
 
+#intellij
+.idea/
+
 # Office (local working state)
 .office/
