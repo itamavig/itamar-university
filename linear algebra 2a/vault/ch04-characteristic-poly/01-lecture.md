@@ -73,6 +73,9 @@ tags: [la2, lecture, ch04-characteristic-poly]
 
 ---
 
+> [!note] הערה 4.8
+> ייתכן מצב שבו $\sum_{\lambda} r_a(\lambda) < \deg f_T$. לדוגמה, עבור $f_T(x) = x^2(x^2 + 1)$ (מעל $\mathbb{R}$), סכום הריבויים האלגבריים הוא $2$ (רק $\lambda = 0$ ע״ע), בעוד שדרגת הפולינום היא $4$.
+
 > [!abstract] טענה 4.9 — ריבוי גיאומטרי $\le$ ריבוי אלגברי
 > לכל ע״ע $\lambda$ של $T$: $r_g(\lambda) \le r_a(\lambda)$.
 
