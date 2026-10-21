@@ -25,10 +25,11 @@ tags: [la2, lecture, ch02-diagonalization]
 >
 > חשוב להעיר שבהחלט $T$ יכולה להיות לכסינה גם כשלא כל הו"ע בבסיס הם עם ע"ע שונים — כמו בטרנספורמציית הזהות.
 
-> [!abstract] מסקנה 2.3 — איחוד בסיסים מרחבים עצמיים הוא בת"ל
-> תהי $T : V \to V$ העתקה לינארית. יהיו $\lambda_1, \ldots, \lambda_k$ ערכים עצמיים שונים של $T$, ויהי $B_i$ בסיס של $V_{\lambda_i}$ לכל $i$. אזי $B = B_1 \cup \cdots \cup B_k$ בלתי תלויה לינארית.
+> [!abstract] מסקנה 2.3 — איחוד קבוצות בת"ל ממרחבים עצמיים הוא בת"ל
+> תהי $T : V \to V$ העתקה לינארית. יהיו $\lambda_1, \ldots, \lambda_k$ ערכים עצמיים שונים של $T$, ולכל $i$ תהי $B_i \subseteq V_{\lambda_i}$ קבוצה בלתי תלויה לינארית. אזי $B = B_1 \cup \cdots \cup B_k$ בלתי תלויה לינארית.
+<!-- corrected: source says Bᵢ is any LI subset of V_{λᵢ}, not necessarily a basis; also updated title accordingly -->
 >
-> (זוהי הכללה של משפט 1.8: בסיסי המרחבים העצמיים השונים אינם רק בת"ל בתוך עצמם, אלא שאיחודם גם כן בת"ל.)
+> (זוהי הכללה טבעית של משפט 1.8, בו כל $B_i$ מכיל וקטור עצמי בודד.)
 
 > [!note]- הוכחה
 > נניח בשלילה שיש תלות לינארית, כלומר קיים צירוף לינארי לא טריוויאלי:
@@ -37,14 +38,15 @@ tags: [la2, lecture, ch02-diagonalization]
 > $$u_i = \sum_{j} a_{ij} v_{ij} \in V_{\lambda_i}.$$
 > אז $\displaystyle\sum_{i=1}^{k} u_i = 0$ עם $u_i \in V_{\lambda_i}$.
 >
-> כעת, $u_i$ הוא צירוף לינארי של וקטורי $B_i$, שהם בסיס של $V_{\lambda_i}$ — לכן $u_i \in V_{\lambda_i}$.
+> כעת, $u_i$ הוא צירוף לינארי של וקטורי $B_i \subseteq V_{\lambda_i}$ — לכן $u_i \in V_{\lambda_i}$.
 >
-> לפי משפט 1.8 (וקטורים עצמיים עם ע"ע שונים בת"ל), הביטוי $\sum u_i = 0$ מחייב $u_i = 0$ לכל $i$. אבל $B_i$ הוא בסיס של $V_{\lambda_i}$, ולכן $u_i = 0$ גורר שכל מקדמי $u_i$ (כלומר $a_{ij}$ לכל $j$) אפסיים. אבל זה סותר את ההנחה שהצירוף לא טריוויאלי. $\blacksquare$
+> לפי משפט 1.8 (וקטורים עצמיים עם ע"ע שונים בת"ל), הביטוי $\sum u_i = 0$ מחייב $u_i = 0$ לכל $i$. אבל $B_i$ בת"ל, ולכן $u_i = 0$ גורר שכל מקדמי $u_i$ (כלומר $a_{ij}$ לכל $j$) אפסיים. אבל זה סותר את ההנחה שהצירוף לא טריוויאלי. $\blacksquare$
 
 > [!abstract] מסקנה 2.4 — קריטריון ללכסינות דרך מרחבים עצמיים
-> $T$ לכסינה אם ורק אם:
-> $$\sum_{\lambda} \dim V_\lambda = n,$$
-> כאשר הסכום עובר על כל הערכים העצמיים של $T$.
+> תהי $T : V \to V$ העתקה לינארית עם $\dim V = n$. אזי תמיד מתקיים:
+> $$\sum_{\lambda} \dim V_\lambda \leq n,$$
+> ושוויון מתקיים אם ורק אם $T$ לכסינה.
+<!-- corrected: source states the inequality ∑dim V_λ ≤ n explicitly, with equality iff T is diagonalizable; the vault previously only stated the equality criterion without the inequality -->
 
 > [!note]- הוכחה
 > **($\Rightarrow$)** נניח ש-$T$ לכסינה, ויהי $\{v_1, \ldots, v_n\}$ בסיס של $V$ מוקטורים עצמיים. כל $v_i$ שייך למרחב עצמי $V_{\lambda}$ כלשהו. נקבץ: לכל ע"ע $\lambda$ בין $v_1,\ldots,v_n$ יש בדיוק כמה שהם וקטורים עם ע"ע $\lambda$; אלה בת"ל (חלק מבסיס) ושייכים ל-$V_\lambda$, ולכן $\dim V_\lambda \ge$ מספרם. מסך כל הקבוצות מתקבל $\sum_\lambda \dim V_\lambda \ge n$. מכיוון שכל $V_\lambda \subseteq V$ ו-$\sum_\lambda \dim V_\lambda \le \dim V = n$ (ממסקנה 2.3, האיחוד בת"ל ולכן הסכום לא עולה על $n$), נקבל שוויון.
