@@ -12,3 +12,5 @@
 
 # Office (local working state)
 .office/
+.venv/
+*.xdv
