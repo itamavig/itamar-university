@@ -60,5 +60,5 @@ The guide says these are referenced from the data-analysis booklet by number onl
 - [ ] **Results section title.** Doc calls it "עיבוד התוצאות"; the guide calls it "תוצאות".
 
 ## Found 2026-10-29 (discussion)
-- [ ] **DISC-43/44 claim vs data.** The Doc says the error overestimate comes mainly from the height resolution error. Refit: without Δh, χ²_red = 0.34 (p = 0.93); without Δt, 1.71. The time error dominates. In the report in red, for the pair to rewrite.
+- [x] **DISC-43/44 claim vs data.** Resolved 2026-10-30 (P6): replaced by the refit argument. The Doc says the error overestimate comes mainly from the height resolution error. Refit: without Δh, χ²_red = 0.34 (p = 0.93); without Δt, 1.71. The time error dominates. In the report in red, for the pair to rewrite.
 - [x] **"Least Squares" in DISC-24.** The course fit is ODR; replaced in blue.

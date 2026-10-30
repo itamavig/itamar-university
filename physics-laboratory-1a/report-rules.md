@@ -32,6 +32,8 @@ Precedence: experiment briefing on experiment-specific choices > M > G > C > E.
 4a. No semicolons in report text — split into sentences or use a comma (user, 2026-10-28).
 4b. Write "p-value" (English, `\textenglish{p-value}`), never "ערך p" (user, 2026-10-28).
 4c. **Anything Claude adds beyond the Doc is blue** (`\added{…}`), until the pair reviews it. Red `\TODO{…}` = still missing. Neither colour may remain in the submitted PDF (user, 2026-10-28).
+4d. **Edits made on the partner's suggestions are green** (`\partner{…}`), until reviewed (user, 2026-10-30).
+4e. Sub-list labels are (א), (ב)…; in running text a sub-item is referenced as parent number + letter, e.g. "תת-מטרה 1ב" (user, 2026-10-30).
 5. Units in text: no brackets — `0.51 MeV`. Units on graph axes and table headers: square brackets — `t [s]`.
 6. Lists of numbers in Hebrew text: one math block with commas, no Hebrew joiner like "ו-" before the last item — it splits the block and reads incoherently in RTL (user, 2026-10-28).
 
@@ -41,6 +43,7 @@ Precedence: experiment briefing on experiment-specific choices > M > G > C > E.
 3. Under every formula, define every symbol in it ("כאשר … הוא …").
 4. Reference as "(3)", e.g. "ממשוואות (1) ו-(2)".
 4a. No slash fractions for quantities in math (write $\frac{1}{2}g$, not $g/2$); slashes are fine in units like cm/s² (user, 2026-10-28).
+4b. Δ is reserved for errors (uncertainties); never use it for a time interval or other difference — name those with their own symbol, e.g. $t_d$ (user, 2026-10-30).
 5. Numbering continues from the theory background. Never reference a formula before it appears (e.g. no "(2)" in the goals) (user, 2026-10-26).
 6. Typed formulas only, no screenshots. **No numeric substitution or computed values in formulas or in the analysis plan — formulas only (M 1).**
 7. **DO write + number:** fit functions; the fitted-model formula; every physical quantity extracted from fit parameters; final formula of every indirect error (final form only — M: an indirect error can't be described in words, it varies case to case); final combined-error formula; instructor-requested formulas; non-uniform instrument errors (e.g. manufacturer spec).
@@ -130,6 +133,7 @@ Same rules: units, captions, rounding. Only raw-data tables may stay unrounded. 
 8. **Every graph gets its own figure number and caption (user, 2026-10-26)** — fit and residual graphs are separate figures, even when placed side by side.
 9. Tables: full borders, all columns centered (user, 2026-10-26). Units go in the value cells, never in the parameter/row name (user, 2026-10-26; G allows this — headers are only "a common way"). Exception (user, 2026-10-29): long data tables where a whole column shares one unit (e.g. raw data) put the unit once in the column header, wrapped in `\textenglish{}` so `t [s]` keeps LTR order.
 10. Captions (figures and tables) at 9pt; G only sets body text to 10 (user, 2026-10-26).
+11. Figures and tables never float away from their text: `[H]` placement (float package) (user, 2026-10-30).
 
 ## 7. Tables (G)
 1. Caption **below**, numbered, no title above: "טבלה 1: …".

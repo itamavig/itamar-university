@@ -20,3 +20,14 @@ Rules: [../report-rules.md](../report-rules.md) (general) + [report-rules.md](re
 - [ ] 10. Run the checklist (general rules §8) against the compiled PDF — first run 2026-10-29: 5 fails, see checklist-results.md. Re-run after fixes.
 - [x] 10a. Optical gate drawn in figure 1 as a blue overlay (TikZ over the image, in an LTR block), label 9 (2026-10-29)
 - [ ] 10b. Decide: number the theory's g_theoretical display formula or leave it as in the staff file
+
+## Partner's notes (2026-10-30) — one by one, edits in green (`\partner{}`)
+- [x] P1. (approved 2026-10-30: goal 1 split into (א)–(ד), (א)–(ב) = initial height and velocity match zero, green sentence in the comparison referencing 1א/1ב) Goals: verify the model (parameters vs expected values, fit statistics), not only g
+- [x] P2. (approved 2026-10-30: "עמוד אלומיניום עם שנתות", list + setup) Equipment item 3: replace "מדורג" with clearer wording
+- [x] P3. (approved 2026-10-30: timing sentence removed, gate added to the parts sentence) Setup paragraph: drop the timing sentence that repeats procedure step (ה); keep component roles and h (guide)
+- [x] P4. (approved 2026-10-30: motor calibration run with an anemometer, u = a_w·t_d (Δ reserved for errors), average of repeated runs) Instructor question ב: how the estimate is taken (repeat + average + error) and how the wind's acceleration is known
+- [x] P5. (approved 2026-10-30: 7 sentences reworded in green, 3/4/6 in the user's chosen wording) Discussion: smoothing pass for stiff wording, meaning unchanged
+- [x] P6. (approved 2026-10-30: chronological height-then-time refit argument, numbers from analysis.py) Discussion: rewrite DISC-43/44 — time error as main cause of the overestimate (data: no Δt → χ²_red 1.7)
+- [x] P7. (approved 2026-10-31: numbered list of 4; item 4 camera tracking is the user's, green, flagged vs guide's 'no sophisticated means') Improvement suggestions: expand, each tied to a result (guide forbids "more measurements", "finer ruler")
+- [ ] P8. Ask Tamir: g in m/s²? (user/partner task; switch in analysis.py if yes)
+- [ ] P9. Compare with other reports from the Drive (user/partner task; guide wins on conflicts)

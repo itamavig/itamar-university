@@ -61,7 +61,9 @@ def main():
     m_ours = macros(ours["linear"], ours["parabolic"])
     m_colab = macros(colab["linear"], colab["parabolic"])
     failures = 0
-    for key in m_ours:
+    # Macros from our own refits have no Colab counterpart; they're listed, not compared.
+    only_ours = sorted(set(m_ours) - set(m_colab))
+    for key in sorted(set(m_ours) & set(m_colab), key=list(m_ours).index):
         ok = m_ours[key] == m_colab[key]
         failures += not ok
         print(f"{'OK ' if ok else 'BAD'} {key:14} colab={m_colab[key]:24} local={m_ours[key]}")
@@ -69,6 +71,8 @@ def main():
     for fit in ("linear", "parabolic"):
         print(f"info: {fit} largest unrounded relative difference = "
               f"{max_rel_diff(ours[fit], colab[fit]):.1e}")
+    if only_ours:
+        print("not in Colab (local refits/estimates): " + ", ".join(only_ours))
     print("ALL REPORTED VALUES MATCH" if failures == 0 else f"{failures} MISMATCH(ES)")
     sys.exit(failures != 0)
 
