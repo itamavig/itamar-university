@@ -7,9 +7,9 @@ PY := .venv/bin/python -W ignore::DeprecationWarning
 DRIVE_IDDIR := $(HOME)/Library/CloudStorage/GoogleDrive-avigdori@mail.tau.ac.il/.shortcut-targets-by-id/1JX-zH0bAuzjteWiRRvmfPnFxpX9OWTHd
 
 # raw_table.tex is written by the same analysis.py run that writes numbers.tex.
-report/raw_table.tex: report/numbers.tex
+report/raw_table.tex report/budget_table.tex: report/numbers.tex
 
-report/main.pdf: report/numbers.tex report/raw_table.tex report/*.tex
+report/main.pdf: report/numbers.tex report/raw_table.tex report/budget_table.tex report/*.tex
 	cd report && latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
 	@d=$$(ls -d "$(DRIVE_IDDIR)"/*/ 2>/dev/null | head -1); \
 	  test -n "$$d" || { echo "Drive folder not found: is Google Drive for desktop running and signed in?"; exit 1; }; \

@@ -14,3 +14,7 @@
 .office/
 .venv/
 *.xdv
+
+# Free-fall report: personal IDs (public repo). details.example.tex holds the placeholders.
+physics-laboratory-1a/freefall/report/details.tex
+physics-laboratory-1a/freefall/report/main.pdf

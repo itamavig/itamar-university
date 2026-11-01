@@ -27,20 +27,29 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt plus 1pt}
 
-% Content added by Claude beyond the Doc (user, 2026-10-28). Blue until the pair reviews it;
-% turn black (drop the macro) once approved. Must not survive into the submitted PDF either.
-\newcommand{\added}[1]{\textcolor{blue}{#1}}
-% Edits made on the partner's suggestions (user, 2026-10-30). Green until reviewed.
-\definecolor{partnergreen}{RGB}{0,140,60}
+% Review colours: blue = content added by Claude beyond the Doc (user, 2026-10-28), green = edits
+% on the partner's or the user's suggestions (2026-10-30). Switched off for submission (user,
+% 2026-11-01): \reviewtrue brings them back; the macros stay so the source still records who wrote what.
+\newif\ifreview \reviewfalse
+\ifreview
+  \colorlet{addedblue}{blue}
+  \definecolor{partnergreen}{RGB}{0,140,60}
+\else
+  \colorlet{addedblue}{black}
+  \colorlet{partnergreen}{black}
+\fi
+\newcommand{\added}[1]{\textcolor{addedblue}{#1}}
 \newcommand{\partner}[1]{\textcolor{partnergreen}{#1}}
 
 % Visible placeholder for anything not written yet. Must not survive into the submitted PDF.
 \newcommand{\TODO}[1]{\textcolor{red}{[#1]}}
 % Units after a value in math mode: $\LinG\U{cm/s^2}$
 \newcommand{\U}[1]{\,\mathrm{#1}}
+% Font of the setup drawing's labels (Helvetica), for the row added to its parts table.
+\newfontfamily\schemfont{Helvetica}
 
 \input{numbers.tex}
-\input{details.tex}
+\InputIfFileExists{details.tex}{}{\input{details.example.tex}}
 
 \begin{document}
 \input{cover.tex}
@@ -49,14 +58,9 @@
 \section*{מטרות הניסוי}
 \begin{enumerate}
 % src: GOAL-01
-  \item אימות נוסחת הנפילה החופשית\added{:}
-  \begin{enumerate}
-% partner note P1 (2026-10-30): the model's coefficients match their expected values, not only g.
-    \item \partner{הגובה ההתחלתי המתקבל מההתאמה תואם לאפס.}
-    \item \partner{המהירות ההתחלתית המתקבלת מההתאמה תואמת לאפס.}
-    \item \added{תאוצת הכובד המחולצת מהמדידות תואמת לערך התיאורטי בטווח הטעות המקובל ($N_\sigma \le 3$).}
-    \item \added{תאוצת הכובד נמדדת בדיוק של שגיאה יחסית הקטנה מ-5\%.}
-  \end{enumerate}
+% One sentence (instructor: fuller than the brief goal, but one sentence; user, 2026-11-01).
+% Coefficients = partner's note P1 (green); "בטווח הטעות המקובל" = the guide's own example wording.
+  \item אימות נוסחת הנפילה החופשית\added{:} \partner{בדיקה שמקדמי ההתאמה תואמים לערכים הצפויים להם,} \added{ובפרט שתאוצת הכובד המחולצת תואמת לערך התיאורטי בטווח הטעות המקובל.}
 % src: GOAL-02
   \item התנסות בכלים סטטיסטיים \added{לעיבוד המדידות: הערכת שגיאות ושקלולן, התאמת מודל למדידות ובחינת טיב ההתאמה}.
 \end{enumerate}
@@ -113,7 +117,7 @@ h = \frac{1}{2} g t^2
 % src: EQUIP-04
   \item מחשב ותוכנה למדידת זמן הנפילה, ברזולוציה של $\TRes\U{s}$.
 % src: EQUIP-05
-  \item שער אופטי אינפרא-אדום\added{, המפעיל את מדידת הזמן (סומן באיור בכחול)}.
+  \item שער אופטי אינפרא-אדום\added{, המפעיל את מדידת הזמן}.
 \end{enumerate}
 \subsection*{מערכת הניסוי}
 % src: SETUP-02
@@ -127,18 +131,25 @@ h = \frac{1}{2} g t^2
   \vspace{0pt}
   \centering
 % src: SETUP-01
-  % Optical gate (item 9) is not in the original drawing; drawn on top in blue for review
+  % Optical gate (item 9) is not in the original drawing; drawn on top (blue while reviewing)
   % (user, 2026-10-29). Coordinates are fractions of the image: x from the left, y from the bottom.
   % LTR block: under RTL (babel bidi) the picture's x axis is mirrored.
   \begin{otherlanguage}{english}
   \begin{tikzpicture}
     \node[inner sep=0, anchor=south west] (img) {\includegraphics[width=\textwidth]{figures/setup.png}};
-    \begin{scope}[x={(img.south east)}, y={(img.north west)}, blue, line width=0.5pt]
-      \draw[fill=blue!15] (0.395,0.758) rectangle (0.415,0.772);   % emitter
-      \draw[fill=blue!15] (0.475,0.758) rectangle (0.495,0.772);   % receiver
-      \draw[dashed] (0.415,0.765) -- (0.475,0.765);                % beam across the fall axis
-      \draw (0.495,0.765) -- (0.545,0.765);                        % leader
-      \node[draw, circle, inner sep=0.6pt, font=\tiny] at (0.565,0.765) {9};
+    \begin{scope}[x={(img.south east)}, y={(img.north west)}, addedblue, line width=0.5pt]
+      % Just below the ball (ball bottom ~0.83 of the height), smaller marks (user, 2026-11-01).
+      \draw[fill=addedblue!15] (0.405,0.818) rectangle (0.417,0.826);   % emitter
+      \draw[fill=addedblue!15] (0.473,0.818) rectangle (0.485,0.826);   % receiver
+      \draw[dashed] (0.417,0.822) -- (0.473,0.822);                % beam across the fall axis
+      \draw (0.485,0.822) -- (0.556,0.845);                        % leader, up past label 2
+      \node[draw, circle, inner sep=0.6pt, font=\tiny] at (0.57,0.848) {9};
+      % Row 9 of the drawing's parts table (user, 2026-11-01). Table edges measured on setup.png
+      % (1486x2048 px): x 1031/1088/1437, rows 46 px tall, last row ends at y 960 px from the top.
+      \draw[line width=0.29pt] (0.6942,0.5310) -- (0.6942,0.5085) -- (0.9667,0.5085) -- (0.9667,0.5310);
+      \draw[line width=0.15pt] (0.7322,0.5310) -- (0.7322,0.5085);
+      \node[font=\schemfont\fontsize{3.3}{3.8}\selectfont, text=black] at (0.7134,0.5198) {9};
+      \node[font=\schemfont\fontsize{3.3}{3.8}\selectfont, text=black, anchor=west, inner sep=0] at (0.7405,0.5198) {Optical gate (infrared)};
     \end{scope}
   \end{tikzpicture}
   \end{otherlanguage}
@@ -171,7 +182,12 @@ h = \frac{1}{2} g t^2
 % src: PROC-13
   \item בסוף הניסוי יוצאו התוצאות מהתוכנה לקובץ \textenglish{Excel}.
 \end{enumerate}
-\TODO{נימוק לבחירת הגבהים ולמספר החזרות — חסר במסמך המשותף}
+% Reason for 10 repetitions (user, 2026-11-01): statistical error dominates, so repeating helps;
+% after 10 the relative error is far below 5% (booklet's stopping criterion, p. after (34)).
+\added{בכל גובה בוצעו 10 מדידות, כפי שנקבע בתדריך הניסוי.} \partner{זאת על מנת להקטין את השגיאה הסטטיסטית, ובכך את השגיאה הכוללת} \added{(נוסחה (34) בחוברת). לאחר 10 מדידות השגיאה היחסית בזמן הנפילה אינה עולה על $\TRelMax$ בכל הגבהים, הרבה מתחת ל-5\%}\partner{, הסף המקובל בקורס לשגיאה יחסית קטנה}\added{.}
+
+% Reason for the heights (user, 2026-11-01): briefing p. 3, steps of 5 or 10 cm until 10-12 heights.
+\added{הגבהים נבחרו בהפרשים של} \partner{$5\U{cm}$} \added{או $10\U{cm}$ זה מזה, כפי שנקבע בתדריך הניסוי, כך שהתקבלו 10 גבהים הפרוסים על פני הטווח $10\text{--}80\U{cm}$.}
 
 \section*{תכנון עיבוד התוצאות}
 % Formula budget (free-fall rules 7): numbered here (3)-(9), 7 of 10.
@@ -234,7 +250,7 @@ y = a_0 + a_1 x + a_2 x^2
 לפי נוסחה \eqref{eq:motion}, הפרמטר $a_0$ מייצג את הגובה ההתחלתי ו-$a_1$ את המהירות ההתחלתית, ולכן שניהם צפויים להתאפס. הפרמטר $a_2$ מייצג מחצית מהתאוצה, ולכן צפוי להיות $\frac{1}{2}g$.
 % added (not in the Doc): briefing formula (7); report-gaps.md "parabolic fit has no g formula".
 \added{תאוצת הכובד ושגיאתה העקיפה יחולצו מההתאמה לפי:}
-{\color{blue}
+{\color{addedblue}
 \begin{equation}\label{eq:gpar}
 g = 2a_2 \pm 2\Delta a_2
 \end{equation}}
@@ -250,7 +266,7 @@ g = 2a_2 \pm 2\Delta a_2
 % src: PLAN-20 PLAN-21 PLAN-39 PLAN-40 PLAN-48 PLAN-49
   \item חי בריבוע מצומצם, $\chi^2_{red}$ (נוסחה (50) בחוברת), המבטא את מידת ההתאמה בין נקודות המדידה לגרף ההתאמה. בהתאמה תקינה צפוי ערך קרוב ל-1.
 % src: PLAN-22 PLAN-23 PLAN-41 PLAN-42 PLAN-50 PLAN-51
-  \item \textenglish{p-value}: ההסתברות לקבל ערך $\chi^2_{red}$ גדול מזה שהתקבל או שווה לו, בהנחה שהמודל מתאר את המערכת. \added{הוא מחושב מהתפלגות חי בריבוע, לפי $\chi^2$ ומספר דרגות החופש $N-K$ שבנוסחה (50) בחוברת.} ערכים תקינים הם בתחום $0.05 \le p \le 0.95$.
+  \item \textenglish{p-value}: ההסתברות לקבל ערך $\chi^2_{red}$ גדול מזה שהתקבל או שווה לו, בהנחה שהמודל מתאר את המערכת. ערכים תקינים הם בתחום $0.05 \le p \le 0.95$.
 % src: PLAN-57
   \item גרף השארים, שבו ייבדק שפיזור הנקודות סביב קו האפס אקראי וללא מגמה.
 \end{itemize}
@@ -284,7 +300,8 @@ g = 2a_2 \pm 2\Delta a_2
 % src: RES-04
 בגרף השארים, הנקודות בקצוות התחום (ערכי $t^2$ קטנים וגדולים) נמצאות מתחת לקו האפס, והנקודות במרכזו נמצאות מעליו. בשארים ניכרת מגמה פרבולית, ולא פיזור אקראי.
 % src: RES-05
-עם זאת, \added{כל} השארים נמצאים במרחק של \added{פחות מפי 3 משגיאתם בהתאמה} מקו האפס.
+% Replaces the "within 3 errors" claim (user, 2026-11-01): the guide's own comparison, checkable by eye.
+\partner{ברוב הנקודות המרחק מקו האפס גדול משגיאתן.}
 % added (not in the Doc): parameters vs expectation and meaning of the statistics (guide; checklist "Results").
 \added{בטבלה~\ref{tab:results} ניתן לראות כי שגיאתו היחסית של האיבר החופשי $a_0$ קטנה מ-50\%, וכי ה-\textenglish{p-value} קטן מ-0.05. עבור תאוצת הכובד שחולצה התקבל $N_\sigma$ הקטן מ-3, ושגיאתה היחסית קטנה מ-5\%.}
 
@@ -312,7 +329,7 @@ g = 2a_2 \pm 2\Delta a_2
 % src: RES-15
 בגרף ההתאמה, נקודות המדידה נמצאות על קו ההתאמה או בסמוך מאוד אליו.
 % src: RES-16 RES-17
-בגרף השארים, הנקודות מפוזרות באקראי סביב קו האפס, וסכום השארים קרוב לאפס. רוב צלבי השגיאה חוצים את קו האפס, \added{וכל השארים} נמצאים במרחק של \added{פחות מפי 3 משגיאתם} ממנו.
+בגרף השארים, הנקודות מפוזרות באקראי סביב קו האפס, וסכום השארים קרוב לאפס. \partner{כל הנקודות נמצאות במרחק של פחות משלושה צלבי שגיאה מקו האפס, ורובן חוצות אותו.}
 % added (not in the Doc): parameters vs expectation and meaning of the statistics (guide; checklist "Results").
 \added{בטבלה~\ref{tab:results} ניתן לראות כי שגיאתו היחסית של האיבר החופשי $a_0$ גדולה מ-50\%, ושל הפרמטר $a_1$ קטנה מ-50\%. ה-\textenglish{p-value} גדול מ-0.95. עבור תאוצת הכובד שחולצה התקבל $N_\sigma$ הקטן מ-3, ושגיאתה היחסית קטנה מ-5\%.}
 
@@ -355,12 +372,7 @@ g = 2a_2 \pm 2\Delta a_2
 המהירות הסופית מתקבלת כאשר שקול הכוחות על הגוף מתאפס, ואז, לפי החוק הראשון של ניוטון, הגוף ממשיך לנוע במהירות קבועה.
 % src: QUEST-06 QUEST-07 QUEST-08 QUEST-09
 % Sign corrected (report-gaps.md "Instructor question, sign"): the Doc has Mg = Ff = -bV, V = -Mg/b.
-לכן, כאשר הכיוון החיובי הוא כלפי מטה, המהירות הסופית $V_f$ מקיימת \added{$Mg + F_f = Mg - bV_f = 0$}, ומכאן:
-{\color{blue}
-\begin{equation}\label{eq:vf}
-V_f = \frac{Mg}{b}
-\end{equation}}
-כאשר $M$ היא מסת הגוף ו-$b$ הוא מקדם החיכוך.
+לכן, כאשר הכיוון החיובי הוא כלפי מטה, המהירות הסופית $V_f$ מקיימת \added{$Mg + F_f = Mg - bV_f = 0$}, ומכאן \added{$V_f = \frac{Mg}{b}$}, כאשר $M$ היא מסת הגוף ו-$b$ הוא מקדם החיכוך.
 
 \textbf{(ב)}
 % src: QUEST-10
@@ -410,36 +422,44 @@ V_f = \frac{Mg}{b}
 % src: DISC-39
   \item \partner{שגיאתו היחסית של האיבר החופשי $a_0$ גדולה מ-50\%, ולכן הוא תואם לערך הצפוי אפס.}
 % src: DISC-40 DISC-41
-  \item הפרמטר $a_1$, המייצג לפי נוסחה \eqref{eq:motion} את המהירות ההתחלתית, שונה מאפס, ושגיאתו היחסית קטנה מ-50\%. עובדה זו מחזקת את ההשערה שהוצגה עבור ההתאמה הלינארית, שלפיה הכדור צובר מהירות התחלתית לפני תחילת מדידת הזמן.
-% Delay estimate: relations shown, no substitution (partner asked how it was computed; checklist forbids shown calculations).
-  \added{מהמהירות ההתחלתית ומתאוצת הכובד שהתקבלו בהתאמה זו ניתן להעריך שהכדור נופל כ-$\DelayMs\U{ms}$}\partner{, משך הזמן הנדרש לצבירת המהירות $a_1$ ממנוחה, $\frac{a_1}{g}$,} \added{מרחק של כ-$\DelayDistMm\U{mm}$}\partner{, $\frac{a_1^2}{2g}$,} \added{לפני שמדידת הזמן מתחילה.}
+  \item \partner{הפרמטר $a_1$, המייצג לפי נוסחה \eqref{eq:motion} את המהירות ההתחלתית, שונה מאפס: שגיאתו היחסית, $\ParAOneRel$, קטנה מ-50\%. מכאן שהכדור צובר מהירות התחלתית לפני תחילת מדידת הזמן, בהתאם להשערה שהוצגה עבור ההתאמה הלינארית. הזמן שבו הכדור נופל לפני תחילת מדידת הזמן, $\tau$, הוא הזמן הנדרש לצבירת המהירות $a_1$ ממנוחה בתאוצה $g$, ושגיאתו היא שגיאה עקיפה לפי נוסחה (43) בחוברת:}
+% Delay before timing starts: post-hoc, so in the discussion, not the plan (user, 2026-11-01); numbered as an
+% extracted quantity with its indirect error (checklist).
+{\color{partnergreen}
+\begin{equation}\label{eq:tau}
+\tau = \frac{a_1}{g} \pm \sqrt{\left(\frac{\Delta a_1}{g}\right)^2 + \left(\frac{a_1 \Delta g}{g^2}\right)^2}
+\end{equation}}
+  \partner{מכאן שהכדור נופל במשך $\tau = \DelayTau\U{s}\ (\DelayTauRel)$ לפני שמדידת הזמן מתחילה.}
 % src: DISC-42
   \item \partner{תאוצת הכובד שחושבה תואמת לערך התיאורטי ($N_\sigma$ קטן מ-3), ושגיאתה היחסית קטנה.}
 \end{itemize}
-% partner note P6, shortened (2026-10-31): the main error source, one number to back it, link to improvement 3.
+% partner note P6, shortened (2026-10-31); source left open, user's wording (2026-11-01). TimeErrCm/DhCm unused.
 % Replaces DISC-43/44. The refit numbers (ChiNoDh etc.) stay in numbers.tex, unused.
-\partner{הערכת היתר נובעת ככל הנראה בעיקר מהשגיאה בזמן: תרומתה לשגיאת כל נקודה, שהיא השגיאה בזמן מוכפלת בשיפוע גרף ההתאמה (נספח 3 בחוברת, נוסחה (56)), היא כ-$\TimeErrCm\U{cm}$ בממוצע, פי שניים משגיאת הגובה ($\DhCm\U{cm}$). בדיקת מקור השגיאה בזמן מוצעת בהצעה 3 להלן.}
+\partner{ערך $\chi^2_{red}$ הנמוך מעיד על הערכת יתר של השגיאות. לא ברור אם הערכת היתר נובעת מהשגיאה בגובה או מהשגיאה בזמן. ייתכן שהיא נובעת משגיאת הגובה: שגיאה זו חושבה בהנחת התפלגות אחידה על פני שנתה אחת של הסרגל (נוסחה (28) בחוברת), אך העין עשויה לקרוא את הגובה בדיוק רב יותר.}
 
 % added (not in the Doc): comparison of the methods, goals, improvement (guide; user approved drafting in blue 2026-10-29).
 \subsection*{\added{השוואה בין ההתאמות}}
-\added{שתי ההתאמות נתנו תאוצת כובד התואמת לערך התיאורטי ($N_\sigma \le 3$) בשגיאה יחסית הקטנה מ-5\%, ולכן שתיהן עומדות בתת-המטרות של המטרה הראשונה הנוגעות לתאוצת הכובד (1ג, 1ד). עם זאת, שני הערכים אינם תואמים זה לזה ($N_\sigma = \NsigmaFits$ ביניהם), והתאמתם לערך התיאורטי נובעת בעיקר משגיאתו הגדולה ($10\U{cm/s^2}$). הערך מההתאמה הפרבולית אמין יותר: המודל הפרבולי כולל את המהירות ההתחלתית שנמדדה בפועל, וגרף השארים שלו אקראי. ההתאמה הלינארית אינה מתארת את המדידות, ולכן ערך $g$ שלה מוטה.}
+\added{שתי ההתאמות נתנו תאוצת כובד התואמת לערך התיאורטי ($N_\sigma \le 3$) בשגיאה יחסית הקטנה מ-5\%, ולכן שתיהן עומדות בחלק המטרה הנוגע לתאוצת הכובד. הערך מההתאמה הפרבולית אמין יותר: המודל הפרבולי כולל את המהירות ההתחלתית שנמדדה בפועל, וגרף השארים שלו אקראי. ההתאמה הלינארית אינה מתארת את המדידות, ולכן ערך $g$ שלה מוטה.}
 % partner note P1 (2026-10-30): which sub-goals of goal 1 were met.
-\partner{בהתאמה הפרבולית הגובה ההתחלתי תואם לאפס, אך המהירות ההתחלתית שונה מאפס, ולכן תת-מטרה 1ב אינה מתקיימת. בהתאמה הלינארית הגובה ההתחלתי שונה מאפס, ולכן גם תת-מטרה 1א אינה מתקיימת בה.}
+\partner{בהתאמה הפרבולית הגובה ההתחלתי תואם לאפס, אך המהירות ההתחלתית שונה מאפס, ולכן לא כל המקדמים תואמים לערכים הצפויים להם. בהתאמה הלינארית גם הגובה ההתחלתי שונה מאפס.}
 
 % Improvements: item 1 Claude (blue); items 2-4 from the partner's note P7 and the user (green), 2026-10-31.
+% 2026-11-01 (user): old item 3 (source of the overestimate) removed; new item 3 = ruler away from the plate.
 % Item 4 uses a phone camera (120 fps): user's view (2026-10-31) is that an everyday phone is not the
 % "sophisticated means" the guide discourages; estimate: ~0.5% on g per 80 cm drop. Drops combined via booklet (61), (63).
 \subsection*{\partner{הצעות לשיפור}}
 \begin{enumerate}
   \item \added{מדידת המרחק בין תחתית הכדור לפני השחרור לבין קרן השער האופטי, והשוואת המהירות הצפויה בחציית הקרן לפרמטר $a_1$ שהתקבל בהתאמה הפרבולית.}
   \item \partner{מיקום קרן השער האופטי בגובה תחתית הכדור לפני השחרור, כך שמדידת הזמן תתחיל ברגע השחרור. במצב זה המהירות ההתחלתית צפויה להתאפס, וניתן יהיה לבחון את המודל הלינארי ללא האיבר החסר.}
-  \item \partner{מכיוון ששגיאת הזמן היא הגורם העיקרי להערכת היתר, בחינת מקורה: חזרה על המדידות בגובה אחד ובדיקה אם פיזור זמני הנפילה נובע מהמערכת עצמה, למשל מאופן שחרור הכדור, או ממדידה לא עקבית של הגובה בין החזרות.}
+  \item \partner{הרחקת הסרגל מאזור המשטח שעליו נוחת הכדור, כך שיהיה קל יותר לכייל את הגובה (הקופסה אליה נופל הכדור מסתירה את הסרגל ומקשה על הכיול).}
   \item \partner{צילום נפילת הכדור במצלמת טלפון נייד בקצב של 120 פריימים לשנייה לפחות, ואיתור מיקום הכדור בכל פריים באמצעות תוכנה. כך מתקבלת עקומת הגובה כתלות בזמן לאורך נפילה אחת, ללא תלות ברגע תחילת מדידת הזמן, וניתן להתאים לה ישירות את נוסחה \eqref{eq:motion}. ניתן לחזור על הצילום מספר פעמים, לבצע התאמה נפרדת לכל נפילה, ולשקלל את ערכי תאוצת הכובד שהתקבלו כממוצע משוקלל לפי נוסחה (61) בחוברת, ששגיאתו מחושבת לפי נוסחה (63).}
 \end{enumerate}
 
 \clearpage
 \section*{נספחים}
-% Raw data only (user, 2026-10-29); computed errors are not shown.
+% Raw data (user, 2026-10-29) and the computed values per height (2026-11-01).
 \input{raw_table.tex}
+% Computed columns of the Excel, rounded (partner's suggestion, user 2026-11-01).
+\input{budget_table.tex}
 
 \end{document}

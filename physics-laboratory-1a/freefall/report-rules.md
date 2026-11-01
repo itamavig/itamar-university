@@ -49,6 +49,7 @@ Schematic numbers must match this list (Doc currently calls the clamp "5" — se
 ## 7. Formula budget — (3)–(9), approved 2026-10-28
 Applied: Δh (3), Δt (4, resolution term written inside, no separate Δt_res), Δ(t²) (5), linear fit (6), g lin (7), parabolic fit (8), g par (9) = 7 of 10. No words-only formulas used.
 2026-10-28: + (10) V_f = Mg/b, instructor question (G: instructor-requested formulas are numbered) = 8 of 10, approved 2026-10-29.
+2026-11-01: terminal velocity V_f = Mg/b made inline (unnumbered, compact, not referenced); τ = a₁/g ± √((Δa₁/g)² + (a₁Δg/g²)²) in the discussion = (10), the direct D(43) partial-derivative form (user-approved; Δτ checked three ways = 0.901896 ms). 8 of 10.
 
 Original draft:
 Theory (1)–(2) don't count. Proposal:

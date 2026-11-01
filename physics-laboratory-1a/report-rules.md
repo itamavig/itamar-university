@@ -68,6 +68,7 @@ Precedence: experiment briefing on experiment-specific choices > M > G > C > E.
 ## 4. Section order and required content
 ### 4.1 מטרות הניסוי (G)
 Goals must be falsifiable: not "נעריך את g" but "נעריך את g ונראה שהוא תואם לערך התיאורטי בטווח הטעות המקובל".
+Length: one sentence per goal, fuller than a bare "measure X" (instructor, via user 2026-11-01). Thresholds (N_σ ≤ 3, 5%) belong in the analysis plan, not the goals; "בטווח הטעות המקובל" is enough, as in G's own example.
 
 ### 4.2 רקע תיאורטי (G)
 In course A1 the background is taken from the Moodle theory file. Short, relevant, every symbol defined.

@@ -62,3 +62,9 @@ The guide says these are referenced from the data-analysis booklet by number onl
 ## Found 2026-10-29 (discussion)
 - [x] **DISC-43/44 claim vs data.** Resolved 2026-10-30 (P6): replaced by the refit argument. The Doc says the error overestimate comes mainly from the height resolution error. Refit: without Δh, χ²_red = 0.34 (p = 0.93); without Δt, 1.71. The time error dominates. In the report in red, for the pair to rewrite.
 - [x] **"Least Squares" in DISC-24.** The course fit is ODR; replaced in blue.
+
+## Excel review (2026-11-01) — no effect on the report's numbers
+- [ ] Column S "Δt/t %" holds a ratio (0.0014), not a percent (0.14%). Label or formula mismatch; the report doesn't use this column.
+- [ ] Δt_stat uses `/SQRT(10)` hard-coded; the template asked for COUNT(...) so it adapts to the number of measurements. Correct for this data (10 per height), fragile if a row ever has fewer.
+- [ ] Sheets `linear`/`parabolic` hold pasted values, not formulas: they won't follow edits to the raw times. Today they equal the computed columns exactly (checked).
+- [ ] Leftover template example formulas in M27:M32 of the first sheet.

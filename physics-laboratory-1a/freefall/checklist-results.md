@@ -1,22 +1,27 @@
-# Pre-submission checklist — run 2026-10-29
+# Pre-submission checklist — run 2026-11-01 (previous run 2026-10-29)
 
-Against `report/main.pdf` (7 pages: cover, 5 body pages, 1 appendix page) and `report/main.tex`.
+Against `report/main.pdf` (8 pages: cover, 6 body pages, 1 appendix page) and `report/main.tex`.
 Checklist = general rules §8 (course `checklist.pdf`). ✅ pass · ❌ fail · ⚠️ pass with a note.
 
-## Fails (must fix before submission) — 4 left (P2 fixed 2026-10-29)
-| # | Item | Status | Detail |
-|---|---|---|---|
-| G1 | Cover page complete | ❌ | 9 red fields in `report/details.tex`: part, instructor full name, submission date, 2 IDs, track, group, sub-group, station |
-| P3 | Decisions explained (why these heights, why 10 repetitions) | ❌ | Red TODO at the end of the procedure; reasons coming from the partner |
-| D2/D3 | Every error source explained / reason for every unexpected result | ❌ | p = 0.96 (errors overestimated): the cause is DISC-43/44, red; the data contradicts the Δh claim (refit: no Δh → χ²_red 0.34, no Δt → 1.71) |
-| G0 | No review colours left | ❌ | 28 blue `\added` passages + 2 blue equations need the pair's OK; 2 red TODOs in the body |
+## Fails — none
+
+## Fixed since 2026-10-29
+| # | Item | Fix |
+|---|---|---|
+| G1 | Cover page complete | All fields filled 2026-11-01; station blank by the user's choice |
+| P3 | Why these heights | Briefing p. 3: steps of 5 cm or 10 cm, 10–12 heights (blue sentence in the procedure) |
+| G0 | No review colours left | Switched off with `\reviewfalse` (2026-11-01); PDF text checked all black, only the graphs keep their plot colours |
+| D2/D3 | Reason for the overestimate (p = 0.96) | Discussion says the source is unclear and offers the height-resolution hypothesis, D(28). Hedged; the refits (no Δh → p 0.93, no Δt → p 0.10) support either |
 
 ## Notes (pass, but worth a decision)
 | # | Item | Status | Detail |
 |---|---|---|---|
-| G3 | All formulas numbered | ⚠️ | One display formula has no number: g_theoretical = 981 ± 10 cm/s² in the theory section, as laid out in the staff file. Theory formulas don't count toward the limit |
-| R | Meaning of values / parameters vs expectation, in Results | ⚠️ | Deliberately in the Discussion (user rule, general rules §4.5.11); the checklist lists it under Results |
-| R | Error bars in residual graphs | ⚠️ | Show Δh only (Colab style); captions say so, and the text refers to the fit's errors |
+| G3 | All formulas numbered | ⚠️ | g_theoretical = 981 ± 10 cm/s² in the theory section has no number, as in the staff file (todo 10b) |
+| R | Conclusions (overestimate, parameters vs expectation) in Results | ⚠️ | Deliberately in the Discussion (user rule, general rules §4.5.11). The writing guide p. 7 says the overestimate verdict itself belongs in Results |
+| R | Error bars in residual graphs | ⚠️ | Show Δh only (Colab style); captions say so |
+| D | Overestimate stated three times in the parabolic discussion | ⚠️ | Bullet 1 (p-value), bullet 2 (residuals) and the paragraph after the bullets. Could merge |
+| D | Improvement 3 (ruler away from the landing box) tied to a result? | ⚠️ | Linked to height calibration; the text doesn't name the result it answers (linear a₀ / height error) |
+| G | Personal IDs on the cover | ✅ | details.tex and main.pdf untracked + gitignored 2026-11-01; git history never held the IDs (checked with git log -S) |
 
 ## Passes
 | Area | Item | Status |
@@ -24,7 +29,7 @@ Checklist = general rules §8 (course `checklist.pdf`). ✅ pass · ❌ fail · 
 | General | Units on every value (text, tables, captions) | ✅ |
 | General | Rounding per booklet (tested against Table 3 on every build; raw table unrounded, allowed) | ✅ |
 | General | Formula limit: 8 of 10 numbered (3)–(10) | ✅ |
-| General | Page limit: 5 body pages of 10 (cover and appendix excluded) | ✅ |
+| General | Page limit: 6 body pages of 10 (cover and appendix excluded) | ✅ |
 | General | All statistics addressed: χ²_red, p-value, N_σ, relative errors, residual graphs | ✅ |
 | General | Instructor question answered | ✅ |
 | Procedure | Instrument resolutions in the equipment list (ruler 0.1 cm, software 10⁻⁵ s) | ✅ |
@@ -43,7 +48,8 @@ Checklist = general rules §8 (course `checklist.pdf`). ✅ pass · ❌ fail · 
 | Results | Residual scatter and distance vs errors discussed | ✅ |
 | Results | No calculations or substitutions shown | ✅ |
 | Discussion | Goals addressed: agreement (N_σ) and precision (relative errors), both fits | ✅ |
-| Discussion | Delay source: what / how / how much (a₁, 8.6 ms, 0.36 mm) | ✅ |
+| Discussion | Delay source: what / how / how much (a₁, τ = 0.0086 s, formula (10)) | ✅ |
 | Discussion | Every claim tied to a specific result | ✅ |
 | Procedure | Every component labelled in the schematic: item 9 (optical gate) drawn in blue over figure 1, 2026-10-29 | ✅ |
 | Style | No first person outside the staff theory text; no semicolons; "p-value"; no booklet page refs; no slash fractions | ✅ |
+| Appendix | Table 3 has a relative-error column for each value with an error (2026-11-01) | ✅ |
