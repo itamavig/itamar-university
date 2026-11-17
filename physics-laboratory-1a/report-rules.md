@@ -99,6 +99,7 @@ In course A1 the background is taken from the Moodle theory file. Short, relevan
 8. Residual graph that shows nothing → one sentence in text, graph in appendix, referenced. Residual graph that shows something → in the body, explained.
 9. Outliers: fit all points first. Recording errors → drop, say so in Results. Outlier = > 3σ from fit line; drop only with a measurement-based reason (never "doesn't match expectation"); max 2 points; then show BOTH fits (corrected in Results, original in Appendix) with parameters + statistics for both.
 10. Results says *what* the data shows. Discussion says *why* and what it means.
+12. **State in the results what each p-value says about its χ²_red** (Tamir's free-fall feedback, both fits: "היה נכון לציין כבר בשלב הזה בתוצאות מה ערכו של P_value מעיד על ערכו של chi_reduced_squared"; user, 2026-11-14). E.g. p < 0.05 → χ²_red larger than expected for the degrees of freedom; 0.05 ≤ p ≤ 0.95 → χ²_red plausible for the degrees of freedom; p > 0.95 → smaller than expected. This is a statement about the statistic, allowed under rule 11; the physical reason stays in the discussion.
 11. **Results = findings only (user, 2026-10-28):** values, observations of the graphs, and each value against the plan's threshold (e.g. "relative error below 50%", "p-value below 0.05"). No verdicts or interpretations ("not consistent with expectation", "the model does not describe", "errors overestimated") — those go to the Discussion. Note: G's own example puts "errors were overestimated" in Results; the user's rule overrides.
 
 ### 4.6 דיון (G) — ½ to 1 page; explain, don't repeat
@@ -124,7 +125,7 @@ Same rules: units, captions, rounding. Only raw-data tables may stay unrounded. 
 6. **Presentation of relative errors (user, 2026-10-26):** in running text, every value that has a relative error gets it in parentheses after the error — `g = 1002.5 ± 1.6 cm/s² (0.16%)`. In tables, relative error is its own column (G table 1 style).
 
 ## 6. Figures (G, C)
-1. No title above a figure. Caption **below**, numbered: "איור 3: גובה הנפילה במטרים כתלות בזמן הנפילה בשניות".
+1. **Every graph has a title inside the plot** (the Colab template's `ax.set_title`), **plus** a numbered caption **below** the figure: "איור 3: גובה הנפילה במטרים כתלות בזמן הנפילה בשניות". Overrides G p. 1/p. 5 ("לאיור אין כותרת מעליו"): the instructor (Tamir) took −2 per graph for "אין כותרות לגרפים" in the graded free-fall report (feedback PDF, 2026-11-14; user, 2026-11-14). Use the graphs as the Colab template draws them (incl. horizontal error bars on residual graphs) — Tamir recommended working with the graphs exported from the notebook.
 2. Figures and graphs share one numbering ("איור"). Tables have their own ("טבלה").
 3. Axis titles + units in square brackets on every graph. Legend correct.
 4. Measurements = points with error bars; theory/fit = continuous line.
