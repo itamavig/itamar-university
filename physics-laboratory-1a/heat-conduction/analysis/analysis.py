@@ -484,6 +484,7 @@ def macros(A_, B, C=None):
             f = C[k]
             out[f"C{tag}Rate"] = tex_pm(f["params"][1] * 1e3, f["errors"][1] * 1e3)  # in 10^-3 K/s
             out[f"C{tag}RateRel"] = tex_rel(f["params"][1], f["errors"][1])
+            out[f"C{tag}BZero"] = tex_pm(f["params"][0], f["errors"][0])   # intercept b0 [degC]
             out[f"C{tag}Chi"] = tex_number(round_2sf(f["chi2_red"]))
             out[f"C{tag}P"] = tex_p(f["chi2_red"], f["dof"])
             out[f"C{tag}N"] = str(f["n"])

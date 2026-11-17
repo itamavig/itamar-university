@@ -106,3 +106,5 @@ Is there a more specific point it tries to make?
 - 2026-11-17: instructor answer: 'קצבים אלו זמינים' rephrased (rates computable from the recorded data, no extra measurement).
 - 2026-11-17: instructor answer: added the origin of the P_{i,i+1} expression (energy balance, ours) and Fourier's law source (formula (3)), with dT/dx → finite difference.
 - 2026-11-17: instructor-question answer approved and blackened.
+- 2026-11-17: checklist fail fixed: b₀ row added to table 2 (macros C*BZero, now 65/65 Colab match) + blue sentence explaining b₀ (value at t=0, unused; extrapolated for heating/end-of-ב).
+- 2026-11-17: b₀ row + sentence approved (black). Overfull line fixed: SI units as an inline fraction s³·A²/(kg·m³).
