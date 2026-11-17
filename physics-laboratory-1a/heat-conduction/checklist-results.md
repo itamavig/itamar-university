@@ -12,7 +12,7 @@ Checklist = general rules §8 (course `checklist.pdf`). ✅ pass · ❌ fail · 
 | # | Item | Status | Detail |
 |---|---|---|---|
 | G | Overfull line | ✅ | Fixed 2026-11-17: SI units of S/m written as a fraction; log has no overfull boxes |
-| G3 | All formulas numbered | ⚠️ | Four unnumbered displays: theory section (staff text, verbatim) — L = π²/3·(k_B/e)² = 2.44·10⁻⁸ (main.tex:70), f(2) ≃ 1.75 and μ₀M = 0.65 T (main.tex:80), P(x) = P_avg = P_in − (P_absorb + P_loss)/2 (main.tex:97); instructor answer — P_{i,i+1} (main.tex:594). Limitations formulas are inline. At the 16-formula limit |
+| G3 | All formulas numbered | ✅ | Four unnumbered displays: theory section (staff text, verbatim) — L = π²/3·(k_B/e)² = 2.44·10⁻⁸ (main.tex:70), f(2) ≃ 1.75 and μ₀M = 0.65 T (main.tex:80), P(x) = P_avg = P_in − (P_absorb + P_loss)/2 (main.tex:97); instructor answer — P_{i,i+1} (main.tex:594). Limitations formulas are inline. At the 16-formula limit. User 2026-11-17: none of them need numbers |
 | G | Submission date | ✅ | Cover says 17.11.2026; the user got an extension to that date |
 | D2 | Error source "how much" | ⚠️ | Stopwatch delay: direction stated, size explicitly unknown (delay not measured) |
 
