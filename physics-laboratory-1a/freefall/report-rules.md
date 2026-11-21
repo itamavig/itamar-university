@@ -1,29 +1,27 @@
 # Free-fall report — experiment-specific rules
 
-General rules for every report: [../report-rules.md](../report-rules.md). This file only adds what is specific to free fall.
+General rules for every report: [../report-rules.md](../report-rules.md); the source letters G, C, D, E, M are defined there. This file only adds what is specific to free fall.
 
 Sources:
-- `B` = [תדריך נפילה חופשית_2026.pdf](תדריך%20נפילה%20חופשית_2026.pdf) — briefing; **wins** on experiment-specific choices
+- `B` = [תדריך נפילה חופשית_2026.pdf](תדריך%20נפילה%20חופשית_2026.pdf) — briefing
 - `T` = [נפילה חופשית רקע תיאורטי.pdf](נפילה%20חופשית%20רקע%20תיאורטי.pdf) — theory background
-- `M` = instructor email 2026-10-26 (see general rules §3.9, §4.5)
 - Doc = the pair's Google Doc https://docs.google.com/document/d/1MUINwf7WtN5xF8mn_HDU8LOiYBhBlKdToIahe57nC-M
 - Raw data: [FreeFall_19-10-2026_14-30-49.xlsx](FreeFall_19-10-2026_14-30-49.xlsx)
 - Colab notebooks, copied to [colab/](colab/) on 2026-10-26: linear = 1mQA7M1Q… , parabolic = 1Q7g2arU… . Both are the course template; they read sheets `linear` / `parabolic` of the xlsx (named `results.xlsx` in Colab, same file as ours).
 
 ## 1. Limits (user, 2026-10-26)
 - **Page limit: 10** (cover + appendices excluded).
-- **Numbered-formula limit: 10** (theory formulas (1), (2) excluded; D citations by number don't count).
-- Simple adapted D formulas may be cited in words without numbering — **delicate; decide each one with the user.**
+- **Numbered-formula limit: 10** (theory formulas (1), (2) excluded).
 
 ## 2. Theory (T)
-- **Section text source: [theory-background-format.docx](theory-background-format.docx)** (staff file, created 2016, last edited by "Sivan"; user downloaded it from Moodle). G: in course A1 the background is downloaded from Moodle. The Doc's theory section is this file word for word. It uses h (not y), cm units, and g = 981 ± 10 cm/s² "לפי תדריך הניסוי". Formulas: (1) h = h₀ + v₀t + ½gt², (2) h = ½gt².
+- **Section text source: [theory-background-format.docx](theory-background-format.docx)** (staff file, created 2016, last edited by "Sivan"; user downloaded it from Moodle). The Doc's theory section is this file word for word. It uses h (not y), cm units, and g = 981 ± 10 cm/s² "לפי תדריך הניסוי". Formulas: (1) h = h₀ + v₀t + ½gt², (2) h = ½gt².
 - (1) y = y₀ + v₀t + (g/2)t²; (2) y = (g/2)t² (positive direction down, released from rest, y₀ = 0).
-- Theoretical value: **g = 9.81 ± 0.10 m/s²**, source T. Doc results are in cm → 981 ± 10 cm/s². State it in Results next to Nσ (M 2).
+- Theoretical value: **g = 9.81 ± 0.10 m/s²**, source T. Doc results are in cm → 981 ± 10 cm/s².
 - Model assumptions (B asks): released from rest, only gravity (no air resistance), constant g, origin at the release point.
 
-## 3. Equipment (B; resolutions required)
+## 3. Equipment (B)
 1. Metal ball 2. Stand 3. Ruler, resolution 0.1 cm 4. Timing software, resolution 10⁻⁵ s 5. IR optical gate 6. Metal plate + piezoelectric sensor 7. Electromagnet (solenoid).
-Schematic numbers must match this list (Doc currently calls the clamp "5" — see [report-gaps.md](report-gaps.md)).
+The Doc calls the clamp "5" — see [report-gaps.md](report-gaps.md).
 
 ## 4. Measured quantities (Doc)
 - Heights: 10, 15, 20, 30, 40, 45, 50, 60, 70, 80 cm (10 heights). 10 time measurements per height.
@@ -44,7 +42,6 @@ Schematic numbers must match this list (Doc currently calls the clamp "5" — se
 | g | g = 2a₁ ± 2Δa₁ | g = 2a₂ ± 2Δa₂ |
 - Parameter meanings (parabolic): a₀ initial height, a₁ initial velocity, a₂ half the acceleration.
 - **Checking a parameter expected to be 0: briefing wins (user, 2026-10-26)** — it is consistent with 0 if its relative error is ≥ 50%. (B asks "why not Nσ?" — answer if space: D(53) gives Nσ = 1/relative error, so it is the same test.)
-- g vs theory: Nσ, D(51); agreement if Nσ ≤ 3.
 
 ## 7. Formula budget — (3)–(9), approved 2026-10-28
 Applied: Δh (3), Δt (4, resolution term written inside, no separate Δt_res), Δ(t²) (5), linear fit (6), g lin (7), parabolic fit (8), g par (9) = 7 of 10. No words-only formulas used.

@@ -3,7 +3,7 @@
 General rules for every report: [../report-rules.md](../report-rules.md). This file only adds what is specific to heat conduction.
 
 Sources (copied from ~/Downloads on 2026-11-02, byte-identical):
-- `B` = [הולכת חום - תדריך ניסוי.pdf](הולכת%20חום%20-%20תדריך%20ניסוי.pdf): the briefing (5 pp, 2025-02-17). **Wins** on experiment-specific choices.
+- `B` = [הולכת חום - תדריך ניסוי.pdf](הולכת%20חום%20-%20תדריך%20ניסוי.pdf): the briefing (5 pp, 2025-02-17).
 - `T` = [הולכת חום רקע תיאורטי.pdf](הולכת%20חום%20רקע%20תיאורטי.pdf): the full theory background (4 pp, Shir Aviram, Word export 2025-08-19)
 - `F` = [theory-background-format.docx](theory-background-format.docx): old cover page (סמסטר ב' תשס"ב) + a condensed theory section (created 2016, last edited 2024-06-01 by Shir Aviram)
 - `N` = [lab-notes.md](lab-notes.md): the user's notes from the lab, verbatim (pasted 2026-11-04). The instructor's in-lab instructions; on conflicts with B, ask the user.
