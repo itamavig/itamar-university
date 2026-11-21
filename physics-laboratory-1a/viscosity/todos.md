@@ -23,3 +23,12 @@ Rules: [../report-rules.md](../report-rules.md) (general) + [report-rules.md](re
   - [x] 4g. Ran confirmed both B typos (2026-11-21): "use what should be, not what B says" — the report uses the correct formulas (m = ρ_b·4πr³/3; buoyancy gρ_l·4πr³/3)
 - [x] 5. Email sent 2026-11-21; Ran answered the same day (verbatim in instructor-questions.md); answers applied to 4c, 4f, 4g
 - [x] 6. (committed on main 2026-11-22) Commit the viscosity work (todos.md, report-rules.md §2–3, instructor-questions.md, staff PDFs + theory-background-format.docx). PR #28 is merged; main is now the only working branch (2026-11-22). Branch to be decided with the user: main directly, or a viscosity branch
+
+## Writing the report (draft 2026-11-22, for the user's morning review)
+- [ ] 7. Goals, theory, system, equipment list, stages written in report/main.tex. Blue = Claude's text, red = waiting for the user. PDF: 4 pages (cover + 3), builds clean
+  - 7a. Goals: staff goal (B p.1) split into 2 falsifiable goals — η from both fits matches theory; v_f linear in r² (Stokes)
+  - 7b. Theory: F verbatim, formulas (1)–(6) numbered as in F. Red spots (fix or keep verbatim?): "שוות;" (semicolon, rule 2.4a), "הנקראת" → "הנקראות", "מהמהירות הקריטיות" → "הקריטית", "נסוני" → "ניסיוני", "צמיגיות" → "צמיגות", "אמיפריים" → "אמפיריים". Not flagged, verbatim: (1) uses u for velocity while (3)–(4) use v; (5)–(6) give T in °C
+  - 7c. Equipment list: resolutions from the data file. Missing → red: ruler resolution, temperature-sensor resolution
+  - 7d. Schematic figure: Claude's TikZ drawing (side view), no photo in B fits
+  - 7e. Stages — please confirm (red in PDF): temperature measured as B says (Capstone, mean over 4 h, one computer)? 21 cm = distance between the height markers, measured with the ruler? Also review: stage ב4 states that balls 3–6 kept Tracker's default 1 m and were corrected per the instructor
+  - 7f. Not written yet: frame counts / drop length (to come from analysis.py, not typed by hand)

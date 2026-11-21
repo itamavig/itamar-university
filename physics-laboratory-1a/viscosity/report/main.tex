@@ -1,6 +1,7 @@
 % Viscosity lab report. Build from ../ with `make` (runs the analysis first).
 % Rules: ../../report-rules.md (general), ../report-rules.md (this experiment).
-% Limits: \TODO pages excluding cover + appendices; \TODO numbered formulas (Moodle).
+% Limits (Moodle section "צמיגות", 2026-11-21): 10 pages, 18 numbered formulas. Cover + appendices
+% excluded; theory formulas (1)-(6) excluded from the 18 (G p.1, conflict C2).
 % Preamble = the free-fall and heat-conduction reports' (LuaLaTeX + babel, Times New Roman).
 \documentclass[10pt,a4paper]{article}
 
@@ -57,18 +58,133 @@
 \setcounter{page}{1}
 
 \section*{מטרות הניסוי}
-\TODO{מטרות}
+% Staff goal (briefing p.1): "מציאת ערך צמיגות הגליצרין ואימות חוק סטוקס". Turned into falsifiable goals
+% (general rules §4.1): one sentence per goal. Claude's wording, blue until the user approves (2026-11-22).
+\added{בניסוי זה נמצא את ערך צמיגות הגליצרין ונאמת את חוק סטוקס:}
+\begin{enumerate}
+  \item \added{נמצא את צמיגות הגליצרין בטמפרטורת החדר משתי שיטות התאמה, ונראה שכל אחד מהערכים תואם לערך התיאורטי בטווח הטעות המקובל.}
+  \item \added{נאמת את חוק סטוקס בכך שנראה שמהירות הנפילה הסופית של כדור בגליצרין תלויה לינארית בריבוע רדיוס הכדור, כפי שהחוק צופה.}
+\end{enumerate}
 
 \section*{רקע תיאורטי}
-\TODO{רקע תיאורטי}
+% Verbatim from ../theory-background-format.docx (F, the staff's theory-format file), 2026-11-22.
+% Text unchanged except whitespace. Math retyped from the docx's equations, same numbering (1)-(6).
+% F's formulas are correct; the briefing's typos (m and the buoyancy term, missing /3) are not in F
+% (Ran: use what should be, 2026-11-21).
+% \flagged{} = a spot in the staff text waiting for the user's decision (red, removed once decided).
+נוזל זורם המקיים את חוק ברנולי נקרא נוזל אידיאלי. במצב זה מהירויות כל חלקיקי הנוזל בחתך מסוים של צינור שוות\flagged{;} כלומר, הנוזל מתקדם כגוף אחד לאורך הצינור. בזרימת נוזל ריאלי מופיעים כוחות נוספים שלא מאפשרים את תיאור התנועה בעזרת חוק ברנולי. כוחות אלה הם כוחות חיכוך פנימיים המתנגדים לתנועת הנוזל, הם אופייניים לסוג הנוזל ומהווים את הצמיגות. במערכת היחידות \textenglish{c.g.s} נמדדת הצמיגות $\eta$ ביחידות \flagged{הנקראת} \textenglish{poise} כאשר:
+\[
+\mathrm{poise} = \frac{\mathrm{gr}}{\mathrm{cm} \cdot \mathrm{sec}}
+\]
+הכוחות הפועלים על כדור בתוך זורם: הכוח המעכב $R$, הפועל על כדור הנע בתוך זורם צמיג, לא דחיס ולמינארי, נתון לפי חוק סטוקס על ידי הנוסחה:
+\begin{equation}\label{eq:stokes}
+R = 6\pi\eta r u
+\end{equation}
+כאשר $r$ רדיוס הכדור, $u$ מהירות הכדור ו-$\eta$ מקדם הצמיגות של הנוזל. נזכור כי חוק סטוקס נכון רק לגבי זורם בעל ממדים אינסופיים ביחס לממדי הגוף הנע, ומהירויות נמוכות \flagged{מהמהירות הקריטיות}. במהירויות העולות על המהירות הקריטית נגרמת טורבולנציה, נוצרות מערבולות בזמן התנועה והחוק מאבד את תוקפו. חוק סטוקס מאפשר מדידה של מקדם צמיגות של זורם. את משוואת התנועה של כדור נופל תחת כוח הכובד בתוך זורם נקבל לפי החוק השני של ניוטון:
+\begin{equation}\label{eq:newton}
+ma = mg - R - B
+\end{equation}
+כאשר $B$ הוא כוח העילוי לפי ארכימדס, $g$ תאוצת הכובד ו-$m$ מסת הכדור.
+
+כוח סטוקס מתחיל לפעול מיד עם תחילת תנועת הכדור בתוך הזורם, והוא הולך וגדל ביחס ישר למהירות. ברגע בו התנועה הופכת לתנועה במהירות קבועה מקבלים $0 = mg - R - B$ ונשארים עם איבר מהירות שנסמן ב-$v_f$ שייצג את מהירות הנפילה הסופית:
+\begin{equation}\label{eq:vf}
+v_f = \frac{2g(\rho_b - \rho_l)r^2}{9\eta}
+\end{equation}
+כאשר $\rho_b$ צפיפות הכדור, $\rho_l$ צפיפות הנוזל, $r$ רדיוס הכדור ו-$v_f$ מהירות סופית.
+
+משוואה (2) היא למעשה משוואה דיפרנציאלית עבור מהירות הכדור. מפתרון המשוואה מתקבלת מהירות הכדור כתלות בזמן:
+\begin{equation}\label{eq:vt}
+v(t) = v_f + (v_0 - v_f)\exp\left(-\frac{t}{\tau}\right), \qquad \tau = \frac{2\rho_b r^2}{9\eta}
+\end{equation}
+כאשר $v_0$ היא מהירותו ההתחלתית של הכדור.
+
+את צמיגותו של נוזל ניתן להגדיר כהתנגדות שלו לשינוי צורתו שמקורה בחיכוך שבין חלקיקי הנוזל. העלאת הטמפרטורה של הנוזל גורמת מצד אחד לעליה באנרגיה הקינטית של חלקיקי הנוזל, ולכן לעליה במספר ההתנגשויות ביניהם ולעליה בחיכוך, ומצד שני להקטנת צפיפות הנוזל, ולכן להקטנת החיכוך. באופן ניסיוני נמצא שהגורם השני משמעותי יותר ולכן הצמיגות יורדת ככל שהטמפרטורה עולה.
+\begin{equation}\label{eq:etaT}
+\eta = A e^{\frac{B}{T}}
+\end{equation}
+כאשר $\eta$ הינה הצמיגות ביחידות של \textenglish{poise}, $T$ הטמפרטורה ביחידות צלזיוס ו-$A, B$ הינם קבועים אמפיריים הנקבעים לפי גרף \flagged{נסוני} של \flagged{צמיגיות} כתלות בטמפרטורה. מנוסחה (5) ומיחידות הצמיגות אנו יכולים להסיק כי הצמיגות תלויה בזמן הנפילה ולכן נקבל את הקשר:
+\begin{equation}\label{eq:tT}
+t = C e^{\frac{D}{T}}
+\end{equation}
+כאשר $t$ הינו זמן נפילת כדור ביחידות של שניות, $T$ הטמפרטורה ביחידות צלזיוס ו-$C, D$ הינם קבועים \flagged{אמיפריים} הנקבעים לפי גרף ניסיוני של זמן כתלות בטמפרטורה בעלי יחידות שניות ומעלות צלזיוס.
 
 \section*{מהלך הניסוי}
+% Two components (guide p. 2-3): the system (description, equipment list with every instrument's
+% resolution, schematic figure numbered like the list) and the procedure (reproducible from this
+% section alone). Sources: briefing B (equipment p.1, stages p.3-6, appendix ב), the data file
+% (resolutions, frame times, row counts), the user's answers 2026-11-21 (viscosity/todos.md 4a-4f).
+% Everything here is Claude's wording: blue until the user approves (written 2026-11-22).
 \subsection*{מערכת הניסוי}
-\TODO{מערכת הניסוי}
+\added{מערכת הניסוי מתוארת באיור~\ref{fig:system}. מרכזה הוא מבחנה אנכית מלאה בגליצרין, חתומה בשסתום, שלאורכה סמני גובה שניתן להזיז. כדורים בשישה קטרים שונים מופלים לתוך הגליצרין מפתח המבחנה. מול המבחנה מוצבת על חצובה מצלמת סמארטפון המצלמת את נפילת הכדור, ומאחורי המבחנה בריסטול לבן המשמש כרקע. הסרטונים מנותחים בתוכנת העקיבה \textenglish{Tracker}, הנותנת את מיקום הכדור בכל פריים. צפיפות הגליצרין נמדדת באריומטר, וטמפרטורת הגליצרין נמדדת בחיישן טמפרטורה המחובר למחשב עם תוכנת \textenglish{Capstone}.}
+
 \subsection*{רשימת ציוד}
-\TODO{רשימת ציוד}
+% Numbers match the labels in figure 1. Resolutions: data file (part a sheet). Frame interval:
+% Tracker time column, 0.0333 s steps = 30 fps (briefing p.1).
+\begin{enumerate}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+  \item \added{מבחנה מלאה בגליצרין, חתומה בשסתום.}
+  \item \added{סמני גובה ניתנים להזזה על המבחנה.}
+  \item \added{כדורים בשישה קטרים שונים, כ-6 עד 10 כדורים מכל קוטר, במגש.}
+  \item \added{מאזניים דיגיטליות, ברזולוציה של $0.001\U{g}$.}
+  \item \added{מיקרומטר, ברזולוציה של $0.001\U{mm}$.}
+  \item \added{אריומטר, ברזולוציה של $0.001\U{g/cm^3}$.}
+  \item \added{סרגל, ברזולוציה של} \TODO{רזולוציה?}\added{.}
+  \item \added{מצלמת סמארטפון (\textenglish{Galaxy A12}) המצלמת 30 פריימים בשנייה.}
+  \item \added{חצובה למצלמה.}
+  \item \added{בריסטול לבן.}
+  \item \added{חיישן טמפרטורה המחובר למחשב עם תוכנת \textenglish{Capstone}, ברזולוציה של} \TODO{רזולוציה?}\added{.}
+  \item \added{מחשב עם תוכנת העקיבה \textenglish{Tracker}.}
+\end{enumerate}
+
+% Schematic, Claude's drawing (no usable photo in the briefing). Side view: camera (8) on its tripod
+% (9) faces the tube (1); bristol (10) behind the tube. LTR block: under RTL the x axis is mirrored.
+\newcommand{\eqlabel}[3]{\node[draw, circle, fill=white, inner sep=1pt, font=\scriptsize] at (#1,#2) {#3};}
+\begin{figure}[H]
+  \centering
+  \begin{otherlanguage}{english}
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % bristol behind the tube
+    \fill[gray!8] (4.9,-0.3) rectangle (5.2,6.3); \draw (4.9,-0.3) rectangle (5.2,6.3);
+    % tube with glycerin
+    \fill[yellow!25] (3.2,0) rectangle (3.9,5.4);
+    \draw[thick] (3.2,0) -- (3.2,5.8); \draw[thick] (3.9,0) -- (3.9,5.8); \draw[thick] (3.2,0) -- (3.9,0);
+    \fill[gray!60] (3.15,5.8) rectangle (3.95,6.0); % valve / cap
+    % height markers
+    \fill[orange!80] (3.12,4.3) rectangle (3.98,4.45);
+    \fill[orange!80] (3.12,1.0) rectangle (3.98,1.15);
+    % ball and its direction of motion
+    \fill[black!70] (3.55,3.2) circle (0.1);
+    \draw[->, thick] (3.55,3.0) -- (3.55,2.4);
+    \node[right, font=\scriptsize] at (3.6,2.7) {$v$};
+    % camera on tripod
+    \fill[black!80] (0.6,2.55) rectangle (1.0,3.35);
+    \draw (0.8,2.55) -- (0.8,1.6); \draw (0.8,1.6) -- (0.4,0); \draw (0.8,1.6) -- (0.8,0); \draw (0.8,1.6) -- (1.2,0);
+    \draw[dashed, gray] (1.0,3.25) -- (3.2,5.4); \draw[dashed, gray] (1.0,2.65) -- (3.2,0);
+    % labels (numbers = equipment list)
+    \draw[gray] (3.9,5.1) -- (4.3,5.1); \eqlabel{4.45}{5.1}{1}
+    \draw[gray] (3.98,4.37) -- (4.3,4.37); \draw[gray] (3.98,1.07) -- (4.3,4.2); \eqlabel{4.45}{4.37}{2}
+    \draw[gray] (3.65,3.2) -- (4.3,3.2); \eqlabel{4.45}{3.2}{3}
+    \eqlabel{0.25}{3.0}{8} \eqlabel{1.25}{0.9}{9} \eqlabel{5.5}{3.0}{10}
+  \end{tikzpicture}
+  \end{otherlanguage}
+  \caption{\added{תרשים סכמטי של מערכת הניסוי, מבט מהצד: המצלמה על החצובה מול המבחנה המלאה בגליצרין, ומאחורי המבחנה הבריסטול. הקווים המקווקווים מסמנים את שדה הראייה של המצלמה. המספור תואם לרשימת הציוד.}}
+  \label{fig:system}
+\end{figure}
+
 \subsection*{שלבי הניסוי}
-\TODO{שלבי הניסוי}
+\subsubsection*{חלק א׳ -- מדידת צפיפות הכדורים והגליצרין}
+\begin{enumerate}
+  \item \added{צפיפות הגליצרין נמדדה באריומטר, שהוכנס לגליצרין וממנו נקראה הצפיפות ישירות מהסקאלה. המדידה בוצעה פעם אחת.}
+  \item \added{מכל אחת משש קבוצות הכדורים נבחרו באקראי שלושה כדורים, עם החזרה, מתוך כ-6 עד 10 הכדורים שבקבוצה. מסת כל כדור נמדדה במאזניים הדיגיטליות וקוטרו נמדד במיקרומטר. שלוש מדידות לכל קבוצה, לפי תדריך הניסוי.}
+  \item \added{טמפרטורת הגליצרין נמדדה בחיישן הטמפרטורה ובתוכנת \textenglish{Capstone}, במחשב אחד לכל הקבוצות במעבדה, ונקבעה כממוצע הטמפרטורות שנמדדו לאורך 4 שעות, לפי תדריך הניסוי.} \TODO{לאשר: כך נמדד הערך שקיבלת מחבר הקבוצה?}
+\end{enumerate}
+
+\subsubsection*{חלק ב׳ -- מדידת מהירות נפילת הכדורים}
+\begin{enumerate}
+  \item \added{המצלמה הוצבה על החצובה מול המבחנה, והבריסטול הלבן הוצב מאחורי המבחנה. הצילום נעשה בתמונה ריבועית (יחס צירים 1:1), כנדרש לפעולה תקינה של תוכנת העקיבה לפי תדריך הניסוי.}
+  \item \added{שני סמני גובה הוצבו על המבחנה, והמרחק ביניהם, $21\U{cm}$, נמדד בסרגל. מרחק זה משמש לכיול המרחקים בתוכנת העקיבה.} \TODO{לאשר: 21 ס״מ בין סמני הגובה, נמדד בסרגל?}
+  \item \added{מכל אחת משש קבוצות הכדורים הופל כדור אחד לתוך הגליצרין, וכל נפילה צולמה בסרטון נפרד. הכדור שהופל נלקח מאותה קבוצת כדורים שממנה נמדדו הכדורים בחלק א׳.}
+  \item \added{כל סרטון נותח בתוכנת \textenglish{Tracker}: אורך מקל הכיול הוגדר כמרחק בין סמני הגובה, הכדור סומן בפריים שממנו החלה העקיבה, והתוכנה עקבה אחריו באופן אוטומטי בכל הפריימים שאחריו. מיקום הכדור והזמן בכל פריים הועתקו לקובץ \textenglish{Excel}. בסרטוני הכדורים 3 עד 6 אורך מקל הכיול נותר על ערך ברירת המחדל של התוכנה, $1\U{m}$, במקום $21\U{cm}$, ולכן המיקומים שלהם תוקנו בעיבוד הנתונים לפי הנחיית מדריך הניסוי.}
+\end{enumerate}
 
 \section*{תכנון עיבוד התוצאות}
 \TODO{תכנון עיבוד התוצאות}
