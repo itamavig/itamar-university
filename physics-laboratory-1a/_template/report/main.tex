@@ -1,0 +1,95 @@
+% <Experiment> lab report. Build from ../ with `make` (runs the analysis first).
+% Rules: ../../report-rules.md (general), ../report-rules.md (this experiment).
+% Limits: \TODO pages excluding cover + appendices; \TODO numbered formulas (Moodle).
+% Preamble = the free-fall and heat-conduction reports' (LuaLaTeX + babel, Times New Roman).
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}  % [H]: figures and tables stay where they are written (user, 2026-10-30)
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[labelsep=colon,font=small]{caption}
+\usepackage{fontspec}
+% LuaLaTeX + babel instead of XeLaTeX + polyglossia (2026-10-28): under XeTeX's bidi,
+% \textcolor leaked to whole RTL lines; luacolor colours per character.
+\usepackage{luacolor}
+\usepackage[bidi=basic, layout=lists.tabular, main=hebrew, english]{babel}
+% Times New Roman (macOS system font, has Hebrew). Frank Ruehl CLM's digits read as bold.
+\babelfont[hebrew]{rm}{Times New Roman}
+\newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
+% Second-level list labels (א), (ב)... In running text a sub-item is referred to as 1א (user, 2026-10-30).
+\renewcommand{\theenumii}{\localecounter{letters}{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+% Paragraphs: no first-line indent, small gap between paragraphs (Word-like, as in the guide).
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt}
+
+% Review colours (general rules §2.4c-d): blue = text Claude wrote, until approved; green = edits on
+% the partner's suggestions, until approved. Off for submission: \reviewfalse turns both black,
+% the macros stay so the source still records who wrote what.
+\newif\ifreview \reviewtrue
+\ifreview
+  \colorlet{addedblue}{blue}
+  \definecolor{partnergreen}{RGB}{0,140,60}
+\else
+  \colorlet{addedblue}{black}
+  \colorlet{partnergreen}{black}
+\fi
+\newcommand{\added}[1]{\textcolor{addedblue}{#1}}
+\newcommand{\partner}[1]{\textcolor{partnergreen}{#1}}
+
+% Visible placeholder for anything not written yet. Must not survive into the submitted PDF.
+\newcommand{\TODO}[1]{\textcolor{red}{[#1]}}
+% A spot in verbatim staff text waiting for the user's decision (red, no brackets). Must not survive either.
+\newcommand{\flagged}[1]{\textcolor{red}{#1}}
+% Units after a value in math mode: $5.30\U{W}$
+\newcommand{\U}[1]{\,\mathrm{#1}}
+
+\InputIfFileExists{details.tex}{}{\input{details.example.tex}}
+% Every reported number comes from analysis/analysis.py (make).
+\input{numbers.tex}
+
+\begin{document}
+\input{cover.tex}
+\setcounter{page}{1}
+
+\section*{מטרות הניסוי}
+\TODO{מטרות}
+
+\section*{רקע תיאורטי}
+\TODO{רקע תיאורטי}
+
+\section*{מהלך הניסוי}
+\subsection*{מערכת הניסוי}
+\TODO{מערכת הניסוי}
+\subsection*{רשימת ציוד}
+\TODO{רשימת ציוד}
+\subsection*{שלבי הניסוי}
+\TODO{שלבי הניסוי}
+
+\section*{תכנון עיבוד התוצאות}
+\TODO{תכנון עיבוד התוצאות}
+
+\section*{תוצאות}
+\TODO{תוצאות}
+
+\section*{דיון}
+\subsection*{עמידה במטרות}
+\TODO{עמידה במטרות}
+\subsection*{מקורות שגיאה}
+\TODO{מקורות שגיאה}
+\subsection*{תופעות שנצפו}
+\TODO{תופעות שנצפו}
+\subsection*{מגבלות והצעות לשיפור}
+\TODO{מגבלות והצעות לשיפור}
+
+\section*{שאלת מדריך}
+\TODO{שאלת מדריך}
+
+\section*{נספחים}
+\TODO{נספחים}
+
+\end{document}
