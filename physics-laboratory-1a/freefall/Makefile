@@ -1,5 +1,5 @@
 # `make` reruns the fits, checks them against Colab, then builds report/main.pdf.
-PY := .venv/bin/python -W ignore::DeprecationWarning
+include ../common.mk
 .DEFAULT_GOAL := report/main.pdf
 
 # Shared Drive folder "Physics Laboratory 1a" (synced by Google Drive for desktop via a shortcut).
@@ -16,7 +16,7 @@ report/main.pdf: report/numbers.tex report/raw_table.tex report/budget_table.tex
 	  cp report/main.pdf "$${d}freefall-report.pdf" && echo "uploaded to Drive: $${d}freefall-report.pdf"
 
 report/numbers.tex: analysis/analysis.py analysis/verify_colab.py analysis/test_rounding.py FreeFall_19-10-2026_14-30-49.xlsx
-	cd analysis && ../$(PY) test_rounding.py
+	cd analysis && $(PY) test_rounding.py
 	$(PY) analysis/analysis.py
 	$(PY) analysis/verify_colab.py
 
