@@ -81,7 +81,7 @@ Parabolic fit gave a₁ ≠ 0 → the ball already has velocity when timing star
 - Parabolic: x = t_avg, Δx = Δt_fin, y = h, Δy = Δh; guesses (0, 0, 490.5). Output a₀ = −0.07 ± 0.10 cm, a₁ = 8.34 ± 0.87 cm/s, a₂ = 485.0 ± 1.7 cm/s², χ²_red = 0.28, p = 0.96; g = 969.9 ± 3.4 cm/s², Nσ = 1.0.
 - Δh = 0.028868 cm = 0.1/√12 (matches D(28)).
 - Row numbers in the sheets skip (1, 2, 3, 5, 7…): rows 4, 6, 10, 12, 14 (25, 35, 55, 65, 75 cm) are empty template rows that were never measured. No data dropped.
-- Their plots break report rules: title above the figure (G: caption below only), fit and residuals side by side 15×6 in. Our report graphs must be re-drawn.
+- Their plots: title inside the plot + fit and residuals side by side 15×6 in. Titles follow root §6.1 (title inside + caption below; user resolved conflict C1, 2026-11-22). The old line here said the plots must be re-drawn without titles — superseded.
 - Units: cm and s ("sec" in labels → use "s").
 
 ## 12. Doc → report traceability (2026-10-26)

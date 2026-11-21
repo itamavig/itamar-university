@@ -13,7 +13,7 @@ Sources (copied from ~/Downloads on 2026-11-02, byte-identical):
 
 ## 1. Limits (user, 2026-11-02)
 - **Page limit: 12, cover + appendices excluded** (user confirmed 2026-11-05).
-- **Numbered-formula limit: 16, including the theory formulas (1)–(5)** (user, 2026-11-05; unlike free fall, where they were excluded).
+- **Numbered-formula limit: 16, including the theory formulas (1)–(5)** (user, 2026-11-05; unlike free fall, where they were excluded). Stricter than G p.1, which excludes theory formulas ("לא כולל הנוסחאות מהרקע התאורטי"); report finished, left as is (conflict C2, 2026-11-22).
 
 ## 2. Theory: F vs T (compared 2026-11-02)
 - F's theory section is a **condensed copy of T**: the same sentences, the same numbered formulas (1)–(5), and nothing that T lacks.
@@ -74,7 +74,7 @@ B's figure 1 labels parts 1, 2, 3, 6, 7, 8.
 | tube length L₀ | 1 |
 - **All the "radius" measurements are diameters.** a (and r_m) are radii, so divide by 2.
 - **Magnet height d = magnet diameter** ("הקוטר שווה לאורך"). This closes gap 1: d is not measured separately. Check: d/a = 2r_m/a, so f(d/a) ≃ f(2) holds when r_m ≈ a.
-- Repetition counts come from B or the instructor, so the report doesn't need to justify them.
+- Repetition counts come from B or the instructor: the report names that source in one clause instead of justifying N (root §4.3.4; conflict C3, 2026-11-22).
 - **Time is overestimated:** the stopwatch is never stopped before the magnet has finished falling. This is neglected, but it can help explain the errors (discussion).
 
 **Part ב:**
@@ -131,7 +131,7 @@ B's figure 1 labels parts 1, 2, 3, 6, 7, 8.
 12. **"רדיוס התעלה"** = the radius of the channel inside the tube = a (measured as a diameter, divide by 2).
 
 **Geometry (confirmed with the user 2026-11-04):** the tube is a cylinder with a coaxial cylindrical channel running between the two bases. **Correction given to the user:** the wall thickness is w = (D_tube − D_channel)/2, not D_tube − D_channel, because the wall appears on both sides of the channel.
-**B is outdated on procedure (user, 2026-11-04).** For how the measurement was done and processed, the data + N + the instructor win over B. B still describes the equipment and goals.
+**B is outdated on procedure (user, 2026-11-04).** For how the measurement was done and processed, the data + N + the instructor win over B (a per-conflict user decision, see root precedence line). B still describes the equipment and goals.
 
 **Raised by the data (2026-11-04), answered the same day:**
 14. Part b: **all rows are used**, not 3 readings. The instructor mentioned that some step uses only the "semi-equilibrium" part. The user isn't sure which step. **Open:** formula (4) holds only at equilibrium, so the T-vs-x fit is the step it most likely applies to. Where the semi-equilibrium starts is not decided (wait for the notebook template, or ask the instructor). No window will be picked by eye.

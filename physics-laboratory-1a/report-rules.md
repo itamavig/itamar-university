@@ -4,14 +4,14 @@ Compact English digest of the Hebrew guidelines. Reports are written in Hebrew.
 Experiment-specific rules (limits, equipment, formulas, open items) live in `<experiment>/report-rules.md`, e.g. [freefall/report-rules.md](freefall/report-rules.md).
 
 Sources (built 2026-10-26):
-- `G` = [how_to_write_a_lab_report_2026.pdf](how_to_write_a_lab_report_2026.pdf) — the guide, wins on conflict
+- `G` = [how_to_write_a_lab_report_2026.pdf](how_to_write_a_lab_report_2026.pdf) — the guide
 - `C` = [checklist.pdf](checklist.pdf)
 - `D` = [חוברת עיבוד נתונים.pdf](חוברת%20עיבוד%20נתונים.pdf) — data-analysis booklet, cited by formula number
 - `E` = [ExampleReport_2024.pdf](ExampleReport_2024.pdf) — example; layout reference only (§11 lists where it is wrong)
 - `M` = instructor Tamir Moshe's email reply, 2026-10-26 (clarifies G; quoted in §3.9)
 - Cover page template: [cover-page-template.docx](cover-page-template.docx)
 
-Precedence: experiment briefing on experiment-specific choices > M > G > C > E.
+Precedence: no fixed order. When two sources conflict (briefing, instructor, M, G, C, E), the user decides each conflict and the decision is recorded where the rule lives, with the date (user, conflict C4, 2026-11-22; replaces "briefing > M > G > C > E").
 
 ---
 
@@ -38,7 +38,7 @@ Precedence: experiment briefing on experiment-specific choices > M > G > C > E.
 6. Lists of numbers in Hebrew text: one math block with commas, no Hebrew joiner like "ו-" before the last item — it splits the block and reads incoherently in RTL (user, 2026-10-28).
 
 ## 3. Formulas (G 6–8, G "which formulas", C, M)
-1. Numbered-formula limit per experiment (Moodle). Excludes theory-background formulas. **Only explicitly written formulas count — citing a D number does not (M 3).**
+1. Numbered-formula limit per experiment (Moodle). Excludes theory-background formulas (G p.1: "לא כולל הנוסחאות מהרקע התאורטי"; conflict C2 closed 2026-11-22). **Only explicitly written formulas count — citing a D number does not (M 3).**
 2. Non-compact formula → own line + number. Inline unnumbered only if compact AND never referenced later.
 3. Under every formula, define every symbol in it ("כאשר … הוא …").
 4. Reference as "(3)", e.g. "ממשוואות (1) ו-(2)".
@@ -77,7 +77,7 @@ In course A1 the background is taken from the Moodle theory file. Short, relevan
 1. System description + equipment list **with the resolution of every measuring instrument**.
 2. Schematic figure; every component labelled with its number in the equipment list.
 3. Procedure: assembly, how each measurement is taken, exact quantities measured, number of repetitions, scales/ranges.
-4. Explain decisions (why these values, why N repetitions, etc.).
+4. Explain decisions (why these values, why N repetitions, etc.). When N comes from the briefing or the instructor, name that source in one clause ("3 מדידות, לפי תדריך הניסוי") instead of a reason; justify only N we chose ourselves (user, conflict C3, 2026-11-22).
 5. Describe only what was actually done. Simple, clear, hierarchical structure.
 6. Source/reference for every theoretical value.
 
