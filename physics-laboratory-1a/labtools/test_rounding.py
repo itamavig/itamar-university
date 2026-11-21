@@ -1,4 +1,4 @@
-"""Check analysis.py's rounding against the data booklet's own examples (p.24-25).
+"""Check labtools/rounding.py against the data booklet's own examples (p.24-25).
 
 Rules (booklet "עיגול ספרות"):
   - value with error: error to 2 significant figures, value to the same decimal place
@@ -7,7 +7,7 @@ Each case below is copied from booklet Table 3 ("original" -> "rounded").
 """
 import sys
 
-from analysis import round_2sf, round_pair, tex_number
+from labtools.rounding import round_2sf, round_pair, tex_number
 
 TABLE_3 = [
     # (value, error, expected value, expected error)

@@ -13,6 +13,8 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # lab root, for labtools
+from labtools.colab import compare_macros
 from analysis import G_THEO, G_THEO_ERR, macros
 
 HERE = Path(__file__).resolve().parent
@@ -60,13 +62,13 @@ def main():
 
     m_ours = macros(ours["linear"], ours["parabolic"])
     m_colab = macros(colab["linear"], colab["parabolic"])
-    failures = 0
     # Macros from our own refits have no Colab counterpart; they're listed, not compared.
     only_ours = sorted(set(m_ours) - set(m_colab))
-    for key in sorted(set(m_ours) & set(m_colab), key=list(m_ours).index):
-        ok = m_ours[key] == m_colab[key]
-        failures += not ok
-        print(f"{'OK ' if ok else 'BAD'} {key:14} colab={m_colab[key]:24} local={m_ours[key]}")
+    keys = sorted(set(m_ours) & set(m_colab), key=list(m_ours).index)
+    bad = compare_macros(m_ours, m_colab, keys)
+    failures = len(bad)
+    for key in keys:
+        print(f"{'BAD' if key in bad else 'OK '} {key:14} colab={m_colab[key]:24} local={m_ours[key]}")
 
     for fit in ("linear", "parabolic"):
         print(f"info: {fit} largest unrounded relative difference = "

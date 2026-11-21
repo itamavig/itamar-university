@@ -15,8 +15,8 @@ report/main.pdf: report/numbers.tex report/raw_table.tex report/budget_table.tex
 	  test -n "$$d" || { echo "Drive folder not found: is Google Drive for desktop running and signed in?"; exit 1; }; \
 	  cp report/main.pdf "$${d}freefall-report.pdf" && echo "uploaded to Drive: $${d}freefall-report.pdf"
 
-report/numbers.tex: analysis/analysis.py analysis/verify_colab.py analysis/test_rounding.py FreeFall_19-10-2026_14-30-49.xlsx
-	cd analysis && $(PY) test_rounding.py
+report/numbers.tex: analysis/analysis.py analysis/verify_colab.py $(LABTOOLS) FreeFall_19-10-2026_14-30-49.xlsx
+	cd $(LAB_ROOT) && $(PY) -m labtools.test_rounding
 	$(PY) analysis/analysis.py
 	$(PY) analysis/verify_colab.py
 

@@ -10,6 +10,8 @@ import json
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # lab root, for labtools
+from labtools.colab import compare_macros
 from analysis import kappa_from_fit, macros, part_a, part_b, part_c, p_avg, p_avg_err
 import numpy as np
 
@@ -58,8 +60,9 @@ def main():
                                                         - (C_ours["P_avg_err"] / C_ours["P_avg"]) ** 2 + (dP / P) ** 2)
     C_theirs["P_avg"], C_theirs["P_avg_err"] = P, dP
     m_ours, m_theirs = macros(A_, ours, C_ours), macros(A_, theirs, C_theirs)
-    bad = [k for k in m_ours if k[0] in "BC" and m_ours[k] != m_theirs[k]]
-    n = sum(1 for k in m_ours if k[0] in "BC")
+    keys = [k for k in m_ours if k[0] in "BC"]
+    bad = compare_macros(m_ours, m_theirs, keys)
+    n = len(keys)
     for k in bad:
         print(f"MISMATCH {k}: ours {m_ours[k]}  colab {m_theirs[k]}")
     print(f"{n - len(bad)}/{n} part-b/c report values match Colab; largest relative difference "

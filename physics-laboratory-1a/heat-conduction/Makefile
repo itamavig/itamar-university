@@ -8,8 +8,8 @@ report/a_table.tex report/raw_a.tex report/raw_b.tex report/raw_c.tex: report/nu
 report/main.pdf: report/numbers.tex report/a_table.tex report/raw_a.tex report/raw_b.tex report/raw_c.tex report/*.tex
 	cd report && latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
 
-report/numbers.tex: analysis/analysis.py analysis/test_rounding.py analysis/verify_colab.py colab/colab_outputs.json heat\ conduction\ part\ a.xlsx heat\ conduction\ part\ b.xlsx
-	cd analysis && $(PY) test_rounding.py
+report/numbers.tex: analysis/analysis.py analysis/verify_colab.py $(LABTOOLS) colab/colab_outputs.json heat\ conduction\ part\ a.xlsx heat\ conduction\ part\ b.xlsx
+	cd $(LAB_ROOT) && $(PY) -m labtools.test_rounding
 	$(PY) analysis/analysis.py
 	$(PY) analysis/verify_colab.py
 
