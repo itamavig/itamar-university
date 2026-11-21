@@ -1,0 +1,78 @@
+{
+  "_source": "Colab run of the course template (Drive notebook 'heat-conduction.ipynb', ID 1mcVN_9MWnzjgb_DSkbxO5kNTJ8UQthrw) on colab/partb_fits.xlsx, 2026-11-09. Only the marked values were edited: file_path, sheet_number, initial_guesses = (36, -39). Printed outputs transcribed from the screen by Claude.",
+  "0": {
+    "a0": [
+      36.82694918973805,
+      0.07783821034484732
+    ],
+    "a1": [
+      -38.67755412834806,
+      0.6630417563051868
+    ],
+    "chi2_red": 1.92388,
+    "p": 0.0729681
+  },
+  "1": {
+    "a0": [
+      36.80230803386686,
+      0.08051740877215793
+    ],
+    "a1": [
+      -38.72983465387191,
+      0.6858742384608361
+    ],
+    "chi2_red": 2.05288,
+    "p": 0.0552535
+  },
+  "2": {
+    "a0": [
+      36.74830190265997,
+      0.07735034628188565
+    ],
+    "a1": [
+      -38.885872471006465,
+      0.6588832386405923
+    ],
+    "chi2_red": 1.87962,
+    "p": 0.0801635
+  },
+  "part_c": {
+    "_source": "Colab run of the course template (same Drive notebook) on colab/partc_fits.xlsx, 2026-11-14. Edited only file_path, sheet_number, initial_guesses (per sheet). Printed outputs transcribed from the screen by Claude.",
+    "cool": {
+      "a0": [
+        32.46272735017814,
+        0.003485442975598045
+      ],
+      "a1": [
+        -0.0023680866875769643,
+        6.736814608234421e-06
+      ],
+      "chi2_red": 137.81063,
+      "p": 0.0
+    },
+    "heat": {
+      "a0": [
+        14.465247933561844,
+        0.05747280778382075
+      ],
+      "a1": [
+        0.018137386814001358,
+        4.222061089135207e-05
+      ],
+      "chi2_red": 1169.09256,
+      "p": 0.0
+    },
+    "exp": {
+      "a0": [
+        32.16541355974979,
+        0.06820670905906512
+      ],
+      "a1": [
+        0.000450589525618629,
+        2.618016016717754e-05
+      ],
+      "chi2_red": 24.58138,
+      "p": 9.83291e-176
+    }
+  }
+}

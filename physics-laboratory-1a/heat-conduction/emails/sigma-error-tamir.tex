@@ -1,0 +1,32 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage[bidi=basic, main=hebrew, english]{babel}
+\babelfont[hebrew]{rm}{Times New Roman}
+\newcommand{\U}[1]{\,\mathrm{#1}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\pagestyle{empty}
+\begin{document}
+\begin{center}\large השגיאה ב-$\sigma$ בשתי דרכים (הולכת חום, חלק א׳)\end{center}
+
+התוצאה: $\sigma = 6.702 \cdot 10^7 \U{S/m}$. בשתי הדרכים לפי נוסחה (43) בחוברת. $D_{ch}$ קוטר התעלה, $D$ הקוטר החיצוני, $d$ גובה המגנט.
+
+\textbf{דרך א׳: $a$ ו-$w$ בלתי תלויים}
+\[ \left(\frac{\Delta\sigma}{\sigma}\right)^2 = \left(\frac{\Delta m}{m}\right)^2 + \left(\frac{\Delta g}{g}\right)^2 + \left(\frac{2\Delta a}{a}\right)^2 + \left(\frac{\Delta t}{t}\right)^2 + \left(\frac{4\Delta r_m}{r_m}\right)^2 + \left(\frac{\Delta L_0}{L_0}\right)^2 + \left(\frac{\Delta w}{w}\right)^2 \]
+\[ = (5.17 + 103.91 + 20.20 + 4.77 + 354.57 + 2.08 + 2.40) \cdot 10^{-6} = 493.10 \cdot 10^{-6} \]
+\[ \frac{\Delta\sigma}{\sigma} = 2.221\%, \quad \Delta\sigma = 0.149 \cdot 10^7 \U{S/m} \]
+
+\textbf{דרך ב׳: לפי המשתנים שנמדדו ישירות} ($\sigma \propto \frac{D_{ch}^2}{d^4 (D - D_{ch})}$)
+\begin{multline*}
+\left(\frac{\Delta\sigma}{\sigma}\right)^2 = \left(\frac{\Delta m}{m}\right)^2 + \left(\frac{\Delta g}{g}\right)^2 + \left(\frac{\Delta t}{t}\right)^2 + \left(\frac{4\Delta d}{d}\right)^2 + \left(\frac{\Delta L_0}{L_0}\right)^2 \\
++ \left[\left(\frac{2}{D_{ch}} + \frac{1}{D - D_{ch}}\right)\Delta D_{ch}\right]^2 + \left(\frac{\Delta D}{D - D_{ch}}\right)^2
+\end{multline*}
+\[ = (5.17 + 103.91 + 4.77 + 354.57 + 2.08 + 29.88 + 1.46) \cdot 10^{-6} = 501.84 \cdot 10^{-6} \]
+\[ \frac{\Delta\sigma}{\sigma} = 2.240\%, \quad \Delta\sigma = 0.150 \cdot 10^7 \U{S/m} \]
+
+\textbf{ההפרש} הוא איבר צולב אחד, כי $D_{ch}$ מופיע גם ב-$a$ וגם ב-$w$:
+\[ \left(\frac{\Delta\sigma}{\sigma}\right)^2_{\text{ב}} - \left(\frac{\Delta\sigma}{\sigma}\right)^2_{\text{א}} = \frac{4\,(\Delta D_{ch})^2}{D_{ch}\,(D - D_{ch})} = 8.74 \cdot 10^{-6} \]
+לאחר עיגול, בשתי הדרכים: $\sigma = (6.70 \pm 0.15) \cdot 10^7 \U{S/m}$.
+\end{document}
