@@ -7,5 +7,23 @@
 *.fdb_latexmk
 *.synctex.gz
 
+#intellij
+.idea/
+
 # Office (local working state)
 .office/
+.venv/
+*.xdv
+
+# Free-fall report: personal IDs (public repo). details.example.tex holds the placeholders.
+physics-laboratory-1a/freefall/report/details.tex
+physics-laboratory-1a/freefall/report/main.pdf
+
+# Heat-conduction report: personal IDs (public repo). details.example.tex holds the placeholders.
+physics-laboratory-1a/heat-conduction/report/details.tex
+physics-laboratory-1a/heat-conduction/report/main.pdf
+physics-laboratory-1a/heat-conduction/report/review.pdf
+physics-laboratory-1a/heat-conduction/heat-conduction-report.pdf
+
+# Office lock files (e.g. "~$viscosity measurements.xlsx" while Excel has the file open)
+~$*

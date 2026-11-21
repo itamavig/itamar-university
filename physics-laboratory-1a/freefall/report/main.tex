@@ -1,0 +1,465 @@
+% Free-fall lab report. Build from ../ with `make` (runs the analysis first).
+% Rules: ../../report-rules.md (general), ../report-rules.md (free fall).
+% Limits: 10 pages excluding cover + appendices; 10 numbered formulas excluding (1)-(2).
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}  % [H]: figures and tables stay where they are written (user, 2026-10-30)
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[labelsep=colon,font=small]{caption}
+\usepackage{fontspec}
+% LuaLaTeX + babel instead of XeLaTeX + polyglossia (2026-10-28): under XeTeX's bidi,
+% \textcolor leaked to whole RTL lines; luacolor colours per character.
+\usepackage{luacolor}
+\usepackage[bidi=basic, layout=lists.tabular, main=hebrew, english]{babel}
+% Times New Roman (macOS system font, has Hebrew). Frank Ruehl CLM from TeX Live was
+% tried first: its digits are heavy and read as bold next to the body text.
+\babelfont[hebrew]{rm}{Times New Roman}
+\newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
+% Second-level list labels (א), (ב)... In running text a sub-item is referred to as 1א (user, 2026-10-30).
+\renewcommand{\theenumii}{\localecounter{letters}{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+% Paragraphs: no first-line indent, small gap between paragraphs (Word-like, as in the guide).
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt}
+
+% Review colours: blue = content added by Claude beyond the Doc (user, 2026-10-28), green = edits
+% on the partner's or the user's suggestions (2026-10-30). Switched off for submission (user,
+% 2026-11-01): \reviewtrue brings them back; the macros stay so the source still records who wrote what.
+\newif\ifreview \reviewfalse
+\ifreview
+  \colorlet{addedblue}{blue}
+  \definecolor{partnergreen}{RGB}{0,140,60}
+\else
+  \colorlet{addedblue}{black}
+  \colorlet{partnergreen}{black}
+\fi
+\newcommand{\added}[1]{\textcolor{addedblue}{#1}}
+\newcommand{\partner}[1]{\textcolor{partnergreen}{#1}}
+
+% Visible placeholder for anything not written yet. Must not survive into the submitted PDF.
+\newcommand{\TODO}[1]{\textcolor{red}{[#1]}}
+% Units after a value in math mode: $\LinG\U{cm/s^2}$
+\newcommand{\U}[1]{\,\mathrm{#1}}
+% Font of the setup drawing's labels (Helvetica), for the row added to its parts table.
+\newfontfamily\schemfont{Helvetica}
+
+\input{numbers.tex}
+\InputIfFileExists{details.tex}{}{\input{details.example.tex}}
+
+\begin{document}
+\input{cover.tex}
+\setcounter{page}{1}
+
+\section*{מטרות הניסוי}
+\begin{enumerate}
+% src: GOAL-01
+% One sentence (instructor: fuller than the brief goal, but one sentence; user, 2026-11-01).
+% Coefficients = partner's note P1 (green); "בטווח הטעות המקובל" = the guide's own example wording.
+  \item אימות נוסחת הנפילה החופשית\added{:} \partner{בדיקה שמקדמי ההתאמה תואמים לערכים הצפויים להם,} \added{ובפרט שתאוצת הכובד המחולצת תואמת לערך התיאורטי בטווח הטעות המקובל.}
+% src: GOAL-02
+  \item התנסות בכלים סטטיסטיים \added{לעיבוד המדידות: הערכת שגיאות ושקלולן, התאמת מודל למדידות ובחינת טיב ההתאמה}.
+\end{enumerate}
+
+\section*{רקע תיאורטי}
+% Verbatim from ../theory-background-format.docx (staff file from Moodle).
+% src: THEO-01 THEO-02
+נפילה חופשית הינה התנועה הנוצרת בעת שחרור גוף ממנוחה באוויר, מה שמוביל לנפילת הגוף עקב השפעת כוח המשיכה של כדור הארץ בלבד. כלומר, אינו מושפע מגורמים חיצוניים כדוגמת רוח והתנגדות האוויר.
+
+% src: THEO-03 THEO-04
+מהגדרת הנפילה החופשית, נסיק כי הכוח היחיד הפועל על הגוף הינו כוח הכבידה, ולכן התאוצה של הגוף הינה תאוצת הכובד. נהוג לסמן את תאוצת הכובד באות $g$, וערכה על פני השטח של כדור הארץ הוא בקירוב:
+% src: THEO-05
+\[ g_{\mathrm{theoretical}} = \GTheo\U{cm/s^2} \]
+% src: THEO-06
+(לפי תדריך הניסוי).
+
+% src: THEO-07 THEO-08
+במהלך הניסוי הנוכחי נגדיר את כיוון התנועה החיובי במערכת הצירים כציר האנכי הפונה מטה. מכיוון שתאוצת הגוף היא קבועה (בקירוב), נשתמש בנוסחת התנועה בתאוצה קבועה:
+% src: THEO-09
+\begin{equation}\label{eq:motion}
+h = h_0 + v_0 t + \frac{1}{2} g t^2
+\end{equation}
+% src: THEO-10 THEO-11 THEO-12 THEO-13
+האות $h$ מייצגת את מיקום הגוף ו-$t$ מייצגת זמן. מיקום הגוף בזמן $t=0$ ייוצג על ידי $h_0$, המהירות ההתחלתית תסומן ב-$v_0$ ותאוצת הגוף תסומן ב-$g$. כיוון שמדובר בנפילה חופשית, נצא מנקודת הנחה שהמהירות ההתחלתית תהיה אפס, כלומר $v_0 = 0\U{cm/s}$. לכן, לאחר בחירת הגובה ההתחלתי $h_0 = 0$ כראשית הצירים, והצבתו במשוואה \eqref{eq:motion}, נקבל את הנוסחה הבאה:
+% src: THEO-14
+\begin{equation}\label{eq:freefall}
+h = \frac{1}{2} g t^2
+\end{equation}
+
+\section*{מהלך הניסוי}
+% Equipment list and setup text sit beside the schematic they refer to (user, 2026-10-28).
+% RTL: the first minipage lands on the right.
+\noindent
+\begin{minipage}[t]{0.52\textwidth}
+\subsection*{רשימת ציוד}
+% Numbers here match the labels in the setup figure (general rules 4.3.2).
+% Items 5-7 are in the Doc's figure (SETUP-01) but not in its equipment list.
+% Item 9 (optical gate) is not drawn in the figure; it starts the timing (DISC-36, briefing), user decision 2026-10-29.
+\begin{enumerate}
+% src: EQUIP-07
+  \item אלקטרומגנט, המשמש כיחידת שחרור לכדור.
+% src: EQUIP-01
+  \item כדור מתכת.
+% src: EQUIP-02 EQUIP-03
+  \item מעמד: \partner{עמוד אלומיניום עם שנתות} המשמש כסרגל, ברזולוציה של $\HRes\U{cm}$.
+% src: EQUIP-06
+  \item לוחית מתכת וחיישן פיזואלקטרי, על משטח שגובהו מתכוונן.
+% src: SETUP-01
+  \item תופסן לנעילת המשטח על המעמד.
+% src: SETUP-01
+  \item בסיס המעמד.
+% src: SETUP-01
+  \item כבלי אות.
+% src: EQUIP-04
+  \item מחשב ותוכנה למדידת זמן הנפילה, ברזולוציה של $\TRes\U{s}$.
+% src: EQUIP-05
+  \item שער אופטי אינפרא-אדום\added{, המפעיל את מדידת הזמן}.
+\end{enumerate}
+\subsection*{מערכת הניסוי}
+% src: SETUP-02
+מערכת הניסוי מתוארת באיור~\ref{fig:setup}. היא מורכבת מ\partner{עמוד אלומיניום עם שנתות} המשמש כסרגל גובה (3), מאלקטרומגנט (1) המשחרר את הכדור (2) לפי פקודה, וממשטח בגובה מתכוונן (4) שעליו חיישן פיזואלקטרי\partner{, ומשער אופטי אינפרא-אדום (9)}.
+% src: SETUP-03
+האלקטרומגנט והחיישן הפיזואלקטרי מחוברים בכבלי אות (7) למחשב (8).
+% src: SETUP-01
+גובה הנפילה $h$ מוגדר כמרחק בין תחתית הכדור לפני השחרור לבין משטח החיישן.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\textwidth}
+  \vspace{0pt}
+  \centering
+% src: SETUP-01
+  % Optical gate (item 9) is not in the original drawing; drawn on top (blue while reviewing)
+  % (user, 2026-10-29). Coordinates are fractions of the image: x from the left, y from the bottom.
+  % LTR block: under RTL (babel bidi) the picture's x axis is mirrored.
+  \begin{otherlanguage}{english}
+  \begin{tikzpicture}
+    \node[inner sep=0, anchor=south west] (img) {\includegraphics[width=\textwidth]{figures/setup.png}};
+    \begin{scope}[x={(img.south east)}, y={(img.north west)}, addedblue, line width=0.5pt]
+      % Just below the ball (ball bottom ~0.83 of the height), smaller marks (user, 2026-11-01).
+      \draw[fill=addedblue!15] (0.405,0.818) rectangle (0.417,0.826);   % emitter
+      \draw[fill=addedblue!15] (0.473,0.818) rectangle (0.485,0.826);   % receiver
+      \draw[dashed] (0.417,0.822) -- (0.473,0.822);                % beam across the fall axis
+      \draw (0.485,0.822) -- (0.556,0.845);                        % leader, up past label 2
+      \node[draw, circle, inner sep=0.6pt, font=\tiny] at (0.57,0.848) {9};
+      % Row 9 of the drawing's parts table (user, 2026-11-01). Table edges measured on setup.png
+      % (1486x2048 px): x 1031/1088/1437, rows 46 px tall, last row ends at y 960 px from the top.
+      \draw[line width=0.29pt] (0.6942,0.5310) -- (0.6942,0.5085) -- (0.9667,0.5085) -- (0.9667,0.5310);
+      \draw[line width=0.15pt] (0.7322,0.5310) -- (0.7322,0.5085);
+      \node[font=\schemfont\fontsize{3.3}{3.8}\selectfont, text=black] at (0.7134,0.5198) {9};
+      \node[font=\schemfont\fontsize{3.3}{3.8}\selectfont, text=black, anchor=west, inner sep=0] at (0.7405,0.5198) {Optical gate (infrared)};
+    \end{scope}
+  \end{tikzpicture}
+  \end{otherlanguage}
+  \captionof{figure}{\added{תרשים סכמטי של מערכת הניסוי. המספור תואם לרשימת הציוד.}}
+  \label{fig:setup}
+\end{minipage}
+
+\subsection*{שלבי הניסוי}
+\begin{enumerate}
+% src: PROC-01 PROC-02
+  \item בדיקת המערכת: המערכת הוצבה על שולחן ובוצעה מדידת ניסיון לבדיקת תקינותה. במהלך הבדיקה בוצעו כ-3 מדידות מאותו הגובה, כדי לוודא שהתוצאות קרובות זו לזו.
+% src: PROC-03
+  \item ביצוע מדידה בודדת:
+  \begin{enumerate}
+% src: PROC-04
+    \item המשטח (4) כוון לגובה הרצוי לפי הסרגל (3).
+% src: PROC-05
+    \item המשטח ננעל במקומו באמצעות התופסן (5), כדי שלא יזוז או ייפול בין המדידות.
+% src: PROC-06
+    \item האלקטרומגנט (1) הופעל דרך תוכנת המחשב (8).
+% src: PROC-07
+    \item הכדור (2) הוצמד לאלקטרומגנט.
+% src: PROC-08 PROC-09
+    \item שחרור הכדור הופעל דרך תוכנת המחשב. התוכנה תיעדה אוטומטית את משך הנפילה, \added{מהרגע שבו הכדור חצה את קרן השער האופטי (9)} ועד רגע הפגיעה במשטח.
+  \end{enumerate}
+% src: PROC-10
+  \item בחירת גבהים: משך הנפילה נמדד מעשרה גבהים, בסנטימטרים: $10, 15, 20, 30, 40, 45, 50, 60, 70, 80$.
+% src: PROC-11 PROC-12
+  \item בכל גובה בוצעו 10 מדידות כמתואר בסעיף 2, והגובה הנמדד תועד בתוכנה.
+% src: PROC-13
+  \item בסוף הניסוי יוצאו התוצאות מהתוכנה לקובץ \textenglish{Excel}.
+\end{enumerate}
+% Reason for 10 repetitions (user, 2026-11-01): statistical error dominates, so repeating helps;
+% after 10 the relative error is far below 5% (booklet's stopping criterion, p. after (34)).
+\added{בכל גובה בוצעו 10 מדידות, כפי שנקבע בתדריך הניסוי.} \partner{זאת על מנת להקטין את השגיאה הסטטיסטית, ובכך את השגיאה הכוללת} \added{(נוסחה (34) בחוברת). לאחר 10 מדידות השגיאה היחסית בזמן הנפילה אינה עולה על $\TRelMax$ בכל הגבהים, הרבה מתחת ל-5\%}\partner{, הסף המקובל בקורס לשגיאה יחסית קטנה}\added{.}
+
+% Reason for the heights (user, 2026-11-01): briefing p. 3, steps of 5 or 10 cm until 10-12 heights.
+\added{הגבהים נבחרו בהפרשים של} \partner{$5\U{cm}$} \added{או $10\U{cm}$ זה מזה, כפי שנקבע בתדריך הניסוי, כך שהתקבלו 10 גבהים הפרוסים על פני הטווח $10\text{--}80\U{cm}$.}
+
+\section*{תכנון עיבוד התוצאות}
+% Formula budget (free-fall rules 7): numbered here (3)-(9), 7 of 10.
+% Booklet ("החוברת") formulas are cited by number; adapted ones are written and numbered.
+% src: PLAN-01 PLAN-02
+מטרת העיבוד היא לבחון את מודל הנפילה החופשית המתואר בנוסחה \eqref{eq:freefall}. מודל זה הוא מקרה פרטי של נוסחה \eqref{eq:motion}, המתקבל מתוך ההנחות שפורטו ברקע התיאורטי: הגוף משוחרר ממנוחה, ומיקומו ההתחלתי מוגדר כ-$h=0$.
+% src: PLAN-03
+המודל ייבחן בשתי התאמות: התאמה לינארית של $h$ כתלות ב-$t^2$, והתאמה פרבולית של $h$ כתלות ב-$t$.
+
+\subsection*{הגדלים הנמדדים ושגיאותיהם}
+% src: PLAN-05
+לפני ביצוע ההתאמות יחושבו הגדלים הדרושים ושגיאותיהם.
+% src: PLAN-06
+גובה הנפילה $h$ נמדד פעם אחת בכל גובה באמצעות הסרגל, ולכן שגיאתו היא שגיאת רזולוציה, המחושבת לפי נוסחה (28) בחוברת עיבוד הנתונים תחת הנחת התפלגות אחידה בין שנתות הסרגל:
+\begin{equation}\label{eq:dh}
+\Delta h = \frac{h_{res}}{\sqrt{12}}
+\end{equation}
+כאשר $h_{res} = \HRes\U{cm}$ היא רזולוציית הסרגל.
+
+% src: PLAN-08 PLAN-09
+זמן הנפילה נמדד 10 פעמים בכל גובה, וזמן הנפילה $t$ יילקח כממוצע המדידות, כדי להקטין את השגיאה הסטטיסטית. לזמן הנפילה שני מקורות שגיאה: שגיאת רזולוציה של תוכנת המדידה, תחת הנחת התפלגות אחידה (נוסחה (28) בחוברת), ושגיאה סטטיסטית.
+% src: PLAN-10
+השגיאה הסטטיסטית $\Delta t_{stat}$ תחושב מסטיית התקן המדגמית של 10 המדידות, לפי נוסחאות (32) ו-(34) בחוברת.
+% src: PLAN-11
+השגיאה הכוללת בזמן הנפילה מתקבלת משקלול שני מקורות השגיאה לפי נוסחה (35) בחוברת:
+\begin{equation}\label{eq:dt}
+\Delta t = \sqrt{\Delta t_{stat}^2 + \left(\frac{t_{res}}{\sqrt{12}}\right)^2}
+\end{equation}
+כאשר $t_{res} = \TRes\U{s}$ היא רזולוציית תוכנת המדידה.
+
+\subsection*{התאמה לינארית}
+% src: PLAN-13 PLAN-14
+להתאמה זו נדרש ריבוע זמן הנפילה $t^2$, שיחושב מהזמן הממוצע. שגיאתו היא שגיאה עקיפה, שתחושב לפי נוסחה (39) בחוברת כאשר המשתנה הישיר הוא $t$:
+\begin{equation}\label{eq:dt2}
+\Delta(t^2) = 2t\,\Delta t
+\end{equation}
+
+% src: PLAN-04 PLAN-15
+הגדלים ושגיאותיהם יוזנו למחברת ה-\textenglish{Colab} של הקורס, ותותאם להם \added{בשיטת \textenglish{ODR}} פונקציה לינארית:
+\begin{equation}\label{eq:linfit}
+y = a_0 + a_1 x
+\end{equation}
+כאשר $x = t^2$ ו-$y = h$.
+% src: PLAN-24 PLAN-25
+לפי נוסחה \eqref{eq:freefall}, הפרמטר $a_1$ מייצג את $\frac{1}{2}g$, והאיבר החופשי $a_0$ צפוי להתאפס. תאוצת הכובד ושגיאתה העקיפה יחולצו מההתאמה לפי:
+\begin{equation}\label{eq:glin}
+g = 2a_1 \pm 2\Delta a_1
+\end{equation}
+
+\subsection*{התאמה פרבולית}
+% src: PLAN-28 PLAN-29
+בהתאמה השנייה תותאם לנתונים פונקציה פרבולית לפי נוסחה \eqref{eq:motion}:
+\begin{equation}\label{eq:parfit}
+y = a_0 + a_1 x + a_2 x^2
+\end{equation}
+כאשר $x = t$ ו-$y = h$.
+% src: PLAN-30 PLAN-31
+הגובה, הזמן ושגיאותיהם הם אלו שיחושבו לפי נוסחאות \eqref{eq:dh} ו-\eqref{eq:dt}. בהתאמה זו אין צורך בשגיאה עקיפה, מכיוון ש-$t$ ו-$h$ נמדדים ישירות.
+% src: PLAN-43 PLAN-44 PLAN-45 PLAN-46
+לפי נוסחה \eqref{eq:motion}, הפרמטר $a_0$ מייצג את הגובה ההתחלתי ו-$a_1$ את המהירות ההתחלתית, ולכן שניהם צפויים להתאפס. הפרמטר $a_2$ מייצג מחצית מהתאוצה, ולכן צפוי להיות $\frac{1}{2}g$.
+% added (not in the Doc): briefing formula (7); report-gaps.md "parabolic fit has no g formula".
+\added{תאוצת הכובד ושגיאתה העקיפה יחולצו מההתאמה לפי:}
+{\color{addedblue}
+\begin{equation}\label{eq:gpar}
+g = 2a_2 \pm 2\Delta a_2
+\end{equation}}
+
+\subsection*{בחינת ההתאמות}
+% src: PLAN-16 PLAN-17 PLAN-18 PLAN-19 PLAN-33 PLAN-34 PLAN-35 PLAN-36 PLAN-37 PLAN-38 PLAN-55 PLAN-56
+מכל התאמה יתקבלו הפרמטרים ושגיאותיהם, ולכל פרמטר תחושב השגיאה היחסית, באחוזים, לפי נוסחה (25) בחוברת. השגיאה היחסית מבטאת את גודל השגיאה ביחס לערך הנמדד. בקורס זה שגיאה יחסית הקטנה מ-5\% נחשבת קטנה.
+% added (not in the Doc): the briefing's test for parameters expected to vanish (free-fall rules 6).
+\added{פרמטר שצפוי להתאפס ייחשב תואם לצפי אם שגיאתו היחסית גדולה מ-50\% או שווה לה, לפי תדריך הניסוי.}
+% src: PLAN-47
+איכות כל התאמה תיבחן באמצעות המדדים הבאים:
+\begin{itemize}
+% src: PLAN-20 PLAN-21 PLAN-39 PLAN-40 PLAN-48 PLAN-49
+  \item חי בריבוע מצומצם, $\chi^2_{red}$ (נוסחה (50) בחוברת), המבטא את מידת ההתאמה בין נקודות המדידה לגרף ההתאמה. בהתאמה תקינה צפוי ערך קרוב ל-1.
+% src: PLAN-22 PLAN-23 PLAN-41 PLAN-42 PLAN-50 PLAN-51
+  \item \textenglish{p-value}: ההסתברות לקבל ערך $\chi^2_{red}$ גדול מזה שהתקבל או שווה לו, בהנחה שהמודל מתאר את המערכת. ערכים תקינים הם בתחום $0.05 \le p \le 0.95$.
+% src: PLAN-57
+  \item גרף השארים, שבו ייבדק שפיזור הנקודות סביב קו האפס אקראי וללא מגמה.
+\end{itemize}
+% src: PLAN-26 PLAN-27 PLAN-52 PLAN-53 PLAN-54
+תאוצת הכובד שתחולץ מכל התאמה תושווה לערך התיאורטי $g = \GTheo\U{cm/s^2}$ באמצעות מדד $N_\sigma$ (נוסחה (51) בחוברת). שתי התוצאות נחשבות תואמות אם $N_\sigma \le 3$.
+
+\section*{תוצאות}
+\subsection*{התאמה לינארית}
+\begin{figure}[H]
+  \centering
+  % RTL: the first minipage lands on the right, so the fit (read first) comes first.
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+% src: RES-02
+    \includegraphics[width=\textwidth]{figures/lin_fit.pdf}
+    \caption{\added{גובה הנפילה $h$ בסנטימטרים כתלות בריבוע זמן הנפילה $t^2$ בשניות בריבוע, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:lin-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+% src: RES-02
+    \includegraphics[width=\textwidth]{figures/lin_res.pdf}
+    \caption{\added{גרף השארים של ההתאמה הלינארית: ההפרש בין גובה הנפילה הנמדד לבין ערך פונקציית ההתאמה, בסנטימטרים, כתלות ב-$t^2$ בשניות בריבוע. צלבי השגיאה מציגים את $\Delta h$ בלבד.}}
+    \label{fig:lin-res}
+  \end{minipage}
+\end{figure}
+% src: RES-01 RES-06 RES-18
+גרף ההתאמה הלינארית וגרף השארים שלה מוצגים באיור~\ref{fig:lin-fit} ובאיור~\ref{fig:lin-res}. פרמטרי שתי ההתאמות ומדדיהן מרוכזים בטבלה~\ref{tab:results}.
+% src: RES-03
+בגרף ההתאמה, נקודות המדידה נמצאות על קו ההתאמה או בסמוך מאוד אליו.
+% src: RES-04
+בגרף השארים, הנקודות בקצוות התחום (ערכי $t^2$ קטנים וגדולים) נמצאות מתחת לקו האפס, והנקודות במרכזו נמצאות מעליו. בשארים ניכרת מגמה פרבולית, ולא פיזור אקראי.
+% src: RES-05
+% Replaces the "within 3 errors" claim (user, 2026-11-01): the guide's own comparison, checkable by eye.
+\partner{ברוב הנקודות המרחק מקו האפס גדול משגיאתן.}
+% added (not in the Doc): parameters vs expectation and meaning of the statistics (guide; checklist "Results").
+\added{בטבלה~\ref{tab:results} ניתן לראות כי שגיאתו היחסית של האיבר החופשי $a_0$ קטנה מ-50\%, וכי ה-\textenglish{p-value} קטן מ-0.05. עבור תאוצת הכובד שחולצה התקבל $N_\sigma$ הקטן מ-3, ושגיאתה היחסית קטנה מ-5\%.}
+
+\subsection*{התאמה פרבולית}
+\begin{figure}[H]
+  \centering
+  % RTL: the first minipage lands on the right, so the fit (read first) comes first.
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+% src: RES-14
+    \includegraphics[width=\textwidth]{figures/par_fit.pdf}
+    \caption{\added{גובה הנפילה $h$ בסנטימטרים כתלות בזמן הנפילה $t$ בשניות, וההתאמה הפרבולית לפי נוסחה \eqref{eq:parfit}.}}
+    \label{fig:par-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+% src: RES-14
+    \includegraphics[width=\textwidth]{figures/par_res.pdf}
+    \caption{\added{גרף השארים של ההתאמה הפרבולית: ההפרש בין גובה הנפילה הנמדד לבין ערך פונקציית ההתאמה, בסנטימטרים, כתלות ב-$t$ בשניות. צלבי השגיאה מציגים את $\Delta h$ בלבד.}}
+    \label{fig:par-res}
+  \end{minipage}
+\end{figure}
+% src: RES-13
+גרף ההתאמה הפרבולית וגרף השארים שלה מוצגים באיור~\ref{fig:par-fit} ובאיור~\ref{fig:par-res}.
+% src: RES-15
+בגרף ההתאמה, נקודות המדידה נמצאות על קו ההתאמה או בסמוך מאוד אליו.
+% src: RES-16 RES-17
+בגרף השארים, הנקודות מפוזרות באקראי סביב קו האפס, וסכום השארים קרוב לאפס. \partner{כל הנקודות נמצאות במרחק של פחות משלושה צלבי שגיאה מקו האפס, ורובן חוצות אותו.}
+% added (not in the Doc): parameters vs expectation and meaning of the statistics (guide; checklist "Results").
+\added{בטבלה~\ref{tab:results} ניתן לראות כי שגיאתו היחסית של האיבר החופשי $a_0$ גדולה מ-50\%, ושל הפרמטר $a_1$ קטנה מ-50\%. ה-\textenglish{p-value} גדול מ-0.95. עבור תאוצת הכובד שחולצה התקבל $N_\sigma$ הקטן מ-3, ושגיאתה היחסית קטנה מ-5\%.}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+     & \multicolumn{2}{c|}{התאמה לינארית} & \multicolumn{2}{c|}{התאמה פרבולית} \\
+    \cline{2-5}
+     & ערך & שגיאה יחסית & ערך & שגיאה יחסית \\
+    \hline
+    $a_0$ & $\LinAZero\U{cm}$ & $\LinAZeroRel$ & $\ParAZero\U{cm}$ & $\ParAZeroRel$ \\ % src: RES-07 RES-19
+    \hline
+    $a_1$ & $\LinAOne\U{cm/s^2}$ & $\LinAOneRel$ & $\ParAOne\U{cm/s}$ & $\ParAOneRel$ \\ % src: RES-08 RES-20
+    \hline
+    $a_2$ & -- & -- & $\ParATwo\U{cm/s^2}$ & $\ParATwoRel$ \\ % src: RES-21
+    \hline
+    $g$ & $\LinG\U{cm/s^2}$ & $\LinGRel$ & $\ParG\U{cm/s^2}$ & $\ParGRel$ \\ % src: RES-11 RES-24
+    \hline
+    $\chi^2_{red}$ & \multicolumn{2}{c|}{$\LinChi$} & \multicolumn{2}{c|}{$\ParChi$} \\ % src: RES-09 RES-22
+    \hline
+    \textenglish{p-value} & \multicolumn{2}{c|}{$\LinP$} & \multicolumn{2}{c|}{$\ParP$} \\ % src: RES-10 RES-23
+    \hline
+    $N_\sigma$ & \multicolumn{2}{c|}{$\LinNsigma$} & \multicolumn{2}{c|}{$\ParNsigma$} \\ % src: RES-12 RES-25
+    \hline
+  \end{tabular}
+  \caption{\added{פרמטרי ההתאמות, תאוצת הכובד המחולצת מהן ומדדי טיב ההתאמה. $N_\sigma$ חושב ביחס לערך התיאורטי $g = \GTheo\U{cm/s^2}$.}}
+  \label{tab:results}
+\end{table}
+
+\section*{שאלת מדריך}
+% src: QUEST-01 QUEST-02 QUEST-03
+\textbf{השאלה:} גוף נופל בהשפעת תאוצת הכובד ובתוספת כוח חיכוך עם האוויר, $F_f = -bV$. (א) יש לתת הערכה למהירות הסופית של הגוף. (ב) יש לתאר ניסוי למדידת מהירות זו.
+
+\textbf{(א)}
+% src: QUEST-04
+הגוף מאיץ בהשפעת כוח הכובד, ומהירותו גדלה. כוח החיכוך גדל ביחס ישר למהירות, עד שכוח הכובד וכוח החיכוך, הפועלים בכיוונים מנוגדים, מתאזנים.
+% src: QUEST-05
+המהירות הסופית מתקבלת כאשר שקול הכוחות על הגוף מתאפס, ואז, לפי החוק הראשון של ניוטון, הגוף ממשיך לנוע במהירות קבועה.
+% src: QUEST-06 QUEST-07 QUEST-08 QUEST-09
+% Sign corrected (report-gaps.md "Instructor question, sign"): the Doc has Mg = Ff = -bV, V = -Mg/b.
+לכן, כאשר הכיוון החיובי הוא כלפי מטה, המהירות הסופית $V_f$ מקיימת \added{$Mg + F_f = Mg - bV_f = 0$}, ומכאן \added{$V_f = \frac{Mg}{b}$}, כאשר $M$ היא מסת הגוף ו-$b$ הוא מקדם החיכוך.
+
+\textbf{(ב)}
+% src: QUEST-10
+כדי למדוד מהירות זו בלי להפיל גופים מגבהים גדולים מאוד, מוצע ניסוי המנצל את עקרון היחסות של גלילאו, שלפיו חוקי המכניקה זהים בכל מערכת ייחוס אינרציאלית.
+% src: QUEST-11
+\partner{לפי עקרון היחסות,} אין זה משנה אם הגוף נופל דרך האוויר או שהאוויר נע ביחס לגוף הנמצא במנוחה: בשני המקרים צפויה אותה תוצאה.
+% src: QUEST-12 QUEST-13 QUEST-14
+בניסוי יונח גוף בעל מסה $M$ ידועה על מעמד חלול, שהשפעתו על זרימת האוויר זניחה ושבו חיישן פיזואלקטרי. מתחת למעמד יוצב מנוע הדוחף אוויר כלפי מעלה, כך שנוצרת רוח שמהירותה גדלה בתאוצה קבועה.
+% partner note P4 (2026-10-30): how the wind's acceleration is known.
+\partner{תאוצת הרוח $a_w$ נקבעת על ידי הגדרת המנוע, ותכויל מראש בהרצה נפרדת ללא הגוף: מרגע הפעלת המנוע, כשהאוויר במנוחה, תימדד מהירות הרוח במקום הגוף באמצעות מד-רוח (אנמומטר) בכמה זמנים, ומהקשר בין המהירות לזמן תחושב $a_w$.}
+% src: QUEST-15
+בכל הרצה יימדדו רגע הפעלת הרוח והרגע שבו הגוף מפסיק להפעיל לחץ על החיישן.
+% src: QUEST-16
+מפרק הזמן \partner{$t_d$} בין שני הרגעים ניתן לחשב את מהירות האוויר ברגע הניתוק\partner{, $u = a_w t_d$}. לפי שינוי מערכת הייחוס, זוהי מהירות הגוף כאשר שקול הכוחות עליו מתאפס, כלומר המהירות הסופית.
+\partner{הניסוי יחזור על עצמו מספר פעמים, והמהירות הסופית תילקח כממוצע המהירויות שחושבו, ושגיאתה תחושב כשגיאה סטטיסטית לפי נוסחאות (32) ו-(34) בחוברת.}
+
+\section*{דיון}
+% src: DISC-01 DISC-02
+בניסוי נבחנה נוסחת הנפילה החופשית באמצעות התאמה לינארית והתאמה פרבולית למדידות זמן הנפילה מגבהים שונים. מכל התאמה חולצה תאוצת הכובד $g$, והיא הושוותה לערך התיאורטי.
+
+% src: DISC-03
+\subsection*{התאמה לינארית}
+% Partner's restructuring (2026-10-31): bullets; his modifications in green. Two adjusted for the guide:
+% "אנו משערים כי" (first person) -> "סביר להניח כי"; "גרף השאריות" -> "גרף השארים" (booklet's term).
+\begin{itemize}
+% src: DISC-12 DISC-13 DISC-22
+  \item \partner{בהתאמה הלינארית ה-}\textenglish{p-value} \partner{קטן מ-0.05, כלומר} $\chi^2_{red}$ גדול מ-1 באופן \partner{שחורג מהתחום התקין}. יחד עם המגמה הפרבולית בגרף השארים, הדבר מצביע על כך שהמודל הלינארי אינו מתאים למדידות.
+% Split into three bullets, one point each (user, per the partner's bullet suggestion, 2026-10-31).
+% src: DISC-33 DISC-16 DISC-17
+  \item \partner{נוסף על כך,} ניתן היה לשער שהאיבר החופשי $a_0$\partner{, הגדול מאפס,} נובע משגיאת כיול של הסרגל\partner{, כלומר שנקודת ההתחלה של תנועת הכדור איננה האפס של הסרגל}. אולם\partner{,} בהתאמה הפרבולית האיבר החופשי תואם לאפס \partner{כאשר לוקחים בחשבון את תחום שגיאתו}, ולכן השערה זו \partner{אינה סבירה}. \partner{האיבר החופשי בהתאמה הלינארית ככל הנראה} אינו שגיאה בכיול הגובה, אלא תוצאה של \partner{כפיית מודל לא מתאים על הנתונים}, כפי שמשתקף גם בגרף השארים.
+% src: DISC-34 DISC-24
+  \item המודל הלינארי \partner{אינו כולל} איבר התלוי ב-$t$ באופן \partner{לינארי, וכדי} לפצות על \partner{״עקמומיות״} הנתונים, ההתאמה \added{בשיטת \textenglish{ODR}} מזיזה את הישר כלפי מעלה, ובכך מתקבל איבר חופשי גדול מאפס.
+% src: DISC-35 DISC-36 DISC-27 DISC-11
+  \item \partner{סביר להניח כי} מקור האיבר התלוי ב-$t$ הוא פרק הזמן בין הרגע שבו השדה המגנטי מפסיק להחזיק את הכדור והכדור מתחיל ליפול, לבין הרגע שבו הכדור חוצה את קרן השער האופטי ומדידת הזמן מתחילה. בפרק זמן זה הכדור צובר מהירות התחלתית, המתבטאת באיבר לינארי ב-$t$. איבר כזה מסביר גם את המגמה הפרבולית בגרף השארים של ההתאמה הלינארית.
+% src: DISC-28
+  \item \partner{אמנם ה-}$N_\sigma$ \partner{שהתקבל קטן מ-3}, אך עובדה זו לבדה אינה מעידה על התאמת המודל הלינארי למדידות.
+\end{itemize}
+
+% src: DISC-37
+\subsection*{התאמה פרבולית}
+% Partner's bullets (2026-10-31), his modifications in green; "גרף השאריות" -> "גרף השארים" (booklet's term).
+\begin{itemize}
+% src: DISC-30 DISC-31
+  \item \partner{בהתאמה הפרבולית ה-}\textenglish{p-value} \partner{גדול מ-0.95, כלומר} $\chi^2_{red}$ קטן מ-1 באופן \partner{שחורג מהתחום התקין, דבר המעלה חשד כי השגיאות הוערכו ביתר}.
+% src: DISC-38
+  \item בגרף השארים אין מגמה, דבר המצביע על התאמת המדידות למודל הפרבולי. צלבי השגיאה גדולים יחסית למרחק הנקודות מקו האפס, \partner{תוצאה התומכת בכך שהתבצעה הערכת יתר של השגיאות}.
+% src: DISC-39
+  \item \partner{שגיאתו היחסית של האיבר החופשי $a_0$ גדולה מ-50\%, ולכן הוא תואם לערך הצפוי אפס.}
+% src: DISC-40 DISC-41
+  \item \partner{הפרמטר $a_1$, המייצג לפי נוסחה \eqref{eq:motion} את המהירות ההתחלתית, שונה מאפס: שגיאתו היחסית, $\ParAOneRel$, קטנה מ-50\%. מכאן שהכדור צובר מהירות התחלתית לפני תחילת מדידת הזמן, בהתאם להשערה שהוצגה עבור ההתאמה הלינארית. הזמן שבו הכדור נופל לפני תחילת מדידת הזמן, $\tau$, הוא הזמן הנדרש לצבירת המהירות $a_1$ ממנוחה בתאוצה $g$, ושגיאתו היא שגיאה עקיפה לפי נוסחה (43) בחוברת:}
+% Delay before timing starts: post-hoc, so in the discussion, not the plan (user, 2026-11-01); numbered as an
+% extracted quantity with its indirect error (checklist).
+{\color{partnergreen}
+\begin{equation}\label{eq:tau}
+\tau = \frac{a_1}{g} \pm \sqrt{\left(\frac{\Delta a_1}{g}\right)^2 + \left(\frac{a_1 \Delta g}{g^2}\right)^2}
+\end{equation}}
+  \partner{מכאן שהכדור נופל במשך $\tau = \DelayTau\U{s}\ (\DelayTauRel)$ לפני שמדידת הזמן מתחילה.}
+% src: DISC-42
+  \item \partner{תאוצת הכובד שחושבה תואמת לערך התיאורטי ($N_\sigma$ קטן מ-3), ושגיאתה היחסית קטנה.}
+\end{itemize}
+% partner note P6, shortened (2026-10-31); source left open, user's wording (2026-11-01). TimeErrCm/DhCm unused.
+% Replaces DISC-43/44. The refit numbers (ChiNoDh etc.) stay in numbers.tex, unused.
+\partner{ערך $\chi^2_{red}$ הנמוך מעיד על הערכת יתר של השגיאות. לא ברור אם הערכת היתר נובעת מהשגיאה בגובה או מהשגיאה בזמן. ייתכן שהיא נובעת משגיאת הגובה: שגיאה זו חושבה בהנחת התפלגות אחידה על פני שנתה אחת של הסרגל (נוסחה (28) בחוברת), אך העין עשויה לקרוא את הגובה בדיוק רב יותר.}
+
+% added (not in the Doc): comparison of the methods, goals, improvement (guide; user approved drafting in blue 2026-10-29).
+\subsection*{\added{השוואה בין ההתאמות}}
+\added{שתי ההתאמות נתנו תאוצת כובד התואמת לערך התיאורטי ($N_\sigma \le 3$) בשגיאה יחסית הקטנה מ-5\%, ולכן שתיהן עומדות בחלק המטרה הנוגע לתאוצת הכובד. הערך מההתאמה הפרבולית אמין יותר: המודל הפרבולי כולל את המהירות ההתחלתית שנמדדה בפועל, וגרף השארים שלו אקראי. ההתאמה הלינארית אינה מתארת את המדידות, ולכן ערך $g$ שלה מוטה.}
+% partner note P1 (2026-10-30): which sub-goals of goal 1 were met.
+\partner{בהתאמה הפרבולית הגובה ההתחלתי תואם לאפס, אך המהירות ההתחלתית שונה מאפס, ולכן לא כל המקדמים תואמים לערכים הצפויים להם. בהתאמה הלינארית גם הגובה ההתחלתי שונה מאפס.}
+
+% Improvements: item 1 Claude (blue); items 2-4 from the partner's note P7 and the user (green), 2026-10-31.
+% 2026-11-01 (user): old item 3 (source of the overestimate) removed; new item 3 = ruler away from the plate.
+% Item 4 uses a phone camera (120 fps): user's view (2026-10-31) is that an everyday phone is not the
+% "sophisticated means" the guide discourages; estimate: ~0.5% on g per 80 cm drop. Drops combined via booklet (61), (63).
+\subsection*{\partner{הצעות לשיפור}}
+\begin{enumerate}
+  \item \added{מדידת המרחק בין תחתית הכדור לפני השחרור לבין קרן השער האופטי, והשוואת המהירות הצפויה בחציית הקרן לפרמטר $a_1$ שהתקבל בהתאמה הפרבולית.}
+  \item \partner{מיקום קרן השער האופטי בגובה תחתית הכדור לפני השחרור, כך שמדידת הזמן תתחיל ברגע השחרור. במצב זה המהירות ההתחלתית צפויה להתאפס, וניתן יהיה לבחון את המודל הלינארי ללא האיבר החסר.}
+  \item \partner{הרחקת הסרגל מאזור המשטח שעליו נוחת הכדור, כך שיהיה קל יותר לכייל את הגובה (הקופסה אליה נופל הכדור מסתירה את הסרגל ומקשה על הכיול).}
+  \item \partner{צילום נפילת הכדור במצלמת טלפון נייד בקצב של 120 פריימים לשנייה לפחות, ואיתור מיקום הכדור בכל פריים באמצעות תוכנה. כך מתקבלת עקומת הגובה כתלות בזמן לאורך נפילה אחת, ללא תלות ברגע תחילת מדידת הזמן, וניתן להתאים לה ישירות את נוסחה \eqref{eq:motion}. ניתן לחזור על הצילום מספר פעמים, לבצע התאמה נפרדת לכל נפילה, ולשקלל את ערכי תאוצת הכובד שהתקבלו כממוצע משוקלל לפי נוסחה (61) בחוברת, ששגיאתו מחושבת לפי נוסחה (63).}
+\end{enumerate}
+
+\clearpage
+\section*{נספחים}
+% Raw data (user, 2026-10-29) and the computed values per height (2026-11-01).
+\input{raw_table.tex}
+% Computed columns of the Excel, rounded (partner's suggestion, user 2026-11-01).
+\input{budget_table.tex}
+
+\end{document}

@@ -1,0 +1,22 @@
+# Obsidian internal files — noisy, don't commit
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/plugins/*/data.json
+**/.obsidian/cache
+**/.obsidian/trash/
+
+# Keep these (plugin list, appearance config)
+!**/.obsidian/community-plugins.json
+!**/.obsidian/core-plugins.json
+!**/.obsidian/app.json
+!**/.obsidian/appearance.json
+
+# Python
+__pycache__/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Obsidian sync
+.trash/

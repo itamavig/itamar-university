@@ -1,0 +1,39 @@
+# Python packages for every experiment in physics-laboratory-1a (one venv: ./.venv).
+# Create it from this folder:
+#   /opt/homebrew/opt/python@3.12/bin/python3.12 -m venv .venv
+#   .venv/bin/python -m pip install -r requirements.txt
+# Every version is pinned, transitive ones too, to the set the free-fall and heat-conduction
+# reports were built with (the old freefall/.venv, Python 3.12.14), so a rebuilt venv
+# reproduces their numbers. Unpinned, pip picks newer fonttools/dateutil/tzdata (2026-11-21).
+
+# Imported by */analysis/*.py (openpyxl is pandas' Excel reader and writer)
+matplotlib==3.11.2
+numpy==2.5.4
+openpyxl==3.1.5
+pandas==3.1.0
+scipy==1.18.1  # keep < 1.19: scipy.odr, which the course notebooks use, is removed there
+
+# Not imported by the analysis: renders report PDF pages for visual checks
+pymupdf==2.0
+
+# Transitive
+contourpy==1.4.0
+cycler==0.12.1
+et_xmlfile==2.0.0
+flatbuffers==25.12.19
+fonttools==4.67.0
+kiwisolver==1.5.1
+networkx==3.7
+onnxruntime==1.31.1
+packaging==26.3
+pillow==13.0.0
+protobuf==7.36.2
+psutil==7.2.2
+pymupdf4llm==2.0
+pymupdf_layout==2.0
+pyparsing==3.3.3
+python-dateutil==3.0.0
+PyYAML==6.0.3
+six==1.17.0
+tabulate==0.10.0
+tzdata==2026.5
