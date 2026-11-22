@@ -60,3 +60,4 @@ ef) = 12 links in PDF, all to the right pages
   - 8.13 2026-11-22 (user): plan part א temperature = as in the procedure (mean over 4 h), no numeric value in the plan (card rule)
   - 8.14 2026-11-22: plan part א APPROVED → black
   - 8.15 2026-11-22 (user): Tracker y origin never set and differs per video (ball tracked from varying heights) → y meaningful only relative within a video; plan uses only y differences (velocity). Tracker time starts at video start, before the drop → t shifted to first tracked frame. Both in plan part ב (blue)
+  - 8.16 2026-11-22 (user: "apparently we don't need to do the exponential fit"): fit ב removed from the plan (and from 4a's decision; viscosity/report-rules.md §3 records the reversal). Goal 1 reworded to one method (blue, needs re-approval). Plan intro: one sentence on how v_f is found (blue). Still open: 8.1 Δt/Δy, 8.2 derivative, 8.3 v_f extraction, 8.4 g, 8.5 theoretical η

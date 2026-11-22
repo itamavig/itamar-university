@@ -13,7 +13,7 @@ Sources:
 - Briefing typos (p.3 m = ρ_b·4πr³, p.2 buoyancy gρ_l·4πr³, both missing /3): use the correct formulas, not B's.
 
 ## 3. User decisions (2026-11-21)
-- Fit ב (exponential v(t), Colab) is done, as in B: the staff never told the user otherwise.
+- ~~Fit ב (exponential v(t), Colab) is done, as in B: the staff never told the user otherwise.~~ Reversed 2026-11-22 (user: "apparently we don't need to do the exponential fit"): no fit ב. v_f per ball comes from the velocity data only; one v_f–r² fit, one η. Goal 1 reworded to one method.
 - v_f is fitted against r² (B says "as a function of the radius"; formula (3) is linear in r²).
 - No calibration distance in the report data: the scale was set inside Tracker.
 - Part-a sheet: the 3 rows per category are 3 balls drawn at random, with replacement, from a pool of ~6–10 balls of that size; the dropped ball came from the same pool.
