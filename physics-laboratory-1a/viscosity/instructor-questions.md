@@ -53,7 +53,7 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 
 - Tube dimensions (length, inner diameter): not in any staff file and not recorded by the user. Dropped from the equipment list for now (user, 2026-11-22). Ask Ran whether they are known / needed. (todo 7g)
 
-- Δy of the Tracker positions (todo 8.1, user 2026-11-22: "phrase an email to Ran asking whether the recommended one is a good option, include a source"). Draft below.
+- Δy of the Tracker positions (todo 8.1, user 2026-11-22: "phrase an email to Ran asking whether the recommended one is a good option, include a source"). Draft below. User 2026-11-22: questions only, no suggested method (the successive-difference idea and its source were removed).
 
 ### Draft (not sent)
 
@@ -65,12 +65,7 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 
 **1. שגיאת הגובה בנתוני ה-Tracker**
 בנתונים שיצאו מ-Tracker אין שגיאה למיקום, והסרטונים לא נשמרו, כך שאין לי דרך לבדוק את גודל הפיקסל.
-אני שוקל להעריך את שגיאת הגובה מעמודת ה-x: הכדור נופל אנכית, ולכן השינויים ב-x מפריים לפריים נובעים בעיקר מרעש העקיבה של התוכנה. בכל סרטון אחשב את סטיית התקן של ההפרשים x(i+1)−x(i) ואחלק ב-√2, כי ההפרש בין שתי מדידות בלתי תלויות עם אותה שגיאה σ הוא בעל סטיית תקן σ·√2. כך תזוזה צידית איטית של הכדור כמעט מתבטלת, ונשאר בעיקר רעש העקיבה. ההערכה הזו תשמש כשגיאה של כל ערך גובה באותו סרטון.
-השיטה מבוססת על ההפרש הריבועי הממוצע בין מדידות עוקבות:
-J. von Neumann, R. H. Kent, H. R. Bellinson, B. I. Hart, "The Mean Square Successive Difference", *Annals of Mathematical Statistics* 12 (1941), 153–162.
-
-- האם זו דרך סבירה להעריך את השגיאה? אם לא, איך עדיף להעריך אותה?
-- בכדורים 3–6 הכפלתי את עמודת ה-y ביחס 21 ס"מ ל-1 מטר, כפי שאמרת. האם לצורך ההערכה הזו להכפיל גם את עמודת ה-x באותו יחס?
+איך כדאי להעריך את שגיאת הגובה במקרה הזה?
 
 **2. מידות המבחנה**
 לא רשמתי את אורך המבחנה ואת קוטרה הפנימי, והם לא מופיעים בקבצי הניסוי. האם צריך לציין אותם ברשימת הציוד, ואם כן, האם הם ידועים?
