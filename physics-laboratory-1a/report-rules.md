@@ -84,7 +84,7 @@ In course A1 the background is taken from the Moodle theory file. Short, relevan
 
 ### 4.4 תכנון עיבוד תוצאות (G, C, M) — a reader must be able to reproduce the analysis from the measurements + this section alone
 1. Every analysis step and every explicit formula used (within the limit). No derivations. No computed values (M 1).
-2. Each fit: fit function (numbered), what x and y are, meaning of each parameter, expected value of each parameter.
+2. Each fit: fit function (numbered), what x and y are, meaning of each parameter, expected value of each parameter. Axes and parameters are described in words, with the symbol alongside (G p.3 example: "ציר ה-𝑥 הוא ציר הזמן 𝑡", "הפרמטר 𝑎0 מתאר את המיקום ההתחלתי של הגוף"; checked 2026-11-22).
 3. Extraction formula for each physical quantity from the parameters (numbered) + its error.
 4. Which statistics are computed and what they mean: χ²_red D(50), p-value D p.19, residual graph, Nσ D(51), relative error D(25).
 5. Fit tool: course Colab Python ODR code, inputs x, Δx, y, Δy.
