@@ -27,6 +27,7 @@ Checks (rule numbers from report-rules.md):
                       sentence (בחוברת / קובץ / תדריך); report formulas use \\eqref
   forward-ref   3.5   no \\eqref before the formula's \\label
   limit         3.1   numbered formulas outside the theory section <= --limit
+  briefing-cite (user 2026-11-22) the briefing is cited in a footnote, never inline
   colours       2.4c  with --final: no \\added, \\TODO, \\flagged, \\partner left
 """
 import argparse
@@ -132,6 +133,9 @@ def lint(path, limit, final):
             for w in FIRST_PERSON:
                 if w in plain:
                     err(i, "first-person", f"'{w}': use impersonal phrasing")
+        no_notes = re.sub(r"\\(footnote|TODO)\{[^{}]*(\{[^{}]*\}[^{}]*)*\}", " ", plain)
+        if "תדריך" in no_notes:
+            err(i, "briefing-cite", "cite the briefing in a \\footnote{תדריך הניסוי, עמ׳ N.}, not inline")
         if re.search(r"ערך[\s\-־]*p\b", plain):
             err(i, "p-value", "write \\textenglish{p-value}, not 'ערך p'")
         for sentence in re.split(r"(?<=\.)\s", plain):
