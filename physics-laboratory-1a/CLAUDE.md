@@ -21,7 +21,8 @@ Never the Moodle forum. Rules outrank past reports as templates. Where sources o
 
 **Each section.**
 - Procedure: past tense, impersonal, what was actually done; N from the briefing/instructor → name the source.
-- The briefing is cited in a footnote (`\footnote{תדריך הניסוי, עמ׳ N.}`), never inline.
+- The briefing is cited in a footnote (`\footnote{תדריך הניסוי, עמ׳ N.}`), never inline. Only where the text gives no reason
+  of its own (e.g. a briefing-given N), not for definitions or self-explained steps.
 - Analysis plan: future impersonal. Per fit: x, y, each parameter's meaning and expected value,
   in words with the symbol (G p.3: "ציר ה-x הוא ציר הזמן t", "הפרמטר a0 מתאר את ..."). The fitted model is numbered.
   Source for every theoretical value. Statistics: χ²_red, p-value, residuals, Nσ ≤ 3, relative error.

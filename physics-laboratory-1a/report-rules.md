@@ -78,7 +78,7 @@ In course A1 the background is taken from the Moodle theory file. Short, relevan
 1. System description + equipment list **with the resolution of every measuring instrument**.
 2. Schematic figure; every component labelled with its number in the equipment list.
 3. Procedure: assembly, how each measurement is taken, exact quantities measured, number of repetitions, scales/ranges.
-4. Explain decisions (why these values, why N repetitions, etc.). When N comes from the briefing or the instructor, name that source instead of a reason; justify only N we chose ourselves (user, conflict C3, 2026-11-22). **The briefing is cited in a footnote, never inline: `\footnote{תדריך הניסוי, עמ׳ N.}`** (user, 2026-11-22; lint check `briefing-cite`).
+4. Explain decisions (why these values, why N repetitions, etc.). When N comes from the briefing or the instructor, name that source instead of a reason; justify only N we chose ourselves (user, conflict C3, 2026-11-22). **The briefing is cited in a footnote, never inline: `\footnote{תדריך הניסוי, עמ׳ N.}`** (user, 2026-11-22; lint check `briefing-cite`). Cite it only where the text gives no reason of its own (a briefing-given N); not for definitions or steps the sentence already explains (user, 2026-11-22).
 5. Describe only what was actually done. Simple, clear, hierarchical structure.
 6. Source/reference for every theoretical value.
 
