@@ -46,3 +46,9 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 > 3.אכן אתה צודק, תתייחס למה שצריך להיות ולא למה שמופיע בתדריך.
 >
 > רן.
+
+---
+
+## For the next email to Ran (collect here; not sent)
+
+- Tube dimensions (length, inner diameter): not in any staff file and not recorded by the user. Dropped from the equipment list for now (user, 2026-11-22). Ask Ran whether they are known / needed. (todo 7g)

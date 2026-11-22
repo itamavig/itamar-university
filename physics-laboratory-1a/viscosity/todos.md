@@ -8,7 +8,7 @@ Rules: [../report-rules.md](../report-rules.md) (general) + [report-rules.md](re
   - Files: `רקע תיאורטי צמיגות תשפב.pdf` (628,644 B), `תדריך עבודה צמיגות תשפז.pdf` (838,443 B), `פורמט רקע תיאורטי צמיגות - חדש.docx` (18,338 B; saved as `theory-background-format.docx`, as in freefall/ and heat-conduction/)
   - Not files: "דוח מעבדה צמיגות" is the upload assignment (due: two weeks from the day the experiment was done, no attachments); "תוכנת Tracker" links to https://physlets.org/tracker/
   - 2026-11-21: the built-in browser pane cannot save downloads (no file in ~/Downloads, direct navigation refused, and a 127.0.0.1 receiver got no request). Waiting on the user: Claude in Chrome, or the user clicks the three links
-- [ ] 2. Moodle Q&A forum "שאלות תשובות - צמיגות", read 2026-11-21: one student question (16.11.2026, 0 replies) — the briefing looks old: its exponential v(t) fit (V0, Vf) is not needed? Proposed fits: (1) mass vs volume, linear → density; (2) position vs time, linear → terminal speed; (3) speed vs R², linear → η. Re-check for a staff answer before planning the analysis
+- [x] 2. DROPPED 2026-11-22 — user: the forum is not a reliable source, never treat it as one. Old note kept for history: Moodle Q&A forum "שאלות תשובות - צמיגות", read 2026-11-21: one student question (16.11.2026, 0 replies) — the briefing looks old: its exponential v(t) fit (V0, Vf) is not needed? Proposed fits: (1) mass vs volume, linear → density; (2) position vs time, linear → terminal speed; (3) speed vs R², linear → η. Re-check for a staff answer before planning the analysis
 - [x] 3. Staff files read (2026-11-21). Letters as in the other experiments: T = theory PDF (תשפ"ב, 4 pp.), B = briefing (תשפ"ז, 10 Oct 2026, 10 pp.), F = theory-format docx
   - Goal (B p.1): "מציאת ערך צמיגות הגליצרין ואימות חוק סטוקס"
   - F = the theory section to copy: formulas (1) Stokes, (2) Newton, (3) v_f, (4) v(t) exponential + τ, (5) η = A·e^{B/T}, (6) t = C·e^{D/T}; T in °C per F. Its cover is an old template (סמסטר ב' תשס"ב) — we use our own cover
@@ -38,3 +38,12 @@ Rules: [../report-rules.md](../report-rules.md) (general) + [report-rules.md](re
   - 7h. Photos (user, 2026-11-22: "photos and schematic"): IMG_8522–8524 from the user, cropped/compressed into report/figures/ (8522 rotated upright). Fig. 2 = tube + camera, fig. 3 = part א instruments; numbered labels placed by Claude. New equipment item 13: magnet + ferromagnetic needle for holding the balls (user's explanation). APPROVED and turned black 2026-11-22 (user). Not in any photo: hydrometer (6), ruler (7), temperature sensor (11)
   - 7i. Stages rewrite (user review 2026-11-22): א2 rephrased; ב2 confirmed by user — 21 cm measured once with the ruler (red removed); ב3 rephrased; ב4: "מקל הכיול" dropped (B itself only says "Calibration Stick" in English), manual corrections in Tracker added (user), mis-calibration stated as "הכיול לא עודכן" without "עקב טעות אנוש". Still blue; א3 temperature confirmation still red (7e)
   - 7j. 2026-11-22: א3 temperature method confirmed by user (red removed; 7e closed). ב4: Excel-copy sentence dropped — the analysis section shows the data is processed; the correction sentence doesn't need it
+  - 7k. 2026-11-22: theory typos kept verbatim (user: "keep theory as is"; 7b closed). Tube dimensions dropped from item 1 (user); question parked in instructor-questions.md "For the next email" (7g → next Ran email). Stages approved → black. Fixed a semicolon Claude had put in stage ב4 (rule 2.4a)
+- [ ] 8. Analysis plan — DRAFT in main.tex (blue), 2026-11-22. Formulas (7)–(16), 10 of 18. Waiting on the user's 5 decisions (red in PDF):
+  - 8.1 Δt and Δy of the Tracker data (B step 3)
+  - 8.2 velocity derivative: central or forward difference
+  - 8.3 fit א: how to extract v_f (mean of v vs linear y(t)) + deterministic rule for the terminal region (B step 4)
+  - 8.4 g value, its error and source (no viscosity staff file gives one)
+  - 8.5 theoretical η at 23.116 °C from B appendix א graph: read directly / fit formula (5) to the marked points / linear interpolation 20–25 °C
+  - Also for review (blue, Claude's choices): density fit over all 18 balls (m vs V); dropped ball's radius = category mean with stat+res error (11); τ not used for η (B appendix p.8); initial guesses for fit ב
+  - Then: analysis.py (todo 9, not started)
