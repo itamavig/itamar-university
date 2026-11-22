@@ -16,6 +16,8 @@
 % \textcolor leaked to whole RTL lines; luacolor colours per character.
 \usepackage{luacolor}
 \usepackage[bidi=basic, layout=lists.tabular, main=hebrew, english]{babel}
+% Clickable references; hidelinks keeps font and colour unchanged (user, 2026-11-22).
+\usepackage[hidelinks]{hyperref}
 % Times New Roman (macOS system font, has Hebrew). Frank Ruehl CLM's digits read as bold.
 \babelfont[hebrew]{rm}{Times New Roman}
 \newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
@@ -38,7 +40,11 @@
   \colorlet{addedblue}{black}
   \colorlet{partnergreen}{black}
 \fi
-\newcommand{\added}[1]{\textcolor{addedblue}{#1}}
+% Review aid (user, 2026-11-22): the first \added{} gets the anchor "firstblue"; while review is on and
+% blue text exists, page 1 of the PDF carries a link to it (overlay, layout unchanged). It disappears by
+% itself once no \added{} is left, or with \reviewfalse.
+\newif\iffirstblue \firstbluetrue
+\DeclareRobustCommand{\added}[1]{\iffirstblue\global\firstbluefalse\hypertarget{firstblue}{}\label{firstblue}\fi\textcolor{addedblue}{#1}}
 \newcommand{\partner}[1]{\textcolor{partnergreen}{#1}}
 
 % Visible placeholder for anything not written yet. Must not survive into the submitted PDF.
@@ -53,6 +59,13 @@
 \input{numbers.tex}
 
 \begin{document}
+\ifreview\ifcsname r@firstblue\endcsname
+  % LTR around the picture: under RTL the overlay coordinates are mirrored off the page.
+  \AddToHookNext{shipout/foreground}{\begin{otherlanguage}{english}\begin{tikzpicture}[remember picture, overlay]
+    \node[below=6mm, fill=yellow!40, draw=blue, font=\small] at (current page.north)
+      {\foreignlanguage{hebrew}{\hyperlink{firstblue}{\textcolor{blue}{לטקסט הכחול הראשון (עמוד \pageref{firstblue})}}}};
+  \end{tikzpicture}\end{otherlanguage}}
+\fi\fi
 \input{cover.tex}
 \setcounter{page}{1}
 
