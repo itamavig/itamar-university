@@ -57,3 +57,4 @@ ef) = 12 links in PDF, all to the right pages
   - 8.10 2026-11-22 (user): V and ΔV merged into one formula (8). m = ρ_b V numbered (9) as the fitted model (rules 3.7). Axes of all 3 fits described in words + symbol, per G p.3 (also added to report-rules §4.4.2 and the rules card). Still 10/18
   - 8.11 2026-11-22 (user): r̄² and its error merged (14), η and Δη merged (15). 9/18
   - 8.12 2026-11-22 (user): bars dropped from m, d, r — "המסה m והקוטר d של כל קבוצה יחושבו כממוצע" defines them as group means; r now matches the theory symbol in (3)
+  - 8.13 2026-11-22 (user): plan part א temperature = as in the procedure (mean over 4 h), no numeric value in the plan (card rule)
