@@ -30,6 +30,8 @@ Rules: [../report-rules.md](../report-rules.md) (general) + [report-rules.md](re
   - 7b. Theory: F verbatim, formulas (1)–(6) numbered as in F. Red spots (fix or keep verbatim?): "שוות;" (semicolon, rule 2.4a), "הנקראת" → "הנקראות", "מהמהירות הקריטיות" → "הקריטית", "נסוני" → "ניסיוני", "צמיגיות" → "צמיגות", "אמיפריים" → "אמפיריים". Not flagged, verbatim: (1) uses u for velocity while (3)–(4) use v; (5)–(6) give T in °C
   - 7c. Equipment list (user review 2026-11-22): ruler 1 mm; temperature sensor 0.001 °C, inferred from the last digit of 23.116 per user; "דיגיטליות" → "דיגיטליים". Still red: tube length and inner diameter (not in B, T, F or the data file; user asked to add them)
   - 7d0. System paragraph APPROVED 2026-11-22 (user)
+  - 2026-11-22: goals, system paragraph, figure caption and equipment list turned black (approved). Tube length/diameter stay red, blank for now (user: "for now it stays blank"; not in any staff file) — picked up in 7g
+  - 7g. Tube dimensions: user to supply, or drop them, before submission
   - 7d. Schematic figure: Claude's TikZ drawing (side view), no photo in B fits
   - 7e. Stages — please confirm (red in PDF): temperature measured as B says (Capstone, mean over 4 h, one computer)? 21 cm = distance between the height markers, measured with the ruler? Also review: stage ב4 states that balls 3–6 kept Tracker's default 1 m and were corrected per the instructor
   - 7f. Not written yet: frame counts / drop length (to come from analysis.py, not typed by hand)
