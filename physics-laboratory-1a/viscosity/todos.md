@@ -66,3 +66,4 @@ ef) = 12 links in PDF, all to the right pages
 ## Notes for the discussion (picked up when writing the discussion, todo 11)
 - [ ] 11. Discussion notes
   - 11a. Scale and breathing (user, 2026-11-22): breathing close to the scale changed the balls' mass reading. Noticed during the session, so some mass measurements taken before that may be affected. Affects: m per group → ρ_b (fit (10)/(11)) → η (15). Tie it to a result only if the mass data or the density fit shows it (rules 4.6.2); do not list it unconnected
+  - 8.18 2026-11-22 (user): hydrometer resolution 0.002 g/cm³ (sheet says 0.001). Equipment item 6 fixed; analysis.py overrides the sheet (HYDROMETER_RES, asserts the sheet still says 0.001); recorded in viscosity/report-rules.md §3. Checked: part_a() returns res 0.002

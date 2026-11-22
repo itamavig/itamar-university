@@ -17,6 +17,7 @@ from labtools.fit import calc_stats, linear, odr_fit  # noqa: F401  (used once t
 from labtools.rounding import round_2sf, tex_number, tex_pm, tex_rel, write_numbers  # noqa: F401
 
 HERE = Path(__file__).resolve().parent
+HYDROMETER_RES = 0.002  # g/cm^3 (user, 2026-11-22; the sheet says 0.001)
 ROOT = HERE.parent
 XLSX = ROOT / "viscosity measurements.xlsx"  # raw data as exported in the lab (DATA in ../Makefile)
 REPORT = ROOT / "report"
@@ -34,7 +35,10 @@ def part_a():
     cells = raw.to_numpy()
     rho_row = next(i for i, r in enumerate(cells) if r[0] == "glycerin density") + 2
     assert list(cells[rho_row - 1][:3]) == ["no.", "rho (g/cm^3)", "resolution (g/cm^3)"]
-    out = {"rho": {"value": float(cells[rho_row][1]), "res": float(cells[rho_row][2])}, "categories": {}}
+    # Hydrometer resolution: the sheet says 0.001 g/cm^3, the instrument's is 0.002 (user, 2026-11-22).
+    # The raw file is left as exported; the correction is made here.
+    assert float(cells[rho_row][2]) == 0.001, "hydrometer resolution in the sheet changed: re-check the override"
+    out = {"rho": {"value": float(cells[rho_row][1]), "res": HYDROMETER_RES}, "categories": {}}
     header = ["no.", "mass (g)", "mass res (g)", "diameter (mm)", "res diameter (mm)"]
     for i, r in enumerate(cells):
         if isinstance(r[1], str) and r[1].startswith("category "):

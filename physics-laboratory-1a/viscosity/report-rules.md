@@ -17,3 +17,4 @@ Sources:
 - v_f is fitted against r² (B says "as a function of the radius"; formula (3) is linear in r²).
 - No calibration distance in the report data: the scale was set inside Tracker.
 - Part-a sheet: the 3 rows per category are 3 balls drawn at random, with replacement, from a pool of ~6–10 balls of that size; the dropped ball came from the same pool.
+- Hydrometer resolution is 0.002 g/cm³, not the 0.001 in the data sheet (user, 2026-11-22). Equipment list fixed; analysis.py overrides the sheet (HYDROMETER_RES).

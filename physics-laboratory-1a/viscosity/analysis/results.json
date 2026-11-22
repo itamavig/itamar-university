@@ -2,7 +2,7 @@
   "part_a": {
     "rho": {
       "value": 1.238,
-      "res": 0.001
+      "res": 0.002
     },
     "categories": {
       "1": [
