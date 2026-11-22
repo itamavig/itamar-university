@@ -7,3 +7,7 @@ PY := $(LAB_ROOT)/.venv/bin/python -W ignore::DeprecationWarning
 
 # The shared Python package: a change there reruns every experiment's analysis.
 LABTOOLS := $(wildcard $(LAB_ROOT)/labtools/*.py)
+
+# Rule lint (labtools/lint_report.py), run before LaTeX: stops the build on a broken report rule.
+# Each experiment sets FORMULA_LIMIT (Moodle). `make FINAL=1` also fails on blue/red left in.
+LINT = $(PY) -m labtools.lint_report $(CURDIR)/report/main.tex --limit $(FORMULA_LIMIT) $(if $(FINAL),--final)

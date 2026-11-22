@@ -3,10 +3,14 @@
 include ../common.mk
 .DEFAULT_GOAL := report/main.pdf
 
+# Numbered-formula limit from Moodle (theory formulas excluded, rules 3.1). Checked by $(LINT).
+FORMULA_LIMIT := 18
+
 # Raw data as exported in the lab. Escape spaces with a backslash: my\ data.xlsx
 DATA := viscosity\ measurements.xlsx
 
 report/main.pdf: report/numbers.tex report/*.tex
+	cd $(LAB_ROOT) && $(LINT)
 	cd report && latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
 
 # Every file analysis.py writes besides numbers.tex (tables, raw_*.tex) goes here as well:

@@ -1,6 +1,7 @@
 # Lab report rules — Physics Lab 1a (all experiments)
 
 Compact English digest of the Hebrew guidelines. Reports are written in Hebrew.
+Pattern rules are checked by `labtools/lint_report.py` on every `make`; the judgement rules are summarised in [CLAUDE.md](CLAUDE.md) (rules card, 2026-11-22).
 Experiment-specific rules (limits, equipment, formulas, open items) live in `<experiment>/report-rules.md`, e.g. [freefall/report-rules.md](freefall/report-rules.md).
 
 Sources (built 2026-10-26):
