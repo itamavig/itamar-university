@@ -59,3 +59,4 @@ ef) = 12 links in PDF, all to the right pages
   - 8.12 2026-11-22 (user): bars dropped from m, d, r — "המסה m והקוטר d של כל קבוצה יחושבו כממוצע" defines them as group means; r now matches the theory symbol in (3)
   - 8.13 2026-11-22 (user): plan part א temperature = as in the procedure (mean over 4 h), no numeric value in the plan (card rule)
   - 8.14 2026-11-22: plan part א APPROVED → black
+  - 8.15 2026-11-22 (user): Tracker y origin never set and differs per video (ball tracked from varying heights) → y meaningful only relative within a video; plan uses only y differences (velocity). Tracker time starts at video start, before the drop → t shifted to first tracked frame. Both in plan part ב (blue)
