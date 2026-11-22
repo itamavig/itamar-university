@@ -134,6 +134,7 @@ t = C e^{\frac{D}{T}}
   \item בריסטול לבן.
   \item חיישן טמפרטורה המחובר למחשב עם תוכנת \textenglish{Capstone}, ברזולוציה של $0.001\U{^\circ C}$.
   \item מחשב עם תוכנת העקיבה \textenglish{Tracker}.
+  \item \added{מגנט ומחט פרומגנטית: המחט ממוגנטת על ידי המגנט ומשמשת לאחיזת הכדורים, שקטנים מכדי לאחוז בהם באצבעות.}
 \end{enumerate}
 
 % Schematic, Claude's drawing (no usable photo in the briefing). Side view: camera (8) on its tripod
@@ -169,6 +170,38 @@ t = C e^{\frac{D}{T}}
   \end{otherlanguage}
   \caption{תרשים סכמטי של מערכת הניסוי, מבט מהצד: המצלמה על החצובה מול המבחנה המלאה בגליצרין, ומאחורי המבחנה הבריסטול. הקווים המקווקווים מסמנים את שדה הראייה של המצלמה. המספור תואם לרשימת הציוד.}
   \label{fig:system}
+\end{figure}
+
+% Photos of the setup, taken by the user in the lab (IMG_8522-8524, 2026-11-22; cropped, IMG_8522 rotated
+% upright). Labels = equipment-list numbers, placed by Claude (fractions of the photo, origin bottom-left).
+% Not in any photo: hydrometer (6), ruler (7), temperature sensor (11).
+\newcommand{\labeledphoto}[3]{%
+  \begin{tikzpicture}
+    \node[anchor=south west, inner sep=0] (img) at (0,0) {\includegraphics[#1]{#2}};
+    \begin{scope}[x={(img.south east)}, y={(img.north west)}] #3 \end{scope}
+  \end{tikzpicture}}
+\begin{figure}[H]
+  \centering
+  \begin{otherlanguage}{english}
+  \labeledphoto{height=8.5cm}{figures/photo-tube.jpg}{%
+    \eqlabel{0.45}{0.62}{1} \eqlabel{0.57}{0.72}{2} \eqlabel{0.57}{0.52}{2}
+    \eqlabel{0.15}{0.70}{10} \eqlabel{0.85}{0.62}{12} \eqlabel{0.62}{0.10}{3}}%
+  \hspace{0.4cm}%
+  \labeledphoto{height=8.5cm}{figures/photo-camera.jpg}{%
+    \eqlabel{0.30}{0.70}{8} \eqlabel{0.44}{0.17}{9} \eqlabel{0.88}{0.80}{1} \eqlabel{0.70}{0.86}{10}}
+  \end{otherlanguage}
+  \caption{\added{תמונות של מערכת הניסוי במעבדה. משמאל: המבחנה עם סמני הגובה, הבריסטול מאחוריה, מגש הכדורים והמחשב. מימין: המצלמה על החצובה מול המבחנה. המספור תואם לרשימת הציוד.}}
+  \label{fig:photos-setup}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{otherlanguage}{english}
+  \labeledphoto{width=0.6\textwidth}{figures/photo-part-a.jpg}{%
+    \eqlabel{0.17}{0.25}{4} \eqlabel{0.28}{0.88}{5} \eqlabel{0.83}{0.30}{13}}
+  \end{otherlanguage}
+  \caption{\added{המכשירים לחלק א׳: המאזניים, המיקרומטר, והמגנט עם המחט הפרומגנטית המשמשת לאחיזת הכדורים. המספור תואם לרשימת הציוד.}}
+  \label{fig:photos-part-a}
 \end{figure}
 
 \subsection*{שלבי הניסוי}
