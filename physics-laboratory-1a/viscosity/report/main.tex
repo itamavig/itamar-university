@@ -17,6 +17,9 @@
 % \textcolor leaked to whole RTL lines; luacolor colours per character.
 \usepackage{luacolor}
 \usepackage[bidi=basic, layout=lists.tabular, main=hebrew, english]{babel}
+% Clickable references to the report's own formulas/figures. hidelinks: no box, no colour change, so a
+% reference keeps the font and colour of the text around it (user, 2026-11-22). Booklet formulas ("בחוברת") stay plain text.
+\usepackage[hidelinks]{hyperref}
 % Times New Roman (macOS system font, has Hebrew). Frank Ruehl CLM's digits read as bold.
 \babelfont[hebrew]{rm}{Times New Roman}
 \newcommand{\textenglish}[1]{\foreignlanguage{english}{#1}}
@@ -92,7 +95,7 @@ v_f = \frac{2g(\rho_b - \rho_l)r^2}{9\eta}
 \end{equation}
 כאשר $\rho_b$ צפיפות הכדור, $\rho_l$ צפיפות הנוזל, $r$ רדיוס הכדור ו-$v_f$ מהירות סופית.
 
-משוואה (2) היא למעשה משוואה דיפרנציאלית עבור מהירות הכדור. מפתרון המשוואה מתקבלת מהירות הכדור כתלות בזמן:
+משוואה \eqref{eq:newton} היא למעשה משוואה דיפרנציאלית עבור מהירות הכדור. מפתרון המשוואה מתקבלת מהירות הכדור כתלות בזמן:
 \begin{equation}\label{eq:vt}
 v(t) = v_f + (v_0 - v_f)\exp\left(-\frac{t}{\tau}\right), \qquad \tau = \frac{2\rho_b r^2}{9\eta}
 \end{equation}
@@ -102,7 +105,7 @@ v(t) = v_f + (v_0 - v_f)\exp\left(-\frac{t}{\tau}\right), \qquad \tau = \frac{2\
 \begin{equation}\label{eq:etaT}
 \eta = A e^{\frac{B}{T}}
 \end{equation}
-כאשר $\eta$ הינה הצמיגות ביחידות של \textenglish{poise}, $T$ הטמפרטורה ביחידות צלזיוס ו-$A, B$ הינם קבועים אמפיריים הנקבעים לפי גרף נסוני של צמיגיות כתלות בטמפרטורה. מנוסחה (5) ומיחידות הצמיגות אנו יכולים להסיק כי הצמיגות תלויה בזמן הנפילה ולכן נקבל את הקשר:
+כאשר $\eta$ הינה הצמיגות ביחידות של \textenglish{poise}, $T$ הטמפרטורה ביחידות צלזיוס ו-$A, B$ הינם קבועים אמפיריים הנקבעים לפי גרף נסוני של צמיגיות כתלות בטמפרטורה. מנוסחה \eqref{eq:etaT} ומיחידות הצמיגות אנו יכולים להסיק כי הצמיגות תלויה בזמן הנפילה ולכן נקבל את הקשר:
 \begin{equation}\label{eq:tT}
 t = C e^{\frac{D}{T}}
 \end{equation}
@@ -269,7 +272,7 @@ v_i = \left|\frac{y_{i+1}-y_{i-1}}{t_{i+1}-t_{i-1}}\right|
 
 \subsection*{התאמה א׳ -- המהירות הסופית מנתוני המהירות}
 \added{לכל כדור תחולץ המהירות הסופית $v_f$ מנתוני המהירות בתחום שבו הכדור כבר הגיע למהירות קבועה.}
-\TODO{החלטה 3: איך לחלץ את $v_f$ ומה שגיאתה (התדריך, שלב 4, שואל זאת)? אפשרות (א): ממוצע $v_i$ בתחום הקבוע, ושגיאה סטטיסטית (נוסחאות (32), (34)). אפשרות (ב): התאמה לינארית (נוסחה \eqref{eq:linfit}) של $y$ כתלות ב-$t$ בתחום הקבוע, כך ש-$v_f=|a_1|$. בשתיהן צריך כלל דטרמיניסטי לבחירת התחום הקבוע. למשל: מהפריים שבו עבר זמן של כמה $\tau$ צפויים מתחילת הנפילה, לפי נוסחה \eqref{eq:vt}.}
+\TODO{החלטה 3: איך לחלץ את $v_f$ ומה שגיאתה (התדריך, שלב 4, שואל זאת)? אפשרות (א): ממוצע $v_i$ בתחום הקבוע, ושגיאה סטטיסטית (נוסחאות (32), (34) בחוברת). אפשרות (ב): התאמה לינארית (נוסחה \eqref{eq:linfit}) של $y$ כתלות ב-$t$ בתחום הקבוע, כך ש-$v_f=|a_1|$. בשתיהן צריך כלל דטרמיניסטי לבחירת התחום הקבוע. למשל: מהפריים שבו עבר זמן של כמה $\tau$ צפויים מתחילת הנפילה, לפי נוסחה \eqref{eq:vt}.}
 
 \subsection*{התאמה ב׳ -- התאמה אקספוננציאלית למהירות}
 \added{לכל כדור תותאם נוסחה \eqref{eq:vt} לנתוני המהירות כתלות בזמן, כאשר $x=t$ ו-$y=v$. הפרמטרים הם $v_f$, $v_0$ ו-$\tau$. $v_f$ צפויה להיות המהירות שאליה מתייצבים הנתונים בסוף הנפילה, $v_0$ המהירות בפריים הראשון, ו-$\tau$ זמן הדעיכה. אלה גם יהיו הניחושים ההתחלתיים להתאמה: $v_0$ כמהירות הראשונה שנמדדה, $v_f$ כמהירות האחרונה, ו-$\tau$ לפי נוסחה \eqref{eq:vt} עם הצמיגות התיאורטית. הצמיגות לא תחולץ מ-$\tau$: קצב הדגימה של המצלמה, כ-$30\U{ms}$, ארוך מזמן הדעיכה הצפוי, ונגזרת הגובה מגדילה את הרעש דווקא בפריימים הראשונים שקובעים את $\tau$ (תדריך הניסוי, נספח עמ׳ 8). לכן מהתאמה זו יילקח רק $v_f$, עם שגיאתו מההתאמה.}

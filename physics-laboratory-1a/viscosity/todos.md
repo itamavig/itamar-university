@@ -47,3 +47,4 @@ Rules: [../report-rules.md](../report-rules.md) (general) + [report-rules.md](re
   - 8.5 theoretical η at 23.116 °C from B appendix א graph: read directly / fit formula (5) to the marked points / linear interpolation 20–25 °C
   - Also for review (blue, Claude's choices): density fit over all 18 balls (m vs V); dropped ball's radius = category mean with stat+res error (11); τ not used for η (B appendix p.8); initial guesses for fit ב
   - Then: analysis.py (todo 9, not started)
+  - 7l. 2026-11-22: formula references are clickable links (hyperref [hidelinks], no colour/font change; user). Theory "(2)", "(5)" now qref, same output. Booklet refs ("בחוברת") stay plain. Check: 12 refs in source (11 qref + 1 ef) = 12 links in PDF, all to the right pages
