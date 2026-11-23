@@ -49,13 +49,13 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 
 ---
 
-## For the next email to Ran (collect here; not sent)
+## Second email (sent by the user 2026-11-22, answered by Ran the same day)
 
 - Tube dimensions (length, inner diameter): not in any staff file and not recorded by the user. Dropped from the equipment list for now (user, 2026-11-22). Ask Ran whether they are known / needed. (todo 7g)
 
 - Δy of the Tracker positions (todo 8.1, user 2026-11-22: "phrase an email to Ran asking whether the recommended one is a good option, include a source"). Draft below. User 2026-11-22: questions only, no suggested method (the successive-difference idea and its source were removed).
 
-### Draft (not sent)
+### As drafted (the user sent it, lightly reworded)
 
 **נושא:** דוח צמיגות – שגיאת המיקום ב-Tracker ומידות המבחנה
 
@@ -72,3 +72,9 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 
 תודה,
 איתמר
+
+**Ran's reply (Sun 2026-11-22, 19:14), verbatim:**
+
+> היי,
+> לגבי 1 שגיאת הגובה היא שגיאת הסרגל כפי שהגדרתי במעבדה, שים לב שבאופן כללי זה יתן הערכת יתר.
+> לגבי 2 אין צורך
