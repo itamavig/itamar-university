@@ -28,6 +28,7 @@ Checks (rule numbers from report-rules.md):
   forward-ref   3.5   no \\eqref before the formula's \\label
   limit         3.1   numbered formulas outside the theory section <= --limit
   briefing-cite (user 2026-11-22) the briefing is cited in a footnote, never inline
+  footnote-mark (user 2026-11-23) footnote marker before punctuation, not after
   colours       2.4c  with --final: no \\added, \\TODO, \\flagged, \\partner left
 """
 import argparse
@@ -136,6 +137,8 @@ def lint(path, limit, final):
         no_notes = re.sub(r"\\(footnote|TODO)\{[^{}]*(\{[^{}]*\}[^{}]*)*\}", " ", plain)
         if "תדריך" in no_notes:
             err(i, "briefing-cite", "cite the briefing in a \\footnote{תדריך הניסוי, עמ׳ N.}, not inline")
+        if re.search(r"[.,:]\\footnote\{", text):
+            err(i, "footnote-mark", "footnote marker goes before the punctuation: word\\footnote{...}, not word,\\footnote{...}")
         if re.search(r"ערך[\s\-־]*p\b", plain):
             err(i, "p-value", "write \\textenglish{p-value}, not 'ערך p'")
         for sentence in re.split(r"(?<=\.)\s", plain):

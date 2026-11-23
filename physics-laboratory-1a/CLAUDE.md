@@ -3,7 +3,7 @@
 Loaded into every session here. The full rules are `report-rules.md` (+ `<experiment>/report-rules.md`);
 this card holds the judgement rules, and `labtools/lint_report.py` (run by `make`) checks the
 pattern rules: semicolons, "p-value", first person, slash fractions, written-out booklet formulas,
-booklet citations, briefing citations in footnotes, forward references, formula limit, colours (`make FINAL=1`). Fix lint failures,
+booklet citations, briefing citations in footnotes, footnote marker before punctuation, forward references, formula limit, colours (`make FINAL=1`). Fix lint failures,
 don't suppress them without the user's yes (`% lint-ok: <check> (why)`).
 Read a section of `report-rules.md` only when writing something this card doesn't cover.
 
