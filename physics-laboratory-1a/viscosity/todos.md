@@ -77,3 +77,4 @@ ef) = 12 links in PDF, all to the right pages
   - 11c. Ran: the ruler-based Δy is in general an over-estimate → discuss with χ²_red / p-value of the fits (over-estimated errors → small χ²_red)
   - 8.25 2026-11-23 (user asked how Δy works for balls 3–6): same ruler error for all 6 — ×21 is equivalent to calibrating with the same ruler-measured 21 cm. One sentence added to the plan (blue)
   - 8.26 2026-11-23 (user): v_i = −(y_{i+1}−y_{i−1})/(t_{i+1}−t_{i−1}) — minus sign instead of |…| (y axis points up, ball falls → v positive, matches (3), slope and η positive). "Before/after" words dropped; frames named i−1 and i+1
+  - 8.27 2026-11-23 (user): minus sign in (12) explained by the theory axis (down positive, mg positive in (2)), not "to make it positive"
