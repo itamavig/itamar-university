@@ -81,8 +81,14 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 
 ---
 
-## For the next email to Ran (collect here; not sent)
+## Third email (sent by the user 2026-11-23, answered by Ran the same day)
 
 - g (todo 8.4, user 2026-11-23: "I will ask ran"). The plan uses g = 981 cm/s². Question: does g have an error we should use (the free-fall report used 9.81 ± 0.10 m/s² from that experiment's theory file), and what should we cite as its source? Draft wording:
 
   > היי רן, שאלה נוספת לגבי דוח הצמיגות: בחילוץ הצמיגות אני משתמש ב-g = 981 cm/s². האם יש לו שגיאה שצריך להתחשב בה, ומה המקור שכדאי לציין עבורו?
+
+Sent by the user (2026-11-23, 12:28), as worded: "באיזה ערך של g עלינו להשתמש? 981±10 cm/s^2? או שעלינו להשמיט את השגיאה?"
+
+**Ran's reply (2026-11-23, 13:57), verbatim:**
+
+> כן זה הערך, צריך להתחשב גם בשגיאה

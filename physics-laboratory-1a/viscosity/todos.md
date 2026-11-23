@@ -90,3 +90,4 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
   - 8.33 2026-11-23: plan part ב data section (heights, origin, time shift, Δt, Δy, (12), (13)) APPROVED → black
   - 8.34 2026-11-23 (user): region choice stated as visual ("באופן חזותי"), from the v(t) graph of (12) — gives (12)/(13) their role
   - 8.35 2026-11-23: v_f section APPROVED → black
+  - 8.36 2026-11-23: Ran: g = 981 ± 10 cm/s², include the error → in plan (blue), red removed; 8.4 CLOSED. Reply verbatim in instructor-questions.md, ruling in report-rules §2
