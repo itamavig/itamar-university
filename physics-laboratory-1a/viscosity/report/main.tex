@@ -323,13 +323,23 @@ x = r^2 \pm 2r\,\Delta r
 \subsection*{צפיפות הכדורים והגליצרין}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.55\textwidth]{figures/density-fit.pdf}
-  \caption{\added{המסה הממוצעת של כל קבוצת כדורים $m$ בגרמים כתלות בנפח הכדורים בקבוצה $V$ בסנטימטרים מעוקבים, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit} (צלבי השגיאה קטנים מכדי להיראות).}}
-  \label{fig:density-fit}
+  % RTL: the first minipage lands on the right, so the fit (read first) comes first.
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/density-fit.pdf}
+    \caption{\added{המסה הממוצעת של כל קבוצת כדורים $m$ בגרמים כתלות בנפח הכדורים בקבוצה $V$ בסנטימטרים מעוקבים, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit} (צלבי השגיאה קטנים מכדי להיראות).}}
+    \label{fig:density-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/density-res.pdf}
+    \caption{\added{גרף השארים של התאמת המסה לנפח: ההפרש בין המסה הממוצעת לבין ערך פונקציית ההתאמה, בגרמים, כתלות ב-$V$ בסנטימטרים מעוקבים.}}
+    \label{fig:density-res}
+  \end{minipage}
 \end{figure}
-\added{גרף ההתאמה מוצג באיור~\ref{fig:density-fit}. ששת הערכים הממוצעים של הקבוצות מוצגים בטבלה~\ref{tab:groups} בנספחים. נקודות המדידה נמצאות על קו ההתאמה או בסמוך מאוד אליו. גרף השארים, באיור~\ref{fig:density-res} בנספחים, מראה פיזור אקראי של הנקודות סביב קו האפס, וכל הנקודות נמצאות במרחק של פחות משני צלבי שגיאה ממנו.}
+\added{גרף ההתאמה מוצג באיור~\ref{fig:density-fit}. ששת הערכים הממוצעים של הקבוצות מוצגים בטבלה~\ref{tab:groups} בנספחים. נקודות המדידה נמצאות על קו ההתאמה או בסמוך מאוד אליו. גרף השארים, באיור~\ref{fig:density-res}, מראה פיזור אקראי של הנקודות סביב קו האפס, וכל הנקודות נמצאות במרחק של פחות משני צלבי שגיאה ממנו.}
 
-\added{צלב השגיאה האנכי של הנקודה של קבוצה 1, בעלת הנפח הגדול ביותר, גדול בהרבה מאלה של שאר הנקודות. שגיאת המסה הממוצעת שלה היא $\DmGroupOne\U{g}$, ובשאר הקבוצות היא $\DmOthersMax\U{g}$ לכל היותר. בקבוצה זו המסה והקוטר של הכדור השלישי קטנים מאלה של שני הכדורים האחרים (טבלה~\ref{tab:raw} בנספחים).}
+\added{בגרף השארים, צלב השגיאה האנכי של הנקודה של קבוצה 1, בעלת הנפח הגדול ביותר, גדול בהרבה מאלה של שאר הנקודות. שגיאת המסה הממוצעת שלה היא $\DmGroupOne\U{g}$, ובשאר הקבוצות היא $\DmOthersMax\U{g}$ לכל היותר. בקבוצה זו המסה והקוטר של הכדור השלישי קטנים מאלה של שני הכדורים האחרים (טבלה~\ref{tab:raw} בנספחים).}
 
 \added{מההתאמה התקבלו $a_1 = \DensAOne\U{g/cm^3}\ (\DensAOneRel)$ ו-$a_0 = \DensAZero\U{g}\ (\DensAZeroRel)$. לפי נוסחה \eqref{eq:rhob}, צפיפות הכדורים היא $\rho_b = \RhoB\U{g/cm^3}\ (\RhoBRel)$. שגיאתו היחסית של $a_0$ גדולה מ-100\%. עבור ההתאמה התקבלו $\chi^2_{red} = \DensChi$ ו-\textenglish{p-value} של $\DensP$, בתחום $0.05 \le p \le 0.95$, כלומר $\chi^2_{red}$ סביר למספר דרגות החופש.}
 
@@ -414,15 +424,7 @@ x = r^2 \pm 2r\,\Delta r
   \label{tab:groups}
 \end{table}
 
-\subsection*{נספח ב׳ -- גרף השארים של התאמת הצפיפות}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.55\textwidth]{figures/density-res.pdf}
-  \caption{\added{גרף השארים של התאמת המסה לנפח: ההפרש בין המסה הממוצעת לבין ערך פונקציית ההתאמה, בגרמים, כתלות ב-$V$ בסנטימטרים מעוקבים.}}
-  \label{fig:density-res}
-\end{figure}
-
-\subsection*{נספח ג׳ -- התאמות הגובה לזמן לכל כדור}
+\subsection*{נספח ב׳ -- התאמות הגובה לזמן לכל כדור}
 \begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.48\textwidth}
