@@ -14,6 +14,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+import fitz  # pymupdf: renders the briefing's appendix graph to read eta_theo
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # lab root, for labtools
@@ -75,6 +76,14 @@ def ball_track(n):
 
 
 SQRT12 = np.sqrt(12)
+G, DG = 981.0, 10.0          # cm/s^2, instructor (Ran, 2026-11-23)
+RULER_RES = 0.1              # cm, ruler resolution (user, 2026-11-22); dy = RULER_RES/sqrt(12) (Ran, 2026-11-22)
+FRAME_DT = 1 / 30            # s, frame interval; dt = FRAME_DT/sqrt(12) (user, 2026-11-23)
+SCALE = {1: 1.0, 2: 1.0, 3: 21.0, 4: 21.0, 5: 21.0, 6: 21.0}   # balls 3-6: y x 21 (Ran, 2026-11-21)
+# Fit region per ball, first and last frame index (inclusive), read by eye from the v(t) graph
+# (analysis/review/region-check.png); Claude's readings, adopted by the user 2026-11-23.
+REGIONS = {1: (40, 171), 2: (50, 206), 3: (100, 248), 4: (50, 300), 5: (45, 395), 6: (75, 500)}
+MIN_POINTS = 50              # instructor (via the user, 2026-11-22)
 
 
 def group_mean(values, res):
@@ -114,6 +123,76 @@ def density_fit(groups):
     return res
 
 
+def part_b_ball(n, track):
+    """Times from the first tracked frame; heights in cm; v_i (12), dv_i (13); fit (10) of y
+    against t over the region; v_f = -a1 +- da1 (14)."""
+    t = np.asarray(track["t"], float); t = t - t[0]
+    y = np.asarray(track["y"], float) * SCALE[n]
+    dy, dt = RULER_RES / SQRT12, FRAME_DT / SQRT12
+    T = t[2:] - t[:-2]
+    v = -(y[2:] - y[:-2]) / T
+    dv = np.sqrt(2 * dy**2 + v**2 * 2 * dt**2) / T
+    i0, i1 = REGIONS[n]
+    sel = slice(i0, i1 + 1)
+    x, yy = t[sel], y[sel]
+    assert len(x) >= MIN_POINTS, (n, len(x))
+    slope0 = float((yy[-1] - yy[0]) / (x[-1] - x[0]))
+    res = run_fit(linear, [float(yy[0] - slope0 * x[0]), slope0], x, np.full_like(x, dt), yy, np.full_like(yy, dy))
+    res.update(x=x.tolist(), dx=[dt] * len(x), y=yy.tolist(), dy=[dy] * len(x))
+    vf, dvf = -res["params"][1], res["errors"][1]
+    return {"fit": res, "vf": float(vf), "dvf": float(dvf), "region": [i0, i1], "n_points": len(x),
+            "t_region": [float(x[0]), float(x[-1])], "n_frames": len(t),
+            "v": v.tolist(), "dv": dv.tolist(), "t_v": t[1:-1].tolist()}
+
+
+def viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l):
+    """Fit (10) of v_f against r^2 (x error (14)); eta from the slope (15), in poise."""
+    ns = sorted(balls)
+    r = np.array([groups[n]["r"] for n in ns]); dr = np.array([groups[n]["dr"] for n in ns])
+    x, dx = r**2, 2 * r * dr
+    y = np.array([balls[n]["vf"] for n in ns]); dy = np.array([balls[n]["dvf"] for n in ns])
+    res = run_fit(linear, [0.0, float(y.sum() / x.sum())], x, dx, y, dy)
+    res.update(x=x.tolist(), dx=dx.tolist(), y=y.tolist(), dy=dy.tolist())
+    a1, da1 = res["params"][1], res["errors"][1]
+    eta = 2 * G * (rho_b - rho_l) / (9 * a1)
+    deta = eta * np.sqrt((da1 / a1) ** 2 + (drho_b**2 + drho_l**2) / (rho_b - rho_l) ** 2 + (DG / G) ** 2)
+    res.update(eta=float(eta), deta=float(deta))
+    return res
+
+
+T_GLYCERIN, DT_GLYCERIN = 23.116, 0.031     # deg C, group member's Capstone mean (approved by Ran)
+BRIEFING = ROOT / "תדריך עבודה צמיגות תשפז.pdf"
+GRID_CP = 500.0   # cP, spacing of the dashed gridlines on the eta axis (todo 10a: confirm)
+
+
+def theory_eta_cp(T):
+    """Read eta(T) in cP off the briefing's appendix graph (p.9), by pixels instead of by eye:
+    render at 300 dpi, locate the solid gridlines (T = 5..30 deg C, eta = 0..6000 cP), map
+    pixels to axes linearly, and take the curve's pixel in the column of T. Same reading every
+    run. Pixel positions searched near the values found on 2026-11-23."""
+    page = fitz.open(BRIEFING)[8]
+    pix = page.get_pixmap(dpi=300, colorspace=fitz.csGRAY)
+    a = np.frombuffer(pix.samples, np.uint8).reshape(pix.height, pix.width).astype(float)
+
+    def centre(c, axis):
+        seg = a[700:2180, c - 8:c + 9].mean(0) if axis == "v" else a[c - 8:c + 9, 440:2080].mean(1)
+        w = 255 - seg
+        return float((w * np.arange(c - 8, c + 9)).sum() / w.sum())
+
+    Ts, xs = zip(*[(T0, centre(c, "v")) for T0, c in [(5, 503), (10, 808), (15, 1110), (20, 1413), (25, 1715), (30, 2018)]])
+    Es, ys = zip(*[(E0, centre(c, "h")) for E0, c in [(0, 2122), (2000, 1724), (4000, 1326), (6000, 929)]])
+    kx, bx = np.polyfit(Ts, xs, 1)
+    ky, by = np.polyfit(Es, ys, 1)
+    assert max(abs(np.array(xs) - (kx * np.array(Ts) + bx))) < 2 and max(abs(np.array(ys) - (ky * np.array(Es) + by))) < 2
+    c = int(round(kx * T + bx))
+    rows = np.arange(int(ky * 2000 + by) + 5, int(by) - 10)
+    col = a[rows[0]:rows[-1] + 1, c - 1:c + 2].min(1)
+    grid = [ky * e + by for e in range(0, 2001, 500)]
+    curve = [r for r, v in zip(rows, col) if v < 120 and min(abs(r - g) for g in grid) > 4]
+    assert curve and max(curve) - min(curve) < 8, curve   # one thin curve crossing, not a gridline
+    return float((np.mean(curve) - by) / ky)
+
+
 # ---------- figures (Colab template style; title inside the plot, rules 6.1) ----------
 
 def plot_fit(res, title, xlabel, ylabel, path):
@@ -137,7 +216,40 @@ def plot_residuals(res, title, xlabel, ylabel, path):
 
 def macros(results):
     """Every reported value as LaTeX, already rounded: {macro name (letters only): string}."""
-    return {}
+    out = {}
+    d, v = results["density_fit"], results["viscosity_fit"]
+    for tag, res in (("Dens", d), ("Vf", v)):
+        for k, word in enumerate(("Zero", "One")):
+            out[f"{tag}A{word}"] = tex_pm(res["params"][k], res["errors"][k])
+            out[f"{tag}A{word}Rel"] = tex_rel(res["params"][k], res["errors"][k])
+        out[f"{tag}Chi"] = tex_number(round_2sf(res["chi2_red"]))
+        out[f"{tag}P"] = tex_number(round_2sf(res["p"]))
+    out["RhoB"], out["RhoBRel"] = tex_pm(d["params"][1], d["errors"][1]), tex_rel(d["params"][1], d["errors"][1])
+    out["RhoL"], out["RhoLRel"] = tex_pm(results["rho_l"], results["drho_l"]), tex_rel(results["rho_l"], results["drho_l"])
+    out["Eta"], out["EtaRel"] = tex_pm(v["eta"], v["deta"]), tex_rel(v["eta"], v["deta"])
+    out["EtaTh"], out["EtaThRel"] = tex_pm(v["eta_th"], v["deta_th"]), tex_rel(v["eta_th"], v["deta_th"])
+    out["NSigma"] = tex_number(round_2sf(v["n_sigma"]))
+    out["TGly"] = tex_pm(T_GLYCERIN, DT_GLYCERIN)
+    out["GValue"] = tex_pm(G, DG)
+    return out
+
+
+def write_ball_table(balls, path):
+    """Per-ball fit results (body): region, points, v_f, relative error, chi2_red, p."""
+    rows = []
+    for n, b in sorted(balls.items()):
+        f = b["fit"]
+        rows.append(rf"    {n} & \textenglish{{{b['region'][0]}--{b['region'][1]}}} & {b['n_points']} & ${tex_pm(b['vf'], b['dvf'])}$ & "
+                    rf"${tex_rel(b['vf'], b['dvf'])}$ & ${tex_number(round_2sf(f['chi2_red']))}$ & ${tex_number(round_2sf(f['p']))}$ \\ \hline")
+    path.write_text("% Generated by analysis/analysis.py -- do not edit by hand.\n" + "\n".join(rows) + "%\n", encoding="utf-8")  # % : no empty row after \input
+
+
+def write_group_table(groups, path):
+    """Per-group means and errors (appendix): m, d, r, V with errors."""
+    rows = []
+    for n, g in sorted(groups.items()):
+        rows.append(rf"    {n} & ${tex_pm(g['m'], g['dm'])}$ & ${tex_pm(g['d'], g['dd'])}$ & ${tex_pm(g['r'], g['dr'])}$ & ${tex_pm(g['V'], g['dV'])}$ \\ \hline")
+    path.write_text("% Generated by analysis/analysis.py -- do not edit by hand.\n" + "\n".join(rows) + "%\n", encoding="utf-8")  # % : no empty row after \input
 
 
 def main():
@@ -152,10 +264,25 @@ def main():
     plot_fit(dens, "Ball mass vs volume", r"$V$ [cm$^3$]", r"$m$ [g]", FIGURES / "density-fit.pdf")
     plot_residuals(dens, "Residuals: mass vs volume", r"$V$ [cm$^3$]", r"$m - f(V)$ [g]",
                    FIGURES / "density-res.pdf")
+    balls = {n: part_b_ball(n, tracks[n]) for n in range(1, N_TRACKS + 1)}
+    rho_b, drho_b = dens["params"][1], dens["errors"][1]
+    visc = viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l)
+    eta_th = theory_eta_cp(T_GLYCERIN) / 100           # P
+    deta_th = GRID_CP / SQRT12 / 100                     # P, booklet (28)
+    n_sigma = abs(visc["eta"] - eta_th) / np.hypot(visc["deta"], deta_th)   # booklet (51)
+    visc.update(eta_th=eta_th, deta_th=deta_th, n_sigma=float(n_sigma))
+    plot_fit(visc, "Terminal velocity vs radius squared", r"$r^2$ [cm$^2$]", r"$v_f$ [cm/s]", FIGURES / "vf-fit.pdf")
+    plot_residuals(visc, "Residuals: terminal velocity vs radius squared", r"$r^2$ [cm$^2$]",
+                   r"$v_f - f(r^2)$ [cm/s]", FIGURES / "vf-res.pdf")
+    for n, b in balls.items():
+        plot_fit(b["fit"], f"Ball {n}: height vs time (fit region)", r"$t$ [s]", r"$y$ [cm]", FIGURES / f"ball{n}-fit.pdf")
+        plot_residuals(b["fit"], f"Ball {n}: residuals", r"$t$ [s]", r"$y - f(t)$ [cm]", FIGURES / f"ball{n}-res.pdf")
     results = {"part_a": A, "groups": groups, "density_fit": dens,
-               "rho_l": rho_l, "drho_l": drho_l,
+               "rho_l": rho_l, "drho_l": drho_l, "balls": balls, "viscosity_fit": visc,
                "tracks_n_rows": {n: len(t["t"]) for n, t in tracks.items()}}
     write_numbers(macros(results), REPORT / "numbers.tex")
+    write_ball_table(balls, REPORT / "ball_table.tex")
+    write_group_table(groups, REPORT / "group_table.tex")
     (HERE / "results.json").write_text(json.dumps(results, indent=2))
     print(f"read: density, {len(A['categories'])} categories x 3 balls, "
           f"{N_TRACKS} tracks ({', '.join(str(len(t['t'])) for t in tracks.values())} rows)")

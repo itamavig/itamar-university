@@ -317,7 +317,62 @@ x = r^2 \pm 2r\,\Delta r
 הקשר הלינארי בין $v_f$ ל-$r^2$ ייבחן באמצעות מדדים אלה בהתאמה של חילוץ הצמיגות. הצמיגות שתחולץ תושווה לערך התיאורטי באמצעות מדד $N_\sigma$, לפי נוסחה (51) בחוברת. שני הערכים נחשבים תואמים אם $N_\sigma \le 3$.
 
 \section*{תוצאות}
-\TODO{תוצאות}
+% DRAFT 2026-11-23, Claude's wording (blue) for the user's review. Findings only (rules 4.5.11);
+% interpretation goes to the discussion. Every number comes from analysis/analysis.py (numbers.tex,
+% ball_table.tex, group_table.tex).
+\subsection*{צפיפות הכדורים והגליצרין}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{figures/density-fit.pdf}
+  \caption{\added{המסה הממוצעת של כל קבוצת כדורים $m$ בגרמים כתלות בנפח הכדורים בקבוצה $V$ בסנטימטרים מעוקבים, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+  \label{fig:density-fit}
+\end{figure}
+\added{גרף ההתאמה מוצג באיור~\ref{fig:density-fit}. ששת הערכים הממוצעים של הקבוצות מוצגים בטבלה~\ref{tab:groups} בנספחים. נקודות המדידה נמצאות על קו ההתאמה או בסמוך מאוד אליו. גרף השארים, באיור~\ref{fig:density-res} בנספחים, מראה פיזור אקראי של הנקודות סביב קו האפס, וכל הנקודות נמצאות במרחק של פחות משני צלבי שגיאה ממנו.}
+
+\added{מההתאמה התקבלו $a_1 = \DensAOne\U{g/cm^3}$ ($\DensAOneRel$) ו-$a_0 = \DensAZero\U{g}$ ($\DensAZeroRel$). לפי נוסחה \eqref{eq:rhob}, צפיפות הכדורים היא $\rho_b = \RhoB\U{g/cm^3}$ ($\RhoBRel$). שגיאתו היחסית של $a_0$ גדולה מ-100\%. עבור ההתאמה התקבלו $\chi^2_{red} = \DensChi$ ו-\textenglish{p-value} של $\DensP$, בתחום $0.05 \le p \le 0.95$, כלומר $\chi^2_{red}$ סביר למספר דרגות החופש.}
+
+\added{צפיפות הגליצרין שנקראה מהאריומטר היא $\rho_l = \RhoL\U{g/cm^3}$ ($\RhoLRel$), וטמפרטורת הגליצרין היא $T = \TGly\U{^\circ C}$.}
+
+\subsection*{המהירות הסופית של כל כדור}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    קבוצה & תחום הפריימים & מספר נקודות & \textenglish{$v_f$ [cm/s]} & שגיאה יחסית & $\chi^2_{red}$ & \textenglish{p-value} \\ \hline
+    \csname @@input\endcsname ball_table.tex % primitive \input: no empty row in a tabular
+  \end{tabular}
+  \caption{\added{תוצאות ההתאמה הלינארית של הגובה לזמן לכל כדור: תחום הפריימים שנבחר, מספר הנקודות בו, המהירות הסופית לפי נוסחה \eqref{eq:vffit} ומדדי ההתאמה.}}
+  \label{tab:balls}
+\end{table}
+\added{תוצאות ההתאמות מרוכזות בטבלה~\ref{tab:balls}, וגרפי ההתאמה והשארים של כל כדור מוצגים בנספחים, באיורים~\ref{fig:ball1-fit} עד~\ref{fig:ball6-res}. בכל התחומים יש יותר מ-50 נקודות. הפרמטר $a_1$ שלילי בכל ההתאמות, כצפוי, והשגיאה היחסית של המהירות הסופית קטנה מ-0.1\% בכל הכדורים.}
+
+\added{בכדורים 1 עד 3 ה-\textenglish{p-value} גדול מ-0.95, כלומר $\chi^2_{red}$ קטן מהצפוי למספר דרגות החופש. בכדורים 4 עד 6 ה-\textenglish{p-value} קטן מ-0.05, כלומר $\chi^2_{red}$ גדול מהצפוי. בגרפי השארים של כל הכדורים פרט לכדור 3 ניכרת מגמה: השארים חיוביים בתחילת התחום, יורדים מתחת לקו האפס ועולים שוב בסופו. בגרפי השארים של כדורים 2, 5 ו-6 ניכרות גם קפיצות בין קטעים רצופים של נקודות. בכדור 3 השארים מפוזרים באקראי סביב קו האפס, והם קטנים בהרבה מצלבי השגיאה.}
+
+\subsection*{חילוץ הצמיגות}
+\begin{figure}[H]
+  \centering
+  % RTL: the first minipage lands on the right, so the fit (read first) comes first.
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/vf-fit.pdf}
+    \caption{\added{המהירות הסופית $v_f$ בסנטימטרים לשנייה כתלות בריבוע רדיוס הכדור $r^2$ בסנטימטרים בריבוע, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:vf-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/vf-res.pdf}
+    \caption{\added{גרף השארים של ההתאמה: ההפרש בין המהירות הסופית לבין ערך פונקציית ההתאמה, בסנטימטרים לשנייה, כתלות ב-$r^2$ בסנטימטרים בריבוע.}}
+    \label{fig:vf-res}
+  \end{minipage}
+\end{figure}
+\added{גרף ההתאמה וגרף השארים מוצגים באיור~\ref{fig:vf-fit} ובאיור~\ref{fig:vf-res}. בגרף ההתאמה הנקודות נמצאות בסמוך לקו ההתאמה, והנקודה של הכדור הגדול ביותר נמצאת מתחתיו. בגרף השארים ניכרת מגמה: הנקודות שבמרכז התחום נמצאות מעל קו האפס, ושתי הנקודות של ריבוע הרדיוס הגדול ביותר נמצאות מתחתיו. המרחק של רוב הנקודות מקו האפס גדול בהרבה מצלבי השגיאה שלהן.}
+
+\added{מההתאמה התקבלו $a_1 = \VfAOne\U{1/(cm \cdot s)}$ ($\VfAOneRel$) ו-$a_0 = \VfAZero\U{cm/s}$ ($\VfAZeroRel$). שגיאתו היחסית של $a_0$ קטנה מ-50\%. עבור ההתאמה התקבלו $\chi^2_{red} = \VfChi$ ו-\textenglish{p-value} של $\VfP$, הקטן מ-0.05, כלומר $\chi^2_{red}$ גדול מהצפוי למספר דרגות החופש.}
+
+\added{לפי נוסחה \eqref{eq:eta}, עם $g = \GValue\U{cm/s^2}$, הצמיגות שחולצה היא $\eta = \Eta\U{P}$ ($\EtaRel$). הערך התיאורטי שנקרא מהגרף בטמפרטורה $T$ הוא $\eta_{th} = \EtaTh\U{P}$ ($\EtaThRel$). בין שני הערכים התקבל $N_\sigma = \NSigma$, הקטן מ-3.}
+\TODO{לאשר: הקריאה מהגרף נעשתה לפי מיקום הפיקסלים של קווי הרשת והעקומה (קריאה זהה בכל הרצה), והרזולוציה היא 500 \textenglish{cP}, המרווח בין הקווים המקווקווים.}
+
 
 \section*{דיון}
 \subsection*{עמידה במטרות}
@@ -333,6 +388,117 @@ x = r^2 \pm 2r\,\Delta r
 \TODO{שאלת מדריך}
 
 \section*{נספחים}
-\TODO{נספחים}
+\subsection*{נספח א׳ -- ממוצעי קבוצות הכדורים}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    קבוצה & \textenglish{$m$ [g]} & \textenglish{$d$ [cm]} & \textenglish{$r$ [cm]} & \textenglish{$V$ [cm$^3$]} \\ \hline
+    \csname @@input\endcsname group_table.tex % primitive \input: no empty row in a tabular
+  \end{tabular}
+  \caption{\added{המסה והקוטר הממוצעים של כל קבוצת כדורים, הרדיוס לפי נוסחה \eqref{eq:rbar} והנפח לפי נוסחה \eqref{eq:V}, עם שגיאותיהם.}}
+  \label{tab:groups}
+\end{table}
+
+\subsection*{נספח ב׳ -- גרף השארים של התאמת הצפיפות}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{figures/density-res.pdf}
+  \caption{\added{גרף השארים של התאמת המסה לנפח: ההפרש בין המסה הממוצעת לבין ערך פונקציית ההתאמה, בגרמים, כתלות ב-$V$ בסנטימטרים מעוקבים.}}
+  \label{fig:density-res}
+\end{figure}
+
+\subsection*{נספח ג׳ -- התאמות הגובה לזמן לכל כדור}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball1-fit.pdf}
+    \caption{\added{כדור 1: גובה הכדור $y$ בסנטימטרים כתלות בזמן $t$ בשניות בתחום שנבחר, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:ball1-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball1-res.pdf}
+    \caption{\added{כדור 1: גרף השארים, ההפרש בין הגובה לבין ערך פונקציית ההתאמה בסנטימטרים, כתלות ב-$t$ בשניות.}}
+    \label{fig:ball1-res}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball2-fit.pdf}
+    \caption{\added{כדור 2: גובה הכדור $y$ בסנטימטרים כתלות בזמן $t$ בשניות בתחום שנבחר, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:ball2-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball2-res.pdf}
+    \caption{\added{כדור 2: גרף השארים, ההפרש בין הגובה לבין ערך פונקציית ההתאמה בסנטימטרים, כתלות ב-$t$ בשניות.}}
+    \label{fig:ball2-res}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball3-fit.pdf}
+    \caption{\added{כדור 3: גובה הכדור $y$ בסנטימטרים כתלות בזמן $t$ בשניות בתחום שנבחר, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:ball3-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball3-res.pdf}
+    \caption{\added{כדור 3: גרף השארים, ההפרש בין הגובה לבין ערך פונקציית ההתאמה בסנטימטרים, כתלות ב-$t$ בשניות.}}
+    \label{fig:ball3-res}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball4-fit.pdf}
+    \caption{\added{כדור 4: גובה הכדור $y$ בסנטימטרים כתלות בזמן $t$ בשניות בתחום שנבחר, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:ball4-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball4-res.pdf}
+    \caption{\added{כדור 4: גרף השארים, ההפרש בין הגובה לבין ערך פונקציית ההתאמה בסנטימטרים, כתלות ב-$t$ בשניות.}}
+    \label{fig:ball4-res}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball5-fit.pdf}
+    \caption{\added{כדור 5: גובה הכדור $y$ בסנטימטרים כתלות בזמן $t$ בשניות בתחום שנבחר, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:ball5-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball5-res.pdf}
+    \caption{\added{כדור 5: גרף השארים, ההפרש בין הגובה לבין ערך פונקציית ההתאמה בסנטימטרים, כתלות ב-$t$ בשניות.}}
+    \label{fig:ball5-res}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball6-fit.pdf}
+    \caption{\added{כדור 6: גובה הכדור $y$ בסנטימטרים כתלות בזמן $t$ בשניות בתחום שנבחר, וההתאמה הלינארית לפי נוסחה \eqref{eq:linfit}.}}
+    \label{fig:ball6-fit}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/ball6-res.pdf}
+    \caption{\added{כדור 6: גרף השארים, ההפרש בין הגובה לבין ערך פונקציית ההתאמה בסנטימטרים, כתלות ב-$t$ בשניות.}}
+    \label{fig:ball6-res}
+  \end{minipage}
+\end{figure}
 
 \end{document}

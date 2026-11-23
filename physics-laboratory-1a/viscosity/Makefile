@@ -9,7 +9,9 @@ FORMULA_LIMIT := 18
 # Raw data as exported in the lab. Escape spaces with a backslash: my\ data.xlsx
 DATA := viscosity\ measurements.xlsx
 
-report/main.pdf: report/numbers.tex report/*.tex
+report/ball_table.tex report/group_table.tex: report/numbers.tex
+
+report/main.pdf: report/numbers.tex report/ball_table.tex report/group_table.tex report/*.tex
 	cd $(LAB_ROOT) && $(LINT)
 	cd report && latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
 
