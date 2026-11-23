@@ -88,3 +88,4 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
   - 8.31 2026-11-23 (user): theoretical η read directly off the briefing appendix א graph at T (user: the expected method). Reading error = D28 with the graph's grid spacing on the η axis (dashed lines every 500 cP — Claude's choice, blue, for review). Source footnote: briefing appendix א p.9 + Handbook 70th ed. Table F-42. 8.5 CLOSED
   - 8.32 2026-11-23 (user): theoretical η is its own subsection "הערך התיאורטי של הצמיגות", between חילוץ הצמיגות and בחינת ההתאמות
   - 8.33 2026-11-23: plan part ב data section (heights, origin, time shift, Δt, Δy, (12), (13)) APPROVED → black
+  - 8.34 2026-11-23 (user): region choice stated as visual ("באופן חזותי"), from the v(t) graph of (12) — gives (12)/(13) their role
