@@ -93,3 +93,4 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
   - 8.36 2026-11-23: Ran: g = 981 ± 10 cm/s², include the error → in plan (blue), red removed; 8.4 CLOSED. Reply verbatim in instructor-questions.md, ruling in report-rules §2
   - 8.37 2026-11-23: viscosity extraction section APPROVED → black
   - 8.38 2026-11-23 (user): footnote markers before punctuation (3 moved); rule in report-rules §1.3, card, lint check footnote-mark (tested)
+  - 8.39 2026-11-23 (user): footnote markers AFTER punctuation after all (standard convention; no course document uses footnotes). 3 moved back; rule, card and lint check footnote-mark flipped (tested)

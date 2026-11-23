@@ -19,7 +19,7 @@ Precedence: no fixed order. When two sources conflict (briefing, instructor, M, 
 ## 1. Format (G general)
 1. Page limit per experiment (Moodle); cover page + appendices don't count.
 2. Every page numbered.
-3. Body font size 10, line spacing 1.0. Footnotes numbered, font 8, bottom of page. The footnote marker goes before punctuation: `מילה\footnote{…},` (user, 2026-11-23; lint check `footnote-mark`).
+3. Body font size 10, line spacing 1.0. Footnotes numbered, font 8, bottom of page. The footnote marker goes after punctuation, the standard convention: `מילה,\footnote{…}` (user, 2026-11-23, after checking: no course document uses footnotes; lint check `footnote-mark`).
 4. Hebrew body; English allowed for names/abbreviations (Python, ODR, p-value, Colab).
 5. Cover page from the Moodle template. Fields: experiment name ("דו"ח מסכם בניסוי"), part ("חלק"), instructor full name, experiment date, submission date, for each of 2 students first name / last name / ID, study track, lab group no., sub-group, station no. Grader box (name, date, grade I/II, comments) stays empty.
 6. PDF must render cleanly — no missing formulas, no broken RTL/LTR. Check the compiled PDF every time.
