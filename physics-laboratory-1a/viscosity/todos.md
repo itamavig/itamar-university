@@ -84,3 +84,4 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
 
 ## Results stage
 - [ ] 10. Choose each ball's fit region (start/end frame) from the y(t)/v(t) graphs, ≥50 points; list the boundaries in Results (user, 2026-11-23). Reference: viscosity/analysis/review/region-check.png
+  - 8.30 2026-11-23 (user): g = 981 cm/s² in the plan (blue). Its error and source: the user will ask Ran (draft line in instructor-questions.md). Formula (15) keeps the Δg/g term until then

@@ -78,3 +78,11 @@ Sent by the user (2026-11-21), reworded from the draft above. Item 2 as sent: Tr
 > היי,
 > לגבי 1 שגיאת הגובה היא שגיאת הסרגל כפי שהגדרתי במעבדה, שים לב שבאופן כללי זה יתן הערכת יתר.
 > לגבי 2 אין צורך
+
+---
+
+## For the next email to Ran (collect here; not sent)
+
+- g (todo 8.4, user 2026-11-23: "I will ask ran"). The plan uses g = 981 cm/s². Question: does g have an error we should use (the free-fall report used 9.81 ± 0.10 m/s² from that experiment's theory file), and what should we cite as its source? Draft wording:
+
+  > היי רן, שאלה נוספת לגבי דוח הצמיגות: בחילוץ הצמיגות אני משתמש ב-g = 981 cm/s². האם יש לו שגיאה שצריך להתחשב בה, ומה המקור שכדאי לציין עבורו?
