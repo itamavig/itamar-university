@@ -230,6 +230,7 @@ def macros(results):
     out["EtaTh"], out["EtaThRel"] = tex_pm(v["eta_th"], v["deta_th"]), tex_rel(v["eta_th"], v["deta_th"])
     out["NSigma"] = tex_number(round_2sf(v["n_sigma"]))
     out["TGly"] = tex_pm(T_GLYCERIN, DT_GLYCERIN)
+    out["TGlyRel"] = tex_rel(T_GLYCERIN, DT_GLYCERIN)
     out["GValue"] = tex_pm(G, DG)
     # Group 1's mass error stands out in the density fit (user, 2026-11-23): report it against the
     # largest of the other groups'. The assert keeps the text true if the data change.
