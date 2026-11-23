@@ -96,3 +96,4 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
   - 8.38 2026-11-23 (user): footnote markers before punctuation (3 moved); rule in report-rules §1.3, card, lint check footnote-mark (tested)
   - 8.39 2026-11-23 (user): footnote markers AFTER punctuation after all (standard convention; no course document uses footnotes). 3 moved back; rule, card and lint check footnote-mark flipped (tested)
   - 8.40 2026-11-23: theoretical-η section APPROVED → black. The grid spacing (resolution) is set at the results stage (todo 10a)
+  - 8.41 2026-11-23: fit review APPROVED → black (a0 = 0 test via N_σ (53) not added — user approved the section as is). ANALYSIS PLAN COMPLETE: no blue left in the report; the cover link to the first blue text disappeared by itself. Red left: section placeholders (results, discussion ×4, instructor question, appendices) + cover details
