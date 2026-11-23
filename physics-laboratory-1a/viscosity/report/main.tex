@@ -395,9 +395,24 @@ x = r^2 \pm 2r\,\Delta r
 \end{figure}
 \added{גרף ההתאמה וגרף השארים מוצגים באיור~\ref{fig:vf-fit} ובאיור~\ref{fig:vf-res}. בגרף ההתאמה הנקודות נמצאות בסמוך לקו ההתאמה, והנקודה של הכדור הגדול ביותר נמצאת מתחתיו. בגרף השארים ניכרת מגמה: הנקודות שבמרכז התחום נמצאות מעל קו האפס, ושתי הנקודות של ריבוע הרדיוס הגדול ביותר נמצאות מתחתיו. המרחק של רוב הנקודות מקו האפס גדול בהרבה מצלבי השגיאה שלהן.}
 
-\added{מההתאמה התקבלו $a_1 = \VfAOne\U{1/(cm \cdot s)}\ (\VfAOneRel)$ ו-$a_0 = \VfAZero\U{cm/s}\ (\VfAZeroRel)$. שגיאתו היחסית של $a_0$ קטנה מ-50\%. עבור ההתאמה התקבלו $\chi^2_{red} = \VfChi$ ו-\textenglish{p-value} של $\VfP$, הקטן מ-0.05, כלומר $\chi^2_{red}$ גדול מהצפוי למספר דרגות החופש.}
-
-\added{לפי נוסחה \eqref{eq:eta}, עם $g = \GValue\U{cm/s^2}$, הצמיגות שחולצה היא $\eta = \Eta\U{P}\ (\EtaRel)$. הערך התיאורטי שנקרא מהגרף בטמפרטורה $T$ הוא $\eta_{th} = \EtaTh\U{P}\ (\EtaThRel)$. בין שני הערכים התקבל $N_\sigma = \NSigma$, הקטן מ-3.}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    גודל & ערך & שגיאה יחסית \\ \hline
+    $a_1$ & $\VfAOne\U{1/(cm \cdot s)}$ & $\VfAOneRel$ \\ \hline
+    $a_0$ & $\VfAZero\U{cm/s}$ & $\VfAZeroRel$ \\ \hline
+    $\chi^2_{red}$ & $\VfChi$ & -- \\ \hline
+    \textenglish{p-value} & $\VfP$ & -- \\ \hline
+    $\eta$ & $\Eta\U{P}$ & $\EtaRel$ \\ \hline
+    $\eta_{th}$ & $\EtaTh\U{P}$ & $\EtaThRel$ \\ \hline
+    $N_\sigma$ & $\NSigma$ & -- \\ \hline
+  \end{tabular}
+  \caption{\added{פרמטרי ההתאמה לפי נוסחה \eqref{eq:linfit} ומדדי טיב ההתאמה, הצמיגות $\eta$ לפי נוסחה \eqref{eq:eta}, הצמיגות התיאורטית $\eta_{th}$ שנקראה מהגרף בטמפרטורה $T$, ומדד $N_\sigma$ ביניהן.}}
+  \label{tab:viscosity}
+\end{table}
+\added{תוצאות ההתאמה והצמיגות מוצגות בטבלה~\ref{tab:viscosity}. שגיאתו היחסית של $a_0$ קטנה מ-50\%. ה-\textenglish{p-value} קטן מ-0.05, כלומר $\chi^2_{red}$ גדול מהצפוי למספר דרגות החופש. מדד $N_\sigma$ בין הצמיגות שחולצה לבין הערך התיאורטי קטן מ-3.}
 \TODO{לאשר: הקריאה מהגרף נעשתה לפי מיקום הפיקסלים של קווי הרשת והעקומה (קריאה זהה בכל הרצה), והרזולוציה היא 500 \textenglish{cP}, המרווח בין הקווים המקווקווים.}
 
 
