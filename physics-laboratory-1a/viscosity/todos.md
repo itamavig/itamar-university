@@ -83,6 +83,7 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
   - 8.29 2026-11-23 (user): "יוצאו" → "לא ייכללו בתחום"
 
 ## Results stage
+- [ ] 10a. Theoretical η: read the graph at T; reading resolution = grid spacing on the η axis (dashed lines every 500 cP, Claude's reading 2026-11-22 — confirm then) (user, 2026-11-23: decided at the results stage)
 - [ ] 10. Choose each ball's fit region (start/end frame) from the y(t)/v(t) graphs, ≥50 points; list the boundaries in Results (user, 2026-11-23). Reference: viscosity/analysis/review/region-check.png
   - 8.30 2026-11-23 (user): g = 981 cm/s² in the plan (blue). Its error and source: the user will ask Ran (draft line in instructor-questions.md). Formula (15) keeps the Δg/g term until then
   - 8.31 2026-11-23 (user): theoretical η read directly off the briefing appendix א graph at T (user: the expected method). Reading error = D28 with the graph's grid spacing on the η axis (dashed lines every 500 cP — Claude's choice, blue, for review). Source footnote: briefing appendix א p.9 + Handbook 70th ed. Table F-42. 8.5 CLOSED
@@ -94,3 +95,4 @@ eviewfalse. In viscosity + _template (template also got hyperref hidelinks). Tes
   - 8.37 2026-11-23: viscosity extraction section APPROVED → black
   - 8.38 2026-11-23 (user): footnote markers before punctuation (3 moved); rule in report-rules §1.3, card, lint check footnote-mark (tested)
   - 8.39 2026-11-23 (user): footnote markers AFTER punctuation after all (standard convention; no course document uses footnotes). 3 moved back; rule, card and lint check footnote-mark flipped (tested)
+  - 8.40 2026-11-23: theoretical-η section APPROVED → black. The grid spacing (resolution) is set at the results stage (todo 10a)
