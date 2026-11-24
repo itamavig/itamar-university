@@ -232,6 +232,19 @@ def plot_residuals(res, title, xlabel, ylabel, path):
     ax.grid(True); ax.legend(); fig.tight_layout(); fig.savefig(path); plt.close(fig)
 
 
+def plot_track(n, track, region, path):
+    """Whole track of ball n, first frame to last (user, 2026-11-24), with the fit region shaded.
+    Same units as the fits: t from the first frame, y in cm (balls 3-6 scaled)."""
+    t = np.asarray(track["t"], float); t = t - t[0]
+    y = np.asarray(track["y"], float) * SCALE[n]
+    i0, i1 = region
+    fig, ax = plt.subplots(figsize=(5.5, 3.6))
+    ax.axvspan(t[i0], t[i1], color="orange", alpha=0.2, label="fit region")
+    ax.plot(t, y, ".b", ms=2, label="all frames")
+    ax.set_title(f"Ball {n}: full track"); ax.set_xlabel(r"$t$ [s]"); ax.set_ylabel(r"$y$ [cm]")
+    ax.grid(True); ax.legend(); fig.tight_layout(); fig.savefig(path); plt.close(fig)
+
+
 def macros(results):
     """Every reported value as LaTeX, already rounded: {macro name (letters only): string}."""
     out = {}
@@ -321,6 +334,7 @@ def main():
     plot_residuals(visc, "Residuals: terminal velocity vs radius squared", r"$r^2$ [cm$^2$]",
                    r"$v_f - f(r^2)$ [cm/s]", FIGURES / "vf-res.pdf")
     for n, b in balls.items():
+        plot_track(n, tracks[n], b["region"], FIGURES / f"ball{n}-track.pdf")
         plot_fit(b["fit"], f"Ball {n}: height vs time (fit region)", r"$t$ [s]", r"$y$ [cm]", FIGURES / f"ball{n}-fit.pdf")
         plot_residuals(b["fit"], f"Ball {n}: residuals", r"$t$ [s]", r"$y - f(t)$ [cm]", FIGURES / f"ball{n}-res.pdf")
     results = {"part_a": A, "groups": groups, "density_fit": dens,
