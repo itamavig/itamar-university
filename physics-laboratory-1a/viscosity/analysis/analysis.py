@@ -245,6 +245,25 @@ def plot_track(n, track, region, path):
     ax.grid(True); ax.legend(); fig.tight_layout(); fig.savefig(path); plt.close(fig)
 
 
+def plot_track_residuals(n, track, b, path):
+    """Residuals of the whole track from the region's fit line, extended over all frames
+    (user, 2026-11-24), with the fit region shaded."""
+    t = np.asarray(track["t"], float); t = t - t[0]
+    y = np.asarray(track["y"], float) * SCALE[n]
+    i0, i1 = b["region"]
+    r = y - linear(b["fit"]["params"], t)
+    fig, ax = plt.subplots(figsize=(5.5, 3.6))
+    ax.axvspan(t[i0], t[i1], color="orange", alpha=0.2, label="fit region")
+    ax.plot(t, r, ".b", ms=2, label="residuals")
+    ax.axhline(0, color="r", ls="dashed")
+    # y-axis: the residual range inside the region, padded by that range on each side, so the
+    # entry frames (residuals up to ~10 cm) do not flatten the rest; they run off the top.
+    rin = r[i0:i1 + 1]; span = rin.max() - rin.min()
+    ax.set_ylim(rin.min() - span, rin.max() + span)
+    ax.set_title(f"Ball {n}: full-track residuals"); ax.set_xlabel(r"$t$ [s]"); ax.set_ylabel(r"$y - f(t)$ [cm]")
+    ax.grid(True); ax.legend(); fig.tight_layout(); fig.savefig(path); plt.close(fig)
+
+
 def macros(results):
     """Every reported value as LaTeX, already rounded: {macro name (letters only): string}."""
     out = {}
@@ -335,6 +354,7 @@ def main():
                    r"$v_f - f(r^2)$ [cm/s]", FIGURES / "vf-res.pdf")
     for n, b in balls.items():
         plot_track(n, tracks[n], b["region"], FIGURES / f"ball{n}-track.pdf")
+        plot_track_residuals(n, tracks[n], b, FIGURES / f"ball{n}-track-res.pdf")
         plot_fit(b["fit"], f"Ball {n}: height vs time (fit region)", r"$t$ [s]", r"$y$ [cm]", FIGURES / f"ball{n}-fit.pdf")
         plot_residuals(b["fit"], f"Ball {n}: residuals", r"$t$ [s]", r"$y - f(t)$ [cm]", FIGURES / f"ball{n}-res.pdf")
     results = {"part_a": A, "groups": groups, "density_fit": dens,
