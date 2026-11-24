@@ -145,15 +145,15 @@ Sent by the user (2026-11-23, 12:28), as worded: "באיזה ערך של g על�
 
 ## Sixth email (drafted 2026-11-24, not sent yet)
 
-- Choosing the fit ranges from the residual graph (user, 2026-11-24: "ask if we can choose the ranges based on the residual graph if they contain more than 50 frames"; do not repeat the p-value / χ² question of the 4th email). User added: "I do want that email to tell us what to do about balls 1 and 2" → question 2, later dropped (user, 2026-11-24: "but this is not true"): balls 1-2 DO have constant-speed stretches, straight lines in the current residuals (refit alone: ball 1 frames 88-171, 84 frames, residual range 0.021 cm; ball 2 frames 126-176, 51 frames, 0.024 cm). Possible regions (green, read by eye, illustration only): 1: 88-171, 2: 126-176, 4: 132-192. Attachment: email-attachments/residuals-balls-1-4.png (full-track residuals of balls 1-4: 1-2 no flat stretch, 3 flat, 4 flat stretch at ≈4.5-7.5 s). Redrawn 2026-11-24 (user): orange = current region, green = possible region for ball 4, 4.4-6.4 s (60 frames), read by eye by Claude, illustration only. Background: the full-track residuals (appendix ג) show that only ball 3's region is flat; balls 4 and 6 have flat stretches shorter or later than their current regions; balls 1-2 never settle.
+- Choosing the fit ranges from the residual graph (user, 2026-11-24: "ask if we can choose the ranges based on the residual graph if they contain more than 50 frames"; do not repeat the p-value / χ² question of the 4th email). User added: "I do want that email to tell us what to do about balls 1 and 2" → question 2, later dropped (user, 2026-11-24: "but this is not true"): balls 1-2 DO have constant-speed stretches, straight lines in the current residuals (refit alone: ball 1 frames 88-171, 84 frames, residual range 0.021 cm; ball 2 frames 126-176, 51 frames, 0.024 cm). Possible regions (green, read by eye, illustration only): 1: 88-171, 2: 126-176, 4: 132-192. Redrawn (user: "I don't see any flat region on balls 1 and 2"): residuals of balls 1, 2, 4 now from a fit over the green region, so it shows flat; ball 3 from its current fit. Note: ball 4 keeps slowing after its green stretch (residuals rise steadily from 6.4 s), so its green stretch may be the bottom of a curve, not a long constant-speed stretch. Attachment: email-attachments/residuals-balls-1-4.png (full-track residuals of balls 1-4: 1-2 no flat stretch, 3 flat, 4 flat stretch at ≈4.5-7.5 s). Redrawn 2026-11-24 (user): orange = current region, green = possible region for ball 4, 4.4-6.4 s (60 frames), read by eye by Claude, illustration only. Background: the full-track residuals (appendix ג) show that only ball 3's region is flat; balls 4 and 6 have flat stretches shorter or later than their current regions; balls 1-2 never settle.
 
 **נושא:** דוח צמיגות – בחירת תחום הפריימים לפי גרף השארים
 
 היי רן,
 
-שאלה נוספת לגבי בחירת תחום הפריימים לכל כדור. מצורפים גרפי השארים של כדורים 1 עד 4 לאורך כל הסרטון, ביחס להתאמה בתחום שבחרנו כרגע (בכתום).
+שאלה נוספת לגבי בחירת תחום הפריימים לכל כדור. מצורפים גרפי השארים של כדורים 1 עד 4 לאורך כל הסרטון. בכתום התחום שבחרנו כרגע.
 
-בכדורים 1, 2 ו-4 השארים בתחילת התחום יורדים, כלומר הכדור עדיין מאט, ורק בקטע מאוחר יותר הם מסתדרים על קו ישר, כלומר המהירות קבועה. קטעים כאלה מסומנים בירוק, ובכל אחד מהם יש לפחות 50 פריימים.
+בכדורים 1, 2 ו-4 הכדור עדיין מאט בתחילת התחום שבחרנו, ורק בקטע מאוחר יותר המהירות קבועה. קטעים כאלה מסומנים בירוק, ובכל אחד מהם יש לפחות 50 פריימים. בכדורים אלה השארים בגרף הם ביחס להתאמה בקטע הירוק בלבד, ובו הם מפוזרים סביב האפס בלי מגמה.
 
 האם אפשר לבחור את תחום ההתאמה לפי גרף השארים, כקטע שבו המהירות קבועה, כל עוד יש בו לפחות 50 פריימים?
 
