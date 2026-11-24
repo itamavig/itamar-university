@@ -121,3 +121,22 @@ Sent by the user (2026-11-23, 12:28), as worded: "באיזה ערך של g על�
 > אנחנו מניחים שהחל מנקודה מסוימת בזמן המהירות קבועה וממשיכה להיות קבועה (למעט אולי כמה פריימים בודדים בסוף בערך כ10 שכבר הרקע לא לבן והקריאות לא מדויקות)
 >
 > ככה שהשגיאות הן חלק מההתאמה ובגרף השארים עד 3 סטיות תקן מההתאמה למדידות זה בטווח התקין
+
+---
+
+## Fifth email (drafted 2026-11-24, not sent yet)
+
+- Resolution of the theoretical-viscosity graph reading (todo 10a, user 2026-11-24: "phrase an email to ran about the resolution"). Questions only. Context: the booklet (p. 9) defines resolution as the gridline spacing (500 cP here → Δ = 144 cP by (28), N_σ = 1.3); the user thinks the eye can read finer (e.g. 100 cP → Δ = 29 cP, N_σ ≈ 5.5). Reading itself: ≈ 1110–1150 cP (user's mark, pixel reading, Claude's eye reading).
+
+**נושא:** דוח צמיגות – רזולוציית הקריאה מגרף הצמיגות
+
+היי רן,
+
+את הערך התיאורטי של הצמיגות אני קורא מהגרף בנספח א׳ של התדריך (עמ׳ 9), בטמפרטורת הגליצרין שמדדנו.
+המרווח בין קווי הרשת המקווקווים בציר הצמיגות הוא 500 cP, אבל בעין אפשר להעריך את מיקום העקומה בין הקווים בדיוק טוב יותר.
+
+1. מה הרזולוציה שצריך לקחת לקריאה מהגרף: המרווח בין קווי הרשת, או הערכה של דיוק הקריאה בעין?
+2. אם הערכה בעין, איך לקבוע אותה?
+
+תודה,
+איתמר
