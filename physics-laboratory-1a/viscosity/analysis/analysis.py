@@ -82,7 +82,12 @@ FRAME_DT = 1 / 30            # s, frame interval; dt = FRAME_DT/sqrt(12) (user, 
 SCALE = {1: 1.0, 2: 1.0, 3: 21.0, 4: 21.0, 5: 21.0, 6: 21.0}   # balls 3-6: y x 21 (Ran, 2026-11-21)
 # Fit region per ball, first and last frame index (inclusive), read by eye from the v(t) graph
 # (analysis/review/region-check.png); Claude's readings, adopted by the user 2026-11-23.
-REGIONS = {1: (40, 171), 2: (50, 206), 3: (100, 248), 4: (50, 300), 5: (45, 395), 6: (75, 500)}
+# Starts of balls 4-6 moved later (user, 2026-11-24, after Ran: residuals up to 3 sigma are normal,
+# the speed is constant from some point on): while the first residuals of the fit are beyond 3 sigma
+# (sigma = sqrt(dy^2 + (a1 dt)^2)), the start moves past them and the fit is redone, until none are.
+# 4: 50 -> 53, 5: 45 -> 77 -> 95 -> 103 -> 106 -> 107, 6: 75 -> 96 -> 104 -> 108 -> 110.
+# check_regions() asserts the result, so the numbers cannot go stale.
+REGIONS = {1: (40, 171), 2: (50, 206), 3: (100, 248), 4: (53, 300), 5: (107, 395), 6: (110, 500)}
 MIN_POINTS = 50              # instructor (via the user, 2026-11-22)
 
 
@@ -143,6 +148,14 @@ def part_b_ball(n, track):
     return {"fit": res, "vf": float(vf), "dvf": float(dvf), "region": [i0, i1], "n_points": len(x),
             "t_region": [float(x[0]), float(x[-1])], "n_frames": len(t),
             "v": v.tolist(), "dv": dv.tolist(), "t_v": t[1:-1].tolist()}
+
+
+def check_regions(balls):
+    """No fit starts with a residual beyond 3 sigma (Ran, 2026-11-24); see REGIONS."""
+    for n, b in balls.items():
+        f = b["fit"]
+        sigma = np.hypot(f["dy"][0], f["params"][1] * f["dx"][0])
+        assert abs(f["residuals"][0]) <= 3 * sigma, f"ball {n}: first residual beyond 3 sigma, region start stale"
 
 
 def viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l):
@@ -282,6 +295,7 @@ def main():
     plot_residuals(dens, "Residuals: mass vs volume", r"$V$ [cm$^3$]", r"$m - f(V)$ [g]",
                    FIGURES / "density-res.pdf")
     balls = {n: part_b_ball(n, tracks[n]) for n in range(1, N_TRACKS + 1)}
+    check_regions(balls)
     rho_b, drho_b = dens["params"][1], dens["errors"][1]
     visc = viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l)
     eta_th = theory_eta_cp(T_GLYCERIN) / 100           # P
