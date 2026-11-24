@@ -140,3 +140,21 @@ Sent by the user (2026-11-23, 12:28), as worded: "באיזה ערך של g על�
 
 תודה,
 איתמר
+
+---
+
+## Sixth email (drafted 2026-11-24, not sent yet)
+
+- Choosing the fit ranges from the residual graph (user, 2026-11-24: "ask if we can choose the ranges based on the residual graph if they contain more than 50 frames"; do not repeat the p-value / χ² question of the 4th email). Background: the full-track residuals (appendix ג) show that only ball 3's region is flat; balls 4 and 6 have flat stretches shorter or later than their current regions; balls 1-2 never settle.
+
+**נושא:** דוח צמיגות – בחירת תחום הפריימים לפי גרף השארים
+
+היי רן,
+
+שאלה נוספת לגבי בחירת תחום הפריימים לכל כדור:
+
+בגרפי השארים רואים שבחלק מהכדורים המהירות ממשיכה לרדת בתחילת התחום שבחרנו, ורק בקטע מאוחר יותר השארים מפוזרים סביב האפס בלי מגמה.
+האם אפשר לבחור את תחום ההתאמה לפי גרף השארים, כקטע שבו השארים מפוזרים סביב האפס בלי מגמה, כל עוד יש בו יותר מ-50 פריימים?
+
+תודה,
+איתמר
