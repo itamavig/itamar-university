@@ -44,7 +44,10 @@
 % blue text exists, page 1 of the PDF carries a link to it (overlay, layout unchanged). It disappears by
 % itself once no \added{} is left, or with \reviewfalse.
 \newif\iffirstblue \firstbluetrue
-\DeclareRobustCommand{\added}[1]{\iffirstblue\global\firstbluefalse\hypertarget{firstblue}{}\label{firstblue}\fi\textcolor{addedblue}{#1}}
+% Floats are skipped: a caption is typeset twice (trial box first), so an anchor placed there is lost.
+\makeatletter
+\DeclareRobustCommand{\added}[1]{\ifx\@captype\@undefined\iffirstblue\global\firstbluefalse\hypertarget{firstblue}{}\label{firstblue}\fi\fi\textcolor{addedblue}{#1}}
+\makeatother
 \newcommand{\partner}[1]{\textcolor{partnergreen}{#1}}
 
 % Visible placeholder for anything not written yet. Must not survive into the submitted PDF.
