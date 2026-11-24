@@ -95,7 +95,7 @@ Sent by the user (2026-11-23, 12:28), as worded: "באיזה ערך של g על�
 
 ---
 
-## Fourth email (drafted 2026-11-23, not sent yet)
+## Fourth email (sent by the user as drafted, answered by Ran 2026-11-24)
 
 - Per-ball p-values (todo 10b, user 2026-11-23: "phrase an email to ran about the p-values"). Questions only, no suggested method (user's rule from the 2nd email).
 
@@ -113,3 +113,11 @@ Sent by the user (2026-11-23, 12:28), as worded: "באיזה ערך של g על�
 
 תודה,
 איתמר
+
+**Ran's reply (2026-11-24, 14:54), verbatim:**
+
+> במידה ואלו ערכי הp value  שהתקבלו אלו הערכים שתייחס אליהם ותסביר אותם בדוח.
+> לכל הפחות אורך הקטע יהיה 50 נקודות.
+> אנחנו מניחים שהחל מנקודה מסוימת בזמן המהירות קבועה וממשיכה להיות קבועה (למעט אולי כמה פריימים בודדים בסוף בערך כ10 שכבר הרקע לא לבן והקריאות לא מדויקות)
+>
+> ככה שהשגיאות הן חלק מההתאמה ובגרף השארים עד 3 סטיות תקן מההתאמה למדידות זה בטווח התקין
