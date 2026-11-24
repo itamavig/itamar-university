@@ -88,6 +88,7 @@ SCALE = {1: 1.0, 2: 1.0, 3: 21.0, 4: 21.0, 5: 21.0, 6: 21.0}   # balls 3-6: y x 
 # 4: 50 -> 53, 5: 45 -> 77 -> 95 -> 103 -> 106 -> 107, 6: 75 -> 96 -> 104 -> 108 -> 110.
 # check_regions() asserts the result, so the numbers cannot go stale.
 REGIONS = {1: (40, 171), 2: (50, 206), 3: (100, 248), 4: (53, 300), 5: (107, 395), 6: (110, 500)}
+VISUAL_STARTS = {1: 40, 2: 50, 3: 100, 4: 50, 5: 45, 6: 75}   # starts as first read by eye (reported in the results)
 MIN_POINTS = 50              # instructor (via the user, 2026-11-22)
 
 
@@ -243,6 +244,10 @@ def macros(results):
     out["EtaTh"], out["EtaThRel"] = tex_pm(v["eta_th"], v["deta_th"]), tex_rel(v["eta_th"], v["deta_th"])
     out["NSigma"] = tex_number(round_2sf(v["n_sigma"]))
     out["TGly"] = tex_pm(T_GLYCERIN, DT_GLYCERIN)
+    out["VisStartFour"], out["StartFour"] = str(VISUAL_STARTS[4]), str(REGIONS[4][0])
+    out["VisStartFive"], out["StartFive"] = str(VISUAL_STARTS[5]), str(REGIONS[5][0])
+    out["VisStartSix"], out["StartSix"] = str(VISUAL_STARTS[6]), str(REGIONS[6][0])
+    assert [n for n in REGIONS if REGIONS[n][0] != VISUAL_STARTS[n]] == [4, 5, 6], "moved starts changed: revise the results text"
     out["TGlyRel"] = tex_rel(T_GLYCERIN, DT_GLYCERIN)
     out["GValue"] = tex_pm(G, DG)
     # Group 1's mass error stands out in the density fit (user, 2026-11-23): report it against the
