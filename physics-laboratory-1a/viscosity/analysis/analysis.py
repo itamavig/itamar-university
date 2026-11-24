@@ -177,6 +177,10 @@ def viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l):
 T_GLYCERIN, DT_GLYCERIN = 23.116, 0.031     # deg C, group member's Capstone mean (approved by Ran)
 BRIEFING = ROOT / "תדריך עבודה צמיגות תשפז.pdf"
 GRID_CP = 500.0   # cP, spacing of the dashed gridlines on the eta axis (todo 10a: confirm)
+# TEMPORARY (user, 2026-11-24): a second version with an eye-reading resolution, our own estimate
+# (a fifth of a grid division), reported beside the grid version until Ran answers (5th email).
+# Delete the version not chosen. Todo 10a.
+EYE_CP = 100.0
 
 
 def theory_eta_cp(T):
@@ -243,6 +247,9 @@ def macros(results):
     out["Eta"], out["EtaRel"] = tex_pm(v["eta"], v["deta"]), tex_rel(v["eta"], v["deta"])
     out["EtaTh"], out["EtaThRel"] = tex_pm(v["eta_th"], v["deta_th"]), tex_rel(v["eta_th"], v["deta_th"])
     out["NSigma"] = tex_number(round_2sf(v["n_sigma"]))
+    out["EtaThEye"], out["EtaThEyeRel"] = tex_pm(v["eta_th"], v["deta_th_eye"]), tex_rel(v["eta_th"], v["deta_th_eye"])
+    out["NSigmaEye"] = tex_number(round_2sf(v["n_sigma_eye"]))
+    out["GridCP"], out["EyeCP"] = f"{GRID_CP:.0f}", f"{EYE_CP:.0f}"
     out["TGly"] = tex_pm(T_GLYCERIN, DT_GLYCERIN)
     out["VisStartFour"], out["StartFour"] = str(VISUAL_STARTS[4]), str(REGIONS[4][0])
     out["VisStartFive"], out["StartFive"] = str(VISUAL_STARTS[5]), str(REGIONS[5][0])
@@ -306,7 +313,10 @@ def main():
     eta_th = theory_eta_cp(T_GLYCERIN) / 100           # P
     deta_th = GRID_CP / SQRT12 / 100                     # P, booklet (28)
     n_sigma = abs(visc["eta"] - eta_th) / np.hypot(visc["deta"], deta_th)   # booklet (51)
-    visc.update(eta_th=eta_th, deta_th=deta_th, n_sigma=float(n_sigma))
+    deta_th_eye = EYE_CP / SQRT12 / 100                  # P, booklet (28), TEMPORARY (see EYE_CP)
+    n_sigma_eye = abs(visc["eta"] - eta_th) / np.hypot(visc["deta"], deta_th_eye)
+    visc.update(eta_th=eta_th, deta_th=deta_th, n_sigma=float(n_sigma),
+                deta_th_eye=deta_th_eye, n_sigma_eye=float(n_sigma_eye))
     plot_fit(visc, "Terminal velocity vs radius squared", r"$r^2$ [cm$^2$]", r"$v_f$ [cm/s]", FIGURES / "vf-fit.pdf")
     plot_residuals(visc, "Residuals: terminal velocity vs radius squared", r"$r^2$ [cm$^2$]",
                    r"$v_f - f(r^2)$ [cm/s]", FIGURES / "vf-res.pdf")
