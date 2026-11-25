@@ -176,14 +176,26 @@ def viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l):
 
 T_GLYCERIN, DT_GLYCERIN = 23.116, 0.031     # deg C, group member's Capstone mean (approved by Ran)
 BRIEFING = ROOT / "תדריך עבודה צמיגות תשפז.pdf"
-GRID_CP = 500.0   # cP, spacing of the dashed gridlines on the eta axis (todo 10a: confirm)
-# TEMPORARY (user, 2026-11-24): a second version with an eye-reading resolution, our own estimate
-# (a fifth of a grid division), reported beside the grid version until Ran answers (5th email).
-# Delete the version not chosen. Todo 10a.
-EYE_CP = 100.0
+# Reading error of eta_th: a direct estimate, not a resolution. Ran, 2026-11-25: draw straight lines
+# and estimate as accurately as possible, there is no set resolution, it is an estimate. +-100 cP
+# chosen by the user 2026-11-25; replaces the 500 cP grid / 100 cP eye versions (todo 10a).
+READ_ERR_CP = 100.0
+AXIS_X = 440                           # px at 300 dpi: the eta axis (left edge of the plot)
+GRAPH_CROP = (300, 650, 2150, 2300)    # px at 300 dpi: the plot with its axis labels
 
 
-def theory_eta_cp(T):
+def draw_reading(pix, x_T, y_curve, y_zero, path):
+    """The briefing graph (p.9) with the reading drawn as straight lines (Ran, 2026-11-25): up from
+    T on the temperature axis to the curve, then across to the viscosity axis."""
+    from PIL import Image, ImageDraw
+    img = Image.frombytes("L", (pix.width, pix.height), pix.samples).convert("RGB")
+    d = ImageDraw.Draw(img)
+    d.line([(x_T, y_zero), (x_T, y_curve)], fill=(220, 0, 0), width=5)
+    d.line([(x_T, y_curve), (AXIS_X, y_curve)], fill=(220, 0, 0), width=5)
+    img.crop(GRAPH_CROP).save(path)
+
+
+def theory_eta_cp(T, draw_to=None):
     """Read eta(T) in cP off the briefing's appendix graph (p.9), by pixels instead of by eye:
     render at 300 dpi, locate the solid gridlines (T = 5..30 deg C, eta = 0..6000 cP), map
     pixels to axes linearly, and take the curve's pixel in the column of T. Same reading every
@@ -208,6 +220,8 @@ def theory_eta_cp(T):
     grid = [ky * e + by for e in range(0, 2001, 500)]
     curve = [r for r, v in zip(rows, col) if v < 120 and min(abs(r - g) for g in grid) > 4]
     assert curve and max(curve) - min(curve) < 8, curve   # one thin curve crossing, not a gridline
+    if draw_to:
+        draw_reading(pix, c, float(np.mean(curve)), by, draw_to)
     return float((np.mean(curve) - by) / ky)
 
 
@@ -279,9 +293,7 @@ def macros(results):
     out["Eta"], out["EtaRel"] = tex_pm(v["eta"], v["deta"]), tex_rel(v["eta"], v["deta"])
     out["EtaTh"], out["EtaThRel"] = tex_pm(v["eta_th"], v["deta_th"]), tex_rel(v["eta_th"], v["deta_th"])
     out["NSigma"] = tex_number(round_2sf(v["n_sigma"]))
-    out["EtaThEye"], out["EtaThEyeRel"] = tex_pm(v["eta_th"], v["deta_th_eye"]), tex_rel(v["eta_th"], v["deta_th_eye"])
-    out["NSigmaEye"] = tex_number(round_2sf(v["n_sigma_eye"]))
-    out["GridCP"], out["EyeCP"] = f"{GRID_CP:.0f}", f"{EYE_CP:.0f}"
+    out["ReadErrCP"] = f"{READ_ERR_CP:.0f}"
     out["TGly"] = tex_pm(T_GLYCERIN, DT_GLYCERIN)
     out["VisStartFour"], out["StartFour"] = str(VISUAL_STARTS[4]), str(REGIONS[4][0])
     out["VisStartFive"], out["StartFive"] = str(VISUAL_STARTS[5]), str(REGIONS[5][0])
@@ -342,13 +354,11 @@ def main():
     check_regions(balls)
     rho_b, drho_b = dens["params"][1], dens["errors"][1]
     visc = viscosity_fit(groups, balls, rho_b, drho_b, rho_l, drho_l)
-    eta_th = theory_eta_cp(T_GLYCERIN) / 100           # P
-    deta_th = GRID_CP / SQRT12 / 100                     # P, booklet (28)
+    eta_th = theory_eta_cp(T_GLYCERIN, draw_to=FIGURES / "eta-reading.png") / 100   # P
+    deta_th = READ_ERR_CP / 100                          # P, direct estimate (see READ_ERR_CP)
     n_sigma = abs(visc["eta"] - eta_th) / np.hypot(visc["deta"], deta_th)   # booklet (51)
-    deta_th_eye = EYE_CP / SQRT12 / 100                  # P, booklet (28), TEMPORARY (see EYE_CP)
-    n_sigma_eye = abs(visc["eta"] - eta_th) / np.hypot(visc["deta"], deta_th_eye)
-    visc.update(eta_th=eta_th, deta_th=deta_th, n_sigma=float(n_sigma),
-                deta_th_eye=deta_th_eye, n_sigma_eye=float(n_sigma_eye))
+    assert n_sigma < 3, "N_sigma >= 3: revise the results text"
+    visc.update(eta_th=eta_th, deta_th=deta_th, n_sigma=float(n_sigma))
     plot_fit(visc, "Terminal velocity vs radius squared", r"$r^2$ [cm$^2$]", r"$v_f$ [cm/s]", FIGURES / "vf-fit.pdf")
     plot_residuals(visc, "Residuals: terminal velocity vs radius squared", r"$r^2$ [cm$^2$]",
                    r"$v_f - f(r^2)$ [cm/s]", FIGURES / "vf-res.pdf")
